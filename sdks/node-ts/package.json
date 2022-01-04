@@ -17,9 +17,11 @@
   },
   "dependencies": {
     "@grpc/grpc-js": "^1.4.6",
+    "@protobuf-ts/grpc-transport": "^2.1.0",
     "@protobuf-ts/plugin": "^2.1.0",
-    "typescript-formatter": "^7.2.2"
+    "typescript-formatter": "^7.2.2",
   },
   "main": "./dist/apache_beam/index.js",
   "exports": "./dist/apache_beam/index.js"
+  }
 }

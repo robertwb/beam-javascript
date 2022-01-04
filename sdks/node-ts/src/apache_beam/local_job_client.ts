@@ -30,7 +30,7 @@ class LocalJobClient {
     }
 
     private async callRun(client: IJobServiceClient, preparationId: string) {
-        const call = client.run({preparationId, retrievalToken: null});
+        const call = client.run({preparationId, retrievalToken: ''});
         return await call.response;
     }
 }
