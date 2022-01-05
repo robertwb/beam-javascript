@@ -23,5 +23,4 @@
   },
   "main": "./dist/apache_beam/index.js",
   "exports": "./dist/apache_beam/index.js"
-  }
 }
