@@ -1,31 +1,27 @@
-import * as coders from '../src/apache_beam/coders/standard_coders';
+import {Coder, CODER_REGISTRY, Context} from "../src/apache_beam/coders/coders";
+import { Writer, Reader } from 'protobufjs';
 
-const assertions = require('assert')
-const yaml = require('js-yaml');
-const fs   = require('fs');
-const util = require('util');
+import assertions = require('assert');
+import yaml = require('js-yaml');
+import fs = require('fs');
+import util = require('util');
 
 const STANDARD_CODERS_FILE = '../../model/fn-execution/src/main/resources/org/apache/beam/model/fnexecution/v1/standard_coders.yaml';
 
-const CODER_REGISTRY = coders.CODER_REGISTRY;
-
-
 // TODO(pabloem): Empty this list.
 const UNSUPPORTED_CODERS = [
-    "beam:coder:bool:v1",
-    "beam:coder:string_utf8:v1",
-    "beam:coder:varint:v1",
-    "beam:coder:kv:v1",
     "beam:coder:interval_window:v1",
+    "beam:coder:string_utf8:v1",
+    "beam:coder:double:v1",
     "beam:coder:iterable:v1",
     "beam:coder:timer:v1",
     "beam:coder:global_window:v1",
     "beam:coder:windowed_value:v1",
     "beam:coder:param_windowed_value:v1",
-    "beam:coder:double:v1",
     "beam:coder:row:v1",
     "beam:coder:sharded_key:v1",
-    "beam:coder:custom_window:v1"
+    "beam:coder:custom_window:v1",
+    "beam:coder:kv:v1"
 ];
 
 const _urn_to_json_value_parser = {
@@ -33,6 +29,7 @@ const _urn_to_json_value_parser = {
     'beam:coder:bool:v1': x => x,
     'beam:coder:string_utf8:v1': x => x,
     'beam:coder:varint:v1': x => x,
+    'beam:coder:double:v1': x => Number(x),
     'beam:coder:kv:v1': (x, components) => (components[0](x['key']), components[1](x['value'])),
     // 'beam:coder:interval_window:v1': lambda x: IntervalWindow(
     //     start=Timestamp(micros=(x['end'] - x['span']) * 1000),
@@ -88,54 +85,73 @@ const _urn_to_json_value_parser = {
     // window_parser: window_parser(x['window'])
 }
 
-function get_json_value_parser(coderSpec) {
+interface CoderRepr {
+    urn: string,
+    payload?: Uint8Array,
+    components?: Array<CoderRepr>
+}
+
+type CoderSpec = {
+    coder: CoderRepr,
+    nested?: boolean,
+    examples: object
+}
+
+function get_json_value_parser(coderRepr: CoderRepr) {
     // TODO(pabloem): support 'beam:coder:row:v1' coder.
-    console.log(coderSpec);
-    if (coderSpec.components !== undefined) {
-        const componentParsers = coderSpec.components.map(c => get_json_value_parser(c));
-        return x => _urn_to_json_value_parser[coderSpec.coder.urn](x, componentParsers)
+    console.log(util.inspect(coderRepr, {colors: true}));
+
+    var value_parser_factory = _urn_to_json_value_parser[coderRepr.urn]
+
+    if (value_parser_factory === undefined) {
+        throw new Error(util.format("Do not know how to parse example values for %s", coderRepr))
+    }
+
+    if (coderRepr.components !== undefined) {
+        const componentParsers = coderRepr.components.map(c => get_json_value_parser(c));
+        return x => value_parser_factory(x, componentParsers)
     } else {
-        return x => _urn_to_json_value_parser[coderSpec.coder.urn](x)
+        return x => value_parser_factory(x)
     }
 }
 
 describe("standard Beam coders on Javascript", function() {
-    const docs = yaml.loadAll(fs.readFileSync(STANDARD_CODERS_FILE, 'utf8'));
+    const docs : Array<CoderSpec> = yaml.loadAll(fs.readFileSync(STANDARD_CODERS_FILE, 'utf8'));
     docs.forEach(doc => {
         const urn = doc.coder.urn;
         if (UNSUPPORTED_CODERS.includes(urn)) {
             return;
         }
-        if (doc.nested === true) {
-            // TODO: support nesting of coders
-            return;
-        }
-        const nested = false;
+        var context = (doc.nested === true) ? Context.needsDelimiters : Context.wholeStream;
         const spec = doc;
 
         const coder = CODER_REGISTRY.get(urn);
-        describeCoder(coder, urn, nested, spec);
+        describeCoder(coder, urn, context, spec);
     });
 });
 
-function describeCoder(coder, urn, nested, spec) {
-    describe(util.format("coder %s(%s) nested %s encodes properly", coder, urn, nested), function() {
+function describeCoder<T>(coder: Coder<T>, urn, context, spec: CoderSpec) {
+    describe(util.format("coder %s (%s) in context %s", coder, urn, context), function() {
         let examples = 0;
-        const parser = get_json_value_parser(spec);
+        const parser = get_json_value_parser(spec.coder);
         for (let expected in spec.examples) {
             var value = parser(spec.examples[expected]);
             examples += 1;
-            const expectedEncoded = new TextEncoder().encode(expected)
-            coderCase(coder, value, expectedEncoded, examples);
+            const expectedEncoded = Buffer.from(expected, 'binary')
+            coderCase(coder, value, expectedEncoded, context, examples);
         }
     });
 }
 
-function coderCase(coder, obj, expectedEncoded, exampleCount) {
-    it(util.format("example %d", exampleCount), function() {
-        const encoded = coder.encode(obj);
-        const decoded = coder.decode(expectedEncoded);
-        assertions.deepEqual(expectedEncoded, encoded);
-        assertions.deepEqual(obj, decoded);
+function coderCase<T>(coder: Coder<T>, obj, expectedEncoded:Uint8Array, context, exampleCount) {
+    it(util.format("encodes example %d correctly", exampleCount), function() {
+        var writer = new Writer();
+        coder.encode(obj, writer, context);
+        assertions.deepEqual(writer.finish(), expectedEncoded);
+    });
+
+    it(util.format("decodes example %d correctly", exampleCount), function() {
+        const decoded = coder.decode(new Reader(expectedEncoded), context);
+        assertions.deepEqual(decoded, obj);
     });
 }
