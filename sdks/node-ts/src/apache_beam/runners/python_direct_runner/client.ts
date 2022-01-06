@@ -1,6 +1,8 @@
 import {ChannelCredentials} from '@grpc/grpc-js';
 import {GrpcTransport} from '@protobuf-ts/grpc-transport';
 import {RpcTransport} from "@protobuf-ts/runtime-rpc";
+import {Struct} from '../../proto/google/protobuf/struct';
+import {PrepareJobRequest} from '../../proto/beam_job_api';
 import {JobServiceClient, IJobServiceClient} from '../../proto/beam_job_api.client'
 
 import * as runnerApiProto from '../../proto/beam_runner_api';
@@ -28,24 +30,38 @@ export class RemoteJobServiceClient {
         this.client = new JobServiceClient(transport);
     }
 
-    async prepare(pipeline: runnerApiProto.Pipeline, jobName: string) {
-        return await this.callPrepare(this.client, pipeline, jobName);
+    async prepare(pipeline: runnerApiProto.Pipeline, jobName: string, pipelineOptions?: Struct) {
+        return await this.callPrepare(this.client, pipeline, jobName, pipelineOptions);
     }
 
     async run(preparationId: string) {
         return await this.callRun(this.client, preparationId);
     }
 
+    async getState(jobId: string) {
+        return await this.callGetState(this.client, jobId);
+    }
+
     private async callPrepare(
         client: IJobServiceClient,
         pipeline: runnerApiProto.Pipeline,
-        jobName: string) {
-        const call = client.prepare({pipeline, jobName});
+        jobName: string,
+        pipelineOptions?: Struct) {
+        let message: PrepareJobRequest = {pipeline, jobName};
+        if (pipelineOptions) {
+            message.pipelineOptions = pipelineOptions;
+        }
+        const call = client.prepare(message);
         return await call.response;
     }
 
     private async callRun(client: IJobServiceClient, preparationId: string) {
         const call = client.run({preparationId, retrievalToken: ''});
+        return await call.response;
+    }
+
+    private async callGetState(client: IJobServiceClient, jobId: string) {
+        const call = client.getState({jobId});
         return await call.response;
     }
 }
