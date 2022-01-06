@@ -1,6 +1,7 @@
 import * as BSON from 'bson';
 import { Writer, Reader } from 'protobufjs';
-import {BoolCoder, Coder, CODER_REGISTRY, Context, DoubleCoder, StrUtf8Coder, VarIntCoder} from './standard_coders'
+import {Coder, CODER_REGISTRY, Context} from './coders'
+import {BoolCoder, DoubleCoder, StrUtf8Coder, VarIntCoder} from './standard_coders'
 
 
 export class BsonObjectCoder<T> implements Coder<T> {
