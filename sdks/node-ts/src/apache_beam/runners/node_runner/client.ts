@@ -27,7 +27,7 @@ export class RemoteJobServiceClient {
             host,
             channelCredentials: channelCredentials || ChannelCredentials.createInsecure(),
         });
-        this.client = new JobServiceClient(transport);
+        this.client = new JobServiceClient(transport!);
     }
 
     async prepare(pipeline: runnerApiProto.Pipeline, jobName: string, pipelineOptions?: Struct) {

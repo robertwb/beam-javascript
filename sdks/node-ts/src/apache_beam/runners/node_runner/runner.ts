@@ -14,9 +14,9 @@ const TERMINAL_STATES = [
 
 export class PipelineResult {
     jobId: string;
-    runner: PythonDirectRunner;
+    runner: NodeRunner;
 
-    constructor(runner: PythonDirectRunner, jobId: string) {
+    constructor(runner: NodeRunner, jobId: string) {
         this.runner = runner;
         this.jobId = jobId;
     }
@@ -48,7 +48,7 @@ export class PipelineResult {
     }
 }
 
-export class PythonDirectRunner {
+export class NodeRunner {
     client: RemoteJobServiceClient;
 
     constructor(client: RemoteJobServiceClient) {
