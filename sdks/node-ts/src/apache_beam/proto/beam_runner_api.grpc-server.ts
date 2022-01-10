@@ -26,9 +26,9 @@
 // Protocol Buffers describing the Runner API, which is the runner-independent,
 // SDK-independent definition of the Beam model.
 //
-import * as grpc from '@grpc/grpc-js';
+import * as grpc from "@grpc/grpc-js";
 
-import {EventsRequest, TestStreamPayload_Event} from './beam_runner_api';
+import { EventsRequest, TestStreamPayload_Event } from "./beam_runner_api";
 
 /**
  * @generated from protobuf service
@@ -42,8 +42,10 @@ export interface ITestStreamService extends grpc.UntypedServiceImplementation {
    * Events(org.apache.beam.model.pipeline.v1.EventsRequest) returns (stream
    * org.apache.beam.model.pipeline.v1.TestStreamPayload.Event);
    */
-  events:
-      grpc.handleServerStreamingCall<EventsRequest, TestStreamPayload_Event>;
+  events: grpc.handleServerStreamingCall<
+    EventsRequest,
+    TestStreamPayload_Event
+  >;
 }
 /**
  * @grpc/grpc-js definition for the protobuf service
@@ -57,17 +59,17 @@ export interface ITestStreamService extends grpc.UntypedServiceImplementation {
  * server.addService(testStreamServiceDefinition, service);
  * ```
  */
-export const testStreamServiceDefinition:
-    grpc.ServiceDefinition<ITestStreamService> = {
-  events: {
-    path: '/org.apache.beam.model.pipeline.v1.TestStreamService/Events',
-    originalName: 'Events',
-    requestStream: false,
-    responseStream: true,
-    responseDeserialize: bytes => TestStreamPayload_Event.fromBinary(bytes),
-    requestDeserialize: bytes => EventsRequest.fromBinary(bytes),
-    responseSerialize: value =>
+export const testStreamServiceDefinition: grpc.ServiceDefinition<ITestStreamService> =
+  {
+    events: {
+      path: "/org.apache.beam.model.pipeline.v1.TestStreamService/Events",
+      originalName: "Events",
+      requestStream: false,
+      responseStream: true,
+      responseDeserialize: (bytes) => TestStreamPayload_Event.fromBinary(bytes),
+      requestDeserialize: (bytes) => EventsRequest.fromBinary(bytes),
+      responseSerialize: (value) =>
         Buffer.from(TestStreamPayload_Event.toBinary(value)),
-    requestSerialize: value => Buffer.from(EventsRequest.toBinary(value))
-  }
-};
+      requestSerialize: (value) => Buffer.from(EventsRequest.toBinary(value)),
+    },
+  };

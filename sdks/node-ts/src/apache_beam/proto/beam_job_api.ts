@@ -26,22 +26,22 @@
 // Protocol Buffers describing the Job API, api for communicating with a runner
 // for job submission over GRPC.
 //
-import {ServiceType} from '@protobuf-ts/runtime-rpc';
-import type {BinaryWriteOptions} from '@protobuf-ts/runtime';
-import type {IBinaryWriter} from '@protobuf-ts/runtime';
-import {WireType} from '@protobuf-ts/runtime';
-import type {BinaryReadOptions} from '@protobuf-ts/runtime';
-import type {IBinaryReader} from '@protobuf-ts/runtime';
-import {UnknownFieldHandler} from '@protobuf-ts/runtime';
-import type {PartialMessage} from '@protobuf-ts/runtime';
-import {reflectionMergePartial} from '@protobuf-ts/runtime';
-import {MESSAGE_TYPE} from '@protobuf-ts/runtime';
-import {MessageType} from '@protobuf-ts/runtime';
-import {MonitoringInfo} from './metrics';
-import {Timestamp} from './google/protobuf/timestamp';
-import {ApiServiceDescriptor} from './endpoints';
-import {Struct} from './google/protobuf/struct';
-import {Pipeline} from './beam_runner_api';
+import { ServiceType } from "@protobuf-ts/runtime-rpc";
+import type { BinaryWriteOptions } from "@protobuf-ts/runtime";
+import type { IBinaryWriter } from "@protobuf-ts/runtime";
+import { WireType } from "@protobuf-ts/runtime";
+import type { BinaryReadOptions } from "@protobuf-ts/runtime";
+import type { IBinaryReader } from "@protobuf-ts/runtime";
+import { UnknownFieldHandler } from "@protobuf-ts/runtime";
+import type { PartialMessage } from "@protobuf-ts/runtime";
+import { reflectionMergePartial } from "@protobuf-ts/runtime";
+import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
+import { MessageType } from "@protobuf-ts/runtime";
+import { MonitoringInfo } from "./metrics";
+import { Timestamp } from "./google/protobuf/timestamp";
+import { ApiServiceDescriptor } from "./endpoints";
+import { Struct } from "./google/protobuf/struct";
+import { Pipeline } from "./beam_runner_api";
 /**
  * Prepare is a synchronous request that returns a preparationId back
  * Throws error GRPC_STATUS_UNAVAILABLE if server is down
@@ -57,16 +57,16 @@ export interface PrepareJobRequest {
    * @generated from protobuf field: org.apache.beam.model.pipeline.v1.Pipeline
    * pipeline = 1;
    */
-  pipeline?: Pipeline;  // (required)
+  pipeline?: Pipeline; // (required)
   /**
    * @generated from protobuf field: google.protobuf.Struct pipeline_options =
    * 2;
    */
-  pipelineOptions?: Struct;  // (required)
+  pipelineOptions?: Struct; // (required)
   /**
    * @generated from protobuf field: string job_name = 3;
    */
-  jobName: string;  // (required)
+  jobName: string; // (required)
 }
 /**
  * @generated from protobuf message
@@ -131,7 +131,7 @@ export interface RunJobResponse {
   /**
    * @generated from protobuf field: string job_id = 1;
    */
-  jobId: string;  // (required) The ID for the executing job
+  jobId: string; // (required) The ID for the executing job
 }
 /**
  * Cancel is a synchronus request that returns a job state back
@@ -145,7 +145,7 @@ export interface CancelJobRequest {
   /**
    * @generated from protobuf field: string job_id = 1;
    */
-  jobId: string;  // (required)
+  jobId: string; // (required)
 }
 /**
  * Valid responses include any terminal state or CANCELLING
@@ -158,7 +158,7 @@ export interface CancelJobResponse {
    * @generated from protobuf field:
    * org.apache.beam.model.job_management.v1.JobState.Enum state = 1;
    */
-  state: JobState_Enum;  // (required)
+  state: JobState_Enum; // (required)
 }
 /**
  * A subset of info provided by ProvisionApi.ProvisionInfo
@@ -170,21 +170,21 @@ export interface JobInfo {
   /**
    * @generated from protobuf field: string job_id = 1;
    */
-  jobId: string;  // (required)
+  jobId: string; // (required)
   /**
    * @generated from protobuf field: string job_name = 2;
    */
-  jobName: string;  // (required)
+  jobName: string; // (required)
   /**
    * @generated from protobuf field: google.protobuf.Struct pipeline_options =
    * 3;
    */
-  pipelineOptions?: Struct;  // (required)
+  pipelineOptions?: Struct; // (required)
   /**
    * @generated from protobuf field:
    * org.apache.beam.model.job_management.v1.JobState.Enum state = 4;
    */
-  state: JobState_Enum;  // (required)
+  state: JobState_Enum; // (required)
 }
 /**
  * GetJobs is a synchronus request that returns a list of invoked jobs back
@@ -203,7 +203,7 @@ export interface GetJobsResponse {
    * @generated from protobuf field: repeated
    * org.apache.beam.model.job_management.v1.JobInfo job_info = 1;
    */
-  jobInfo: JobInfo[];  // (required)
+  jobInfo: JobInfo[]; // (required)
 }
 /**
  * GetState is a synchronus request that returns a job state back
@@ -217,7 +217,7 @@ export interface GetJobStateRequest {
   /**
    * @generated from protobuf field: string job_id = 1;
    */
-  jobId: string;  // (required)
+  jobId: string; // (required)
 }
 /**
  * @generated from protobuf message
@@ -228,11 +228,11 @@ export interface JobStateEvent {
    * @generated from protobuf field:
    * org.apache.beam.model.job_management.v1.JobState.Enum state = 1;
    */
-  state: JobState_Enum;  // (required)
+  state: JobState_Enum; // (required)
   /**
    * @generated from protobuf field: google.protobuf.Timestamp timestamp = 2;
    */
-  timestamp?: Timestamp;  // (required)
+  timestamp?: Timestamp; // (required)
 }
 /**
  * GetPipeline is a synchronus request that returns a pipeline back
@@ -246,7 +246,7 @@ export interface GetJobPipelineRequest {
   /**
    * @generated from protobuf field: string job_id = 1;
    */
-  jobId: string;  // (required)
+  jobId: string; // (required)
 }
 /**
  * @generated from protobuf message
@@ -257,7 +257,7 @@ export interface GetJobPipelineResponse {
    * @generated from protobuf field: org.apache.beam.model.pipeline.v1.Pipeline
    * pipeline = 1;
    */
-  pipeline?: Pipeline;  // (required)
+  pipeline?: Pipeline; // (required)
 }
 /**
  * GetJobMessages is a streaming api for streaming job messages from the service
@@ -272,7 +272,7 @@ export interface JobMessagesRequest {
   /**
    * @generated from protobuf field: string job_id = 1;
    */
-  jobId: string;  // (required)
+  jobId: string; // (required)
 }
 /**
  * @generated from protobuf message
@@ -326,7 +326,7 @@ export enum JobMessage_MessageImportance {
   /**
    * @generated from protobuf enum value: JOB_MESSAGE_ERROR = 5;
    */
-  JOB_MESSAGE_ERROR = 5
+  JOB_MESSAGE_ERROR = 5,
 }
 /**
  * @generated from protobuf message
@@ -336,24 +336,26 @@ export interface JobMessagesResponse {
   /**
    * @generated from protobuf oneof: response
    */
-  response: {
-    oneofKind: 'messageResponse';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.job_management.v1.JobMessage message_response = 1;
-     */
-    messageResponse: JobMessage;
-  }|{
-    oneofKind: 'stateResponse';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.job_management.v1.JobStateEvent state_response = 2;
-     */
-    stateResponse: JobStateEvent;
-  }
-  |{
-    oneofKind: undefined;
-  };
+  response:
+    | {
+        oneofKind: "messageResponse";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.job_management.v1.JobMessage message_response = 1;
+         */
+        messageResponse: JobMessage;
+      }
+    | {
+        oneofKind: "stateResponse";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.job_management.v1.JobStateEvent state_response = 2;
+         */
+        stateResponse: JobStateEvent;
+      }
+    | {
+        oneofKind: undefined;
+      };
 }
 /**
  * Enumeration of all JobStates
@@ -448,7 +450,7 @@ export enum JobState_Enum {
    *
    * @generated from protobuf enum value: UPDATING = 11;
    */
-  UPDATING = 11
+  UPDATING = 11,
 }
 /**
  * @generated from protobuf message
@@ -458,7 +460,7 @@ export interface GetJobMetricsRequest {
   /**
    * @generated from protobuf field: string job_id = 1;
    */
-  jobId: string;  // (required)
+  jobId: string; // (required)
 }
 /**
  * @generated from protobuf message
@@ -538,7 +540,7 @@ export enum PipelineOptionType_Enum {
   /**
    * @generated from protobuf enum value: OBJECT = 5;
    */
-  OBJECT = 5
+  OBJECT = 5,
 }
 /**
  * Metadata for a pipeline option.
@@ -597,75 +599,100 @@ export interface DescribePipelineOptionsResponse {
 // optimized methods
 class PrepareJobRequest$Type extends MessageType<PrepareJobRequest> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.PrepareJobRequest', [
-      {no: 1, name: 'pipeline', kind: 'message', T: () => Pipeline},
-      {no: 2, name: 'pipeline_options', kind: 'message', T: () => Struct},
-      {no: 3, name: 'job_name', kind: 'scalar', T: 9 /*ScalarType.STRING*/}
+    super("org.apache.beam.model.job_management.v1.PrepareJobRequest", [
+      { no: 1, name: "pipeline", kind: "message", T: () => Pipeline },
+      { no: 2, name: "pipeline_options", kind: "message", T: () => Struct },
+      { no: 3, name: "job_name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
     ]);
   }
   create(value?: PartialMessage<PrepareJobRequest>): PrepareJobRequest {
-    const message = {jobName: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { jobName: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<PrepareJobRequest>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: PrepareJobRequest): PrepareJobRequest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: PrepareJobRequest
+  ): PrepareJobRequest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.Pipeline pipeline */ 1:
           message.pipeline = Pipeline.internalBinaryRead(
-              reader, reader.uint32(), options, message.pipeline);
+            reader,
+            reader.uint32(),
+            options,
+            message.pipeline
+          );
           break;
         case /* google.protobuf.Struct pipeline_options */ 2:
           message.pipelineOptions = Struct.internalBinaryRead(
-              reader, reader.uint32(), options, message.pipelineOptions);
+            reader,
+            reader.uint32(),
+            options,
+            message.pipelineOptions
+          );
           break;
         case /* string job_name */ 3:
           message.jobName = reader.string();
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: PrepareJobRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: PrepareJobRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.Pipeline pipeline = 1; */
     if (message.pipeline)
-      Pipeline
-          .internalBinaryWrite(
-              message.pipeline, writer.tag(1, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      Pipeline.internalBinaryWrite(
+        message.pipeline,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* google.protobuf.Struct pipeline_options = 2; */
     if (message.pipelineOptions)
-      Struct
-          .internalBinaryWrite(
-              message.pipelineOptions,
-              writer.tag(2, WireType.LengthDelimited).fork(), options)
-          .join();
+      Struct.internalBinaryWrite(
+        message.pipelineOptions,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* string job_name = 3; */
-    if (message.jobName !== '')
+    if (message.jobName !== "")
       writer.tag(3, WireType.LengthDelimited).string(message.jobName);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -678,39 +705,45 @@ export const PrepareJobRequest = new PrepareJobRequest$Type();
 // optimized methods
 class PrepareJobResponse$Type extends MessageType<PrepareJobResponse> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.PrepareJobResponse', [
+    super("org.apache.beam.model.job_management.v1.PrepareJobResponse", [
       {
         no: 1,
-        name: 'preparation_id',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
+        name: "preparation_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
       },
       {
         no: 2,
-        name: 'artifact_staging_endpoint',
-        kind: 'message',
-        T: () => ApiServiceDescriptor
+        name: "artifact_staging_endpoint",
+        kind: "message",
+        T: () => ApiServiceDescriptor,
       },
       {
         no: 3,
-        name: 'staging_session_token',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
-      }
+        name: "staging_session_token",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
     ]);
   }
   create(value?: PartialMessage<PrepareJobResponse>): PrepareJobResponse {
-    const message = {preparationId: '', stagingSessionToken: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { preparationId: "", stagingSessionToken: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<PrepareJobResponse>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: PrepareJobResponse): PrepareJobResponse {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: PrepareJobResponse
+  ): PrepareJobResponse {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -719,50 +752,65 @@ class PrepareJobResponse$Type extends MessageType<PrepareJobResponse> {
           break;
         case /* org.apache.beam.model.pipeline.v1.ApiServiceDescriptor
                 artifact_staging_endpoint */
-            2:
+        2:
           message.artifactStagingEndpoint =
-              ApiServiceDescriptor.internalBinaryRead(
-                  reader, reader.uint32(), options,
-                  message.artifactStagingEndpoint);
+            ApiServiceDescriptor.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              message.artifactStagingEndpoint
+            );
           break;
         case /* string staging_session_token */ 3:
           message.stagingSessionToken = reader.string();
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: PrepareJobResponse, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: PrepareJobResponse,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string preparation_id = 1; */
-    if (message.preparationId !== '')
+    if (message.preparationId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.preparationId);
     /* org.apache.beam.model.pipeline.v1.ApiServiceDescriptor
      * artifact_staging_endpoint = 2; */
     if (message.artifactStagingEndpoint)
-      ApiServiceDescriptor
-          .internalBinaryWrite(
-              message.artifactStagingEndpoint,
-              writer.tag(2, WireType.LengthDelimited).fork(), options)
-          .join();
+      ApiServiceDescriptor.internalBinaryWrite(
+        message.artifactStagingEndpoint,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* string staging_session_token = 3; */
-    if (message.stagingSessionToken !== '')
-      writer.tag(3, WireType.LengthDelimited)
-          .string(message.stagingSessionToken);
+    if (message.stagingSessionToken !== "")
+      writer
+        .tag(3, WireType.LengthDelimited)
+        .string(message.stagingSessionToken);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -775,33 +823,39 @@ export const PrepareJobResponse = new PrepareJobResponse$Type();
 // optimized methods
 class RunJobRequest$Type extends MessageType<RunJobRequest> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.RunJobRequest', [
+    super("org.apache.beam.model.job_management.v1.RunJobRequest", [
       {
         no: 1,
-        name: 'preparation_id',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
+        name: "preparation_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
       },
       {
         no: 2,
-        name: 'retrieval_token',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
-      }
+        name: "retrieval_token",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
     ]);
   }
   create(value?: PartialMessage<RunJobRequest>): RunJobRequest {
-    const message = {preparationId: '', retrievalToken: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { preparationId: "", retrievalToken: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<RunJobRequest>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: RunJobRequest): RunJobRequest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: RunJobRequest
+  ): RunJobRequest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -813,30 +867,41 @@ class RunJobRequest$Type extends MessageType<RunJobRequest> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: RunJobRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: RunJobRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string preparation_id = 1; */
-    if (message.preparationId !== '')
+    if (message.preparationId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.preparationId);
     /* string retrieval_token = 2; */
-    if (message.retrievalToken !== '')
+    if (message.retrievalToken !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.retrievalToken);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -849,22 +914,28 @@ export const RunJobRequest = new RunJobRequest$Type();
 // optimized methods
 class RunJobResponse$Type extends MessageType<RunJobResponse> {
   constructor() {
-    super(
-        'org.apache.beam.model.job_management.v1.RunJobResponse',
-        [{no: 1, name: 'job_id', kind: 'scalar', T: 9 /*ScalarType.STRING*/}]);
+    super("org.apache.beam.model.job_management.v1.RunJobResponse", [
+      { no: 1, name: "job_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+    ]);
   }
   create(value?: PartialMessage<RunJobResponse>): RunJobResponse {
-    const message = {jobId: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { jobId: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<RunJobResponse>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: RunJobResponse): RunJobResponse {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: RunJobResponse
+  ): RunJobResponse {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -873,27 +944,38 @@ class RunJobResponse$Type extends MessageType<RunJobResponse> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: RunJobResponse, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: RunJobResponse,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string job_id = 1; */
-    if (message.jobId !== '')
+    if (message.jobId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.jobId);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -906,22 +988,28 @@ export const RunJobResponse = new RunJobResponse$Type();
 // optimized methods
 class CancelJobRequest$Type extends MessageType<CancelJobRequest> {
   constructor() {
-    super(
-        'org.apache.beam.model.job_management.v1.CancelJobRequest',
-        [{no: 1, name: 'job_id', kind: 'scalar', T: 9 /*ScalarType.STRING*/}]);
+    super("org.apache.beam.model.job_management.v1.CancelJobRequest", [
+      { no: 1, name: "job_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+    ]);
   }
   create(value?: PartialMessage<CancelJobRequest>): CancelJobRequest {
-    const message = {jobId: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { jobId: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<CancelJobRequest>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: CancelJobRequest): CancelJobRequest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: CancelJobRequest
+  ): CancelJobRequest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -930,27 +1018,38 @@ class CancelJobRequest$Type extends MessageType<CancelJobRequest> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: CancelJobRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: CancelJobRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string job_id = 1; */
-    if (message.jobId !== '')
+    if (message.jobId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.jobId);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -963,57 +1062,77 @@ export const CancelJobRequest = new CancelJobRequest$Type();
 // optimized methods
 class CancelJobResponse$Type extends MessageType<CancelJobResponse> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.CancelJobResponse', [{
-            no: 1,
-            name: 'state',
-            kind: 'enum',
-            T: () =>
-                ['org.apache.beam.model.job_management.v1.JobState.Enum',
-                 JobState_Enum]
-          }]);
+    super("org.apache.beam.model.job_management.v1.CancelJobResponse", [
+      {
+        no: 1,
+        name: "state",
+        kind: "enum",
+        T: () => [
+          "org.apache.beam.model.job_management.v1.JobState.Enum",
+          JobState_Enum,
+        ],
+      },
+    ]);
   }
   create(value?: PartialMessage<CancelJobResponse>): CancelJobResponse {
-    const message = {state: 0};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { state: 0 };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<CancelJobResponse>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: CancelJobResponse): CancelJobResponse {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: CancelJobResponse
+  ): CancelJobResponse {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.job_management.v1.JobState.Enum state */
-            1:
+        1:
           message.state = reader.int32();
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: CancelJobResponse, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: CancelJobResponse,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.job_management.v1.JobState.Enum state = 1; */
     if (message.state !== 0)
       writer.tag(1, WireType.Varint).int32(message.state);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1026,31 +1145,39 @@ export const CancelJobResponse = new CancelJobResponse$Type();
 // optimized methods
 class JobInfo$Type extends MessageType<JobInfo> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.JobInfo', [
-      {no: 1, name: 'job_id', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 2, name: 'job_name', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 3, name: 'pipeline_options', kind: 'message', T: () => Struct}, {
+    super("org.apache.beam.model.job_management.v1.JobInfo", [
+      { no: 1, name: "job_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      { no: 2, name: "job_name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      { no: 3, name: "pipeline_options", kind: "message", T: () => Struct },
+      {
         no: 4,
-        name: 'state',
-        kind: 'enum',
-        T: () =>
-            ['org.apache.beam.model.job_management.v1.JobState.Enum',
-             JobState_Enum]
-      }
+        name: "state",
+        kind: "enum",
+        T: () => [
+          "org.apache.beam.model.job_management.v1.JobState.Enum",
+          JobState_Enum,
+        ],
+      },
     ]);
   }
   create(value?: PartialMessage<JobInfo>): JobInfo {
-    const message = {jobId: '', jobName: '', state: 0};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { jobId: "", jobName: "", state: 0 };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<JobInfo>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: JobInfo): JobInfo {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: JobInfo
+  ): JobInfo {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -1062,48 +1189,63 @@ class JobInfo$Type extends MessageType<JobInfo> {
           break;
         case /* google.protobuf.Struct pipeline_options */ 3:
           message.pipelineOptions = Struct.internalBinaryRead(
-              reader, reader.uint32(), options, message.pipelineOptions);
+            reader,
+            reader.uint32(),
+            options,
+            message.pipelineOptions
+          );
           break;
         case /* org.apache.beam.model.job_management.v1.JobState.Enum state */
-            4:
+        4:
           message.state = reader.int32();
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: JobInfo, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: JobInfo,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string job_id = 1; */
-    if (message.jobId !== '')
+    if (message.jobId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.jobId);
     /* string job_name = 2; */
-    if (message.jobName !== '')
+    if (message.jobName !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.jobName);
     /* google.protobuf.Struct pipeline_options = 3; */
     if (message.pipelineOptions)
-      Struct
-          .internalBinaryWrite(
-              message.pipelineOptions,
-              writer.tag(3, WireType.LengthDelimited).fork(), options)
-          .join();
+      Struct.internalBinaryWrite(
+        message.pipelineOptions,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.job_management.v1.JobState.Enum state = 4; */
     if (message.state !== 0)
       writer.tag(4, WireType.Varint).int32(message.state);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1116,28 +1258,38 @@ export const JobInfo = new JobInfo$Type();
 // optimized methods
 class GetJobsRequest$Type extends MessageType<GetJobsRequest> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.GetJobsRequest', []);
+    super("org.apache.beam.model.job_management.v1.GetJobsRequest", []);
   }
   create(value?: PartialMessage<GetJobsRequest>): GetJobsRequest {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<GetJobsRequest>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: GetJobsRequest): GetJobsRequest {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: GetJobsRequest
+  ): GetJobsRequest {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: GetJobsRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: GetJobsRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1150,62 +1302,82 @@ export const GetJobsRequest = new GetJobsRequest$Type();
 // optimized methods
 class GetJobsResponse$Type extends MessageType<GetJobsResponse> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.GetJobsResponse', [{
-            no: 1,
-            name: 'job_info',
-            kind: 'message',
-            repeat: 1 /*RepeatType.PACKED*/,
-            T: () => JobInfo
-          }]);
+    super("org.apache.beam.model.job_management.v1.GetJobsResponse", [
+      {
+        no: 1,
+        name: "job_info",
+        kind: "message",
+        repeat: 1 /*RepeatType.PACKED*/,
+        T: () => JobInfo,
+      },
+    ]);
   }
   create(value?: PartialMessage<GetJobsResponse>): GetJobsResponse {
-    const message = {jobInfo: []};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { jobInfo: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<GetJobsResponse>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: GetJobsResponse): GetJobsResponse {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: GetJobsResponse
+  ): GetJobsResponse {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* repeated org.apache.beam.model.job_management.v1.JobInfo
                 job_info */
-            1:
+        1:
           message.jobInfo.push(
-              JobInfo.internalBinaryRead(reader, reader.uint32(), options));
+            JobInfo.internalBinaryRead(reader, reader.uint32(), options)
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: GetJobsResponse, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: GetJobsResponse,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* repeated org.apache.beam.model.job_management.v1.JobInfo job_info = 1; */
     for (let i = 0; i < message.jobInfo.length; i++)
-      JobInfo
-          .internalBinaryWrite(
-              message.jobInfo[i],
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+      JobInfo.internalBinaryWrite(
+        message.jobInfo[i],
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1218,22 +1390,28 @@ export const GetJobsResponse = new GetJobsResponse$Type();
 // optimized methods
 class GetJobStateRequest$Type extends MessageType<GetJobStateRequest> {
   constructor() {
-    super(
-        'org.apache.beam.model.job_management.v1.GetJobStateRequest',
-        [{no: 1, name: 'job_id', kind: 'scalar', T: 9 /*ScalarType.STRING*/}]);
+    super("org.apache.beam.model.job_management.v1.GetJobStateRequest", [
+      { no: 1, name: "job_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+    ]);
   }
   create(value?: PartialMessage<GetJobStateRequest>): GetJobStateRequest {
-    const message = {jobId: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { jobId: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<GetJobStateRequest>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: GetJobStateRequest): GetJobStateRequest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: GetJobStateRequest
+  ): GetJobStateRequest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -1242,27 +1420,38 @@ class GetJobStateRequest$Type extends MessageType<GetJobStateRequest> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: GetJobStateRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: GetJobStateRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string job_id = 1; */
-    if (message.jobId !== '')
+    if (message.jobId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.jobId);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1275,71 +1464,93 @@ export const GetJobStateRequest = new GetJobStateRequest$Type();
 // optimized methods
 class JobStateEvent$Type extends MessageType<JobStateEvent> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.JobStateEvent', [
+    super("org.apache.beam.model.job_management.v1.JobStateEvent", [
       {
         no: 1,
-        name: 'state',
-        kind: 'enum',
-        T: () =>
-            ['org.apache.beam.model.job_management.v1.JobState.Enum',
-             JobState_Enum]
+        name: "state",
+        kind: "enum",
+        T: () => [
+          "org.apache.beam.model.job_management.v1.JobState.Enum",
+          JobState_Enum,
+        ],
       },
-      {no: 2, name: 'timestamp', kind: 'message', T: () => Timestamp}
+      { no: 2, name: "timestamp", kind: "message", T: () => Timestamp },
     ]);
   }
   create(value?: PartialMessage<JobStateEvent>): JobStateEvent {
-    const message = {state: 0};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { state: 0 };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<JobStateEvent>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: JobStateEvent): JobStateEvent {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: JobStateEvent
+  ): JobStateEvent {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.job_management.v1.JobState.Enum state */
-            1:
+        1:
           message.state = reader.int32();
           break;
         case /* google.protobuf.Timestamp timestamp */ 2:
           message.timestamp = Timestamp.internalBinaryRead(
-              reader, reader.uint32(), options, message.timestamp);
+            reader,
+            reader.uint32(),
+            options,
+            message.timestamp
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: JobStateEvent, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: JobStateEvent,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.job_management.v1.JobState.Enum state = 1; */
     if (message.state !== 0)
       writer.tag(1, WireType.Varint).int32(message.state);
     /* google.protobuf.Timestamp timestamp = 2; */
     if (message.timestamp)
-      Timestamp
-          .internalBinaryWrite(
-              message.timestamp, writer.tag(2, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      Timestamp.internalBinaryWrite(
+        message.timestamp,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1352,22 +1563,28 @@ export const JobStateEvent = new JobStateEvent$Type();
 // optimized methods
 class GetJobPipelineRequest$Type extends MessageType<GetJobPipelineRequest> {
   constructor() {
-    super(
-        'org.apache.beam.model.job_management.v1.GetJobPipelineRequest',
-        [{no: 1, name: 'job_id', kind: 'scalar', T: 9 /*ScalarType.STRING*/}]);
+    super("org.apache.beam.model.job_management.v1.GetJobPipelineRequest", [
+      { no: 1, name: "job_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+    ]);
   }
   create(value?: PartialMessage<GetJobPipelineRequest>): GetJobPipelineRequest {
-    const message = {jobId: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { jobId: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<GetJobPipelineRequest>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: GetJobPipelineRequest): GetJobPipelineRequest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: GetJobPipelineRequest
+  ): GetJobPipelineRequest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -1376,27 +1593,38 @@ class GetJobPipelineRequest$Type extends MessageType<GetJobPipelineRequest> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: GetJobPipelineRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: GetJobPipelineRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string job_id = 1; */
-    if (message.jobId !== '')
+    if (message.jobId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.jobId);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1409,57 +1637,79 @@ export const GetJobPipelineRequest = new GetJobPipelineRequest$Type();
 // optimized methods
 class GetJobPipelineResponse$Type extends MessageType<GetJobPipelineResponse> {
   constructor() {
-    super(
-        'org.apache.beam.model.job_management.v1.GetJobPipelineResponse',
-        [{no: 1, name: 'pipeline', kind: 'message', T: () => Pipeline}]);
+    super("org.apache.beam.model.job_management.v1.GetJobPipelineResponse", [
+      { no: 1, name: "pipeline", kind: "message", T: () => Pipeline },
+    ]);
   }
-  create(value?: PartialMessage<GetJobPipelineResponse>):
-      GetJobPipelineResponse {
+  create(
+    value?: PartialMessage<GetJobPipelineResponse>
+  ): GetJobPipelineResponse {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<GetJobPipelineResponse>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: GetJobPipelineResponse): GetJobPipelineResponse {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: GetJobPipelineResponse
+  ): GetJobPipelineResponse {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.Pipeline pipeline */ 1:
           message.pipeline = Pipeline.internalBinaryRead(
-              reader, reader.uint32(), options, message.pipeline);
+            reader,
+            reader.uint32(),
+            options,
+            message.pipeline
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: GetJobPipelineResponse, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: GetJobPipelineResponse,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.Pipeline pipeline = 1; */
     if (message.pipeline)
-      Pipeline
-          .internalBinaryWrite(
-              message.pipeline, writer.tag(1, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      Pipeline.internalBinaryWrite(
+        message.pipeline,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1472,22 +1722,28 @@ export const GetJobPipelineResponse = new GetJobPipelineResponse$Type();
 // optimized methods
 class JobMessagesRequest$Type extends MessageType<JobMessagesRequest> {
   constructor() {
-    super(
-        'org.apache.beam.model.job_management.v1.JobMessagesRequest',
-        [{no: 1, name: 'job_id', kind: 'scalar', T: 9 /*ScalarType.STRING*/}]);
+    super("org.apache.beam.model.job_management.v1.JobMessagesRequest", [
+      { no: 1, name: "job_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+    ]);
   }
   create(value?: PartialMessage<JobMessagesRequest>): JobMessagesRequest {
-    const message = {jobId: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { jobId: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<JobMessagesRequest>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: JobMessagesRequest): JobMessagesRequest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: JobMessagesRequest
+  ): JobMessagesRequest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -1496,27 +1752,38 @@ class JobMessagesRequest$Type extends MessageType<JobMessagesRequest> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: JobMessagesRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: JobMessagesRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string job_id = 1; */
-    if (message.jobId !== '')
+    if (message.jobId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.jobId);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1529,31 +1796,44 @@ export const JobMessagesRequest = new JobMessagesRequest$Type();
 // optimized methods
 class JobMessage$Type extends MessageType<JobMessage> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.JobMessage', [
-      {no: 1, name: 'message_id', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 2, name: 'time', kind: 'scalar', T: 9 /*ScalarType.STRING*/}, {
+    super("org.apache.beam.model.job_management.v1.JobMessage", [
+      { no: 1, name: "message_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      { no: 2, name: "time", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      {
         no: 3,
-        name: 'importance',
-        kind: 'enum',
-        T: () =>
-            ['org.apache.beam.model.job_management.v1.JobMessage.MessageImportance',
-             JobMessage_MessageImportance]
+        name: "importance",
+        kind: "enum",
+        T: () => [
+          "org.apache.beam.model.job_management.v1.JobMessage.MessageImportance",
+          JobMessage_MessageImportance,
+        ],
       },
-      {no: 4, name: 'message_text', kind: 'scalar', T: 9 /*ScalarType.STRING*/}
+      {
+        no: 4,
+        name: "message_text",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
     ]);
   }
   create(value?: PartialMessage<JobMessage>): JobMessage {
-    const message = {messageId: '', time: '', importance: 0, messageText: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { messageId: "", time: "", importance: 0, messageText: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<JobMessage>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: JobMessage): JobMessage {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: JobMessage
+  ): JobMessage {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -1565,7 +1845,7 @@ class JobMessage$Type extends MessageType<JobMessage> {
           break;
         case /* org.apache.beam.model.job_management.v1.JobMessage.MessageImportance
                 importance */
-            3:
+        3:
           message.importance = reader.int32();
           break;
         case /* string message_text */ 4:
@@ -1573,37 +1853,48 @@ class JobMessage$Type extends MessageType<JobMessage> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: JobMessage, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: JobMessage,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string message_id = 1; */
-    if (message.messageId !== '')
+    if (message.messageId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.messageId);
     /* string time = 2; */
-    if (message.time !== '')
+    if (message.time !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.time);
     /* org.apache.beam.model.job_management.v1.JobMessage.MessageImportance
      * importance = 3; */
     if (message.importance !== 0)
       writer.tag(3, WireType.Varint).int32(message.importance);
     /* string message_text = 4; */
-    if (message.messageText !== '')
+    if (message.messageText !== "")
       writer.tag(4, WireType.LengthDelimited).string(message.messageText);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1616,94 +1907,117 @@ export const JobMessage = new JobMessage$Type();
 // optimized methods
 class JobMessagesResponse$Type extends MessageType<JobMessagesResponse> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.JobMessagesResponse', [
+    super("org.apache.beam.model.job_management.v1.JobMessagesResponse", [
       {
         no: 1,
-        name: 'message_response',
-        kind: 'message',
-        oneof: 'response',
-        T: () => JobMessage
+        name: "message_response",
+        kind: "message",
+        oneof: "response",
+        T: () => JobMessage,
       },
       {
         no: 2,
-        name: 'state_response',
-        kind: 'message',
-        oneof: 'response',
-        T: () => JobStateEvent
-      }
+        name: "state_response",
+        kind: "message",
+        oneof: "response",
+        T: () => JobStateEvent,
+      },
     ]);
   }
   create(value?: PartialMessage<JobMessagesResponse>): JobMessagesResponse {
-    const message = {response: {oneofKind: undefined}};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { response: { oneofKind: undefined } };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<JobMessagesResponse>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: JobMessagesResponse): JobMessagesResponse {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: JobMessagesResponse
+  ): JobMessagesResponse {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.job_management.v1.JobMessage
                 message_response */
-            1:
+        1:
           message.response = {
-            oneofKind: 'messageResponse',
+            oneofKind: "messageResponse",
             messageResponse: JobMessage.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.response as any).messageResponse)
+              reader,
+              reader.uint32(),
+              options,
+              (message.response as any).messageResponse
+            ),
           };
           break;
         case /* org.apache.beam.model.job_management.v1.JobStateEvent
                 state_response */
-            2:
+        2:
           message.response = {
-            oneofKind: 'stateResponse',
+            oneofKind: "stateResponse",
             stateResponse: JobStateEvent.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.response as any).stateResponse)
+              reader,
+              reader.uint32(),
+              options,
+              (message.response as any).stateResponse
+            ),
           };
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: JobMessagesResponse, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: JobMessagesResponse,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.job_management.v1.JobMessage message_response = 1;
      */
-    if (message.response.oneofKind === 'messageResponse')
-      JobMessage
-          .internalBinaryWrite(
-              message.response.messageResponse,
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.response.oneofKind === "messageResponse")
+      JobMessage.internalBinaryWrite(
+        message.response.messageResponse,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.job_management.v1.JobStateEvent state_response = 2;
      */
-    if (message.response.oneofKind === 'stateResponse')
-      JobStateEvent
-          .internalBinaryWrite(
-              message.response.stateResponse,
-              writer.tag(2, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.response.oneofKind === "stateResponse")
+      JobStateEvent.internalBinaryWrite(
+        message.response.stateResponse,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1716,28 +2030,38 @@ export const JobMessagesResponse = new JobMessagesResponse$Type();
 // optimized methods
 class JobState$Type extends MessageType<JobState> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.JobState', []);
+    super("org.apache.beam.model.job_management.v1.JobState", []);
   }
   create(value?: PartialMessage<JobState>): JobState {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<JobState>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: JobState): JobState {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: JobState
+  ): JobState {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: JobState, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: JobState,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1750,22 +2074,28 @@ export const JobState = new JobState$Type();
 // optimized methods
 class GetJobMetricsRequest$Type extends MessageType<GetJobMetricsRequest> {
   constructor() {
-    super(
-        'org.apache.beam.model.job_management.v1.GetJobMetricsRequest',
-        [{no: 1, name: 'job_id', kind: 'scalar', T: 9 /*ScalarType.STRING*/}]);
+    super("org.apache.beam.model.job_management.v1.GetJobMetricsRequest", [
+      { no: 1, name: "job_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+    ]);
   }
   create(value?: PartialMessage<GetJobMetricsRequest>): GetJobMetricsRequest {
-    const message = {jobId: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { jobId: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<GetJobMetricsRequest>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: GetJobMetricsRequest): GetJobMetricsRequest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: GetJobMetricsRequest
+  ): GetJobMetricsRequest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -1774,27 +2104,38 @@ class GetJobMetricsRequest$Type extends MessageType<GetJobMetricsRequest> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: GetJobMetricsRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: GetJobMetricsRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string job_id = 1; */
-    if (message.jobId !== '')
+    if (message.jobId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.jobId);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1807,57 +2148,78 @@ export const GetJobMetricsRequest = new GetJobMetricsRequest$Type();
 // optimized methods
 class GetJobMetricsResponse$Type extends MessageType<GetJobMetricsResponse> {
   constructor() {
-    super(
-        'org.apache.beam.model.job_management.v1.GetJobMetricsResponse',
-        [{no: 1, name: 'metrics', kind: 'message', T: () => MetricResults}]);
+    super("org.apache.beam.model.job_management.v1.GetJobMetricsResponse", [
+      { no: 1, name: "metrics", kind: "message", T: () => MetricResults },
+    ]);
   }
   create(value?: PartialMessage<GetJobMetricsResponse>): GetJobMetricsResponse {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<GetJobMetricsResponse>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: GetJobMetricsResponse): GetJobMetricsResponse {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: GetJobMetricsResponse
+  ): GetJobMetricsResponse {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.job_management.v1.MetricResults metrics */
-            1:
+        1:
           message.metrics = MetricResults.internalBinaryRead(
-              reader, reader.uint32(), options, message.metrics);
+            reader,
+            reader.uint32(),
+            options,
+            message.metrics
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: GetJobMetricsResponse, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: GetJobMetricsResponse,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.job_management.v1.MetricResults metrics = 1; */
     if (message.metrics)
-      MetricResults
-          .internalBinaryWrite(
-              message.metrics, writer.tag(1, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      MetricResults.internalBinaryWrite(
+        message.metrics,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1870,86 +2232,105 @@ export const GetJobMetricsResponse = new GetJobMetricsResponse$Type();
 // optimized methods
 class MetricResults$Type extends MessageType<MetricResults> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.MetricResults', [
+    super("org.apache.beam.model.job_management.v1.MetricResults", [
       {
         no: 1,
-        name: 'attempted',
-        kind: 'message',
+        name: "attempted",
+        kind: "message",
         repeat: 1 /*RepeatType.PACKED*/,
-        T: () => MonitoringInfo
+        T: () => MonitoringInfo,
       },
       {
         no: 2,
-        name: 'committed',
-        kind: 'message',
+        name: "committed",
+        kind: "message",
         repeat: 1 /*RepeatType.PACKED*/,
-        T: () => MonitoringInfo
-      }
+        T: () => MonitoringInfo,
+      },
     ]);
   }
   create(value?: PartialMessage<MetricResults>): MetricResults {
-    const message = {attempted: [], committed: []};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { attempted: [], committed: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<MetricResults>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: MetricResults): MetricResults {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: MetricResults
+  ): MetricResults {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* repeated org.apache.beam.model.pipeline.v1.MonitoringInfo
                 attempted */
-            1:
-          message.attempted.push(MonitoringInfo.internalBinaryRead(
-              reader, reader.uint32(), options));
+        1:
+          message.attempted.push(
+            MonitoringInfo.internalBinaryRead(reader, reader.uint32(), options)
+          );
           break;
         case /* repeated org.apache.beam.model.pipeline.v1.MonitoringInfo
                 committed */
-            2:
-          message.committed.push(MonitoringInfo.internalBinaryRead(
-              reader, reader.uint32(), options));
+        2:
+          message.committed.push(
+            MonitoringInfo.internalBinaryRead(reader, reader.uint32(), options)
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: MetricResults, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: MetricResults,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* repeated org.apache.beam.model.pipeline.v1.MonitoringInfo attempted = 1;
      */
     for (let i = 0; i < message.attempted.length; i++)
-      MonitoringInfo
-          .internalBinaryWrite(
-              message.attempted[i],
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+      MonitoringInfo.internalBinaryWrite(
+        message.attempted[i],
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* repeated org.apache.beam.model.pipeline.v1.MonitoringInfo committed = 2;
      */
     for (let i = 0; i < message.committed.length; i++)
-      MonitoringInfo
-          .internalBinaryWrite(
-              message.committed[i],
-              writer.tag(2, WireType.LengthDelimited).fork(), options)
-          .join();
+      MonitoringInfo.internalBinaryWrite(
+        message.committed[i],
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1960,35 +2341,49 @@ class MetricResults$Type extends MessageType<MetricResults> {
 export const MetricResults = new MetricResults$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class DescribePipelineOptionsRequest$Type extends
-    MessageType<DescribePipelineOptionsRequest> {
+class DescribePipelineOptionsRequest$Type extends MessageType<DescribePipelineOptionsRequest> {
   constructor() {
     super(
-        'org.apache.beam.model.job_management.v1.DescribePipelineOptionsRequest',
-        []);
+      "org.apache.beam.model.job_management.v1.DescribePipelineOptionsRequest",
+      []
+    );
   }
-  create(value?: PartialMessage<DescribePipelineOptionsRequest>):
-      DescribePipelineOptionsRequest {
+  create(
+    value?: PartialMessage<DescribePipelineOptionsRequest>
+  ): DescribePipelineOptionsRequest {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<DescribePipelineOptionsRequest>(
-          this, message, value);
+        this,
+        message,
+        value
+      );
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: DescribePipelineOptionsRequest): DescribePipelineOptionsRequest {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: DescribePipelineOptionsRequest
+  ): DescribePipelineOptionsRequest {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: DescribePipelineOptionsRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: DescribePipelineOptionsRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1997,33 +2392,43 @@ class DescribePipelineOptionsRequest$Type extends
  * org.apache.beam.model.job_management.v1.DescribePipelineOptionsRequest
  */
 export const DescribePipelineOptionsRequest =
-    new DescribePipelineOptionsRequest$Type();
+  new DescribePipelineOptionsRequest$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
 class PipelineOptionType$Type extends MessageType<PipelineOptionType> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.PipelineOptionType', []);
+    super("org.apache.beam.model.job_management.v1.PipelineOptionType", []);
   }
   create(value?: PartialMessage<PipelineOptionType>): PipelineOptionType {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<PipelineOptionType>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: PipelineOptionType): PipelineOptionType {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: PipelineOptionType
+  ): PipelineOptionType {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: PipelineOptionType, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: PipelineOptionType,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -2034,42 +2439,60 @@ class PipelineOptionType$Type extends MessageType<PipelineOptionType> {
 export const PipelineOptionType = new PipelineOptionType$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class PipelineOptionDescriptor$Type extends
-    MessageType<PipelineOptionDescriptor> {
+class PipelineOptionDescriptor$Type extends MessageType<PipelineOptionDescriptor> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.PipelineOptionDescriptor', [
-      {no: 1, name: 'name', kind: 'scalar', T: 9 /*ScalarType.STRING*/}, {
+    super("org.apache.beam.model.job_management.v1.PipelineOptionDescriptor", [
+      { no: 1, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      {
         no: 2,
-        name: 'type',
-        kind: 'enum',
-        T: () =>
-            ['org.apache.beam.model.job_management.v1.PipelineOptionType.Enum',
-             PipelineOptionType_Enum]
+        name: "type",
+        kind: "enum",
+        T: () => [
+          "org.apache.beam.model.job_management.v1.PipelineOptionType.Enum",
+          PipelineOptionType_Enum,
+        ],
       },
-      {no: 3, name: 'description', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
+      {
+        no: 3,
+        name: "description",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
       {
         no: 4,
-        name: 'default_value',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
+        name: "default_value",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
       },
-      {no: 5, name: 'group', kind: 'scalar', T: 9 /*ScalarType.STRING*/}
+      { no: 5, name: "group", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
     ]);
   }
-  create(value?: PartialMessage<PipelineOptionDescriptor>):
-      PipelineOptionDescriptor {
-    const message =
-        {name: '', type: 0, description: '', defaultValue: '', group: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<PipelineOptionDescriptor>
+  ): PipelineOptionDescriptor {
+    const message = {
+      name: "",
+      type: 0,
+      description: "",
+      defaultValue: "",
+      group: "",
+    };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<PipelineOptionDescriptor>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: PipelineOptionDescriptor): PipelineOptionDescriptor {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: PipelineOptionDescriptor
+  ): PipelineOptionDescriptor {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -2078,7 +2501,7 @@ class PipelineOptionDescriptor$Type extends
           break;
         case /* org.apache.beam.model.job_management.v1.PipelineOptionType.Enum
                 type */
-            2:
+        2:
           message.type = reader.int32();
           break;
         case /* string description */ 3:
@@ -2092,39 +2515,50 @@ class PipelineOptionDescriptor$Type extends
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: PipelineOptionDescriptor, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: PipelineOptionDescriptor,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string name = 1; */
-    if (message.name !== '')
+    if (message.name !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.name);
     /* org.apache.beam.model.job_management.v1.PipelineOptionType.Enum type = 2;
      */
     if (message.type !== 0) writer.tag(2, WireType.Varint).int32(message.type);
     /* string description = 3; */
-    if (message.description !== '')
+    if (message.description !== "")
       writer.tag(3, WireType.LengthDelimited).string(message.description);
     /* string default_value = 4; */
-    if (message.defaultValue !== '')
+    if (message.defaultValue !== "")
       writer.tag(4, WireType.LengthDelimited).string(message.defaultValue);
     /* string group = 5; */
-    if (message.group !== '')
+    if (message.group !== "")
       writer.tag(5, WireType.LengthDelimited).string(message.group);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -2135,72 +2569,99 @@ class PipelineOptionDescriptor$Type extends
 export const PipelineOptionDescriptor = new PipelineOptionDescriptor$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class DescribePipelineOptionsResponse$Type extends
-    MessageType<DescribePipelineOptionsResponse> {
+class DescribePipelineOptionsResponse$Type extends MessageType<DescribePipelineOptionsResponse> {
   constructor() {
     super(
-        'org.apache.beam.model.job_management.v1.DescribePipelineOptionsResponse',
-        [{
+      "org.apache.beam.model.job_management.v1.DescribePipelineOptionsResponse",
+      [
+        {
           no: 1,
-          name: 'options',
-          kind: 'message',
+          name: "options",
+          kind: "message",
           repeat: 1 /*RepeatType.PACKED*/,
-          T: () => PipelineOptionDescriptor
-        }]);
+          T: () => PipelineOptionDescriptor,
+        },
+      ]
+    );
   }
-  create(value?: PartialMessage<DescribePipelineOptionsResponse>):
-      DescribePipelineOptionsResponse {
-    const message = {options: []};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<DescribePipelineOptionsResponse>
+  ): DescribePipelineOptionsResponse {
+    const message = { options: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<DescribePipelineOptionsResponse>(
-          this, message, value);
+        this,
+        message,
+        value
+      );
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: DescribePipelineOptionsResponse):
-      DescribePipelineOptionsResponse {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: DescribePipelineOptionsResponse
+  ): DescribePipelineOptionsResponse {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* repeated
                 org.apache.beam.model.job_management.v1.PipelineOptionDescriptor
                 options */
-            1:
-          message.options.push(PipelineOptionDescriptor.internalBinaryRead(
-              reader, reader.uint32(), options));
+        1:
+          message.options.push(
+            PipelineOptionDescriptor.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options
+            )
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: DescribePipelineOptionsResponse, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: DescribePipelineOptionsResponse,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* repeated org.apache.beam.model.job_management.v1.PipelineOptionDescriptor
      * options = 1; */
     for (let i = 0; i < message.options.length; i++)
-      PipelineOptionDescriptor
-          .internalBinaryWrite(
-              message.options[i],
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+      PipelineOptionDescriptor.internalBinaryWrite(
+        message.options[i],
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -2209,53 +2670,55 @@ class DescribePipelineOptionsResponse$Type extends
  * org.apache.beam.model.job_management.v1.DescribePipelineOptionsResponse
  */
 export const DescribePipelineOptionsResponse =
-    new DescribePipelineOptionsResponse$Type();
+  new DescribePipelineOptionsResponse$Type();
 /**
  * @generated ServiceType for protobuf service
  * org.apache.beam.model.job_management.v1.JobService
  */
-export const JobService =
-    new ServiceType('org.apache.beam.model.job_management.v1.JobService', [
-      {
-        name: 'Prepare',
-        options: {},
-        I: PrepareJobRequest,
-        O: PrepareJobResponse
-      },
-      {name: 'Run', options: {}, I: RunJobRequest, O: RunJobResponse},
-      {name: 'GetJobs', options: {}, I: GetJobsRequest, O: GetJobsResponse},
-      {name: 'GetState', options: {}, I: GetJobStateRequest, O: JobStateEvent},
-      {
-        name: 'GetPipeline',
-        options: {},
-        I: GetJobPipelineRequest,
-        O: GetJobPipelineResponse
-      },
-      {name: 'Cancel', options: {}, I: CancelJobRequest, O: CancelJobResponse},
-      {
-        name: 'GetStateStream',
-        serverStreaming: true,
-        options: {},
-        I: GetJobStateRequest,
-        O: JobStateEvent
-      },
-      {
-        name: 'GetMessageStream',
-        serverStreaming: true,
-        options: {},
-        I: JobMessagesRequest,
-        O: JobMessagesResponse
-      },
-      {
-        name: 'GetJobMetrics',
-        options: {},
-        I: GetJobMetricsRequest,
-        O: GetJobMetricsResponse
-      },
-      {
-        name: 'DescribePipelineOptions',
-        options: {},
-        I: DescribePipelineOptionsRequest,
-        O: DescribePipelineOptionsResponse
-      }
-    ]);
+export const JobService = new ServiceType(
+  "org.apache.beam.model.job_management.v1.JobService",
+  [
+    {
+      name: "Prepare",
+      options: {},
+      I: PrepareJobRequest,
+      O: PrepareJobResponse,
+    },
+    { name: "Run", options: {}, I: RunJobRequest, O: RunJobResponse },
+    { name: "GetJobs", options: {}, I: GetJobsRequest, O: GetJobsResponse },
+    { name: "GetState", options: {}, I: GetJobStateRequest, O: JobStateEvent },
+    {
+      name: "GetPipeline",
+      options: {},
+      I: GetJobPipelineRequest,
+      O: GetJobPipelineResponse,
+    },
+    { name: "Cancel", options: {}, I: CancelJobRequest, O: CancelJobResponse },
+    {
+      name: "GetStateStream",
+      serverStreaming: true,
+      options: {},
+      I: GetJobStateRequest,
+      O: JobStateEvent,
+    },
+    {
+      name: "GetMessageStream",
+      serverStreaming: true,
+      options: {},
+      I: JobMessagesRequest,
+      O: JobMessagesResponse,
+    },
+    {
+      name: "GetJobMetrics",
+      options: {},
+      I: GetJobMetricsRequest,
+      O: GetJobMetricsResponse,
+    },
+    {
+      name: "DescribePipelineOptions",
+      options: {},
+      I: DescribePipelineOptionsRequest,
+      O: DescribePipelineOptionsResponse,
+    },
+  ]
+);

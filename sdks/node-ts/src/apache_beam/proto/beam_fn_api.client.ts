@@ -35,33 +35,33 @@
 // TODO: Consider consolidating common components in another package
 // and language namespaces for re-use with Runner Api.
 //
-import {BeamFnWorkerStatus} from './beam_fn_api';
-import type {WorkerStatusRequest} from './beam_fn_api';
-import type {WorkerStatusResponse} from './beam_fn_api';
-import {BeamFnExternalWorkerPool} from './beam_fn_api';
-import type {StopWorkerResponse} from './beam_fn_api';
-import type {StopWorkerRequest} from './beam_fn_api';
-import type {StartWorkerResponse} from './beam_fn_api';
-import type {StartWorkerRequest} from './beam_fn_api';
-import {BeamFnLogging} from './beam_fn_api';
-import type {LogControl} from './beam_fn_api';
-import type {LogEntry_List} from './beam_fn_api';
-import {BeamFnState} from './beam_fn_api';
-import type {StateResponse} from './beam_fn_api';
-import type {StateRequest} from './beam_fn_api';
-import {BeamFnData} from './beam_fn_api';
-import type {Elements} from './beam_fn_api';
-import type {RpcTransport} from '@protobuf-ts/runtime-rpc';
-import type {ServiceInfo} from '@protobuf-ts/runtime-rpc';
-import {BeamFnControl} from './beam_fn_api';
-import type {ProcessBundleDescriptor} from './beam_fn_api';
-import type {GetProcessBundleDescriptorRequest} from './beam_fn_api';
-import type {UnaryCall} from '@protobuf-ts/runtime-rpc';
-import {stackIntercept} from '@protobuf-ts/runtime-rpc';
-import type {InstructionRequest} from './beam_fn_api';
-import type {InstructionResponse} from './beam_fn_api';
-import type {DuplexStreamingCall} from '@protobuf-ts/runtime-rpc';
-import type {RpcOptions} from '@protobuf-ts/runtime-rpc';
+import { BeamFnWorkerStatus } from "./beam_fn_api";
+import type { WorkerStatusRequest } from "./beam_fn_api";
+import type { WorkerStatusResponse } from "./beam_fn_api";
+import { BeamFnExternalWorkerPool } from "./beam_fn_api";
+import type { StopWorkerResponse } from "./beam_fn_api";
+import type { StopWorkerRequest } from "./beam_fn_api";
+import type { StartWorkerResponse } from "./beam_fn_api";
+import type { StartWorkerRequest } from "./beam_fn_api";
+import { BeamFnLogging } from "./beam_fn_api";
+import type { LogControl } from "./beam_fn_api";
+import type { LogEntry_List } from "./beam_fn_api";
+import { BeamFnState } from "./beam_fn_api";
+import type { StateResponse } from "./beam_fn_api";
+import type { StateRequest } from "./beam_fn_api";
+import { BeamFnData } from "./beam_fn_api";
+import type { Elements } from "./beam_fn_api";
+import type { RpcTransport } from "@protobuf-ts/runtime-rpc";
+import type { ServiceInfo } from "@protobuf-ts/runtime-rpc";
+import { BeamFnControl } from "./beam_fn_api";
+import type { ProcessBundleDescriptor } from "./beam_fn_api";
+import type { GetProcessBundleDescriptorRequest } from "./beam_fn_api";
+import type { UnaryCall } from "@protobuf-ts/runtime-rpc";
+import { stackIntercept } from "@protobuf-ts/runtime-rpc";
+import type { InstructionRequest } from "./beam_fn_api";
+import type { InstructionResponse } from "./beam_fn_api";
+import type { DuplexStreamingCall } from "@protobuf-ts/runtime-rpc";
+import type { RpcOptions } from "@protobuf-ts/runtime-rpc";
 //
 // Control Plane API
 //
@@ -85,8 +85,9 @@ export interface IBeamFnControlClient {
    * org.apache.beam.model.fn_execution.v1.InstructionResponse) returns (stream
    * org.apache.beam.model.fn_execution.v1.InstructionRequest);
    */
-  control(options?: RpcOptions):
-      DuplexStreamingCall<InstructionResponse, InstructionRequest>;
+  control(
+    options?: RpcOptions
+  ): DuplexStreamingCall<InstructionResponse, InstructionRequest>;
   /**
    * Used to get the full process bundle descriptors for bundles one
    * is asked to process.
@@ -96,8 +97,9 @@ export interface IBeamFnControlClient {
    * returns (org.apache.beam.model.fn_execution.v1.ProcessBundleDescriptor);
    */
   getProcessBundleDescriptor(
-      input: GetProcessBundleDescriptorRequest, options?: RpcOptions):
-      UnaryCall<GetProcessBundleDescriptorRequest, ProcessBundleDescriptor>;
+    input: GetProcessBundleDescriptorRequest,
+    options?: RpcOptions
+  ): UnaryCall<GetProcessBundleDescriptorRequest, ProcessBundleDescriptor>;
 }
 //
 // Control Plane API
@@ -126,11 +128,17 @@ export class BeamFnControlClient implements IBeamFnControlClient, ServiceInfo {
    * org.apache.beam.model.fn_execution.v1.InstructionResponse) returns (stream
    * org.apache.beam.model.fn_execution.v1.InstructionRequest);
    */
-  control(options?: RpcOptions):
-      DuplexStreamingCall<InstructionResponse, InstructionRequest> {
-    const method = this.methods[0], opt = this._transport.mergeOptions(options);
+  control(
+    options?: RpcOptions
+  ): DuplexStreamingCall<InstructionResponse, InstructionRequest> {
+    const method = this.methods[0],
+      opt = this._transport.mergeOptions(options);
     return stackIntercept<InstructionResponse, InstructionRequest>(
-        'duplex', this._transport, method, opt);
+      "duplex",
+      this._transport,
+      method,
+      opt
+    );
   }
   /**
    * Used to get the full process bundle descriptors for bundles one
@@ -141,12 +149,15 @@ export class BeamFnControlClient implements IBeamFnControlClient, ServiceInfo {
    * returns (org.apache.beam.model.fn_execution.v1.ProcessBundleDescriptor);
    */
   getProcessBundleDescriptor(
-      input: GetProcessBundleDescriptorRequest, options?: RpcOptions):
-      UnaryCall<GetProcessBundleDescriptorRequest, ProcessBundleDescriptor> {
-    const method = this.methods[1], opt = this._transport.mergeOptions(options);
+    input: GetProcessBundleDescriptorRequest,
+    options?: RpcOptions
+  ): UnaryCall<GetProcessBundleDescriptorRequest, ProcessBundleDescriptor> {
+    const method = this.methods[1],
+      opt = this._transport.mergeOptions(options);
     return stackIntercept<
-        GetProcessBundleDescriptorRequest, ProcessBundleDescriptor>(
-        'unary', this._transport, method, opt, input);
+      GetProcessBundleDescriptorRequest,
+      ProcessBundleDescriptor
+    >("unary", this._transport, method, opt, input);
   }
 }
 /**
@@ -184,9 +195,14 @@ export class BeamFnDataClient implements IBeamFnDataClient, ServiceInfo {
    * org.apache.beam.model.fn_execution.v1.Elements);
    */
   data(options?: RpcOptions): DuplexStreamingCall<Elements, Elements> {
-    const method = this.methods[0], opt = this._transport.mergeOptions(options);
+    const method = this.methods[0],
+      opt = this._transport.mergeOptions(options);
     return stackIntercept<Elements, Elements>(
-        'duplex', this._transport, method, opt);
+      "duplex",
+      this._transport,
+      method,
+      opt
+    );
   }
 }
 /**
@@ -219,11 +235,17 @@ export class BeamFnStateClient implements IBeamFnStateClient, ServiceInfo {
    * org.apache.beam.model.fn_execution.v1.StateRequest) returns (stream
    * org.apache.beam.model.fn_execution.v1.StateResponse);
    */
-  state(options?: RpcOptions):
-      DuplexStreamingCall<StateRequest, StateResponse> {
-    const method = this.methods[0], opt = this._transport.mergeOptions(options);
+  state(
+    options?: RpcOptions
+  ): DuplexStreamingCall<StateRequest, StateResponse> {
+    const method = this.methods[0],
+      opt = this._transport.mergeOptions(options);
     return stackIntercept<StateRequest, StateResponse>(
-        'duplex', this._transport, method, opt);
+      "duplex",
+      this._transport,
+      method,
+      opt
+    );
   }
 }
 /**
@@ -262,11 +284,17 @@ export class BeamFnLoggingClient implements IBeamFnLoggingClient, ServiceInfo {
    * org.apache.beam.model.fn_execution.v1.LogEntry.List) returns (stream
    * org.apache.beam.model.fn_execution.v1.LogControl);
    */
-  logging(options?: RpcOptions):
-      DuplexStreamingCall<LogEntry_List, LogControl> {
-    const method = this.methods[0], opt = this._transport.mergeOptions(options);
+  logging(
+    options?: RpcOptions
+  ): DuplexStreamingCall<LogEntry_List, LogControl> {
+    const method = this.methods[0],
+      opt = this._transport.mergeOptions(options);
     return stackIntercept<LogEntry_List, LogControl>(
-        'duplex', this._transport, method, opt);
+      "duplex",
+      this._transport,
+      method,
+      opt
+    );
   }
 }
 /**
@@ -281,8 +309,10 @@ export interface IBeamFnExternalWorkerPoolClient {
    * StartWorker(org.apache.beam.model.fn_execution.v1.StartWorkerRequest)
    * returns (org.apache.beam.model.fn_execution.v1.StartWorkerResponse);
    */
-  startWorker(input: StartWorkerRequest, options?: RpcOptions):
-      UnaryCall<StartWorkerRequest, StartWorkerResponse>;
+  startWorker(
+    input: StartWorkerRequest,
+    options?: RpcOptions
+  ): UnaryCall<StartWorkerRequest, StartWorkerResponse>;
   /**
    * Stop the SDK worker.
    *
@@ -290,15 +320,18 @@ export interface IBeamFnExternalWorkerPoolClient {
    * StopWorker(org.apache.beam.model.fn_execution.v1.StopWorkerRequest) returns
    * (org.apache.beam.model.fn_execution.v1.StopWorkerResponse);
    */
-  stopWorker(input: StopWorkerRequest, options?: RpcOptions):
-      UnaryCall<StopWorkerRequest, StopWorkerResponse>;
+  stopWorker(
+    input: StopWorkerRequest,
+    options?: RpcOptions
+  ): UnaryCall<StopWorkerRequest, StopWorkerResponse>;
 }
 /**
  * @generated from protobuf service
  * org.apache.beam.model.fn_execution.v1.BeamFnExternalWorkerPool
  */
-export class BeamFnExternalWorkerPoolClient implements
-    IBeamFnExternalWorkerPoolClient, ServiceInfo {
+export class BeamFnExternalWorkerPoolClient
+  implements IBeamFnExternalWorkerPoolClient, ServiceInfo
+{
   typeName = BeamFnExternalWorkerPool.typeName;
   methods = BeamFnExternalWorkerPool.methods;
   options = BeamFnExternalWorkerPool.options;
@@ -310,11 +343,19 @@ export class BeamFnExternalWorkerPoolClient implements
    * StartWorker(org.apache.beam.model.fn_execution.v1.StartWorkerRequest)
    * returns (org.apache.beam.model.fn_execution.v1.StartWorkerResponse);
    */
-  startWorker(input: StartWorkerRequest, options?: RpcOptions):
-      UnaryCall<StartWorkerRequest, StartWorkerResponse> {
-    const method = this.methods[0], opt = this._transport.mergeOptions(options);
+  startWorker(
+    input: StartWorkerRequest,
+    options?: RpcOptions
+  ): UnaryCall<StartWorkerRequest, StartWorkerResponse> {
+    const method = this.methods[0],
+      opt = this._transport.mergeOptions(options);
     return stackIntercept<StartWorkerRequest, StartWorkerResponse>(
-        'unary', this._transport, method, opt, input);
+      "unary",
+      this._transport,
+      method,
+      opt,
+      input
+    );
   }
   /**
    * Stop the SDK worker.
@@ -323,11 +364,19 @@ export class BeamFnExternalWorkerPoolClient implements
    * StopWorker(org.apache.beam.model.fn_execution.v1.StopWorkerRequest) returns
    * (org.apache.beam.model.fn_execution.v1.StopWorkerResponse);
    */
-  stopWorker(input: StopWorkerRequest, options?: RpcOptions):
-      UnaryCall<StopWorkerRequest, StopWorkerResponse> {
-    const method = this.methods[1], opt = this._transport.mergeOptions(options);
+  stopWorker(
+    input: StopWorkerRequest,
+    options?: RpcOptions
+  ): UnaryCall<StopWorkerRequest, StopWorkerResponse> {
+    const method = this.methods[1],
+      opt = this._transport.mergeOptions(options);
     return stackIntercept<StopWorkerRequest, StopWorkerResponse>(
-        'unary', this._transport, method, opt, input);
+      "unary",
+      this._transport,
+      method,
+      opt,
+      input
+    );
   }
 }
 /**
@@ -343,8 +392,9 @@ export interface IBeamFnWorkerStatusClient {
    * org.apache.beam.model.fn_execution.v1.WorkerStatusResponse) returns (stream
    * org.apache.beam.model.fn_execution.v1.WorkerStatusRequest);
    */
-  workerStatus(options?: RpcOptions):
-      DuplexStreamingCall<WorkerStatusResponse, WorkerStatusRequest>;
+  workerStatus(
+    options?: RpcOptions
+  ): DuplexStreamingCall<WorkerStatusResponse, WorkerStatusRequest>;
 }
 /**
  * API for SDKs to report debug-related statuses to runner during pipeline
@@ -353,8 +403,9 @@ export interface IBeamFnWorkerStatusClient {
  * @generated from protobuf service
  * org.apache.beam.model.fn_execution.v1.BeamFnWorkerStatus
  */
-export class BeamFnWorkerStatusClient implements IBeamFnWorkerStatusClient,
-                                                 ServiceInfo {
+export class BeamFnWorkerStatusClient
+  implements IBeamFnWorkerStatusClient, ServiceInfo
+{
   typeName = BeamFnWorkerStatus.typeName;
   methods = BeamFnWorkerStatus.methods;
   options = BeamFnWorkerStatus.options;
@@ -364,10 +415,16 @@ export class BeamFnWorkerStatusClient implements IBeamFnWorkerStatusClient,
    * org.apache.beam.model.fn_execution.v1.WorkerStatusResponse) returns (stream
    * org.apache.beam.model.fn_execution.v1.WorkerStatusRequest);
    */
-  workerStatus(options?: RpcOptions):
-      DuplexStreamingCall<WorkerStatusResponse, WorkerStatusRequest> {
-    const method = this.methods[0], opt = this._transport.mergeOptions(options);
+  workerStatus(
+    options?: RpcOptions
+  ): DuplexStreamingCall<WorkerStatusResponse, WorkerStatusRequest> {
+    const method = this.methods[0],
+      opt = this._transport.mergeOptions(options);
     return stackIntercept<WorkerStatusResponse, WorkerStatusRequest>(
-        'duplex', this._transport, method, opt);
+      "duplex",
+      this._transport,
+      method,
+      opt
+    );
   }
 }

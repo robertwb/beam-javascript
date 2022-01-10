@@ -25,16 +25,16 @@
 //
 // Protocol Buffers describing endpoints containing a service.
 //
-import type {BinaryWriteOptions} from '@protobuf-ts/runtime';
-import type {IBinaryWriter} from '@protobuf-ts/runtime';
-import {WireType} from '@protobuf-ts/runtime';
-import type {BinaryReadOptions} from '@protobuf-ts/runtime';
-import type {IBinaryReader} from '@protobuf-ts/runtime';
-import {UnknownFieldHandler} from '@protobuf-ts/runtime';
-import type {PartialMessage} from '@protobuf-ts/runtime';
-import {reflectionMergePartial} from '@protobuf-ts/runtime';
-import {MESSAGE_TYPE} from '@protobuf-ts/runtime';
-import {MessageType} from '@protobuf-ts/runtime';
+import type { BinaryWriteOptions } from "@protobuf-ts/runtime";
+import type { IBinaryWriter } from "@protobuf-ts/runtime";
+import { WireType } from "@protobuf-ts/runtime";
+import type { BinaryReadOptions } from "@protobuf-ts/runtime";
+import type { IBinaryReader } from "@protobuf-ts/runtime";
+import { UnknownFieldHandler } from "@protobuf-ts/runtime";
+import type { PartialMessage } from "@protobuf-ts/runtime";
+import { reflectionMergePartial } from "@protobuf-ts/runtime";
+import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
+import { MessageType } from "@protobuf-ts/runtime";
 /**
  * A description of how to connect to a Beam API endpoint.
  *
@@ -84,27 +84,34 @@ export interface AuthenticationSpec {
 // optimized methods
 class ApiServiceDescriptor$Type extends MessageType<ApiServiceDescriptor> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.ApiServiceDescriptor', [
-      {no: 1, name: 'url', kind: 'scalar', T: 9 /*ScalarType.STRING*/}, {
+    super("org.apache.beam.model.pipeline.v1.ApiServiceDescriptor", [
+      { no: 1, name: "url", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      {
         no: 2,
-        name: 'authentication',
-        kind: 'message',
-        T: () => AuthenticationSpec
-      }
+        name: "authentication",
+        kind: "message",
+        T: () => AuthenticationSpec,
+      },
     ]);
   }
   create(value?: PartialMessage<ApiServiceDescriptor>): ApiServiceDescriptor {
-    const message = {url: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { url: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ApiServiceDescriptor>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ApiServiceDescriptor): ApiServiceDescriptor {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ApiServiceDescriptor
+  ): ApiServiceDescriptor {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -113,41 +120,56 @@ class ApiServiceDescriptor$Type extends MessageType<ApiServiceDescriptor> {
           break;
         case /* org.apache.beam.model.pipeline.v1.AuthenticationSpec
                 authentication */
-            2:
+        2:
           message.authentication = AuthenticationSpec.internalBinaryRead(
-              reader, reader.uint32(), options, message.authentication);
+            reader,
+            reader.uint32(),
+            options,
+            message.authentication
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ApiServiceDescriptor, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ApiServiceDescriptor,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string url = 1; */
-    if (message.url !== '')
+    if (message.url !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.url);
     /* org.apache.beam.model.pipeline.v1.AuthenticationSpec authentication = 2;
      */
     if (message.authentication)
-      AuthenticationSpec
-          .internalBinaryWrite(
-              message.authentication,
-              writer.tag(2, WireType.LengthDelimited).fork(), options)
-          .join();
+      AuthenticationSpec.internalBinaryWrite(
+        message.authentication,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -160,23 +182,29 @@ export const ApiServiceDescriptor = new ApiServiceDescriptor$Type();
 // optimized methods
 class AuthenticationSpec$Type extends MessageType<AuthenticationSpec> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.AuthenticationSpec', [
-      {no: 1, name: 'urn', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 2, name: 'payload', kind: 'scalar', T: 12 /*ScalarType.BYTES*/}
+    super("org.apache.beam.model.pipeline.v1.AuthenticationSpec", [
+      { no: 1, name: "urn", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      { no: 2, name: "payload", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
     ]);
   }
   create(value?: PartialMessage<AuthenticationSpec>): AuthenticationSpec {
-    const message = {urn: '', payload: new Uint8Array(0)};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { urn: "", payload: new Uint8Array(0) };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<AuthenticationSpec>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: AuthenticationSpec): AuthenticationSpec {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: AuthenticationSpec
+  ): AuthenticationSpec {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -188,22 +216,30 @@ class AuthenticationSpec$Type extends MessageType<AuthenticationSpec> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: AuthenticationSpec, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: AuthenticationSpec,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string urn = 1; */
-    if (message.urn !== '')
+    if (message.urn !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.urn);
     /* bytes payload = 2; */
     if (message.payload.length)
@@ -211,7 +247,10 @@ class AuthenticationSpec$Type extends MessageType<AuthenticationSpec> {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }

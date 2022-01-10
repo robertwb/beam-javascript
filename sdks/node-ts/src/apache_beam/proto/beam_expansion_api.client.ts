@@ -25,14 +25,14 @@
 // Protocol Buffers describing the Expansion API, an api for expanding
 // transforms in a remote SDK.
 //
-import type {RpcTransport} from '@protobuf-ts/runtime-rpc';
-import type {ServiceInfo} from '@protobuf-ts/runtime-rpc';
-import {ExpansionService} from './beam_expansion_api';
-import {stackIntercept} from '@protobuf-ts/runtime-rpc';
-import type {ExpansionResponse} from './beam_expansion_api';
-import type {ExpansionRequest} from './beam_expansion_api';
-import type {UnaryCall} from '@protobuf-ts/runtime-rpc';
-import type {RpcOptions} from '@protobuf-ts/runtime-rpc';
+import type { RpcTransport } from "@protobuf-ts/runtime-rpc";
+import type { ServiceInfo } from "@protobuf-ts/runtime-rpc";
+import { ExpansionService } from "./beam_expansion_api";
+import { stackIntercept } from "@protobuf-ts/runtime-rpc";
+import type { ExpansionResponse } from "./beam_expansion_api";
+import type { ExpansionRequest } from "./beam_expansion_api";
+import type { UnaryCall } from "@protobuf-ts/runtime-rpc";
+import type { RpcOptions } from "@protobuf-ts/runtime-rpc";
 /**
  * Job Service for constructing pipelines
  *
@@ -45,8 +45,10 @@ export interface IExpansionServiceClient {
    * Expand(org.apache.beam.model.expansion.v1.ExpansionRequest) returns
    * (org.apache.beam.model.expansion.v1.ExpansionResponse);
    */
-  expand(input: ExpansionRequest, options?: RpcOptions):
-      UnaryCall<ExpansionRequest, ExpansionResponse>;
+  expand(
+    input: ExpansionRequest,
+    options?: RpcOptions
+  ): UnaryCall<ExpansionRequest, ExpansionResponse>;
 }
 /**
  * Job Service for constructing pipelines
@@ -54,8 +56,9 @@ export interface IExpansionServiceClient {
  * @generated from protobuf service
  * org.apache.beam.model.expansion.v1.ExpansionService
  */
-export class ExpansionServiceClient implements IExpansionServiceClient,
-                                               ServiceInfo {
+export class ExpansionServiceClient
+  implements IExpansionServiceClient, ServiceInfo
+{
   typeName = ExpansionService.typeName;
   methods = ExpansionService.methods;
   options = ExpansionService.options;
@@ -65,10 +68,18 @@ export class ExpansionServiceClient implements IExpansionServiceClient,
    * Expand(org.apache.beam.model.expansion.v1.ExpansionRequest) returns
    * (org.apache.beam.model.expansion.v1.ExpansionResponse);
    */
-  expand(input: ExpansionRequest, options?: RpcOptions):
-      UnaryCall<ExpansionRequest, ExpansionResponse> {
-    const method = this.methods[0], opt = this._transport.mergeOptions(options);
+  expand(
+    input: ExpansionRequest,
+    options?: RpcOptions
+  ): UnaryCall<ExpansionRequest, ExpansionResponse> {
+    const method = this.methods[0],
+      opt = this._transport.mergeOptions(options);
     return stackIntercept<ExpansionRequest, ExpansionResponse>(
-        'unary', this._transport, method, opt, input);
+      "unary",
+      this._transport,
+      method,
+      opt,
+      input
+    );
   }
 }

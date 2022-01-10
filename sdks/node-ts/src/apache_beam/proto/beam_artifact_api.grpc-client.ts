@@ -26,27 +26,27 @@
 // Protocol Buffers describing the Artifact API, for communicating with a runner
 // for artifact staging and retrieval over GRPC.
 //
-import {LegacyArtifactRetrievalService} from './beam_artifact_api';
-import type {ArtifactChunk} from './beam_artifact_api';
-import type {LegacyGetArtifactRequest} from './beam_artifact_api';
-import type {GetManifestResponse} from './beam_artifact_api';
-import type {GetManifestRequest} from './beam_artifact_api';
-import {LegacyArtifactStagingService} from './beam_artifact_api';
-import type {CommitManifestResponse} from './beam_artifact_api';
-import type {CommitManifestRequest} from './beam_artifact_api';
-import type {PutArtifactRequest} from './beam_artifact_api';
-import type {PutArtifactResponse} from './beam_artifact_api';
-import {ArtifactStagingService} from './beam_artifact_api';
-import type {ArtifactRequestWrapper} from './beam_artifact_api';
-import type {ArtifactResponseWrapper} from './beam_artifact_api';
-import {ArtifactRetrievalService} from './beam_artifact_api';
-import type {BinaryWriteOptions} from '@protobuf-ts/runtime';
-import type {BinaryReadOptions} from '@protobuf-ts/runtime';
-import type {GetArtifactResponse} from './beam_artifact_api';
-import type {GetArtifactRequest} from './beam_artifact_api';
-import type {ResolveArtifactsResponse} from './beam_artifact_api';
-import type {ResolveArtifactsRequest} from './beam_artifact_api';
-import * as grpc from '@grpc/grpc-js';
+import { LegacyArtifactRetrievalService } from "./beam_artifact_api";
+import type { ArtifactChunk } from "./beam_artifact_api";
+import type { LegacyGetArtifactRequest } from "./beam_artifact_api";
+import type { GetManifestResponse } from "./beam_artifact_api";
+import type { GetManifestRequest } from "./beam_artifact_api";
+import { LegacyArtifactStagingService } from "./beam_artifact_api";
+import type { CommitManifestResponse } from "./beam_artifact_api";
+import type { CommitManifestRequest } from "./beam_artifact_api";
+import type { PutArtifactRequest } from "./beam_artifact_api";
+import type { PutArtifactResponse } from "./beam_artifact_api";
+import { ArtifactStagingService } from "./beam_artifact_api";
+import type { ArtifactRequestWrapper } from "./beam_artifact_api";
+import type { ArtifactResponseWrapper } from "./beam_artifact_api";
+import { ArtifactRetrievalService } from "./beam_artifact_api";
+import type { BinaryWriteOptions } from "@protobuf-ts/runtime";
+import type { BinaryReadOptions } from "@protobuf-ts/runtime";
+import type { GetArtifactResponse } from "./beam_artifact_api";
+import type { GetArtifactRequest } from "./beam_artifact_api";
+import type { ResolveArtifactsResponse } from "./beam_artifact_api";
+import type { ResolveArtifactsRequest } from "./beam_artifact_api";
+import * as grpc from "@grpc/grpc-js";
 /**
  * A service to retrieve artifacts for use in a Job.
  *
@@ -64,26 +64,37 @@ export interface IArtifactRetrievalServiceClient {
    * returns (org.apache.beam.model.job_management.v1.ResolveArtifactsResponse);
    */
   resolveArtifacts(
-      input: ResolveArtifactsRequest, metadata: grpc.Metadata,
-      options: grpc.CallOptions,
-      callback:
-          (err: grpc.ServiceError|null,
-           value?: ResolveArtifactsResponse) => void): grpc.ClientUnaryCall;
+    input: ResolveArtifactsRequest,
+    metadata: grpc.Metadata,
+    options: grpc.CallOptions,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: ResolveArtifactsResponse
+    ) => void
+  ): grpc.ClientUnaryCall;
   resolveArtifacts(
-      input: ResolveArtifactsRequest, metadata: grpc.Metadata,
-      callback:
-          (err: grpc.ServiceError|null,
-           value?: ResolveArtifactsResponse) => void): grpc.ClientUnaryCall;
+    input: ResolveArtifactsRequest,
+    metadata: grpc.Metadata,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: ResolveArtifactsResponse
+    ) => void
+  ): grpc.ClientUnaryCall;
   resolveArtifacts(
-      input: ResolveArtifactsRequest, options: grpc.CallOptions,
-      callback:
-          (err: grpc.ServiceError|null,
-           value?: ResolveArtifactsResponse) => void): grpc.ClientUnaryCall;
+    input: ResolveArtifactsRequest,
+    options: grpc.CallOptions,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: ResolveArtifactsResponse
+    ) => void
+  ): grpc.ClientUnaryCall;
   resolveArtifacts(
-      input: ResolveArtifactsRequest,
-      callback:
-          (err: grpc.ServiceError|null,
-           value?: ResolveArtifactsResponse) => void): grpc.ClientUnaryCall;
+    input: ResolveArtifactsRequest,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: ResolveArtifactsResponse
+    ) => void
+  ): grpc.ClientUnaryCall;
   /**
    * Retrieves the given artifact as a stream of bytes.
    *
@@ -93,11 +104,14 @@ export interface IArtifactRetrievalServiceClient {
    * org.apache.beam.model.job_management.v1.GetArtifactResponse);
    */
   getArtifact(
-      input: GetArtifactRequest, metadata?: grpc.Metadata,
-      options?: grpc.CallOptions):
-      grpc.ClientReadableStream<GetArtifactResponse>;
-  getArtifact(input: GetArtifactRequest, options?: grpc.CallOptions):
-      grpc.ClientReadableStream<GetArtifactResponse>;
+    input: GetArtifactRequest,
+    metadata?: grpc.Metadata,
+    options?: grpc.CallOptions
+  ): grpc.ClientReadableStream<GetArtifactResponse>;
+  getArtifact(
+    input: GetArtifactRequest,
+    options?: grpc.CallOptions
+  ): grpc.ClientReadableStream<GetArtifactResponse>;
 }
 /**
  * A service to retrieve artifacts for use in a Job.
@@ -105,14 +119,19 @@ export interface IArtifactRetrievalServiceClient {
  * @generated from protobuf service
  * org.apache.beam.model.job_management.v1.ArtifactRetrievalService
  */
-export class ArtifactRetrievalServiceClient extends grpc.Client implements
-    IArtifactRetrievalServiceClient {
-  private readonly _binaryOptions:
-      Partial<BinaryReadOptions&BinaryWriteOptions>;
+export class ArtifactRetrievalServiceClient
+  extends grpc.Client
+  implements IArtifactRetrievalServiceClient
+{
+  private readonly _binaryOptions: Partial<
+    BinaryReadOptions & BinaryWriteOptions
+  >;
   constructor(
-      address: string, credentials: grpc.ChannelCredentials,
-      options: grpc.ClientOptions = {},
-      binaryOptions: Partial<BinaryReadOptions&BinaryWriteOptions> = {}) {
+    address: string,
+    credentials: grpc.ChannelCredentials,
+    options: grpc.ClientOptions = {},
+    binaryOptions: Partial<BinaryReadOptions & BinaryWriteOptions> = {}
+  ) {
     super(address, credentials, options);
     this._binaryOptions = binaryOptions;
   }
@@ -126,23 +145,40 @@ export class ArtifactRetrievalServiceClient extends grpc.Client implements
    * returns (org.apache.beam.model.job_management.v1.ResolveArtifactsResponse);
    */
   resolveArtifacts(
-      input: ResolveArtifactsRequest,
-      metadata: grpc.Metadata|grpc.CallOptions|
-      ((err: grpc.ServiceError|null, value?: ResolveArtifactsResponse) => void),
-      options?: grpc.CallOptions|
-      ((err: grpc.ServiceError|null, value?: ResolveArtifactsResponse) => void),
-      callback?:
-          ((err: grpc.ServiceError|null,
-            value?: ResolveArtifactsResponse) => void)): grpc.ClientUnaryCall {
+    input: ResolveArtifactsRequest,
+    metadata:
+      | grpc.Metadata
+      | grpc.CallOptions
+      | ((
+          err: grpc.ServiceError | null,
+          value?: ResolveArtifactsResponse
+        ) => void),
+    options?:
+      | grpc.CallOptions
+      | ((
+          err: grpc.ServiceError | null,
+          value?: ResolveArtifactsResponse
+        ) => void),
+    callback?: (
+      err: grpc.ServiceError | null,
+      value?: ResolveArtifactsResponse
+    ) => void
+  ): grpc.ClientUnaryCall {
     const method = ArtifactRetrievalService.methods[0];
-    return this
-        .makeUnaryRequest<ResolveArtifactsRequest, ResolveArtifactsResponse>(
-            `/${ArtifactRetrievalService.typeName}/${method.name}`,
-            (value: ResolveArtifactsRequest): Buffer =>
-                Buffer.from(method.I.toBinary(value, this._binaryOptions)),
-            (value: Buffer): ResolveArtifactsResponse =>
-                method.O.fromBinary(value, this._binaryOptions),
-            input, (metadata as any), (options as any), (callback as any));
+    return this.makeUnaryRequest<
+      ResolveArtifactsRequest,
+      ResolveArtifactsResponse
+    >(
+      `/${ArtifactRetrievalService.typeName}/${method.name}`,
+      (value: ResolveArtifactsRequest): Buffer =>
+        Buffer.from(method.I.toBinary(value, this._binaryOptions)),
+      (value: Buffer): ResolveArtifactsResponse =>
+        method.O.fromBinary(value, this._binaryOptions),
+      input,
+      metadata as any,
+      options as any,
+      callback as any
+    );
   }
   /**
    * Retrieves the given artifact as a stream of bytes.
@@ -153,18 +189,24 @@ export class ArtifactRetrievalServiceClient extends grpc.Client implements
    * org.apache.beam.model.job_management.v1.GetArtifactResponse);
    */
   getArtifact(
-      input: GetArtifactRequest, metadata?: grpc.Metadata|grpc.CallOptions,
-      options?: grpc.CallOptions):
-      grpc.ClientReadableStream<GetArtifactResponse> {
+    input: GetArtifactRequest,
+    metadata?: grpc.Metadata | grpc.CallOptions,
+    options?: grpc.CallOptions
+  ): grpc.ClientReadableStream<GetArtifactResponse> {
     const method = ArtifactRetrievalService.methods[1];
-    return this
-        .makeServerStreamRequest<GetArtifactRequest, GetArtifactResponse>(
-            `/${ArtifactRetrievalService.typeName}/${method.name}`,
-            (value: GetArtifactRequest): Buffer =>
-                Buffer.from(method.I.toBinary(value, this._binaryOptions)),
-            (value: Buffer): GetArtifactResponse =>
-                method.O.fromBinary(value, this._binaryOptions),
-            input, (metadata as any), options);
+    return this.makeServerStreamRequest<
+      GetArtifactRequest,
+      GetArtifactResponse
+    >(
+      `/${ArtifactRetrievalService.typeName}/${method.name}`,
+      (value: GetArtifactRequest): Buffer =>
+        Buffer.from(method.I.toBinary(value, this._binaryOptions)),
+      (value: Buffer): GetArtifactResponse =>
+        method.O.fromBinary(value, this._binaryOptions),
+      input,
+      metadata as any,
+      options
+    );
   }
 }
 /**
@@ -185,10 +227,12 @@ export interface IArtifactStagingServiceClient {
    * (stream org.apache.beam.model.job_management.v1.ArtifactRequestWrapper);
    */
   reverseArtifactRetrievalService(
-      metadata: grpc.Metadata, options?: grpc.CallOptions):
-      grpc.ClientDuplexStream<ArtifactResponseWrapper, ArtifactRequestWrapper>;
-  reverseArtifactRetrievalService(options?: grpc.CallOptions):
-      grpc.ClientDuplexStream<ArtifactResponseWrapper, ArtifactRequestWrapper>;
+    metadata: grpc.Metadata,
+    options?: grpc.CallOptions
+  ): grpc.ClientDuplexStream<ArtifactResponseWrapper, ArtifactRequestWrapper>;
+  reverseArtifactRetrievalService(
+    options?: grpc.CallOptions
+  ): grpc.ClientDuplexStream<ArtifactResponseWrapper, ArtifactRequestWrapper>;
 }
 /**
  * A service that allows the client to act as an ArtifactRetrievalService,
@@ -201,14 +245,19 @@ export interface IArtifactStagingServiceClient {
  * @generated from protobuf service
  * org.apache.beam.model.job_management.v1.ArtifactStagingService
  */
-export class ArtifactStagingServiceClient extends grpc.Client implements
-    IArtifactStagingServiceClient {
-  private readonly _binaryOptions:
-      Partial<BinaryReadOptions&BinaryWriteOptions>;
+export class ArtifactStagingServiceClient
+  extends grpc.Client
+  implements IArtifactStagingServiceClient
+{
+  private readonly _binaryOptions: Partial<
+    BinaryReadOptions & BinaryWriteOptions
+  >;
   constructor(
-      address: string, credentials: grpc.ChannelCredentials,
-      options: grpc.ClientOptions = {},
-      binaryOptions: Partial<BinaryReadOptions&BinaryWriteOptions> = {}) {
+    address: string,
+    credentials: grpc.ChannelCredentials,
+    options: grpc.ClientOptions = {},
+    binaryOptions: Partial<BinaryReadOptions & BinaryWriteOptions> = {}
+  ) {
     super(address, credentials, options);
     this._binaryOptions = binaryOptions;
   }
@@ -218,17 +267,22 @@ export class ArtifactStagingServiceClient extends grpc.Client implements
    * (stream org.apache.beam.model.job_management.v1.ArtifactRequestWrapper);
    */
   reverseArtifactRetrievalService(
-      metadata?: grpc.Metadata|grpc.CallOptions, options?: grpc.CallOptions):
-      grpc.ClientDuplexStream<ArtifactResponseWrapper, ArtifactRequestWrapper> {
+    metadata?: grpc.Metadata | grpc.CallOptions,
+    options?: grpc.CallOptions
+  ): grpc.ClientDuplexStream<ArtifactResponseWrapper, ArtifactRequestWrapper> {
     const method = ArtifactStagingService.methods[0];
-    return this
-        .makeBidiStreamRequest<ArtifactResponseWrapper, ArtifactRequestWrapper>(
-            `/${ArtifactStagingService.typeName}/${method.name}`,
-            (value: ArtifactResponseWrapper): Buffer =>
-                Buffer.from(method.I.toBinary(value, this._binaryOptions)),
-            (value: Buffer): ArtifactRequestWrapper =>
-                method.O.fromBinary(value, this._binaryOptions),
-            (metadata as any), options);
+    return this.makeBidiStreamRequest<
+      ArtifactResponseWrapper,
+      ArtifactRequestWrapper
+    >(
+      `/${ArtifactStagingService.typeName}/${method.name}`,
+      (value: ArtifactResponseWrapper): Buffer =>
+        Buffer.from(method.I.toBinary(value, this._binaryOptions)),
+      (value: Buffer): ArtifactRequestWrapper =>
+        method.O.fromBinary(value, this._binaryOptions),
+      metadata as any,
+      options
+    );
   }
 }
 // Legacy artifact staging service for pipeline-level artifacts.
@@ -250,24 +304,33 @@ export interface ILegacyArtifactStagingServiceClient {
    * (org.apache.beam.model.job_management.v1.PutArtifactResponse);
    */
   putArtifact(
-      metadata: grpc.Metadata, options: grpc.CallOptions,
-      callback:
-          (err: grpc.ServiceError|null, value?: PutArtifactResponse) => void):
-      grpc.ClientWritableStream<PutArtifactRequest>;
+    metadata: grpc.Metadata,
+    options: grpc.CallOptions,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: PutArtifactResponse
+    ) => void
+  ): grpc.ClientWritableStream<PutArtifactRequest>;
   putArtifact(
-      metadata: grpc.Metadata,
-      callback:
-          (err: grpc.ServiceError|null, value?: PutArtifactResponse) => void):
-      grpc.ClientWritableStream<PutArtifactRequest>;
+    metadata: grpc.Metadata,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: PutArtifactResponse
+    ) => void
+  ): grpc.ClientWritableStream<PutArtifactRequest>;
   putArtifact(
-      options: grpc.CallOptions,
-      callback:
-          (err: grpc.ServiceError|null, value?: PutArtifactResponse) => void):
-      grpc.ClientWritableStream<PutArtifactRequest>;
+    options: grpc.CallOptions,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: PutArtifactResponse
+    ) => void
+  ): grpc.ClientWritableStream<PutArtifactRequest>;
   putArtifact(
-      callback:
-          (err: grpc.ServiceError|null, value?: PutArtifactResponse) => void):
-      grpc.ClientWritableStream<PutArtifactRequest>;
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: PutArtifactResponse
+    ) => void
+  ): grpc.ClientWritableStream<PutArtifactRequest>;
   /**
    * Commit the manifest for a Job. All artifacts must have been successfully
    * uploaded before this call is made.
@@ -280,22 +343,37 @@ export interface ILegacyArtifactStagingServiceClient {
    * returns (org.apache.beam.model.job_management.v1.CommitManifestResponse);
    */
   commitManifest(
-      input: CommitManifestRequest, metadata: grpc.Metadata,
-      options: grpc.CallOptions,
-      callback: (err: grpc.ServiceError|null, value?: CommitManifestResponse) =>
-          void): grpc.ClientUnaryCall;
+    input: CommitManifestRequest,
+    metadata: grpc.Metadata,
+    options: grpc.CallOptions,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: CommitManifestResponse
+    ) => void
+  ): grpc.ClientUnaryCall;
   commitManifest(
-      input: CommitManifestRequest, metadata: grpc.Metadata,
-      callback: (err: grpc.ServiceError|null, value?: CommitManifestResponse) =>
-          void): grpc.ClientUnaryCall;
+    input: CommitManifestRequest,
+    metadata: grpc.Metadata,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: CommitManifestResponse
+    ) => void
+  ): grpc.ClientUnaryCall;
   commitManifest(
-      input: CommitManifestRequest, options: grpc.CallOptions,
-      callback: (err: grpc.ServiceError|null, value?: CommitManifestResponse) =>
-          void): grpc.ClientUnaryCall;
+    input: CommitManifestRequest,
+    options: grpc.CallOptions,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: CommitManifestResponse
+    ) => void
+  ): grpc.ClientUnaryCall;
   commitManifest(
-      input: CommitManifestRequest,
-      callback: (err: grpc.ServiceError|null, value?: CommitManifestResponse) =>
-          void): grpc.ClientUnaryCall;
+    input: CommitManifestRequest,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: CommitManifestResponse
+    ) => void
+  ): grpc.ClientUnaryCall;
 }
 // Legacy artifact staging service for pipeline-level artifacts.
 
@@ -305,14 +383,19 @@ export interface ILegacyArtifactStagingServiceClient {
  * @generated from protobuf service
  * org.apache.beam.model.job_management.v1.LegacyArtifactStagingService
  */
-export class LegacyArtifactStagingServiceClient extends grpc.Client implements
-    ILegacyArtifactStagingServiceClient {
-  private readonly _binaryOptions:
-      Partial<BinaryReadOptions&BinaryWriteOptions>;
+export class LegacyArtifactStagingServiceClient
+  extends grpc.Client
+  implements ILegacyArtifactStagingServiceClient
+{
+  private readonly _binaryOptions: Partial<
+    BinaryReadOptions & BinaryWriteOptions
+  >;
   constructor(
-      address: string, credentials: grpc.ChannelCredentials,
-      options: grpc.ClientOptions = {},
-      binaryOptions: Partial<BinaryReadOptions&BinaryWriteOptions> = {}) {
+    address: string,
+    credentials: grpc.ChannelCredentials,
+    options: grpc.ClientOptions = {},
+    binaryOptions: Partial<BinaryReadOptions & BinaryWriteOptions> = {}
+  ) {
     super(address, credentials, options);
     this._binaryOptions = binaryOptions;
   }
@@ -326,22 +409,32 @@ export class LegacyArtifactStagingServiceClient extends grpc.Client implements
    * (org.apache.beam.model.job_management.v1.PutArtifactResponse);
    */
   putArtifact(
-      metadata: grpc.Metadata|grpc.CallOptions|
-      ((err: grpc.ServiceError|null, value?: PutArtifactResponse) => void),
-      options?: grpc.CallOptions|
-      ((err: grpc.ServiceError|null, value?: PutArtifactResponse) => void),
-      callback?:
-          ((err: grpc.ServiceError|null, value?: PutArtifactResponse) => void)):
-      grpc.ClientWritableStream<PutArtifactRequest> {
+    metadata:
+      | grpc.Metadata
+      | grpc.CallOptions
+      | ((err: grpc.ServiceError | null, value?: PutArtifactResponse) => void),
+    options?:
+      | grpc.CallOptions
+      | ((err: grpc.ServiceError | null, value?: PutArtifactResponse) => void),
+    callback?: (
+      err: grpc.ServiceError | null,
+      value?: PutArtifactResponse
+    ) => void
+  ): grpc.ClientWritableStream<PutArtifactRequest> {
     const method = LegacyArtifactStagingService.methods[0];
-    return this
-        .makeClientStreamRequest<PutArtifactRequest, PutArtifactResponse>(
-            `/${LegacyArtifactStagingService.typeName}/${method.name}`,
-            (value: PutArtifactRequest): Buffer =>
-                Buffer.from(method.I.toBinary(value, this._binaryOptions)),
-            (value: Buffer): PutArtifactResponse =>
-                method.O.fromBinary(value, this._binaryOptions),
-            (metadata as any), (options as any), (callback as any));
+    return this.makeClientStreamRequest<
+      PutArtifactRequest,
+      PutArtifactResponse
+    >(
+      `/${LegacyArtifactStagingService.typeName}/${method.name}`,
+      (value: PutArtifactRequest): Buffer =>
+        Buffer.from(method.I.toBinary(value, this._binaryOptions)),
+      (value: Buffer): PutArtifactResponse =>
+        method.O.fromBinary(value, this._binaryOptions),
+      metadata as any,
+      options as any,
+      callback as any
+    );
   }
   /**
    * Commit the manifest for a Job. All artifacts must have been successfully
@@ -355,22 +448,37 @@ export class LegacyArtifactStagingServiceClient extends grpc.Client implements
    * returns (org.apache.beam.model.job_management.v1.CommitManifestResponse);
    */
   commitManifest(
-      input: CommitManifestRequest,
-      metadata: grpc.Metadata|grpc.CallOptions|
-      ((err: grpc.ServiceError|null, value?: CommitManifestResponse) => void),
-      options?: grpc.CallOptions|
-      ((err: grpc.ServiceError|null, value?: CommitManifestResponse) => void),
-      callback?:
-          ((err: grpc.ServiceError|null,
-            value?: CommitManifestResponse) => void)): grpc.ClientUnaryCall {
+    input: CommitManifestRequest,
+    metadata:
+      | grpc.Metadata
+      | grpc.CallOptions
+      | ((
+          err: grpc.ServiceError | null,
+          value?: CommitManifestResponse
+        ) => void),
+    options?:
+      | grpc.CallOptions
+      | ((
+          err: grpc.ServiceError | null,
+          value?: CommitManifestResponse
+        ) => void),
+    callback?: (
+      err: grpc.ServiceError | null,
+      value?: CommitManifestResponse
+    ) => void
+  ): grpc.ClientUnaryCall {
     const method = LegacyArtifactStagingService.methods[1];
     return this.makeUnaryRequest<CommitManifestRequest, CommitManifestResponse>(
-        `/${LegacyArtifactStagingService.typeName}/${method.name}`,
-        (value: CommitManifestRequest): Buffer =>
-            Buffer.from(method.I.toBinary(value, this._binaryOptions)),
-        (value: Buffer): CommitManifestResponse =>
-            method.O.fromBinary(value, this._binaryOptions),
-        input, (metadata as any), (options as any), (callback as any));
+      `/${LegacyArtifactStagingService.typeName}/${method.name}`,
+      (value: CommitManifestRequest): Buffer =>
+        Buffer.from(method.I.toBinary(value, this._binaryOptions)),
+      (value: Buffer): CommitManifestResponse =>
+        method.O.fromBinary(value, this._binaryOptions),
+      input,
+      metadata as any,
+      options as any,
+      callback as any
+    );
   }
 }
 /**
@@ -388,26 +496,37 @@ export interface ILegacyArtifactRetrievalServiceClient {
    * returns (org.apache.beam.model.job_management.v1.GetManifestResponse);
    */
   getManifest(
-      input: GetManifestRequest, metadata: grpc.Metadata,
-      options: grpc.CallOptions,
-      callback:
-          (err: grpc.ServiceError|null, value?: GetManifestResponse) => void):
-      grpc.ClientUnaryCall;
+    input: GetManifestRequest,
+    metadata: grpc.Metadata,
+    options: grpc.CallOptions,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: GetManifestResponse
+    ) => void
+  ): grpc.ClientUnaryCall;
   getManifest(
-      input: GetManifestRequest, metadata: grpc.Metadata,
-      callback:
-          (err: grpc.ServiceError|null, value?: GetManifestResponse) => void):
-      grpc.ClientUnaryCall;
+    input: GetManifestRequest,
+    metadata: grpc.Metadata,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: GetManifestResponse
+    ) => void
+  ): grpc.ClientUnaryCall;
   getManifest(
-      input: GetManifestRequest, options: grpc.CallOptions,
-      callback:
-          (err: grpc.ServiceError|null, value?: GetManifestResponse) => void):
-      grpc.ClientUnaryCall;
+    input: GetManifestRequest,
+    options: grpc.CallOptions,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: GetManifestResponse
+    ) => void
+  ): grpc.ClientUnaryCall;
   getManifest(
-      input: GetManifestRequest,
-      callback:
-          (err: grpc.ServiceError|null, value?: GetManifestResponse) => void):
-      grpc.ClientUnaryCall;
+    input: GetManifestRequest,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: GetManifestResponse
+    ) => void
+  ): grpc.ClientUnaryCall;
   /**
    * Get an artifact staged for the job. The requested artifact must be within
    * the manifest
@@ -417,10 +536,14 @@ export interface ILegacyArtifactRetrievalServiceClient {
    * returns (stream org.apache.beam.model.job_management.v1.ArtifactChunk);
    */
   getArtifact(
-      input: LegacyGetArtifactRequest, metadata?: grpc.Metadata,
-      options?: grpc.CallOptions): grpc.ClientReadableStream<ArtifactChunk>;
-  getArtifact(input: LegacyGetArtifactRequest, options?: grpc.CallOptions):
-      grpc.ClientReadableStream<ArtifactChunk>;
+    input: LegacyGetArtifactRequest,
+    metadata?: grpc.Metadata,
+    options?: grpc.CallOptions
+  ): grpc.ClientReadableStream<ArtifactChunk>;
+  getArtifact(
+    input: LegacyGetArtifactRequest,
+    options?: grpc.CallOptions
+  ): grpc.ClientReadableStream<ArtifactChunk>;
 }
 /**
  * A service to retrieve artifacts for use in a Job.
@@ -428,14 +551,19 @@ export interface ILegacyArtifactRetrievalServiceClient {
  * @generated from protobuf service
  * org.apache.beam.model.job_management.v1.LegacyArtifactRetrievalService
  */
-export class LegacyArtifactRetrievalServiceClient extends grpc.Client implements
-    ILegacyArtifactRetrievalServiceClient {
-  private readonly _binaryOptions:
-      Partial<BinaryReadOptions&BinaryWriteOptions>;
+export class LegacyArtifactRetrievalServiceClient
+  extends grpc.Client
+  implements ILegacyArtifactRetrievalServiceClient
+{
+  private readonly _binaryOptions: Partial<
+    BinaryReadOptions & BinaryWriteOptions
+  >;
   constructor(
-      address: string, credentials: grpc.ChannelCredentials,
-      options: grpc.ClientOptions = {},
-      binaryOptions: Partial<BinaryReadOptions&BinaryWriteOptions> = {}) {
+    address: string,
+    credentials: grpc.ChannelCredentials,
+    options: grpc.ClientOptions = {},
+    binaryOptions: Partial<BinaryReadOptions & BinaryWriteOptions> = {}
+  ) {
     super(address, credentials, options);
     this._binaryOptions = binaryOptions;
   }
@@ -447,22 +575,31 @@ export class LegacyArtifactRetrievalServiceClient extends grpc.Client implements
    * returns (org.apache.beam.model.job_management.v1.GetManifestResponse);
    */
   getManifest(
-      input: GetManifestRequest,
-      metadata: grpc.Metadata|grpc.CallOptions|
-      ((err: grpc.ServiceError|null, value?: GetManifestResponse) => void),
-      options?: grpc.CallOptions|
-      ((err: grpc.ServiceError|null, value?: GetManifestResponse) => void),
-      callback?:
-          ((err: grpc.ServiceError|null, value?: GetManifestResponse) => void)):
-      grpc.ClientUnaryCall {
+    input: GetManifestRequest,
+    metadata:
+      | grpc.Metadata
+      | grpc.CallOptions
+      | ((err: grpc.ServiceError | null, value?: GetManifestResponse) => void),
+    options?:
+      | grpc.CallOptions
+      | ((err: grpc.ServiceError | null, value?: GetManifestResponse) => void),
+    callback?: (
+      err: grpc.ServiceError | null,
+      value?: GetManifestResponse
+    ) => void
+  ): grpc.ClientUnaryCall {
     const method = LegacyArtifactRetrievalService.methods[0];
     return this.makeUnaryRequest<GetManifestRequest, GetManifestResponse>(
-        `/${LegacyArtifactRetrievalService.typeName}/${method.name}`,
-        (value: GetManifestRequest): Buffer =>
-            Buffer.from(method.I.toBinary(value, this._binaryOptions)),
-        (value: Buffer): GetManifestResponse =>
-            method.O.fromBinary(value, this._binaryOptions),
-        input, (metadata as any), (options as any), (callback as any));
+      `/${LegacyArtifactRetrievalService.typeName}/${method.name}`,
+      (value: GetManifestRequest): Buffer =>
+        Buffer.from(method.I.toBinary(value, this._binaryOptions)),
+      (value: Buffer): GetManifestResponse =>
+        method.O.fromBinary(value, this._binaryOptions),
+      input,
+      metadata as any,
+      options as any,
+      callback as any
+    );
   }
   /**
    * Get an artifact staged for the job. The requested artifact must be within
@@ -473,17 +610,23 @@ export class LegacyArtifactRetrievalServiceClient extends grpc.Client implements
    * returns (stream org.apache.beam.model.job_management.v1.ArtifactChunk);
    */
   getArtifact(
-      input: LegacyGetArtifactRequest,
-      metadata?: grpc.Metadata|grpc.CallOptions,
-      options?: grpc.CallOptions): grpc.ClientReadableStream<ArtifactChunk> {
+    input: LegacyGetArtifactRequest,
+    metadata?: grpc.Metadata | grpc.CallOptions,
+    options?: grpc.CallOptions
+  ): grpc.ClientReadableStream<ArtifactChunk> {
     const method = LegacyArtifactRetrievalService.methods[1];
-    return this
-        .makeServerStreamRequest<LegacyGetArtifactRequest, ArtifactChunk>(
-            `/${LegacyArtifactRetrievalService.typeName}/${method.name}`,
-            (value: LegacyGetArtifactRequest): Buffer =>
-                Buffer.from(method.I.toBinary(value, this._binaryOptions)),
-            (value: Buffer): ArtifactChunk =>
-                method.O.fromBinary(value, this._binaryOptions),
-            input, (metadata as any), options);
+    return this.makeServerStreamRequest<
+      LegacyGetArtifactRequest,
+      ArtifactChunk
+    >(
+      `/${LegacyArtifactRetrievalService.typeName}/${method.name}`,
+      (value: LegacyGetArtifactRequest): Buffer =>
+        Buffer.from(method.I.toBinary(value, this._binaryOptions)),
+      (value: Buffer): ArtifactChunk =>
+        method.O.fromBinary(value, this._binaryOptions),
+      input,
+      metadata as any,
+      options
+    );
   }
 }

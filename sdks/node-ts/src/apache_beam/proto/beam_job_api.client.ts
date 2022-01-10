@@ -25,31 +25,31 @@
 // Protocol Buffers describing the Job API, api for communicating with a runner
 // for job submission over GRPC.
 //
-import type {RpcTransport} from '@protobuf-ts/runtime-rpc';
-import type {ServiceInfo} from '@protobuf-ts/runtime-rpc';
-import {JobService} from './beam_job_api';
-import type {DescribePipelineOptionsResponse} from './beam_job_api';
-import type {DescribePipelineOptionsRequest} from './beam_job_api';
-import type {GetJobMetricsResponse} from './beam_job_api';
-import type {GetJobMetricsRequest} from './beam_job_api';
-import type {JobMessagesResponse} from './beam_job_api';
-import type {JobMessagesRequest} from './beam_job_api';
-import type {ServerStreamingCall} from '@protobuf-ts/runtime-rpc';
-import type {CancelJobResponse} from './beam_job_api';
-import type {CancelJobRequest} from './beam_job_api';
-import type {GetJobPipelineResponse} from './beam_job_api';
-import type {GetJobPipelineRequest} from './beam_job_api';
-import type {JobStateEvent} from './beam_job_api';
-import type {GetJobStateRequest} from './beam_job_api';
-import type {GetJobsResponse} from './beam_job_api';
-import type {GetJobsRequest} from './beam_job_api';
-import type {RunJobResponse} from './beam_job_api';
-import type {RunJobRequest} from './beam_job_api';
-import {stackIntercept} from '@protobuf-ts/runtime-rpc';
-import type {PrepareJobResponse} from './beam_job_api';
-import type {PrepareJobRequest} from './beam_job_api';
-import type {UnaryCall} from '@protobuf-ts/runtime-rpc';
-import type {RpcOptions} from '@protobuf-ts/runtime-rpc';
+import type { RpcTransport } from "@protobuf-ts/runtime-rpc";
+import type { ServiceInfo } from "@protobuf-ts/runtime-rpc";
+import { JobService } from "./beam_job_api";
+import type { DescribePipelineOptionsResponse } from "./beam_job_api";
+import type { DescribePipelineOptionsRequest } from "./beam_job_api";
+import type { GetJobMetricsResponse } from "./beam_job_api";
+import type { GetJobMetricsRequest } from "./beam_job_api";
+import type { JobMessagesResponse } from "./beam_job_api";
+import type { JobMessagesRequest } from "./beam_job_api";
+import type { ServerStreamingCall } from "@protobuf-ts/runtime-rpc";
+import type { CancelJobResponse } from "./beam_job_api";
+import type { CancelJobRequest } from "./beam_job_api";
+import type { GetJobPipelineResponse } from "./beam_job_api";
+import type { GetJobPipelineRequest } from "./beam_job_api";
+import type { JobStateEvent } from "./beam_job_api";
+import type { GetJobStateRequest } from "./beam_job_api";
+import type { GetJobsResponse } from "./beam_job_api";
+import type { GetJobsRequest } from "./beam_job_api";
+import type { RunJobResponse } from "./beam_job_api";
+import type { RunJobRequest } from "./beam_job_api";
+import { stackIntercept } from "@protobuf-ts/runtime-rpc";
+import type { PrepareJobResponse } from "./beam_job_api";
+import type { PrepareJobRequest } from "./beam_job_api";
+import type { UnaryCall } from "@protobuf-ts/runtime-rpc";
+import type { RpcOptions } from "@protobuf-ts/runtime-rpc";
 /**
  * Job Service for running RunnerAPI pipelines
  *
@@ -65,8 +65,10 @@ export interface IJobServiceClient {
    * Prepare(org.apache.beam.model.job_management.v1.PrepareJobRequest) returns
    * (org.apache.beam.model.job_management.v1.PrepareJobResponse);
    */
-  prepare(input: PrepareJobRequest, options?: RpcOptions):
-      UnaryCall<PrepareJobRequest, PrepareJobResponse>;
+  prepare(
+    input: PrepareJobRequest,
+    options?: RpcOptions
+  ): UnaryCall<PrepareJobRequest, PrepareJobResponse>;
   /**
    * Submit the job for execution
    *
@@ -74,8 +76,10 @@ export interface IJobServiceClient {
    * Run(org.apache.beam.model.job_management.v1.RunJobRequest) returns
    * (org.apache.beam.model.job_management.v1.RunJobResponse);
    */
-  run(input: RunJobRequest,
-      options?: RpcOptions): UnaryCall<RunJobRequest, RunJobResponse>;
+  run(
+    input: RunJobRequest,
+    options?: RpcOptions
+  ): UnaryCall<RunJobRequest, RunJobResponse>;
   /**
    * Get a list of all invoked jobs
    *
@@ -83,8 +87,10 @@ export interface IJobServiceClient {
    * GetJobs(org.apache.beam.model.job_management.v1.GetJobsRequest) returns
    * (org.apache.beam.model.job_management.v1.GetJobsResponse);
    */
-  getJobs(input: GetJobsRequest, options?: RpcOptions):
-      UnaryCall<GetJobsRequest, GetJobsResponse>;
+  getJobs(
+    input: GetJobsRequest,
+    options?: RpcOptions
+  ): UnaryCall<GetJobsRequest, GetJobsResponse>;
   /**
    * Get the current state of the job
    *
@@ -92,8 +98,10 @@ export interface IJobServiceClient {
    * GetState(org.apache.beam.model.job_management.v1.GetJobStateRequest)
    * returns (org.apache.beam.model.job_management.v1.JobStateEvent);
    */
-  getState(input: GetJobStateRequest, options?: RpcOptions):
-      UnaryCall<GetJobStateRequest, JobStateEvent>;
+  getState(
+    input: GetJobStateRequest,
+    options?: RpcOptions
+  ): UnaryCall<GetJobStateRequest, JobStateEvent>;
   /**
    * Get the job's pipeline
    *
@@ -101,8 +109,10 @@ export interface IJobServiceClient {
    * GetPipeline(org.apache.beam.model.job_management.v1.GetJobPipelineRequest)
    * returns (org.apache.beam.model.job_management.v1.GetJobPipelineResponse);
    */
-  getPipeline(input: GetJobPipelineRequest, options?: RpcOptions):
-      UnaryCall<GetJobPipelineRequest, GetJobPipelineResponse>;
+  getPipeline(
+    input: GetJobPipelineRequest,
+    options?: RpcOptions
+  ): UnaryCall<GetJobPipelineRequest, GetJobPipelineResponse>;
   /**
    * Cancel the job
    *
@@ -110,8 +120,10 @@ export interface IJobServiceClient {
    * Cancel(org.apache.beam.model.job_management.v1.CancelJobRequest) returns
    * (org.apache.beam.model.job_management.v1.CancelJobResponse);
    */
-  cancel(input: CancelJobRequest, options?: RpcOptions):
-      UnaryCall<CancelJobRequest, CancelJobResponse>;
+  cancel(
+    input: CancelJobRequest,
+    options?: RpcOptions
+  ): UnaryCall<CancelJobRequest, CancelJobResponse>;
   /**
    * Subscribe to a stream of state changes of the job, will immediately return
    * the current state of the job as the first response.
@@ -120,8 +132,10 @@ export interface IJobServiceClient {
    * GetStateStream(org.apache.beam.model.job_management.v1.GetJobStateRequest)
    * returns (stream org.apache.beam.model.job_management.v1.JobStateEvent);
    */
-  getStateStream(input: GetJobStateRequest, options?: RpcOptions):
-      ServerStreamingCall<GetJobStateRequest, JobStateEvent>;
+  getStateStream(
+    input: GetJobStateRequest,
+    options?: RpcOptions
+  ): ServerStreamingCall<GetJobStateRequest, JobStateEvent>;
   /**
    * Subscribe to a stream of state changes and messages from the job
    *
@@ -130,8 +144,10 @@ export interface IJobServiceClient {
    * returns (stream
    * org.apache.beam.model.job_management.v1.JobMessagesResponse);
    */
-  getMessageStream(input: JobMessagesRequest, options?: RpcOptions):
-      ServerStreamingCall<JobMessagesRequest, JobMessagesResponse>;
+  getMessageStream(
+    input: JobMessagesRequest,
+    options?: RpcOptions
+  ): ServerStreamingCall<JobMessagesRequest, JobMessagesResponse>;
   /**
    * Fetch metrics for a given job
    *
@@ -139,8 +155,10 @@ export interface IJobServiceClient {
    * GetJobMetrics(org.apache.beam.model.job_management.v1.GetJobMetricsRequest)
    * returns (org.apache.beam.model.job_management.v1.GetJobMetricsResponse);
    */
-  getJobMetrics(input: GetJobMetricsRequest, options?: RpcOptions):
-      UnaryCall<GetJobMetricsRequest, GetJobMetricsResponse>;
+  getJobMetrics(
+    input: GetJobMetricsRequest,
+    options?: RpcOptions
+  ): UnaryCall<GetJobMetricsRequest, GetJobMetricsResponse>;
   /**
    * Get the supported pipeline options of the runner
    *
@@ -150,9 +168,9 @@ export interface IJobServiceClient {
    * (org.apache.beam.model.job_management.v1.DescribePipelineOptionsResponse);
    */
   describePipelineOptions(
-      input: DescribePipelineOptionsRequest, options?: RpcOptions):
-      UnaryCall<
-          DescribePipelineOptionsRequest, DescribePipelineOptionsResponse>;
+    input: DescribePipelineOptionsRequest,
+    options?: RpcOptions
+  ): UnaryCall<DescribePipelineOptionsRequest, DescribePipelineOptionsResponse>;
 }
 /**
  * Job Service for running RunnerAPI pipelines
@@ -173,11 +191,19 @@ export class JobServiceClient implements IJobServiceClient, ServiceInfo {
    * Prepare(org.apache.beam.model.job_management.v1.PrepareJobRequest) returns
    * (org.apache.beam.model.job_management.v1.PrepareJobResponse);
    */
-  prepare(input: PrepareJobRequest, options?: RpcOptions):
-      UnaryCall<PrepareJobRequest, PrepareJobResponse> {
-    const method = this.methods[0], opt = this._transport.mergeOptions(options);
+  prepare(
+    input: PrepareJobRequest,
+    options?: RpcOptions
+  ): UnaryCall<PrepareJobRequest, PrepareJobResponse> {
+    const method = this.methods[0],
+      opt = this._transport.mergeOptions(options);
     return stackIntercept<PrepareJobRequest, PrepareJobResponse>(
-        'unary', this._transport, method, opt, input);
+      "unary",
+      this._transport,
+      method,
+      opt,
+      input
+    );
   }
   /**
    * Submit the job for execution
@@ -186,11 +212,19 @@ export class JobServiceClient implements IJobServiceClient, ServiceInfo {
    * Run(org.apache.beam.model.job_management.v1.RunJobRequest) returns
    * (org.apache.beam.model.job_management.v1.RunJobResponse);
    */
-  run(input: RunJobRequest,
-      options?: RpcOptions): UnaryCall<RunJobRequest, RunJobResponse> {
-    const method = this.methods[1], opt = this._transport.mergeOptions(options);
+  run(
+    input: RunJobRequest,
+    options?: RpcOptions
+  ): UnaryCall<RunJobRequest, RunJobResponse> {
+    const method = this.methods[1],
+      opt = this._transport.mergeOptions(options);
     return stackIntercept<RunJobRequest, RunJobResponse>(
-        'unary', this._transport, method, opt, input);
+      "unary",
+      this._transport,
+      method,
+      opt,
+      input
+    );
   }
   /**
    * Get a list of all invoked jobs
@@ -199,11 +233,19 @@ export class JobServiceClient implements IJobServiceClient, ServiceInfo {
    * GetJobs(org.apache.beam.model.job_management.v1.GetJobsRequest) returns
    * (org.apache.beam.model.job_management.v1.GetJobsResponse);
    */
-  getJobs(input: GetJobsRequest, options?: RpcOptions):
-      UnaryCall<GetJobsRequest, GetJobsResponse> {
-    const method = this.methods[2], opt = this._transport.mergeOptions(options);
+  getJobs(
+    input: GetJobsRequest,
+    options?: RpcOptions
+  ): UnaryCall<GetJobsRequest, GetJobsResponse> {
+    const method = this.methods[2],
+      opt = this._transport.mergeOptions(options);
     return stackIntercept<GetJobsRequest, GetJobsResponse>(
-        'unary', this._transport, method, opt, input);
+      "unary",
+      this._transport,
+      method,
+      opt,
+      input
+    );
   }
   /**
    * Get the current state of the job
@@ -212,11 +254,19 @@ export class JobServiceClient implements IJobServiceClient, ServiceInfo {
    * GetState(org.apache.beam.model.job_management.v1.GetJobStateRequest)
    * returns (org.apache.beam.model.job_management.v1.JobStateEvent);
    */
-  getState(input: GetJobStateRequest, options?: RpcOptions):
-      UnaryCall<GetJobStateRequest, JobStateEvent> {
-    const method = this.methods[3], opt = this._transport.mergeOptions(options);
+  getState(
+    input: GetJobStateRequest,
+    options?: RpcOptions
+  ): UnaryCall<GetJobStateRequest, JobStateEvent> {
+    const method = this.methods[3],
+      opt = this._transport.mergeOptions(options);
     return stackIntercept<GetJobStateRequest, JobStateEvent>(
-        'unary', this._transport, method, opt, input);
+      "unary",
+      this._transport,
+      method,
+      opt,
+      input
+    );
   }
   /**
    * Get the job's pipeline
@@ -225,11 +275,19 @@ export class JobServiceClient implements IJobServiceClient, ServiceInfo {
    * GetPipeline(org.apache.beam.model.job_management.v1.GetJobPipelineRequest)
    * returns (org.apache.beam.model.job_management.v1.GetJobPipelineResponse);
    */
-  getPipeline(input: GetJobPipelineRequest, options?: RpcOptions):
-      UnaryCall<GetJobPipelineRequest, GetJobPipelineResponse> {
-    const method = this.methods[4], opt = this._transport.mergeOptions(options);
+  getPipeline(
+    input: GetJobPipelineRequest,
+    options?: RpcOptions
+  ): UnaryCall<GetJobPipelineRequest, GetJobPipelineResponse> {
+    const method = this.methods[4],
+      opt = this._transport.mergeOptions(options);
     return stackIntercept<GetJobPipelineRequest, GetJobPipelineResponse>(
-        'unary', this._transport, method, opt, input);
+      "unary",
+      this._transport,
+      method,
+      opt,
+      input
+    );
   }
   /**
    * Cancel the job
@@ -238,11 +296,19 @@ export class JobServiceClient implements IJobServiceClient, ServiceInfo {
    * Cancel(org.apache.beam.model.job_management.v1.CancelJobRequest) returns
    * (org.apache.beam.model.job_management.v1.CancelJobResponse);
    */
-  cancel(input: CancelJobRequest, options?: RpcOptions):
-      UnaryCall<CancelJobRequest, CancelJobResponse> {
-    const method = this.methods[5], opt = this._transport.mergeOptions(options);
+  cancel(
+    input: CancelJobRequest,
+    options?: RpcOptions
+  ): UnaryCall<CancelJobRequest, CancelJobResponse> {
+    const method = this.methods[5],
+      opt = this._transport.mergeOptions(options);
     return stackIntercept<CancelJobRequest, CancelJobResponse>(
-        'unary', this._transport, method, opt, input);
+      "unary",
+      this._transport,
+      method,
+      opt,
+      input
+    );
   }
   /**
    * Subscribe to a stream of state changes of the job, will immediately return
@@ -252,11 +318,19 @@ export class JobServiceClient implements IJobServiceClient, ServiceInfo {
    * GetStateStream(org.apache.beam.model.job_management.v1.GetJobStateRequest)
    * returns (stream org.apache.beam.model.job_management.v1.JobStateEvent);
    */
-  getStateStream(input: GetJobStateRequest, options?: RpcOptions):
-      ServerStreamingCall<GetJobStateRequest, JobStateEvent> {
-    const method = this.methods[6], opt = this._transport.mergeOptions(options);
+  getStateStream(
+    input: GetJobStateRequest,
+    options?: RpcOptions
+  ): ServerStreamingCall<GetJobStateRequest, JobStateEvent> {
+    const method = this.methods[6],
+      opt = this._transport.mergeOptions(options);
     return stackIntercept<GetJobStateRequest, JobStateEvent>(
-        'serverStreaming', this._transport, method, opt, input);
+      "serverStreaming",
+      this._transport,
+      method,
+      opt,
+      input
+    );
   }
   /**
    * Subscribe to a stream of state changes and messages from the job
@@ -266,11 +340,19 @@ export class JobServiceClient implements IJobServiceClient, ServiceInfo {
    * returns (stream
    * org.apache.beam.model.job_management.v1.JobMessagesResponse);
    */
-  getMessageStream(input: JobMessagesRequest, options?: RpcOptions):
-      ServerStreamingCall<JobMessagesRequest, JobMessagesResponse> {
-    const method = this.methods[7], opt = this._transport.mergeOptions(options);
+  getMessageStream(
+    input: JobMessagesRequest,
+    options?: RpcOptions
+  ): ServerStreamingCall<JobMessagesRequest, JobMessagesResponse> {
+    const method = this.methods[7],
+      opt = this._transport.mergeOptions(options);
     return stackIntercept<JobMessagesRequest, JobMessagesResponse>(
-        'serverStreaming', this._transport, method, opt, input);
+      "serverStreaming",
+      this._transport,
+      method,
+      opt,
+      input
+    );
   }
   /**
    * Fetch metrics for a given job
@@ -279,11 +361,19 @@ export class JobServiceClient implements IJobServiceClient, ServiceInfo {
    * GetJobMetrics(org.apache.beam.model.job_management.v1.GetJobMetricsRequest)
    * returns (org.apache.beam.model.job_management.v1.GetJobMetricsResponse);
    */
-  getJobMetrics(input: GetJobMetricsRequest, options?: RpcOptions):
-      UnaryCall<GetJobMetricsRequest, GetJobMetricsResponse> {
-    const method = this.methods[8], opt = this._transport.mergeOptions(options);
+  getJobMetrics(
+    input: GetJobMetricsRequest,
+    options?: RpcOptions
+  ): UnaryCall<GetJobMetricsRequest, GetJobMetricsResponse> {
+    const method = this.methods[8],
+      opt = this._transport.mergeOptions(options);
     return stackIntercept<GetJobMetricsRequest, GetJobMetricsResponse>(
-        'unary', this._transport, method, opt, input);
+      "unary",
+      this._transport,
+      method,
+      opt,
+      input
+    );
   }
   /**
    * Get the supported pipeline options of the runner
@@ -294,12 +384,17 @@ export class JobServiceClient implements IJobServiceClient, ServiceInfo {
    * (org.apache.beam.model.job_management.v1.DescribePipelineOptionsResponse);
    */
   describePipelineOptions(
-      input: DescribePipelineOptionsRequest, options?: RpcOptions):
-      UnaryCall<
-          DescribePipelineOptionsRequest, DescribePipelineOptionsResponse> {
-    const method = this.methods[9], opt = this._transport.mergeOptions(options);
+    input: DescribePipelineOptionsRequest,
+    options?: RpcOptions
+  ): UnaryCall<
+    DescribePipelineOptionsRequest,
+    DescribePipelineOptionsResponse
+  > {
+    const method = this.methods[9],
+      opt = this._transport.mergeOptions(options);
     return stackIntercept<
-        DescribePipelineOptionsRequest, DescribePipelineOptionsResponse>(
-        'unary', this._transport, method, opt, input);
+      DescribePipelineOptionsRequest,
+      DescribePipelineOptionsResponse
+    >("unary", this._transport, method, opt, input);
   }
 }

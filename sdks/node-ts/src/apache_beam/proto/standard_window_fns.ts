@@ -26,18 +26,18 @@
 // Protocol Buffers describing the Runner API, which is the runner-independent,
 // SDK-independent definition of the Beam model.
 //
-import {WireType} from '@protobuf-ts/runtime';
-import type {BinaryWriteOptions} from '@protobuf-ts/runtime';
-import type {IBinaryWriter} from '@protobuf-ts/runtime';
-import {UnknownFieldHandler} from '@protobuf-ts/runtime';
-import type {BinaryReadOptions} from '@protobuf-ts/runtime';
-import type {IBinaryReader} from '@protobuf-ts/runtime';
-import type {PartialMessage} from '@protobuf-ts/runtime';
-import {reflectionMergePartial} from '@protobuf-ts/runtime';
-import {MESSAGE_TYPE} from '@protobuf-ts/runtime';
-import {MessageType} from '@protobuf-ts/runtime';
-import {Timestamp} from './google/protobuf/timestamp';
-import {Duration} from './google/protobuf/duration';
+import { WireType } from "@protobuf-ts/runtime";
+import type { BinaryWriteOptions } from "@protobuf-ts/runtime";
+import type { IBinaryWriter } from "@protobuf-ts/runtime";
+import { UnknownFieldHandler } from "@protobuf-ts/runtime";
+import type { BinaryReadOptions } from "@protobuf-ts/runtime";
+import type { IBinaryReader } from "@protobuf-ts/runtime";
+import type { PartialMessage } from "@protobuf-ts/runtime";
+import { reflectionMergePartial } from "@protobuf-ts/runtime";
+import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
+import { MessageType } from "@protobuf-ts/runtime";
+import { Timestamp } from "./google/protobuf/timestamp";
+import { Duration } from "./google/protobuf/duration";
 /**
  * By default, all data in a PCollection is assigned to the single global
  * window. See BeamConstants for the time span this window encompasses.
@@ -58,7 +58,7 @@ export enum GlobalWindowsPayload_Enum {
   /**
    * @generated from protobuf enum value: PROPERTIES = 0;
    */
-  PROPERTIES = 0
+  PROPERTIES = 0,
 }
 /**
  * A fixed time window represents a consistent duration size, non overlapping
@@ -94,7 +94,7 @@ export enum FixedWindowsPayload_Enum {
   /**
    * @generated from protobuf enum value: PROPERTIES = 0;
    */
-  PROPERTIES = 0
+  PROPERTIES = 0,
 }
 /**
  * A sliding time window represents time intervals in the data stream that can
@@ -145,7 +145,7 @@ export enum SlidingWindowsPayload_Enum {
   /**
    * @generated from protobuf enum value: PROPERTIES = 0;
    */
-  PROPERTIES = 0
+  PROPERTIES = 0,
 }
 /**
  * A session window function defines windows that contain elements that are
@@ -178,34 +178,44 @@ export enum SessionWindowsPayload_Enum {
   /**
    * @generated from protobuf enum value: PROPERTIES = 0;
    */
-  PROPERTIES = 0
+  PROPERTIES = 0,
 }
 // @generated message type with reflection information, may provide speed
 // optimized methods
 class GlobalWindowsPayload$Type extends MessageType<GlobalWindowsPayload> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.GlobalWindowsPayload', []);
+    super("org.apache.beam.model.pipeline.v1.GlobalWindowsPayload", []);
   }
   create(value?: PartialMessage<GlobalWindowsPayload>): GlobalWindowsPayload {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<GlobalWindowsPayload>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: GlobalWindowsPayload): GlobalWindowsPayload {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: GlobalWindowsPayload
+  ): GlobalWindowsPayload {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: GlobalWindowsPayload, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: GlobalWindowsPayload,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -218,68 +228,93 @@ export const GlobalWindowsPayload = new GlobalWindowsPayload$Type();
 // optimized methods
 class FixedWindowsPayload$Type extends MessageType<FixedWindowsPayload> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.FixedWindowsPayload', [
-      {no: 1, name: 'size', kind: 'message', T: () => Duration},
-      {no: 2, name: 'offset', kind: 'message', T: () => Timestamp}
+    super("org.apache.beam.model.pipeline.v1.FixedWindowsPayload", [
+      { no: 1, name: "size", kind: "message", T: () => Duration },
+      { no: 2, name: "offset", kind: "message", T: () => Timestamp },
     ]);
   }
   create(value?: PartialMessage<FixedWindowsPayload>): FixedWindowsPayload {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<FixedWindowsPayload>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: FixedWindowsPayload): FixedWindowsPayload {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: FixedWindowsPayload
+  ): FixedWindowsPayload {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* google.protobuf.Duration size */ 1:
           message.size = Duration.internalBinaryRead(
-              reader, reader.uint32(), options, message.size);
+            reader,
+            reader.uint32(),
+            options,
+            message.size
+          );
           break;
         case /* google.protobuf.Timestamp offset */ 2:
           message.offset = Timestamp.internalBinaryRead(
-              reader, reader.uint32(), options, message.offset);
+            reader,
+            reader.uint32(),
+            options,
+            message.offset
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: FixedWindowsPayload, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: FixedWindowsPayload,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* google.protobuf.Duration size = 1; */
     if (message.size)
-      Duration
-          .internalBinaryWrite(
-              message.size, writer.tag(1, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      Duration.internalBinaryWrite(
+        message.size,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* google.protobuf.Timestamp offset = 2; */
     if (message.offset)
-      Timestamp
-          .internalBinaryWrite(
-              message.offset, writer.tag(2, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      Timestamp.internalBinaryWrite(
+        message.offset,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -292,80 +327,109 @@ export const FixedWindowsPayload = new FixedWindowsPayload$Type();
 // optimized methods
 class SlidingWindowsPayload$Type extends MessageType<SlidingWindowsPayload> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.SlidingWindowsPayload', [
-      {no: 1, name: 'size', kind: 'message', T: () => Duration},
-      {no: 2, name: 'offset', kind: 'message', T: () => Timestamp},
-      {no: 3, name: 'period', kind: 'message', T: () => Duration}
+    super("org.apache.beam.model.pipeline.v1.SlidingWindowsPayload", [
+      { no: 1, name: "size", kind: "message", T: () => Duration },
+      { no: 2, name: "offset", kind: "message", T: () => Timestamp },
+      { no: 3, name: "period", kind: "message", T: () => Duration },
     ]);
   }
   create(value?: PartialMessage<SlidingWindowsPayload>): SlidingWindowsPayload {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<SlidingWindowsPayload>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: SlidingWindowsPayload): SlidingWindowsPayload {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: SlidingWindowsPayload
+  ): SlidingWindowsPayload {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* google.protobuf.Duration size */ 1:
           message.size = Duration.internalBinaryRead(
-              reader, reader.uint32(), options, message.size);
+            reader,
+            reader.uint32(),
+            options,
+            message.size
+          );
           break;
         case /* google.protobuf.Timestamp offset */ 2:
           message.offset = Timestamp.internalBinaryRead(
-              reader, reader.uint32(), options, message.offset);
+            reader,
+            reader.uint32(),
+            options,
+            message.offset
+          );
           break;
         case /* google.protobuf.Duration period */ 3:
           message.period = Duration.internalBinaryRead(
-              reader, reader.uint32(), options, message.period);
+            reader,
+            reader.uint32(),
+            options,
+            message.period
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: SlidingWindowsPayload, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: SlidingWindowsPayload,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* google.protobuf.Duration size = 1; */
     if (message.size)
-      Duration
-          .internalBinaryWrite(
-              message.size, writer.tag(1, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      Duration.internalBinaryWrite(
+        message.size,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* google.protobuf.Timestamp offset = 2; */
     if (message.offset)
-      Timestamp
-          .internalBinaryWrite(
-              message.offset, writer.tag(2, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      Timestamp.internalBinaryWrite(
+        message.offset,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* google.protobuf.Duration period = 3; */
     if (message.period)
-      Duration
-          .internalBinaryWrite(
-              message.period, writer.tag(3, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      Duration.internalBinaryWrite(
+        message.period,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -378,56 +442,77 @@ export const SlidingWindowsPayload = new SlidingWindowsPayload$Type();
 // optimized methods
 class SessionWindowsPayload$Type extends MessageType<SessionWindowsPayload> {
   constructor() {
-    super(
-        'org.apache.beam.model.pipeline.v1.SessionWindowsPayload',
-        [{no: 1, name: 'gap_size', kind: 'message', T: () => Duration}]);
+    super("org.apache.beam.model.pipeline.v1.SessionWindowsPayload", [
+      { no: 1, name: "gap_size", kind: "message", T: () => Duration },
+    ]);
   }
   create(value?: PartialMessage<SessionWindowsPayload>): SessionWindowsPayload {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<SessionWindowsPayload>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: SessionWindowsPayload): SessionWindowsPayload {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: SessionWindowsPayload
+  ): SessionWindowsPayload {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* google.protobuf.Duration gap_size */ 1:
           message.gapSize = Duration.internalBinaryRead(
-              reader, reader.uint32(), options, message.gapSize);
+            reader,
+            reader.uint32(),
+            options,
+            message.gapSize
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: SessionWindowsPayload, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: SessionWindowsPayload,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* google.protobuf.Duration gap_size = 1; */
     if (message.gapSize)
-      Duration
-          .internalBinaryWrite(
-              message.gapSize, writer.tag(1, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      Duration.internalBinaryWrite(
+        message.gapSize,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }

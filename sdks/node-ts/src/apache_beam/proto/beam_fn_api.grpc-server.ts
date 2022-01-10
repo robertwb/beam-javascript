@@ -35,9 +35,25 @@
 // TODO: Consider consolidating common components in another package
 // and language namespaces for re-use with Runner Api.
 //
-import * as grpc from '@grpc/grpc-js';
+import * as grpc from "@grpc/grpc-js";
 
-import {Elements, GetProcessBundleDescriptorRequest, InstructionRequest, InstructionResponse, LogControl, LogEntry_List, ProcessBundleDescriptor, StartWorkerRequest, StartWorkerResponse, StateRequest, StateResponse, StopWorkerRequest, StopWorkerResponse, WorkerStatusRequest, WorkerStatusResponse} from './beam_fn_api';
+import {
+  Elements,
+  GetProcessBundleDescriptorRequest,
+  InstructionRequest,
+  InstructionResponse,
+  LogControl,
+  LogEntry_List,
+  ProcessBundleDescriptor,
+  StartWorkerRequest,
+  StartWorkerResponse,
+  StateRequest,
+  StateResponse,
+  StopWorkerRequest,
+  StopWorkerResponse,
+  WorkerStatusRequest,
+  WorkerStatusResponse,
+} from "./beam_fn_api";
 //
 // Control Plane API
 //
@@ -61,8 +77,10 @@ export interface IBeamFnControl extends grpc.UntypedServiceImplementation {
    * org.apache.beam.model.fn_execution.v1.InstructionResponse) returns (stream
    * org.apache.beam.model.fn_execution.v1.InstructionRequest);
    */
-  control:
-      grpc.handleBidiStreamingCall<InstructionResponse, InstructionRequest>;
+  control: grpc.handleBidiStreamingCall<
+    InstructionResponse,
+    InstructionRequest
+  >;
   /**
    * Used to get the full process bundle descriptors for bundles one
    * is asked to process.
@@ -72,7 +90,9 @@ export interface IBeamFnControl extends grpc.UntypedServiceImplementation {
    * returns (org.apache.beam.model.fn_execution.v1.ProcessBundleDescriptor);
    */
   getProcessBundleDescriptor: grpc.handleUnaryCall<
-      GetProcessBundleDescriptorRequest, ProcessBundleDescriptor>;
+    GetProcessBundleDescriptorRequest,
+    ProcessBundleDescriptor
+  >;
 }
 /**
  * @grpc/grpc-js definition for the protobuf service
@@ -88,29 +108,30 @@ export interface IBeamFnControl extends grpc.UntypedServiceImplementation {
  */
 export const beamFnControlDefinition: grpc.ServiceDefinition<IBeamFnControl> = {
   control: {
-    path: '/org.apache.beam.model.fn_execution.v1.BeamFnControl/Control',
-    originalName: 'Control',
+    path: "/org.apache.beam.model.fn_execution.v1.BeamFnControl/Control",
+    originalName: "Control",
     requestStream: true,
     responseStream: true,
-    responseDeserialize: bytes => InstructionRequest.fromBinary(bytes),
-    requestDeserialize: bytes => InstructionResponse.fromBinary(bytes),
-    responseSerialize: value => Buffer.from(InstructionRequest.toBinary(value)),
-    requestSerialize: value => Buffer.from(InstructionResponse.toBinary(value))
+    responseDeserialize: (bytes) => InstructionRequest.fromBinary(bytes),
+    requestDeserialize: (bytes) => InstructionResponse.fromBinary(bytes),
+    responseSerialize: (value) =>
+      Buffer.from(InstructionRequest.toBinary(value)),
+    requestSerialize: (value) =>
+      Buffer.from(InstructionResponse.toBinary(value)),
   },
   getProcessBundleDescriptor: {
-    path:
-        '/org.apache.beam.model.fn_execution.v1.BeamFnControl/GetProcessBundleDescriptor',
-    originalName: 'GetProcessBundleDescriptor',
+    path: "/org.apache.beam.model.fn_execution.v1.BeamFnControl/GetProcessBundleDescriptor",
+    originalName: "GetProcessBundleDescriptor",
     requestStream: false,
     responseStream: false,
-    responseDeserialize: bytes => ProcessBundleDescriptor.fromBinary(bytes),
-    requestDeserialize: bytes =>
-        GetProcessBundleDescriptorRequest.fromBinary(bytes),
-    responseSerialize: value =>
-        Buffer.from(ProcessBundleDescriptor.toBinary(value)),
-    requestSerialize: value =>
-        Buffer.from(GetProcessBundleDescriptorRequest.toBinary(value))
-  }
+    responseDeserialize: (bytes) => ProcessBundleDescriptor.fromBinary(bytes),
+    requestDeserialize: (bytes) =>
+      GetProcessBundleDescriptorRequest.fromBinary(bytes),
+    responseSerialize: (value) =>
+      Buffer.from(ProcessBundleDescriptor.toBinary(value)),
+    requestSerialize: (value) =>
+      Buffer.from(GetProcessBundleDescriptorRequest.toBinary(value)),
+  },
 };
 /**
  * Stable
@@ -142,15 +163,15 @@ export interface IBeamFnData extends grpc.UntypedServiceImplementation {
  */
 export const beamFnDataDefinition: grpc.ServiceDefinition<IBeamFnData> = {
   data: {
-    path: '/org.apache.beam.model.fn_execution.v1.BeamFnData/Data',
-    originalName: 'Data',
+    path: "/org.apache.beam.model.fn_execution.v1.BeamFnData/Data",
+    originalName: "Data",
     requestStream: true,
     responseStream: true,
-    responseDeserialize: bytes => Elements.fromBinary(bytes),
-    requestDeserialize: bytes => Elements.fromBinary(bytes),
-    responseSerialize: value => Buffer.from(Elements.toBinary(value)),
-    requestSerialize: value => Buffer.from(Elements.toBinary(value))
-  }
+    responseDeserialize: (bytes) => Elements.fromBinary(bytes),
+    requestDeserialize: (bytes) => Elements.fromBinary(bytes),
+    responseSerialize: (value) => Buffer.from(Elements.toBinary(value)),
+    requestSerialize: (value) => Buffer.from(Elements.toBinary(value)),
+  },
 };
 /**
  * @generated from protobuf service
@@ -180,15 +201,15 @@ export interface IBeamFnState extends grpc.UntypedServiceImplementation {
  */
 export const beamFnStateDefinition: grpc.ServiceDefinition<IBeamFnState> = {
   state: {
-    path: '/org.apache.beam.model.fn_execution.v1.BeamFnState/State',
-    originalName: 'State',
+    path: "/org.apache.beam.model.fn_execution.v1.BeamFnState/State",
+    originalName: "State",
     requestStream: true,
     responseStream: true,
-    responseDeserialize: bytes => StateResponse.fromBinary(bytes),
-    requestDeserialize: bytes => StateRequest.fromBinary(bytes),
-    responseSerialize: value => Buffer.from(StateResponse.toBinary(value)),
-    requestSerialize: value => Buffer.from(StateRequest.toBinary(value))
-  }
+    responseDeserialize: (bytes) => StateResponse.fromBinary(bytes),
+    requestDeserialize: (bytes) => StateRequest.fromBinary(bytes),
+    responseSerialize: (value) => Buffer.from(StateResponse.toBinary(value)),
+    requestSerialize: (value) => Buffer.from(StateRequest.toBinary(value)),
+  },
 };
 /**
  * Stable
@@ -221,22 +242,22 @@ export interface IBeamFnLogging extends grpc.UntypedServiceImplementation {
  */
 export const beamFnLoggingDefinition: grpc.ServiceDefinition<IBeamFnLogging> = {
   logging: {
-    path: '/org.apache.beam.model.fn_execution.v1.BeamFnLogging/Logging',
-    originalName: 'Logging',
+    path: "/org.apache.beam.model.fn_execution.v1.BeamFnLogging/Logging",
+    originalName: "Logging",
     requestStream: true,
     responseStream: true,
-    responseDeserialize: bytes => LogControl.fromBinary(bytes),
-    requestDeserialize: bytes => LogEntry_List.fromBinary(bytes),
-    responseSerialize: value => Buffer.from(LogControl.toBinary(value)),
-    requestSerialize: value => Buffer.from(LogEntry_List.toBinary(value))
-  }
+    responseDeserialize: (bytes) => LogControl.fromBinary(bytes),
+    requestDeserialize: (bytes) => LogEntry_List.fromBinary(bytes),
+    responseSerialize: (value) => Buffer.from(LogControl.toBinary(value)),
+    requestSerialize: (value) => Buffer.from(LogEntry_List.toBinary(value)),
+  },
 };
 /**
  * @generated from protobuf service
  * org.apache.beam.model.fn_execution.v1.BeamFnExternalWorkerPool
  */
-export interface IBeamFnExternalWorkerPool extends
-    grpc.UntypedServiceImplementation {
+export interface IBeamFnExternalWorkerPool
+  extends grpc.UntypedServiceImplementation {
   /**
    * Start the SDK worker with the given ID.
    *
@@ -267,32 +288,33 @@ export interface IBeamFnExternalWorkerPool extends
  * server.addService(beamFnExternalWorkerPoolDefinition, service);
  * ```
  */
-export const beamFnExternalWorkerPoolDefinition:
-    grpc.ServiceDefinition<IBeamFnExternalWorkerPool> = {
-  startWorker: {
-    path:
-        '/org.apache.beam.model.fn_execution.v1.BeamFnExternalWorkerPool/StartWorker',
-    originalName: 'StartWorker',
-    requestStream: false,
-    responseStream: false,
-    responseDeserialize: bytes => StartWorkerResponse.fromBinary(bytes),
-    requestDeserialize: bytes => StartWorkerRequest.fromBinary(bytes),
-    responseSerialize: value =>
+export const beamFnExternalWorkerPoolDefinition: grpc.ServiceDefinition<IBeamFnExternalWorkerPool> =
+  {
+    startWorker: {
+      path: "/org.apache.beam.model.fn_execution.v1.BeamFnExternalWorkerPool/StartWorker",
+      originalName: "StartWorker",
+      requestStream: false,
+      responseStream: false,
+      responseDeserialize: (bytes) => StartWorkerResponse.fromBinary(bytes),
+      requestDeserialize: (bytes) => StartWorkerRequest.fromBinary(bytes),
+      responseSerialize: (value) =>
         Buffer.from(StartWorkerResponse.toBinary(value)),
-    requestSerialize: value => Buffer.from(StartWorkerRequest.toBinary(value))
-  },
-  stopWorker: {
-    path:
-        '/org.apache.beam.model.fn_execution.v1.BeamFnExternalWorkerPool/StopWorker',
-    originalName: 'StopWorker',
-    requestStream: false,
-    responseStream: false,
-    responseDeserialize: bytes => StopWorkerResponse.fromBinary(bytes),
-    requestDeserialize: bytes => StopWorkerRequest.fromBinary(bytes),
-    responseSerialize: value => Buffer.from(StopWorkerResponse.toBinary(value)),
-    requestSerialize: value => Buffer.from(StopWorkerRequest.toBinary(value))
-  }
-};
+      requestSerialize: (value) =>
+        Buffer.from(StartWorkerRequest.toBinary(value)),
+    },
+    stopWorker: {
+      path: "/org.apache.beam.model.fn_execution.v1.BeamFnExternalWorkerPool/StopWorker",
+      originalName: "StopWorker",
+      requestStream: false,
+      responseStream: false,
+      responseDeserialize: (bytes) => StopWorkerResponse.fromBinary(bytes),
+      requestDeserialize: (bytes) => StopWorkerRequest.fromBinary(bytes),
+      responseSerialize: (value) =>
+        Buffer.from(StopWorkerResponse.toBinary(value)),
+      requestSerialize: (value) =>
+        Buffer.from(StopWorkerRequest.toBinary(value)),
+    },
+  };
 /**
  * API for SDKs to report debug-related statuses to runner during pipeline
  * execution.
@@ -306,8 +328,10 @@ export interface IBeamFnWorkerStatus extends grpc.UntypedServiceImplementation {
    * org.apache.beam.model.fn_execution.v1.WorkerStatusResponse) returns (stream
    * org.apache.beam.model.fn_execution.v1.WorkerStatusRequest);
    */
-  workerStatus:
-      grpc.handleBidiStreamingCall<WorkerStatusResponse, WorkerStatusRequest>;
+  workerStatus: grpc.handleBidiStreamingCall<
+    WorkerStatusResponse,
+    WorkerStatusRequest
+  >;
 }
 /**
  * @grpc/grpc-js definition for the protobuf service
@@ -321,18 +345,18 @@ export interface IBeamFnWorkerStatus extends grpc.UntypedServiceImplementation {
  * server.addService(beamFnWorkerStatusDefinition, service);
  * ```
  */
-export const beamFnWorkerStatusDefinition:
-    grpc.ServiceDefinition<IBeamFnWorkerStatus> = {
-  workerStatus: {
-    path:
-        '/org.apache.beam.model.fn_execution.v1.BeamFnWorkerStatus/WorkerStatus',
-    originalName: 'WorkerStatus',
-    requestStream: true,
-    responseStream: true,
-    responseDeserialize: bytes => WorkerStatusRequest.fromBinary(bytes),
-    requestDeserialize: bytes => WorkerStatusResponse.fromBinary(bytes),
-    responseSerialize: value =>
+export const beamFnWorkerStatusDefinition: grpc.ServiceDefinition<IBeamFnWorkerStatus> =
+  {
+    workerStatus: {
+      path: "/org.apache.beam.model.fn_execution.v1.BeamFnWorkerStatus/WorkerStatus",
+      originalName: "WorkerStatus",
+      requestStream: true,
+      responseStream: true,
+      responseDeserialize: (bytes) => WorkerStatusRequest.fromBinary(bytes),
+      requestDeserialize: (bytes) => WorkerStatusResponse.fromBinary(bytes),
+      responseSerialize: (value) =>
         Buffer.from(WorkerStatusRequest.toBinary(value)),
-    requestSerialize: value => Buffer.from(WorkerStatusResponse.toBinary(value))
-  }
-};
+      requestSerialize: (value) =>
+        Buffer.from(WorkerStatusResponse.toBinary(value)),
+    },
+  };

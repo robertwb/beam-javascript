@@ -35,30 +35,30 @@
 // TODO: Consider consolidating common components in another package
 // and language namespaces for re-use with Runner Api.
 //
-import {BeamFnWorkerStatus} from './beam_fn_api';
-import type {WorkerStatusRequest} from './beam_fn_api';
-import type {WorkerStatusResponse} from './beam_fn_api';
-import {BeamFnExternalWorkerPool} from './beam_fn_api';
-import type {StopWorkerResponse} from './beam_fn_api';
-import type {StopWorkerRequest} from './beam_fn_api';
-import type {StartWorkerResponse} from './beam_fn_api';
-import type {StartWorkerRequest} from './beam_fn_api';
-import {BeamFnLogging} from './beam_fn_api';
-import type {LogControl} from './beam_fn_api';
-import type {LogEntry_List} from './beam_fn_api';
-import {BeamFnState} from './beam_fn_api';
-import type {StateResponse} from './beam_fn_api';
-import type {StateRequest} from './beam_fn_api';
-import {BeamFnData} from './beam_fn_api';
-import type {Elements} from './beam_fn_api';
-import {BeamFnControl} from './beam_fn_api';
-import type {BinaryWriteOptions} from '@protobuf-ts/runtime';
-import type {BinaryReadOptions} from '@protobuf-ts/runtime';
-import type {ProcessBundleDescriptor} from './beam_fn_api';
-import type {GetProcessBundleDescriptorRequest} from './beam_fn_api';
-import type {InstructionRequest} from './beam_fn_api';
-import type {InstructionResponse} from './beam_fn_api';
-import * as grpc from '@grpc/grpc-js';
+import { BeamFnWorkerStatus } from "./beam_fn_api";
+import type { WorkerStatusRequest } from "./beam_fn_api";
+import type { WorkerStatusResponse } from "./beam_fn_api";
+import { BeamFnExternalWorkerPool } from "./beam_fn_api";
+import type { StopWorkerResponse } from "./beam_fn_api";
+import type { StopWorkerRequest } from "./beam_fn_api";
+import type { StartWorkerResponse } from "./beam_fn_api";
+import type { StartWorkerRequest } from "./beam_fn_api";
+import { BeamFnLogging } from "./beam_fn_api";
+import type { LogControl } from "./beam_fn_api";
+import type { LogEntry_List } from "./beam_fn_api";
+import { BeamFnState } from "./beam_fn_api";
+import type { StateResponse } from "./beam_fn_api";
+import type { StateRequest } from "./beam_fn_api";
+import { BeamFnData } from "./beam_fn_api";
+import type { Elements } from "./beam_fn_api";
+import { BeamFnControl } from "./beam_fn_api";
+import type { BinaryWriteOptions } from "@protobuf-ts/runtime";
+import type { BinaryReadOptions } from "@protobuf-ts/runtime";
+import type { ProcessBundleDescriptor } from "./beam_fn_api";
+import type { GetProcessBundleDescriptorRequest } from "./beam_fn_api";
+import type { InstructionRequest } from "./beam_fn_api";
+import type { InstructionResponse } from "./beam_fn_api";
+import * as grpc from "@grpc/grpc-js";
 //
 // Control Plane API
 //
@@ -82,10 +82,13 @@ export interface IBeamFnControlClient {
    * org.apache.beam.model.fn_execution.v1.InstructionResponse) returns (stream
    * org.apache.beam.model.fn_execution.v1.InstructionRequest);
    */
-  control(metadata: grpc.Metadata, options?: grpc.CallOptions):
-      grpc.ClientDuplexStream<InstructionResponse, InstructionRequest>;
-  control(options?: grpc.CallOptions):
-      grpc.ClientDuplexStream<InstructionResponse, InstructionRequest>;
+  control(
+    metadata: grpc.Metadata,
+    options?: grpc.CallOptions
+  ): grpc.ClientDuplexStream<InstructionResponse, InstructionRequest>;
+  control(
+    options?: grpc.CallOptions
+  ): grpc.ClientDuplexStream<InstructionResponse, InstructionRequest>;
   /**
    * Used to get the full process bundle descriptors for bundles one
    * is asked to process.
@@ -95,26 +98,37 @@ export interface IBeamFnControlClient {
    * returns (org.apache.beam.model.fn_execution.v1.ProcessBundleDescriptor);
    */
   getProcessBundleDescriptor(
-      input: GetProcessBundleDescriptorRequest, metadata: grpc.Metadata,
-      options: grpc.CallOptions,
-      callback:
-          (err: grpc.ServiceError|null,
-           value?: ProcessBundleDescriptor) => void): grpc.ClientUnaryCall;
+    input: GetProcessBundleDescriptorRequest,
+    metadata: grpc.Metadata,
+    options: grpc.CallOptions,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: ProcessBundleDescriptor
+    ) => void
+  ): grpc.ClientUnaryCall;
   getProcessBundleDescriptor(
-      input: GetProcessBundleDescriptorRequest, metadata: grpc.Metadata,
-      callback:
-          (err: grpc.ServiceError|null,
-           value?: ProcessBundleDescriptor) => void): grpc.ClientUnaryCall;
+    input: GetProcessBundleDescriptorRequest,
+    metadata: grpc.Metadata,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: ProcessBundleDescriptor
+    ) => void
+  ): grpc.ClientUnaryCall;
   getProcessBundleDescriptor(
-      input: GetProcessBundleDescriptorRequest, options: grpc.CallOptions,
-      callback:
-          (err: grpc.ServiceError|null,
-           value?: ProcessBundleDescriptor) => void): grpc.ClientUnaryCall;
+    input: GetProcessBundleDescriptorRequest,
+    options: grpc.CallOptions,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: ProcessBundleDescriptor
+    ) => void
+  ): grpc.ClientUnaryCall;
   getProcessBundleDescriptor(
-      input: GetProcessBundleDescriptorRequest,
-      callback:
-          (err: grpc.ServiceError|null,
-           value?: ProcessBundleDescriptor) => void): grpc.ClientUnaryCall;
+    input: GetProcessBundleDescriptorRequest,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: ProcessBundleDescriptor
+    ) => void
+  ): grpc.ClientUnaryCall;
 }
 //
 // Control Plane API
@@ -130,14 +144,19 @@ export interface IBeamFnControlClient {
  * @generated from protobuf service
  * org.apache.beam.model.fn_execution.v1.BeamFnControl
  */
-export class BeamFnControlClient extends grpc.Client implements
-    IBeamFnControlClient {
-  private readonly _binaryOptions:
-      Partial<BinaryReadOptions&BinaryWriteOptions>;
+export class BeamFnControlClient
+  extends grpc.Client
+  implements IBeamFnControlClient
+{
+  private readonly _binaryOptions: Partial<
+    BinaryReadOptions & BinaryWriteOptions
+  >;
   constructor(
-      address: string, credentials: grpc.ChannelCredentials,
-      options: grpc.ClientOptions = {},
-      binaryOptions: Partial<BinaryReadOptions&BinaryWriteOptions> = {}) {
+    address: string,
+    credentials: grpc.ChannelCredentials,
+    options: grpc.ClientOptions = {},
+    binaryOptions: Partial<BinaryReadOptions & BinaryWriteOptions> = {}
+  ) {
     super(address, credentials, options);
     this._binaryOptions = binaryOptions;
   }
@@ -150,16 +169,19 @@ export class BeamFnControlClient extends grpc.Client implements
    * org.apache.beam.model.fn_execution.v1.InstructionRequest);
    */
   control(
-      metadata?: grpc.Metadata|grpc.CallOptions, options?: grpc.CallOptions):
-      grpc.ClientDuplexStream<InstructionResponse, InstructionRequest> {
+    metadata?: grpc.Metadata | grpc.CallOptions,
+    options?: grpc.CallOptions
+  ): grpc.ClientDuplexStream<InstructionResponse, InstructionRequest> {
     const method = BeamFnControl.methods[0];
     return this.makeBidiStreamRequest<InstructionResponse, InstructionRequest>(
-        `/${BeamFnControl.typeName}/${method.name}`,
-        (value: InstructionResponse): Buffer =>
-            Buffer.from(method.I.toBinary(value, this._binaryOptions)),
-        (value: Buffer): InstructionRequest =>
-            method.O.fromBinary(value, this._binaryOptions),
-        (metadata as any), options);
+      `/${BeamFnControl.typeName}/${method.name}`,
+      (value: InstructionResponse): Buffer =>
+        Buffer.from(method.I.toBinary(value, this._binaryOptions)),
+      (value: Buffer): InstructionRequest =>
+        method.O.fromBinary(value, this._binaryOptions),
+      metadata as any,
+      options
+    );
   }
   /**
    * Used to get the full process bundle descriptors for bundles one
@@ -170,23 +192,40 @@ export class BeamFnControlClient extends grpc.Client implements
    * returns (org.apache.beam.model.fn_execution.v1.ProcessBundleDescriptor);
    */
   getProcessBundleDescriptor(
-      input: GetProcessBundleDescriptorRequest,
-      metadata: grpc.Metadata|grpc.CallOptions|
-      ((err: grpc.ServiceError|null, value?: ProcessBundleDescriptor) => void),
-      options?: grpc.CallOptions|
-      ((err: grpc.ServiceError|null, value?: ProcessBundleDescriptor) => void),
-      callback?:
-          ((err: grpc.ServiceError|null,
-            value?: ProcessBundleDescriptor) => void)): grpc.ClientUnaryCall {
+    input: GetProcessBundleDescriptorRequest,
+    metadata:
+      | grpc.Metadata
+      | grpc.CallOptions
+      | ((
+          err: grpc.ServiceError | null,
+          value?: ProcessBundleDescriptor
+        ) => void),
+    options?:
+      | grpc.CallOptions
+      | ((
+          err: grpc.ServiceError | null,
+          value?: ProcessBundleDescriptor
+        ) => void),
+    callback?: (
+      err: grpc.ServiceError | null,
+      value?: ProcessBundleDescriptor
+    ) => void
+  ): grpc.ClientUnaryCall {
     const method = BeamFnControl.methods[1];
     return this.makeUnaryRequest<
-        GetProcessBundleDescriptorRequest, ProcessBundleDescriptor>(
-        `/${BeamFnControl.typeName}/${method.name}`,
-        (value: GetProcessBundleDescriptorRequest): Buffer =>
-            Buffer.from(method.I.toBinary(value, this._binaryOptions)),
-        (value: Buffer): ProcessBundleDescriptor =>
-            method.O.fromBinary(value, this._binaryOptions),
-        input, (metadata as any), (options as any), (callback as any));
+      GetProcessBundleDescriptorRequest,
+      ProcessBundleDescriptor
+    >(
+      `/${BeamFnControl.typeName}/${method.name}`,
+      (value: GetProcessBundleDescriptorRequest): Buffer =>
+        Buffer.from(method.I.toBinary(value, this._binaryOptions)),
+      (value: Buffer): ProcessBundleDescriptor =>
+        method.O.fromBinary(value, this._binaryOptions),
+      input,
+      metadata as any,
+      options as any,
+      callback as any
+    );
   }
 }
 /**
@@ -203,8 +242,10 @@ export interface IBeamFnDataClient {
    * org.apache.beam.model.fn_execution.v1.Elements) returns (stream
    * org.apache.beam.model.fn_execution.v1.Elements);
    */
-  data(metadata: grpc.Metadata, options?: grpc.CallOptions):
-      grpc.ClientDuplexStream<Elements, Elements>;
+  data(
+    metadata: grpc.Metadata,
+    options?: grpc.CallOptions
+  ): grpc.ClientDuplexStream<Elements, Elements>;
   data(options?: grpc.CallOptions): grpc.ClientDuplexStream<Elements, Elements>;
 }
 /**
@@ -214,12 +255,15 @@ export interface IBeamFnDataClient {
  * org.apache.beam.model.fn_execution.v1.BeamFnData
  */
 export class BeamFnDataClient extends grpc.Client implements IBeamFnDataClient {
-  private readonly _binaryOptions:
-      Partial<BinaryReadOptions&BinaryWriteOptions>;
+  private readonly _binaryOptions: Partial<
+    BinaryReadOptions & BinaryWriteOptions
+  >;
   constructor(
-      address: string, credentials: grpc.ChannelCredentials,
-      options: grpc.ClientOptions = {},
-      binaryOptions: Partial<BinaryReadOptions&BinaryWriteOptions> = {}) {
+    address: string,
+    credentials: grpc.ChannelCredentials,
+    options: grpc.ClientOptions = {},
+    binaryOptions: Partial<BinaryReadOptions & BinaryWriteOptions> = {}
+  ) {
     super(address, credentials, options);
     this._binaryOptions = binaryOptions;
   }
@@ -230,16 +274,20 @@ export class BeamFnDataClient extends grpc.Client implements IBeamFnDataClient {
    * org.apache.beam.model.fn_execution.v1.Elements) returns (stream
    * org.apache.beam.model.fn_execution.v1.Elements);
    */
-  data(metadata?: grpc.Metadata|grpc.CallOptions, options?: grpc.CallOptions):
-      grpc.ClientDuplexStream<Elements, Elements> {
+  data(
+    metadata?: grpc.Metadata | grpc.CallOptions,
+    options?: grpc.CallOptions
+  ): grpc.ClientDuplexStream<Elements, Elements> {
     const method = BeamFnData.methods[0];
     return this.makeBidiStreamRequest<Elements, Elements>(
-        `/${BeamFnData.typeName}/${method.name}`,
-        (value: Elements): Buffer =>
-            Buffer.from(method.I.toBinary(value, this._binaryOptions)),
-        (value: Buffer): Elements =>
-            method.O.fromBinary(value, this._binaryOptions),
-        (metadata as any), options);
+      `/${BeamFnData.typeName}/${method.name}`,
+      (value: Elements): Buffer =>
+        Buffer.from(method.I.toBinary(value, this._binaryOptions)),
+      (value: Buffer): Elements =>
+        method.O.fromBinary(value, this._binaryOptions),
+      metadata as any,
+      options
+    );
   }
 }
 /**
@@ -254,23 +302,31 @@ export interface IBeamFnStateClient {
    * org.apache.beam.model.fn_execution.v1.StateRequest) returns (stream
    * org.apache.beam.model.fn_execution.v1.StateResponse);
    */
-  state(metadata: grpc.Metadata, options?: grpc.CallOptions):
-      grpc.ClientDuplexStream<StateRequest, StateResponse>;
-  state(options?: grpc.CallOptions):
-      grpc.ClientDuplexStream<StateRequest, StateResponse>;
+  state(
+    metadata: grpc.Metadata,
+    options?: grpc.CallOptions
+  ): grpc.ClientDuplexStream<StateRequest, StateResponse>;
+  state(
+    options?: grpc.CallOptions
+  ): grpc.ClientDuplexStream<StateRequest, StateResponse>;
 }
 /**
  * @generated from protobuf service
  * org.apache.beam.model.fn_execution.v1.BeamFnState
  */
-export class BeamFnStateClient extends grpc.Client implements
-    IBeamFnStateClient {
-  private readonly _binaryOptions:
-      Partial<BinaryReadOptions&BinaryWriteOptions>;
+export class BeamFnStateClient
+  extends grpc.Client
+  implements IBeamFnStateClient
+{
+  private readonly _binaryOptions: Partial<
+    BinaryReadOptions & BinaryWriteOptions
+  >;
   constructor(
-      address: string, credentials: grpc.ChannelCredentials,
-      options: grpc.ClientOptions = {},
-      binaryOptions: Partial<BinaryReadOptions&BinaryWriteOptions> = {}) {
+    address: string,
+    credentials: grpc.ChannelCredentials,
+    options: grpc.ClientOptions = {},
+    binaryOptions: Partial<BinaryReadOptions & BinaryWriteOptions> = {}
+  ) {
     super(address, credentials, options);
     this._binaryOptions = binaryOptions;
   }
@@ -281,16 +337,20 @@ export class BeamFnStateClient extends grpc.Client implements
    * org.apache.beam.model.fn_execution.v1.StateRequest) returns (stream
    * org.apache.beam.model.fn_execution.v1.StateResponse);
    */
-  state(metadata?: grpc.Metadata|grpc.CallOptions, options?: grpc.CallOptions):
-      grpc.ClientDuplexStream<StateRequest, StateResponse> {
+  state(
+    metadata?: grpc.Metadata | grpc.CallOptions,
+    options?: grpc.CallOptions
+  ): grpc.ClientDuplexStream<StateRequest, StateResponse> {
     const method = BeamFnState.methods[0];
     return this.makeBidiStreamRequest<StateRequest, StateResponse>(
-        `/${BeamFnState.typeName}/${method.name}`,
-        (value: StateRequest): Buffer =>
-            Buffer.from(method.I.toBinary(value, this._binaryOptions)),
-        (value: Buffer): StateResponse =>
-            method.O.fromBinary(value, this._binaryOptions),
-        (metadata as any), options);
+      `/${BeamFnState.typeName}/${method.name}`,
+      (value: StateRequest): Buffer =>
+        Buffer.from(method.I.toBinary(value, this._binaryOptions)),
+      (value: Buffer): StateResponse =>
+        method.O.fromBinary(value, this._binaryOptions),
+      metadata as any,
+      options
+    );
   }
 }
 /**
@@ -308,10 +368,13 @@ export interface IBeamFnLoggingClient {
    * org.apache.beam.model.fn_execution.v1.LogEntry.List) returns (stream
    * org.apache.beam.model.fn_execution.v1.LogControl);
    */
-  logging(metadata: grpc.Metadata, options?: grpc.CallOptions):
-      grpc.ClientDuplexStream<LogEntry_List, LogControl>;
-  logging(options?: grpc.CallOptions):
-      grpc.ClientDuplexStream<LogEntry_List, LogControl>;
+  logging(
+    metadata: grpc.Metadata,
+    options?: grpc.CallOptions
+  ): grpc.ClientDuplexStream<LogEntry_List, LogControl>;
+  logging(
+    options?: grpc.CallOptions
+  ): grpc.ClientDuplexStream<LogEntry_List, LogControl>;
 }
 /**
  * Stable
@@ -319,14 +382,19 @@ export interface IBeamFnLoggingClient {
  * @generated from protobuf service
  * org.apache.beam.model.fn_execution.v1.BeamFnLogging
  */
-export class BeamFnLoggingClient extends grpc.Client implements
-    IBeamFnLoggingClient {
-  private readonly _binaryOptions:
-      Partial<BinaryReadOptions&BinaryWriteOptions>;
+export class BeamFnLoggingClient
+  extends grpc.Client
+  implements IBeamFnLoggingClient
+{
+  private readonly _binaryOptions: Partial<
+    BinaryReadOptions & BinaryWriteOptions
+  >;
   constructor(
-      address: string, credentials: grpc.ChannelCredentials,
-      options: grpc.ClientOptions = {},
-      binaryOptions: Partial<BinaryReadOptions&BinaryWriteOptions> = {}) {
+    address: string,
+    credentials: grpc.ChannelCredentials,
+    options: grpc.ClientOptions = {},
+    binaryOptions: Partial<BinaryReadOptions & BinaryWriteOptions> = {}
+  ) {
     super(address, credentials, options);
     this._binaryOptions = binaryOptions;
   }
@@ -339,16 +407,19 @@ export class BeamFnLoggingClient extends grpc.Client implements
    * org.apache.beam.model.fn_execution.v1.LogControl);
    */
   logging(
-      metadata?: grpc.Metadata|grpc.CallOptions, options?: grpc.CallOptions):
-      grpc.ClientDuplexStream<LogEntry_List, LogControl> {
+    metadata?: grpc.Metadata | grpc.CallOptions,
+    options?: grpc.CallOptions
+  ): grpc.ClientDuplexStream<LogEntry_List, LogControl> {
     const method = BeamFnLogging.methods[0];
     return this.makeBidiStreamRequest<LogEntry_List, LogControl>(
-        `/${BeamFnLogging.typeName}/${method.name}`,
-        (value: LogEntry_List): Buffer =>
-            Buffer.from(method.I.toBinary(value, this._binaryOptions)),
-        (value: Buffer): LogControl =>
-            method.O.fromBinary(value, this._binaryOptions),
-        (metadata as any), options);
+      `/${BeamFnLogging.typeName}/${method.name}`,
+      (value: LogEntry_List): Buffer =>
+        Buffer.from(method.I.toBinary(value, this._binaryOptions)),
+      (value: Buffer): LogControl =>
+        method.O.fromBinary(value, this._binaryOptions),
+      metadata as any,
+      options
+    );
   }
 }
 /**
@@ -364,26 +435,37 @@ export interface IBeamFnExternalWorkerPoolClient {
    * returns (org.apache.beam.model.fn_execution.v1.StartWorkerResponse);
    */
   startWorker(
-      input: StartWorkerRequest, metadata: grpc.Metadata,
-      options: grpc.CallOptions,
-      callback:
-          (err: grpc.ServiceError|null, value?: StartWorkerResponse) => void):
-      grpc.ClientUnaryCall;
+    input: StartWorkerRequest,
+    metadata: grpc.Metadata,
+    options: grpc.CallOptions,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: StartWorkerResponse
+    ) => void
+  ): grpc.ClientUnaryCall;
   startWorker(
-      input: StartWorkerRequest, metadata: grpc.Metadata,
-      callback:
-          (err: grpc.ServiceError|null, value?: StartWorkerResponse) => void):
-      grpc.ClientUnaryCall;
+    input: StartWorkerRequest,
+    metadata: grpc.Metadata,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: StartWorkerResponse
+    ) => void
+  ): grpc.ClientUnaryCall;
   startWorker(
-      input: StartWorkerRequest, options: grpc.CallOptions,
-      callback:
-          (err: grpc.ServiceError|null, value?: StartWorkerResponse) => void):
-      grpc.ClientUnaryCall;
+    input: StartWorkerRequest,
+    options: grpc.CallOptions,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: StartWorkerResponse
+    ) => void
+  ): grpc.ClientUnaryCall;
   startWorker(
-      input: StartWorkerRequest,
-      callback:
-          (err: grpc.ServiceError|null, value?: StartWorkerResponse) => void):
-      grpc.ClientUnaryCall;
+    input: StartWorkerRequest,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: StartWorkerResponse
+    ) => void
+  ): grpc.ClientUnaryCall;
   /**
    * Stop the SDK worker.
    *
@@ -392,39 +474,55 @@ export interface IBeamFnExternalWorkerPoolClient {
    * (org.apache.beam.model.fn_execution.v1.StopWorkerResponse);
    */
   stopWorker(
-      input: StopWorkerRequest, metadata: grpc.Metadata,
-      options: grpc.CallOptions,
-      callback:
-          (err: grpc.ServiceError|null, value?: StopWorkerResponse) => void):
-      grpc.ClientUnaryCall;
+    input: StopWorkerRequest,
+    metadata: grpc.Metadata,
+    options: grpc.CallOptions,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: StopWorkerResponse
+    ) => void
+  ): grpc.ClientUnaryCall;
   stopWorker(
-      input: StopWorkerRequest, metadata: grpc.Metadata,
-      callback:
-          (err: grpc.ServiceError|null, value?: StopWorkerResponse) => void):
-      grpc.ClientUnaryCall;
+    input: StopWorkerRequest,
+    metadata: grpc.Metadata,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: StopWorkerResponse
+    ) => void
+  ): grpc.ClientUnaryCall;
   stopWorker(
-      input: StopWorkerRequest, options: grpc.CallOptions,
-      callback:
-          (err: grpc.ServiceError|null, value?: StopWorkerResponse) => void):
-      grpc.ClientUnaryCall;
+    input: StopWorkerRequest,
+    options: grpc.CallOptions,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: StopWorkerResponse
+    ) => void
+  ): grpc.ClientUnaryCall;
   stopWorker(
-      input: StopWorkerRequest,
-      callback:
-          (err: grpc.ServiceError|null, value?: StopWorkerResponse) => void):
-      grpc.ClientUnaryCall;
+    input: StopWorkerRequest,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: StopWorkerResponse
+    ) => void
+  ): grpc.ClientUnaryCall;
 }
 /**
  * @generated from protobuf service
  * org.apache.beam.model.fn_execution.v1.BeamFnExternalWorkerPool
  */
-export class BeamFnExternalWorkerPoolClient extends grpc.Client implements
-    IBeamFnExternalWorkerPoolClient {
-  private readonly _binaryOptions:
-      Partial<BinaryReadOptions&BinaryWriteOptions>;
+export class BeamFnExternalWorkerPoolClient
+  extends grpc.Client
+  implements IBeamFnExternalWorkerPoolClient
+{
+  private readonly _binaryOptions: Partial<
+    BinaryReadOptions & BinaryWriteOptions
+  >;
   constructor(
-      address: string, credentials: grpc.ChannelCredentials,
-      options: grpc.ClientOptions = {},
-      binaryOptions: Partial<BinaryReadOptions&BinaryWriteOptions> = {}) {
+    address: string,
+    credentials: grpc.ChannelCredentials,
+    options: grpc.ClientOptions = {},
+    binaryOptions: Partial<BinaryReadOptions & BinaryWriteOptions> = {}
+  ) {
     super(address, credentials, options);
     this._binaryOptions = binaryOptions;
   }
@@ -436,22 +534,31 @@ export class BeamFnExternalWorkerPoolClient extends grpc.Client implements
    * returns (org.apache.beam.model.fn_execution.v1.StartWorkerResponse);
    */
   startWorker(
-      input: StartWorkerRequest,
-      metadata: grpc.Metadata|grpc.CallOptions|
-      ((err: grpc.ServiceError|null, value?: StartWorkerResponse) => void),
-      options?: grpc.CallOptions|
-      ((err: grpc.ServiceError|null, value?: StartWorkerResponse) => void),
-      callback?:
-          ((err: grpc.ServiceError|null, value?: StartWorkerResponse) => void)):
-      grpc.ClientUnaryCall {
+    input: StartWorkerRequest,
+    metadata:
+      | grpc.Metadata
+      | grpc.CallOptions
+      | ((err: grpc.ServiceError | null, value?: StartWorkerResponse) => void),
+    options?:
+      | grpc.CallOptions
+      | ((err: grpc.ServiceError | null, value?: StartWorkerResponse) => void),
+    callback?: (
+      err: grpc.ServiceError | null,
+      value?: StartWorkerResponse
+    ) => void
+  ): grpc.ClientUnaryCall {
     const method = BeamFnExternalWorkerPool.methods[0];
     return this.makeUnaryRequest<StartWorkerRequest, StartWorkerResponse>(
-        `/${BeamFnExternalWorkerPool.typeName}/${method.name}`,
-        (value: StartWorkerRequest): Buffer =>
-            Buffer.from(method.I.toBinary(value, this._binaryOptions)),
-        (value: Buffer): StartWorkerResponse =>
-            method.O.fromBinary(value, this._binaryOptions),
-        input, (metadata as any), (options as any), (callback as any));
+      `/${BeamFnExternalWorkerPool.typeName}/${method.name}`,
+      (value: StartWorkerRequest): Buffer =>
+        Buffer.from(method.I.toBinary(value, this._binaryOptions)),
+      (value: Buffer): StartWorkerResponse =>
+        method.O.fromBinary(value, this._binaryOptions),
+      input,
+      metadata as any,
+      options as any,
+      callback as any
+    );
   }
   /**
    * Stop the SDK worker.
@@ -461,22 +568,31 @@ export class BeamFnExternalWorkerPoolClient extends grpc.Client implements
    * (org.apache.beam.model.fn_execution.v1.StopWorkerResponse);
    */
   stopWorker(
-      input: StopWorkerRequest,
-      metadata: grpc.Metadata|grpc.CallOptions|
-      ((err: grpc.ServiceError|null, value?: StopWorkerResponse) => void),
-      options?: grpc.CallOptions|
-      ((err: grpc.ServiceError|null, value?: StopWorkerResponse) => void),
-      callback?:
-          ((err: grpc.ServiceError|null, value?: StopWorkerResponse) => void)):
-      grpc.ClientUnaryCall {
+    input: StopWorkerRequest,
+    metadata:
+      | grpc.Metadata
+      | grpc.CallOptions
+      | ((err: grpc.ServiceError | null, value?: StopWorkerResponse) => void),
+    options?:
+      | grpc.CallOptions
+      | ((err: grpc.ServiceError | null, value?: StopWorkerResponse) => void),
+    callback?: (
+      err: grpc.ServiceError | null,
+      value?: StopWorkerResponse
+    ) => void
+  ): grpc.ClientUnaryCall {
     const method = BeamFnExternalWorkerPool.methods[1];
     return this.makeUnaryRequest<StopWorkerRequest, StopWorkerResponse>(
-        `/${BeamFnExternalWorkerPool.typeName}/${method.name}`,
-        (value: StopWorkerRequest): Buffer =>
-            Buffer.from(method.I.toBinary(value, this._binaryOptions)),
-        (value: Buffer): StopWorkerResponse =>
-            method.O.fromBinary(value, this._binaryOptions),
-        input, (metadata as any), (options as any), (callback as any));
+      `/${BeamFnExternalWorkerPool.typeName}/${method.name}`,
+      (value: StopWorkerRequest): Buffer =>
+        Buffer.from(method.I.toBinary(value, this._binaryOptions)),
+      (value: Buffer): StopWorkerResponse =>
+        method.O.fromBinary(value, this._binaryOptions),
+      input,
+      metadata as any,
+      options as any,
+      callback as any
+    );
   }
 }
 /**
@@ -492,10 +608,13 @@ export interface IBeamFnWorkerStatusClient {
    * org.apache.beam.model.fn_execution.v1.WorkerStatusResponse) returns (stream
    * org.apache.beam.model.fn_execution.v1.WorkerStatusRequest);
    */
-  workerStatus(metadata: grpc.Metadata, options?: grpc.CallOptions):
-      grpc.ClientDuplexStream<WorkerStatusResponse, WorkerStatusRequest>;
-  workerStatus(options?: grpc.CallOptions):
-      grpc.ClientDuplexStream<WorkerStatusResponse, WorkerStatusRequest>;
+  workerStatus(
+    metadata: grpc.Metadata,
+    options?: grpc.CallOptions
+  ): grpc.ClientDuplexStream<WorkerStatusResponse, WorkerStatusRequest>;
+  workerStatus(
+    options?: grpc.CallOptions
+  ): grpc.ClientDuplexStream<WorkerStatusResponse, WorkerStatusRequest>;
 }
 /**
  * API for SDKs to report debug-related statuses to runner during pipeline
@@ -504,14 +623,19 @@ export interface IBeamFnWorkerStatusClient {
  * @generated from protobuf service
  * org.apache.beam.model.fn_execution.v1.BeamFnWorkerStatus
  */
-export class BeamFnWorkerStatusClient extends grpc.Client implements
-    IBeamFnWorkerStatusClient {
-  private readonly _binaryOptions:
-      Partial<BinaryReadOptions&BinaryWriteOptions>;
+export class BeamFnWorkerStatusClient
+  extends grpc.Client
+  implements IBeamFnWorkerStatusClient
+{
+  private readonly _binaryOptions: Partial<
+    BinaryReadOptions & BinaryWriteOptions
+  >;
   constructor(
-      address: string, credentials: grpc.ChannelCredentials,
-      options: grpc.ClientOptions = {},
-      binaryOptions: Partial<BinaryReadOptions&BinaryWriteOptions> = {}) {
+    address: string,
+    credentials: grpc.ChannelCredentials,
+    options: grpc.ClientOptions = {},
+    binaryOptions: Partial<BinaryReadOptions & BinaryWriteOptions> = {}
+  ) {
     super(address, credentials, options);
     this._binaryOptions = binaryOptions;
   }
@@ -521,16 +645,21 @@ export class BeamFnWorkerStatusClient extends grpc.Client implements
    * org.apache.beam.model.fn_execution.v1.WorkerStatusRequest);
    */
   workerStatus(
-      metadata?: grpc.Metadata|grpc.CallOptions, options?: grpc.CallOptions):
-      grpc.ClientDuplexStream<WorkerStatusResponse, WorkerStatusRequest> {
+    metadata?: grpc.Metadata | grpc.CallOptions,
+    options?: grpc.CallOptions
+  ): grpc.ClientDuplexStream<WorkerStatusResponse, WorkerStatusRequest> {
     const method = BeamFnWorkerStatus.methods[0];
-    return this
-        .makeBidiStreamRequest<WorkerStatusResponse, WorkerStatusRequest>(
-            `/${BeamFnWorkerStatus.typeName}/${method.name}`,
-            (value: WorkerStatusResponse): Buffer =>
-                Buffer.from(method.I.toBinary(value, this._binaryOptions)),
-            (value: Buffer): WorkerStatusRequest =>
-                method.O.fromBinary(value, this._binaryOptions),
-            (metadata as any), options);
+    return this.makeBidiStreamRequest<
+      WorkerStatusResponse,
+      WorkerStatusRequest
+    >(
+      `/${BeamFnWorkerStatus.typeName}/${method.name}`,
+      (value: WorkerStatusResponse): Buffer =>
+        Buffer.from(method.I.toBinary(value, this._binaryOptions)),
+      (value: Buffer): WorkerStatusRequest =>
+        method.O.fromBinary(value, this._binaryOptions),
+      metadata as any,
+      options
+    );
   }
 }

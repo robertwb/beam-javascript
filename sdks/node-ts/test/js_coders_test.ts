@@ -1,29 +1,29 @@
-import * as beam from '../src/apache_beam';
-import * as assert from 'assert';
-import {Context} from '../src/apache_beam/coders/coders';
+import * as beam from "../src/apache_beam";
+import * as assert from "assert";
+import { Context } from "../src/apache_beam/coders/coders";
 import {
   BytesCoder,
   IterableCoder,
   KVCoder,
   StrUtf8Coder,
   VarIntCoder,
-} from '../src/apache_beam/coders/standard_coders';
-import {GroupBy} from '../src/apache_beam/transforms/core';
+} from "../src/apache_beam/coders/standard_coders";
+import { GroupBy } from "../src/apache_beam/transforms/core";
 import {
   BsonObjectCoder,
   GeneralObjectCoder,
-} from '../src/apache_beam/coders/js_coders';
-import {BufferReader, BufferWriter} from 'protobufjs';
+} from "../src/apache_beam/coders/js_coders";
+import { BufferReader, BufferWriter } from "protobufjs";
 
-describe('JavaScript native coders', () => {
-  describe('BSON Object Coder', () => {
+describe("JavaScript native coders", () => {
+  describe("BSON Object Coder", () => {
     const bsonCoder = new BsonObjectCoder();
-    it('encodes and decodes an object properly', () => {
+    it("encodes and decodes an object properly", () => {
       const inputObject = {
-        str: 'astring',
+        str: "astring",
         int: 1,
         float: 1.2345,
-        obj: {any: 'any'},
+        obj: { any: "any" },
         null: null,
         bool: true,
         // 'undef': undefined,  // TODO(pabloem): Figure out how to support undefined encoding/decoding.
@@ -46,14 +46,14 @@ describe('JavaScript native coders', () => {
     });
   });
 
-  describe('general object coder', () => {
+  describe("general object coder", () => {
     const objCoder = new GeneralObjectCoder();
-    it('encodes and decodes an object properly', () => {
+    it("encodes and decodes an object properly", () => {
       const inputObject = {
-        str: 'astring',
+        str: "astring",
         int: 1,
         float: 1.2345,
-        obj: {any: 'any'},
+        obj: { any: "any" },
         null: null,
         bool: true,
         // 'undef': undefined,  // TODO(pabloem): Figure out how to support undefined encoding/decoding.
@@ -74,8 +74,8 @@ describe('JavaScript native coders', () => {
         inputObject
       );
     });
-    it('encodes and decodes a string properly', () => {
-      const inputObject = 'abcde';
+    it("encodes and decodes a string properly", () => {
+      const inputObject = "abcde";
       const writer = new BufferWriter();
 
       const encoded = objCoder.encode(
@@ -91,7 +91,7 @@ describe('JavaScript native coders', () => {
         inputObject
       );
     });
-    it('encodes and decodes a number properly', () => {
+    it("encodes and decodes a number properly", () => {
       const inputObject = 12345678;
       const writer = new BufferWriter();
 
@@ -108,7 +108,7 @@ describe('JavaScript native coders', () => {
         inputObject
       );
     });
-    it('encodes and decodes a BigInt properly', function () {
+    it("encodes and decodes a BigInt properly", function () {
       // TODO(pabloem): THIS TEST NEEDS TO BE sKIPPED BECAUSE VERY LARGE INTS ARE BROKEN
       this.skip();
       const inputObject = Number.MAX_SAFE_INTEGER + 123456789;
@@ -127,7 +127,7 @@ describe('JavaScript native coders', () => {
         inputObject
       );
     });
-    it('encodes and decodes a true boolean properly', () => {
+    it("encodes and decodes a true boolean properly", () => {
       const inputObject = true;
       const writer = new BufferWriter();
 
@@ -144,7 +144,7 @@ describe('JavaScript native coders', () => {
         inputObject
       );
     });
-    it('encodes and decodes a false boolean properly', () => {
+    it("encodes and decodes a false boolean properly", () => {
       const inputObject = false;
       const writer = new BufferWriter();
 

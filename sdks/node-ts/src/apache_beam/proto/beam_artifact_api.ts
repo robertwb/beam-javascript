@@ -26,18 +26,18 @@
 // Protocol Buffers describing the Artifact API, for communicating with a runner
 // for artifact staging and retrieval over GRPC.
 //
-import {ServiceType} from '@protobuf-ts/runtime-rpc';
-import type {BinaryWriteOptions} from '@protobuf-ts/runtime';
-import type {IBinaryWriter} from '@protobuf-ts/runtime';
-import {WireType} from '@protobuf-ts/runtime';
-import type {BinaryReadOptions} from '@protobuf-ts/runtime';
-import type {IBinaryReader} from '@protobuf-ts/runtime';
-import {UnknownFieldHandler} from '@protobuf-ts/runtime';
-import type {PartialMessage} from '@protobuf-ts/runtime';
-import {reflectionMergePartial} from '@protobuf-ts/runtime';
-import {MESSAGE_TYPE} from '@protobuf-ts/runtime';
-import {MessageType} from '@protobuf-ts/runtime';
-import {ArtifactInformation} from './beam_runner_api';
+import { ServiceType } from "@protobuf-ts/runtime-rpc";
+import type { BinaryWriteOptions } from "@protobuf-ts/runtime";
+import type { IBinaryWriter } from "@protobuf-ts/runtime";
+import { WireType } from "@protobuf-ts/runtime";
+import type { BinaryReadOptions } from "@protobuf-ts/runtime";
+import type { IBinaryReader } from "@protobuf-ts/runtime";
+import { UnknownFieldHandler } from "@protobuf-ts/runtime";
+import type { PartialMessage } from "@protobuf-ts/runtime";
+import { reflectionMergePartial } from "@protobuf-ts/runtime";
+import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
+import { MessageType } from "@protobuf-ts/runtime";
+import { ArtifactInformation } from "./beam_runner_api";
 /**
  * A request for artifact resolution.
  *
@@ -115,26 +115,28 @@ export interface ArtifactRequestWrapper {
   /**
    * @generated from protobuf oneof: request
    */
-  request: {
-    oneofKind: 'resolveArtifact';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.job_management.v1.ResolveArtifactsRequest
-     * resolve_artifact = 1000;
-     */
-    resolveArtifact: ResolveArtifactsRequest;
-  }|{
-    oneofKind: 'getArtifact';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.job_management.v1.GetArtifactRequest get_artifact =
-     * 1001;
-     */
-    getArtifact: GetArtifactRequest;
-  }
-  |{
-    oneofKind: undefined;
-  };
+  request:
+    | {
+        oneofKind: "resolveArtifact";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.job_management.v1.ResolveArtifactsRequest
+         * resolve_artifact = 1000;
+         */
+        resolveArtifact: ResolveArtifactsRequest;
+      }
+    | {
+        oneofKind: "getArtifact";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.job_management.v1.GetArtifactRequest get_artifact =
+         * 1001;
+         */
+        getArtifact: GetArtifactRequest;
+      }
+    | {
+        oneofKind: undefined;
+      };
 }
 /**
  * Wraps an ArtifactRetrievalService response for use in
@@ -160,26 +162,28 @@ export interface ArtifactResponseWrapper {
   /**
    * @generated from protobuf oneof: response
    */
-  response: {
-    oneofKind: 'resolveArtifactResponse';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.job_management.v1.ResolveArtifactsResponse
-     * resolve_artifact_response = 1000;
-     */
-    resolveArtifactResponse: ResolveArtifactsResponse;
-  }|{
-    oneofKind: 'getArtifactResponse';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.job_management.v1.GetArtifactResponse
-     * get_artifact_response = 1001;
-     */
-    getArtifactResponse: GetArtifactResponse;
-  }
-  |{
-    oneofKind: undefined;
-  };
+  response:
+    | {
+        oneofKind: "resolveArtifactResponse";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.job_management.v1.ResolveArtifactsResponse
+         * resolve_artifact_response = 1000;
+         */
+        resolveArtifactResponse: ResolveArtifactsResponse;
+      }
+    | {
+        oneofKind: "getArtifactResponse";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.job_management.v1.GetArtifactResponse
+         * get_artifact_response = 1001;
+         */
+        getArtifactResponse: GetArtifactResponse;
+      }
+    | {
+        oneofKind: undefined;
+      };
 }
 /**
  * An artifact identifier and associated metadata.
@@ -347,29 +351,31 @@ export interface PutArtifactRequest {
   /**
    * @generated from protobuf oneof: content
    */
-  content: {
-    oneofKind: 'metadata';
-    /**
-     * The first message in a PutArtifact call must contain this field.
-     *
-     * @generated from protobuf field:
-     * org.apache.beam.model.job_management.v1.PutArtifactMetadata metadata = 1;
-     */
-    metadata: PutArtifactMetadata;
-  }|{
-    oneofKind: 'data';
-    /**
-     * A chunk of the artifact. All messages after the first in a PutArtifact
-     * call must contain a chunk.
-     *
-     * @generated from protobuf field:
-     * org.apache.beam.model.job_management.v1.ArtifactChunk data = 2;
-     */
-    data: ArtifactChunk;
-  }
-  |{
-    oneofKind: undefined;
-  };
+  content:
+    | {
+        oneofKind: "metadata";
+        /**
+         * The first message in a PutArtifact call must contain this field.
+         *
+         * @generated from protobuf field:
+         * org.apache.beam.model.job_management.v1.PutArtifactMetadata metadata = 1;
+         */
+        metadata: PutArtifactMetadata;
+      }
+    | {
+        oneofKind: "data";
+        /**
+         * A chunk of the artifact. All messages after the first in a PutArtifact
+         * call must contain a chunk.
+         *
+         * @generated from protobuf field:
+         * org.apache.beam.model.job_management.v1.ArtifactChunk data = 2;
+         */
+        data: ArtifactChunk;
+      }
+    | {
+        oneofKind: undefined;
+      };
 }
 /**
  * @generated from protobuf message
@@ -426,86 +432,108 @@ export enum CommitManifestResponse_Constants {
    *
    * @generated from protobuf enum value: NO_ARTIFACTS_STAGED_TOKEN = 0;
    */
-  NO_ARTIFACTS_STAGED_TOKEN = 0
+  NO_ARTIFACTS_STAGED_TOKEN = 0,
 }
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class ResolveArtifactsRequest$Type extends
-    MessageType<ResolveArtifactsRequest> {
+class ResolveArtifactsRequest$Type extends MessageType<ResolveArtifactsRequest> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.ResolveArtifactsRequest', [
+    super("org.apache.beam.model.job_management.v1.ResolveArtifactsRequest", [
       {
         no: 1,
-        name: 'artifacts',
-        kind: 'message',
+        name: "artifacts",
+        kind: "message",
         repeat: 1 /*RepeatType.PACKED*/,
-        T: () => ArtifactInformation
+        T: () => ArtifactInformation,
       },
       {
         no: 2,
-        name: 'preferred_urns',
-        kind: 'scalar',
+        name: "preferred_urns",
+        kind: "scalar",
         repeat: 2 /*RepeatType.UNPACKED*/,
-        T: 9 /*ScalarType.STRING*/
-      }
+        T: 9 /*ScalarType.STRING*/,
+      },
     ]);
   }
-  create(value?: PartialMessage<ResolveArtifactsRequest>):
-      ResolveArtifactsRequest {
-    const message = {artifacts: [], preferredUrns: []};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<ResolveArtifactsRequest>
+  ): ResolveArtifactsRequest {
+    const message = { artifacts: [], preferredUrns: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ResolveArtifactsRequest>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ResolveArtifactsRequest): ResolveArtifactsRequest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ResolveArtifactsRequest
+  ): ResolveArtifactsRequest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* repeated org.apache.beam.model.pipeline.v1.ArtifactInformation
                 artifacts */
-            1:
-          message.artifacts.push(ArtifactInformation.internalBinaryRead(
-              reader, reader.uint32(), options));
+        1:
+          message.artifacts.push(
+            ArtifactInformation.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options
+            )
+          );
           break;
         case /* repeated string preferred_urns */ 2:
           message.preferredUrns.push(reader.string());
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ResolveArtifactsRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ResolveArtifactsRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* repeated org.apache.beam.model.pipeline.v1.ArtifactInformation artifacts
      * = 1; */
     for (let i = 0; i < message.artifacts.length; i++)
-      ArtifactInformation
-          .internalBinaryWrite(
-              message.artifacts[i],
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+      ArtifactInformation.internalBinaryWrite(
+        message.artifacts[i],
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* repeated string preferred_urns = 2; */
     for (let i = 0; i < message.preferredUrns.length; i++)
       writer.tag(2, WireType.LengthDelimited).string(message.preferredUrns[i]);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -516,67 +544,91 @@ class ResolveArtifactsRequest$Type extends
 export const ResolveArtifactsRequest = new ResolveArtifactsRequest$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class ResolveArtifactsResponse$Type extends
-    MessageType<ResolveArtifactsResponse> {
+class ResolveArtifactsResponse$Type extends MessageType<ResolveArtifactsResponse> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.ResolveArtifactsResponse', [{
-            no: 1,
-            name: 'replacements',
-            kind: 'message',
-            repeat: 1 /*RepeatType.PACKED*/,
-            T: () => ArtifactInformation
-          }]);
+    super("org.apache.beam.model.job_management.v1.ResolveArtifactsResponse", [
+      {
+        no: 1,
+        name: "replacements",
+        kind: "message",
+        repeat: 1 /*RepeatType.PACKED*/,
+        T: () => ArtifactInformation,
+      },
+    ]);
   }
-  create(value?: PartialMessage<ResolveArtifactsResponse>):
-      ResolveArtifactsResponse {
-    const message = {replacements: []};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<ResolveArtifactsResponse>
+  ): ResolveArtifactsResponse {
+    const message = { replacements: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ResolveArtifactsResponse>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ResolveArtifactsResponse): ResolveArtifactsResponse {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ResolveArtifactsResponse
+  ): ResolveArtifactsResponse {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* repeated org.apache.beam.model.pipeline.v1.ArtifactInformation
                 replacements */
-            1:
-          message.replacements.push(ArtifactInformation.internalBinaryRead(
-              reader, reader.uint32(), options));
+        1:
+          message.replacements.push(
+            ArtifactInformation.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options
+            )
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ResolveArtifactsResponse, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ResolveArtifactsResponse,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* repeated org.apache.beam.model.pipeline.v1.ArtifactInformation
      * replacements = 1; */
     for (let i = 0; i < message.replacements.length; i++)
-      ArtifactInformation
-          .internalBinaryWrite(
-              message.replacements[i],
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+      ArtifactInformation.internalBinaryWrite(
+        message.replacements[i],
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -589,58 +641,84 @@ export const ResolveArtifactsResponse = new ResolveArtifactsResponse$Type();
 // optimized methods
 class GetArtifactRequest$Type extends MessageType<GetArtifactRequest> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.GetArtifactRequest', [
-      {no: 1, name: 'artifact', kind: 'message', T: () => ArtifactInformation}
+    super("org.apache.beam.model.job_management.v1.GetArtifactRequest", [
+      {
+        no: 1,
+        name: "artifact",
+        kind: "message",
+        T: () => ArtifactInformation,
+      },
     ]);
   }
   create(value?: PartialMessage<GetArtifactRequest>): GetArtifactRequest {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<GetArtifactRequest>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: GetArtifactRequest): GetArtifactRequest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: GetArtifactRequest
+  ): GetArtifactRequest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.ArtifactInformation artifact
-              */
-            1:
+         */
+        1:
           message.artifact = ArtifactInformation.internalBinaryRead(
-              reader, reader.uint32(), options, message.artifact);
+            reader,
+            reader.uint32(),
+            options,
+            message.artifact
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: GetArtifactRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: GetArtifactRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.ArtifactInformation artifact = 1; */
     if (message.artifact)
-      ArtifactInformation
-          .internalBinaryWrite(
-              message.artifact, writer.tag(1, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      ArtifactInformation.internalBinaryWrite(
+        message.artifact,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -653,22 +731,28 @@ export const GetArtifactRequest = new GetArtifactRequest$Type();
 // optimized methods
 class GetArtifactResponse$Type extends MessageType<GetArtifactResponse> {
   constructor() {
-    super(
-        'org.apache.beam.model.job_management.v1.GetArtifactResponse',
-        [{no: 1, name: 'data', kind: 'scalar', T: 12 /*ScalarType.BYTES*/}]);
+    super("org.apache.beam.model.job_management.v1.GetArtifactResponse", [
+      { no: 1, name: "data", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
+    ]);
   }
   create(value?: PartialMessage<GetArtifactResponse>): GetArtifactResponse {
-    const message = {data: new Uint8Array(0)};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { data: new Uint8Array(0) };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<GetArtifactResponse>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: GetArtifactResponse): GetArtifactResponse {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: GetArtifactResponse
+  ): GetArtifactResponse {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -677,27 +761,38 @@ class GetArtifactResponse$Type extends MessageType<GetArtifactResponse> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: GetArtifactResponse, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: GetArtifactResponse,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* bytes data = 1; */
     if (message.data.length)
       writer.tag(1, WireType.LengthDelimited).bytes(message.data);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -710,95 +805,119 @@ export const GetArtifactResponse = new GetArtifactResponse$Type();
 // optimized methods
 class ArtifactRequestWrapper$Type extends MessageType<ArtifactRequestWrapper> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.ArtifactRequestWrapper', [
+    super("org.apache.beam.model.job_management.v1.ArtifactRequestWrapper", [
       {
         no: 1000,
-        name: 'resolve_artifact',
-        kind: 'message',
-        oneof: 'request',
-        T: () => ResolveArtifactsRequest
+        name: "resolve_artifact",
+        kind: "message",
+        oneof: "request",
+        T: () => ResolveArtifactsRequest,
       },
       {
         no: 1001,
-        name: 'get_artifact',
-        kind: 'message',
-        oneof: 'request',
-        T: () => GetArtifactRequest
-      }
+        name: "get_artifact",
+        kind: "message",
+        oneof: "request",
+        T: () => GetArtifactRequest,
+      },
     ]);
   }
-  create(value?: PartialMessage<ArtifactRequestWrapper>):
-      ArtifactRequestWrapper {
-    const message = {request: {oneofKind: undefined}};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<ArtifactRequestWrapper>
+  ): ArtifactRequestWrapper {
+    const message = { request: { oneofKind: undefined } };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ArtifactRequestWrapper>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ArtifactRequestWrapper): ArtifactRequestWrapper {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ArtifactRequestWrapper
+  ): ArtifactRequestWrapper {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.job_management.v1.ResolveArtifactsRequest
                 resolve_artifact */
-            1000:
+        1000:
           message.request = {
-            oneofKind: 'resolveArtifact',
+            oneofKind: "resolveArtifact",
             resolveArtifact: ResolveArtifactsRequest.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.request as any).resolveArtifact)
+              reader,
+              reader.uint32(),
+              options,
+              (message.request as any).resolveArtifact
+            ),
           };
           break;
         case /* org.apache.beam.model.job_management.v1.GetArtifactRequest
                 get_artifact */
-            1001:
+        1001:
           message.request = {
-            oneofKind: 'getArtifact',
+            oneofKind: "getArtifact",
             getArtifact: GetArtifactRequest.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.request as any).getArtifact)
+              reader,
+              reader.uint32(),
+              options,
+              (message.request as any).getArtifact
+            ),
           };
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ArtifactRequestWrapper, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ArtifactRequestWrapper,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.job_management.v1.ResolveArtifactsRequest
      * resolve_artifact = 1000; */
-    if (message.request.oneofKind === 'resolveArtifact')
-      ResolveArtifactsRequest
-          .internalBinaryWrite(
-              message.request.resolveArtifact,
-              writer.tag(1000, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.request.oneofKind === "resolveArtifact")
+      ResolveArtifactsRequest.internalBinaryWrite(
+        message.request.resolveArtifact,
+        writer.tag(1000, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.job_management.v1.GetArtifactRequest get_artifact =
      * 1001; */
-    if (message.request.oneofKind === 'getArtifact')
-      GetArtifactRequest
-          .internalBinaryWrite(
-              message.request.getArtifact,
-              writer.tag(1001, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.request.oneofKind === "getArtifact")
+      GetArtifactRequest.internalBinaryWrite(
+        message.request.getArtifact,
+        writer.tag(1001, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -809,49 +928,56 @@ class ArtifactRequestWrapper$Type extends MessageType<ArtifactRequestWrapper> {
 export const ArtifactRequestWrapper = new ArtifactRequestWrapper$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class ArtifactResponseWrapper$Type extends
-    MessageType<ArtifactResponseWrapper> {
+class ArtifactResponseWrapper$Type extends MessageType<ArtifactResponseWrapper> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.ArtifactResponseWrapper', [
+    super("org.apache.beam.model.job_management.v1.ArtifactResponseWrapper", [
       {
         no: 1,
-        name: 'staging_token',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
+        name: "staging_token",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
       },
-      {no: 2, name: 'is_last', kind: 'scalar', T: 8 /*ScalarType.BOOL*/}, {
+      { no: 2, name: "is_last", kind: "scalar", T: 8 /*ScalarType.BOOL*/ },
+      {
         no: 1000,
-        name: 'resolve_artifact_response',
-        kind: 'message',
-        oneof: 'response',
-        T: () => ResolveArtifactsResponse
+        name: "resolve_artifact_response",
+        kind: "message",
+        oneof: "response",
+        T: () => ResolveArtifactsResponse,
       },
       {
         no: 1001,
-        name: 'get_artifact_response',
-        kind: 'message',
-        oneof: 'response',
-        T: () => GetArtifactResponse
-      }
+        name: "get_artifact_response",
+        kind: "message",
+        oneof: "response",
+        T: () => GetArtifactResponse,
+      },
     ]);
   }
-  create(value?: PartialMessage<ArtifactResponseWrapper>):
-      ArtifactResponseWrapper {
+  create(
+    value?: PartialMessage<ArtifactResponseWrapper>
+  ): ArtifactResponseWrapper {
     const message = {
-      stagingToken: '',
+      stagingToken: "",
       isLast: false,
-      response: {oneofKind: undefined}
+      response: { oneofKind: undefined },
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ArtifactResponseWrapper>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ArtifactResponseWrapper): ArtifactResponseWrapper {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ArtifactResponseWrapper
+  ): ArtifactResponseWrapper {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -863,67 +989,84 @@ class ArtifactResponseWrapper$Type extends
           break;
         case /* org.apache.beam.model.job_management.v1.ResolveArtifactsResponse
                 resolve_artifact_response */
-            1000:
+        1000:
           message.response = {
-            oneofKind: 'resolveArtifactResponse',
+            oneofKind: "resolveArtifactResponse",
             resolveArtifactResponse:
-                ResolveArtifactsResponse.internalBinaryRead(
-                    reader, reader.uint32(), options,
-                    (message.response as any).resolveArtifactResponse)
+              ResolveArtifactsResponse.internalBinaryRead(
+                reader,
+                reader.uint32(),
+                options,
+                (message.response as any).resolveArtifactResponse
+              ),
           };
           break;
         case /* org.apache.beam.model.job_management.v1.GetArtifactResponse
                 get_artifact_response */
-            1001:
+        1001:
           message.response = {
-            oneofKind: 'getArtifactResponse',
+            oneofKind: "getArtifactResponse",
             getArtifactResponse: GetArtifactResponse.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.response as any).getArtifactResponse)
+              reader,
+              reader.uint32(),
+              options,
+              (message.response as any).getArtifactResponse
+            ),
           };
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ArtifactResponseWrapper, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ArtifactResponseWrapper,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string staging_token = 1; */
-    if (message.stagingToken !== '')
+    if (message.stagingToken !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.stagingToken);
     /* bool is_last = 2; */
     if (message.isLast !== false)
       writer.tag(2, WireType.Varint).bool(message.isLast);
     /* org.apache.beam.model.job_management.v1.ResolveArtifactsResponse
      * resolve_artifact_response = 1000; */
-    if (message.response.oneofKind === 'resolveArtifactResponse')
-      ResolveArtifactsResponse
-          .internalBinaryWrite(
-              message.response.resolveArtifactResponse,
-              writer.tag(1000, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.response.oneofKind === "resolveArtifactResponse")
+      ResolveArtifactsResponse.internalBinaryWrite(
+        message.response.resolveArtifactResponse,
+        writer.tag(1000, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.job_management.v1.GetArtifactResponse
      * get_artifact_response = 1001; */
-    if (message.response.oneofKind === 'getArtifactResponse')
-      GetArtifactResponse
-          .internalBinaryWrite(
-              message.response.getArtifactResponse,
-              writer.tag(1001, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.response.oneofKind === "getArtifactResponse")
+      GetArtifactResponse.internalBinaryWrite(
+        message.response.getArtifactResponse,
+        writer.tag(1001, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -936,24 +1079,35 @@ export const ArtifactResponseWrapper = new ArtifactResponseWrapper$Type();
 // optimized methods
 class ArtifactMetadata$Type extends MessageType<ArtifactMetadata> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.ArtifactMetadata', [
-      {no: 1, name: 'name', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 2, name: 'permissions', kind: 'scalar', T: 13 /*ScalarType.UINT32*/},
-      {no: 4, name: 'sha256', kind: 'scalar', T: 9 /*ScalarType.STRING*/}
+    super("org.apache.beam.model.job_management.v1.ArtifactMetadata", [
+      { no: 1, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      {
+        no: 2,
+        name: "permissions",
+        kind: "scalar",
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      { no: 4, name: "sha256", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
     ]);
   }
   create(value?: PartialMessage<ArtifactMetadata>): ArtifactMetadata {
-    const message = {name: '', permissions: 0, sha256: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { name: "", permissions: 0, sha256: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ArtifactMetadata>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ArtifactMetadata): ArtifactMetadata {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ArtifactMetadata
+  ): ArtifactMetadata {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -968,33 +1122,44 @@ class ArtifactMetadata$Type extends MessageType<ArtifactMetadata> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ArtifactMetadata, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ArtifactMetadata,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string name = 1; */
-    if (message.name !== '')
+    if (message.name !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.name);
     /* uint32 permissions = 2; */
     if (message.permissions !== 0)
       writer.tag(2, WireType.Varint).uint32(message.permissions);
     /* string sha256 = 4; */
-    if (message.sha256 !== '')
+    if (message.sha256 !== "")
       writer.tag(4, WireType.LengthDelimited).string(message.sha256);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1007,64 +1172,88 @@ export const ArtifactMetadata = new ArtifactMetadata$Type();
 // optimized methods
 class Manifest$Type extends MessageType<Manifest> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.Manifest', [{
-            no: 1,
-            name: 'artifact',
-            kind: 'message',
-            repeat: 1 /*RepeatType.PACKED*/,
-            T: () => ArtifactMetadata
-          }]);
+    super("org.apache.beam.model.job_management.v1.Manifest", [
+      {
+        no: 1,
+        name: "artifact",
+        kind: "message",
+        repeat: 1 /*RepeatType.PACKED*/,
+        T: () => ArtifactMetadata,
+      },
+    ]);
   }
   create(value?: PartialMessage<Manifest>): Manifest {
-    const message = {artifact: []};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { artifact: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<Manifest>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: Manifest): Manifest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Manifest
+  ): Manifest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* repeated
                 org.apache.beam.model.job_management.v1.ArtifactMetadata
                 artifact */
-            1:
-          message.artifact.push(ArtifactMetadata.internalBinaryRead(
-              reader, reader.uint32(), options));
+        1:
+          message.artifact.push(
+            ArtifactMetadata.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options
+            )
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: Manifest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: Manifest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* repeated org.apache.beam.model.job_management.v1.ArtifactMetadata
      * artifact = 1; */
     for (let i = 0; i < message.artifact.length; i++)
-      ArtifactMetadata
-          .internalBinaryWrite(
-              message.artifact[i],
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+      ArtifactMetadata.internalBinaryWrite(
+        message.artifact[i],
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1077,77 +1266,104 @@ export const Manifest = new Manifest$Type();
 // optimized methods
 class ProxyManifest$Type extends MessageType<ProxyManifest> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.ProxyManifest', [
-      {no: 1, name: 'manifest', kind: 'message', T: () => Manifest}, {
+    super("org.apache.beam.model.job_management.v1.ProxyManifest", [
+      { no: 1, name: "manifest", kind: "message", T: () => Manifest },
+      {
         no: 2,
-        name: 'location',
-        kind: 'message',
+        name: "location",
+        kind: "message",
         repeat: 1 /*RepeatType.PACKED*/,
-        T: () => ProxyManifest_Location
-      }
+        T: () => ProxyManifest_Location,
+      },
     ]);
   }
   create(value?: PartialMessage<ProxyManifest>): ProxyManifest {
-    const message = {location: []};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { location: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ProxyManifest>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ProxyManifest): ProxyManifest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ProxyManifest
+  ): ProxyManifest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.job_management.v1.Manifest manifest */ 1:
           message.manifest = Manifest.internalBinaryRead(
-              reader, reader.uint32(), options, message.manifest);
+            reader,
+            reader.uint32(),
+            options,
+            message.manifest
+          );
           break;
         case /* repeated
                 org.apache.beam.model.job_management.v1.ProxyManifest.Location
                 location */
-            2:
-          message.location.push(ProxyManifest_Location.internalBinaryRead(
-              reader, reader.uint32(), options));
+        2:
+          message.location.push(
+            ProxyManifest_Location.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options
+            )
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ProxyManifest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ProxyManifest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.job_management.v1.Manifest manifest = 1; */
     if (message.manifest)
-      Manifest
-          .internalBinaryWrite(
-              message.manifest, writer.tag(1, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      Manifest.internalBinaryWrite(
+        message.manifest,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* repeated org.apache.beam.model.job_management.v1.ProxyManifest.Location
      * location = 2; */
     for (let i = 0; i < message.location.length; i++)
-      ProxyManifest_Location
-          .internalBinaryWrite(
-              message.location[i],
-              writer.tag(2, WireType.LengthDelimited).fork(), options)
-          .join();
+      ProxyManifest_Location.internalBinaryWrite(
+        message.location[i],
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1160,24 +1376,31 @@ export const ProxyManifest = new ProxyManifest$Type();
 // optimized methods
 class ProxyManifest_Location$Type extends MessageType<ProxyManifest_Location> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.ProxyManifest.Location', [
-      {no: 1, name: 'name', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 2, name: 'uri', kind: 'scalar', T: 9 /*ScalarType.STRING*/}
+    super("org.apache.beam.model.job_management.v1.ProxyManifest.Location", [
+      { no: 1, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      { no: 2, name: "uri", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
     ]);
   }
-  create(value?: PartialMessage<ProxyManifest_Location>):
-      ProxyManifest_Location {
-    const message = {name: '', uri: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<ProxyManifest_Location>
+  ): ProxyManifest_Location {
+    const message = { name: "", uri: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ProxyManifest_Location>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ProxyManifest_Location): ProxyManifest_Location {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ProxyManifest_Location
+  ): ProxyManifest_Location {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -1189,30 +1412,41 @@ class ProxyManifest_Location$Type extends MessageType<ProxyManifest_Location> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ProxyManifest_Location, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ProxyManifest_Location,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string name = 1; */
-    if (message.name !== '')
+    if (message.name !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.name);
     /* string uri = 2; */
-    if (message.uri !== '')
+    if (message.uri !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.uri);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1225,25 +1459,33 @@ export const ProxyManifest_Location = new ProxyManifest_Location$Type();
 // optimized methods
 class GetManifestRequest$Type extends MessageType<GetManifestRequest> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.GetManifestRequest', [{
-            no: 1,
-            name: 'retrieval_token',
-            kind: 'scalar',
-            T: 9 /*ScalarType.STRING*/
-          }]);
+    super("org.apache.beam.model.job_management.v1.GetManifestRequest", [
+      {
+        no: 1,
+        name: "retrieval_token",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
+    ]);
   }
   create(value?: PartialMessage<GetManifestRequest>): GetManifestRequest {
-    const message = {retrievalToken: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { retrievalToken: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<GetManifestRequest>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: GetManifestRequest): GetManifestRequest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: GetManifestRequest
+  ): GetManifestRequest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -1252,27 +1494,38 @@ class GetManifestRequest$Type extends MessageType<GetManifestRequest> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: GetManifestRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: GetManifestRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string retrieval_token = 1; */
-    if (message.retrievalToken !== '')
+    if (message.retrievalToken !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.retrievalToken);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1285,56 +1538,77 @@ export const GetManifestRequest = new GetManifestRequest$Type();
 // optimized methods
 class GetManifestResponse$Type extends MessageType<GetManifestResponse> {
   constructor() {
-    super(
-        'org.apache.beam.model.job_management.v1.GetManifestResponse',
-        [{no: 1, name: 'manifest', kind: 'message', T: () => Manifest}]);
+    super("org.apache.beam.model.job_management.v1.GetManifestResponse", [
+      { no: 1, name: "manifest", kind: "message", T: () => Manifest },
+    ]);
   }
   create(value?: PartialMessage<GetManifestResponse>): GetManifestResponse {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<GetManifestResponse>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: GetManifestResponse): GetManifestResponse {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: GetManifestResponse
+  ): GetManifestResponse {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.job_management.v1.Manifest manifest */ 1:
           message.manifest = Manifest.internalBinaryRead(
-              reader, reader.uint32(), options, message.manifest);
+            reader,
+            reader.uint32(),
+            options,
+            message.manifest
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: GetManifestResponse, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: GetManifestResponse,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.job_management.v1.Manifest manifest = 1; */
     if (message.manifest)
-      Manifest
-          .internalBinaryWrite(
-              message.manifest, writer.tag(1, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      Manifest.internalBinaryWrite(
+        message.manifest,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1345,31 +1619,38 @@ class GetManifestResponse$Type extends MessageType<GetManifestResponse> {
 export const GetManifestResponse = new GetManifestResponse$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class LegacyGetArtifactRequest$Type extends
-    MessageType<LegacyGetArtifactRequest> {
+class LegacyGetArtifactRequest$Type extends MessageType<LegacyGetArtifactRequest> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.LegacyGetArtifactRequest', [
-      {no: 1, name: 'name', kind: 'scalar', T: 9 /*ScalarType.STRING*/}, {
+    super("org.apache.beam.model.job_management.v1.LegacyGetArtifactRequest", [
+      { no: 1, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      {
         no: 2,
-        name: 'retrieval_token',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
-      }
+        name: "retrieval_token",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
     ]);
   }
-  create(value?: PartialMessage<LegacyGetArtifactRequest>):
-      LegacyGetArtifactRequest {
-    const message = {name: '', retrievalToken: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<LegacyGetArtifactRequest>
+  ): LegacyGetArtifactRequest {
+    const message = { name: "", retrievalToken: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<LegacyGetArtifactRequest>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: LegacyGetArtifactRequest): LegacyGetArtifactRequest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: LegacyGetArtifactRequest
+  ): LegacyGetArtifactRequest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -1381,30 +1662,41 @@ class LegacyGetArtifactRequest$Type extends
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: LegacyGetArtifactRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: LegacyGetArtifactRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string name = 1; */
-    if (message.name !== '')
+    if (message.name !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.name);
     /* string retrieval_token = 2; */
-    if (message.retrievalToken !== '')
+    if (message.retrievalToken !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.retrievalToken);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1417,22 +1709,28 @@ export const LegacyGetArtifactRequest = new LegacyGetArtifactRequest$Type();
 // optimized methods
 class ArtifactChunk$Type extends MessageType<ArtifactChunk> {
   constructor() {
-    super(
-        'org.apache.beam.model.job_management.v1.ArtifactChunk',
-        [{no: 1, name: 'data', kind: 'scalar', T: 12 /*ScalarType.BYTES*/}]);
+    super("org.apache.beam.model.job_management.v1.ArtifactChunk", [
+      { no: 1, name: "data", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
+    ]);
   }
   create(value?: PartialMessage<ArtifactChunk>): ArtifactChunk {
-    const message = {data: new Uint8Array(0)};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { data: new Uint8Array(0) };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ArtifactChunk>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ArtifactChunk): ArtifactChunk {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ArtifactChunk
+  ): ArtifactChunk {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -1441,27 +1739,38 @@ class ArtifactChunk$Type extends MessageType<ArtifactChunk> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ArtifactChunk, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ArtifactChunk,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* bytes data = 1; */
     if (message.data.length)
       writer.tag(1, WireType.LengthDelimited).bytes(message.data);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1474,28 +1783,34 @@ export const ArtifactChunk = new ArtifactChunk$Type();
 // optimized methods
 class PutArtifactMetadata$Type extends MessageType<PutArtifactMetadata> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.PutArtifactMetadata', [
+    super("org.apache.beam.model.job_management.v1.PutArtifactMetadata", [
       {
         no: 1,
-        name: 'staging_session_token',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
+        name: "staging_session_token",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
       },
-      {no: 2, name: 'metadata', kind: 'message', T: () => ArtifactMetadata}
+      { no: 2, name: "metadata", kind: "message", T: () => ArtifactMetadata },
     ]);
   }
   create(value?: PartialMessage<PutArtifactMetadata>): PutArtifactMetadata {
-    const message = {stagingSessionToken: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { stagingSessionToken: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<PutArtifactMetadata>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: PutArtifactMetadata): PutArtifactMetadata {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: PutArtifactMetadata
+  ): PutArtifactMetadata {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -1504,41 +1819,57 @@ class PutArtifactMetadata$Type extends MessageType<PutArtifactMetadata> {
           break;
         case /* org.apache.beam.model.job_management.v1.ArtifactMetadata
                 metadata */
-            2:
+        2:
           message.metadata = ArtifactMetadata.internalBinaryRead(
-              reader, reader.uint32(), options, message.metadata);
+            reader,
+            reader.uint32(),
+            options,
+            message.metadata
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: PutArtifactMetadata, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: PutArtifactMetadata,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string staging_session_token = 1; */
-    if (message.stagingSessionToken !== '')
-      writer.tag(1, WireType.LengthDelimited)
-          .string(message.stagingSessionToken);
+    if (message.stagingSessionToken !== "")
+      writer
+        .tag(1, WireType.LengthDelimited)
+        .string(message.stagingSessionToken);
     /* org.apache.beam.model.job_management.v1.ArtifactMetadata metadata = 2; */
     if (message.metadata)
-      ArtifactMetadata
-          .internalBinaryWrite(
-              message.metadata, writer.tag(2, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      ArtifactMetadata.internalBinaryWrite(
+        message.metadata,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1551,90 +1882,114 @@ export const PutArtifactMetadata = new PutArtifactMetadata$Type();
 // optimized methods
 class PutArtifactRequest$Type extends MessageType<PutArtifactRequest> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.PutArtifactRequest', [
+    super("org.apache.beam.model.job_management.v1.PutArtifactRequest", [
       {
         no: 1,
-        name: 'metadata',
-        kind: 'message',
-        oneof: 'content',
-        T: () => PutArtifactMetadata
+        name: "metadata",
+        kind: "message",
+        oneof: "content",
+        T: () => PutArtifactMetadata,
       },
       {
         no: 2,
-        name: 'data',
-        kind: 'message',
-        oneof: 'content',
-        T: () => ArtifactChunk
-      }
+        name: "data",
+        kind: "message",
+        oneof: "content",
+        T: () => ArtifactChunk,
+      },
     ]);
   }
   create(value?: PartialMessage<PutArtifactRequest>): PutArtifactRequest {
-    const message = {content: {oneofKind: undefined}};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { content: { oneofKind: undefined } };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<PutArtifactRequest>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: PutArtifactRequest): PutArtifactRequest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: PutArtifactRequest
+  ): PutArtifactRequest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.job_management.v1.PutArtifactMetadata
                 metadata */
-            1:
+        1:
           message.content = {
-            oneofKind: 'metadata',
+            oneofKind: "metadata",
             metadata: PutArtifactMetadata.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.content as any).metadata)
+              reader,
+              reader.uint32(),
+              options,
+              (message.content as any).metadata
+            ),
           };
           break;
         case /* org.apache.beam.model.job_management.v1.ArtifactChunk data */ 2:
           message.content = {
-            oneofKind: 'data',
+            oneofKind: "data",
             data: ArtifactChunk.internalBinaryRead(
-                reader, reader.uint32(), options, (message.content as any).data)
+              reader,
+              reader.uint32(),
+              options,
+              (message.content as any).data
+            ),
           };
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: PutArtifactRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: PutArtifactRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.job_management.v1.PutArtifactMetadata metadata = 1;
      */
-    if (message.content.oneofKind === 'metadata')
-      PutArtifactMetadata
-          .internalBinaryWrite(
-              message.content.metadata,
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.content.oneofKind === "metadata")
+      PutArtifactMetadata.internalBinaryWrite(
+        message.content.metadata,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.job_management.v1.ArtifactChunk data = 2; */
-    if (message.content.oneofKind === 'data')
-      ArtifactChunk
-          .internalBinaryWrite(
-              message.content.data,
-              writer.tag(2, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.content.oneofKind === "data")
+      ArtifactChunk.internalBinaryWrite(
+        message.content.data,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1647,28 +2002,38 @@ export const PutArtifactRequest = new PutArtifactRequest$Type();
 // optimized methods
 class PutArtifactResponse$Type extends MessageType<PutArtifactResponse> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.PutArtifactResponse', []);
+    super("org.apache.beam.model.job_management.v1.PutArtifactResponse", []);
   }
   create(value?: PartialMessage<PutArtifactResponse>): PutArtifactResponse {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<PutArtifactResponse>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: PutArtifactResponse): PutArtifactResponse {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: PutArtifactResponse
+  ): PutArtifactResponse {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: PutArtifactResponse, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: PutArtifactResponse,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1681,68 +2046,91 @@ export const PutArtifactResponse = new PutArtifactResponse$Type();
 // optimized methods
 class CommitManifestRequest$Type extends MessageType<CommitManifestRequest> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.CommitManifestRequest', [
-      {no: 1, name: 'manifest', kind: 'message', T: () => Manifest}, {
+    super("org.apache.beam.model.job_management.v1.CommitManifestRequest", [
+      { no: 1, name: "manifest", kind: "message", T: () => Manifest },
+      {
         no: 2,
-        name: 'staging_session_token',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
-      }
+        name: "staging_session_token",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
     ]);
   }
   create(value?: PartialMessage<CommitManifestRequest>): CommitManifestRequest {
-    const message = {stagingSessionToken: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { stagingSessionToken: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<CommitManifestRequest>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: CommitManifestRequest): CommitManifestRequest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: CommitManifestRequest
+  ): CommitManifestRequest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.job_management.v1.Manifest manifest */ 1:
           message.manifest = Manifest.internalBinaryRead(
-              reader, reader.uint32(), options, message.manifest);
+            reader,
+            reader.uint32(),
+            options,
+            message.manifest
+          );
           break;
         case /* string staging_session_token */ 2:
           message.stagingSessionToken = reader.string();
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: CommitManifestRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: CommitManifestRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.job_management.v1.Manifest manifest = 1; */
     if (message.manifest)
-      Manifest
-          .internalBinaryWrite(
-              message.manifest, writer.tag(1, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      Manifest.internalBinaryWrite(
+        message.manifest,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* string staging_session_token = 2; */
-    if (message.stagingSessionToken !== '')
-      writer.tag(2, WireType.LengthDelimited)
-          .string(message.stagingSessionToken);
+    if (message.stagingSessionToken !== "")
+      writer
+        .tag(2, WireType.LengthDelimited)
+        .string(message.stagingSessionToken);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1755,26 +2143,35 @@ export const CommitManifestRequest = new CommitManifestRequest$Type();
 // optimized methods
 class CommitManifestResponse$Type extends MessageType<CommitManifestResponse> {
   constructor() {
-    super('org.apache.beam.model.job_management.v1.CommitManifestResponse', [{
-            no: 1,
-            name: 'retrieval_token',
-            kind: 'scalar',
-            T: 9 /*ScalarType.STRING*/
-          }]);
+    super("org.apache.beam.model.job_management.v1.CommitManifestResponse", [
+      {
+        no: 1,
+        name: "retrieval_token",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
+    ]);
   }
-  create(value?: PartialMessage<CommitManifestResponse>):
-      CommitManifestResponse {
-    const message = {retrievalToken: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<CommitManifestResponse>
+  ): CommitManifestResponse {
+    const message = { retrievalToken: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<CommitManifestResponse>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: CommitManifestResponse): CommitManifestResponse {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: CommitManifestResponse
+  ): CommitManifestResponse {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -1783,27 +2180,38 @@ class CommitManifestResponse$Type extends MessageType<CommitManifestResponse> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: CommitManifestResponse, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: CommitManifestResponse,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string retrieval_token = 1; */
-    if (message.retrievalToken !== '')
+    if (message.retrievalToken !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.retrievalToken);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1817,71 +2225,81 @@ export const CommitManifestResponse = new CommitManifestResponse$Type();
  * org.apache.beam.model.job_management.v1.ArtifactRetrievalService
  */
 export const ArtifactRetrievalService = new ServiceType(
-    'org.apache.beam.model.job_management.v1.ArtifactRetrievalService', [
-      {
-        name: 'ResolveArtifacts',
-        options: {},
-        I: ResolveArtifactsRequest,
-        O: ResolveArtifactsResponse
-      },
-      {
-        name: 'GetArtifact',
-        serverStreaming: true,
-        options: {},
-        I: GetArtifactRequest,
-        O: GetArtifactResponse
-      }
-    ]);
+  "org.apache.beam.model.job_management.v1.ArtifactRetrievalService",
+  [
+    {
+      name: "ResolveArtifacts",
+      options: {},
+      I: ResolveArtifactsRequest,
+      O: ResolveArtifactsResponse,
+    },
+    {
+      name: "GetArtifact",
+      serverStreaming: true,
+      options: {},
+      I: GetArtifactRequest,
+      O: GetArtifactResponse,
+    },
+  ]
+);
 /**
  * @generated ServiceType for protobuf service
  * org.apache.beam.model.job_management.v1.ArtifactStagingService
  */
 export const ArtifactStagingService = new ServiceType(
-    'org.apache.beam.model.job_management.v1.ArtifactStagingService', [{
-      name: 'ReverseArtifactRetrievalService',
+  "org.apache.beam.model.job_management.v1.ArtifactStagingService",
+  [
+    {
+      name: "ReverseArtifactRetrievalService",
       serverStreaming: true,
       clientStreaming: true,
       options: {},
       I: ArtifactResponseWrapper,
-      O: ArtifactRequestWrapper
-    }]);
+      O: ArtifactRequestWrapper,
+    },
+  ]
+);
 /**
  * @generated ServiceType for protobuf service
  * org.apache.beam.model.job_management.v1.LegacyArtifactStagingService
  */
 export const LegacyArtifactStagingService = new ServiceType(
-    'org.apache.beam.model.job_management.v1.LegacyArtifactStagingService', [
-      {
-        name: 'PutArtifact',
-        clientStreaming: true,
-        options: {},
-        I: PutArtifactRequest,
-        O: PutArtifactResponse
-      },
-      {
-        name: 'CommitManifest',
-        options: {},
-        I: CommitManifestRequest,
-        O: CommitManifestResponse
-      }
-    ]);
+  "org.apache.beam.model.job_management.v1.LegacyArtifactStagingService",
+  [
+    {
+      name: "PutArtifact",
+      clientStreaming: true,
+      options: {},
+      I: PutArtifactRequest,
+      O: PutArtifactResponse,
+    },
+    {
+      name: "CommitManifest",
+      options: {},
+      I: CommitManifestRequest,
+      O: CommitManifestResponse,
+    },
+  ]
+);
 /**
  * @generated ServiceType for protobuf service
  * org.apache.beam.model.job_management.v1.LegacyArtifactRetrievalService
  */
 export const LegacyArtifactRetrievalService = new ServiceType(
-    'org.apache.beam.model.job_management.v1.LegacyArtifactRetrievalService', [
-      {
-        name: 'GetManifest',
-        options: {},
-        I: GetManifestRequest,
-        O: GetManifestResponse
-      },
-      {
-        name: 'GetArtifact',
-        serverStreaming: true,
-        options: {},
-        I: LegacyGetArtifactRequest,
-        O: ArtifactChunk
-      }
-    ]);
+  "org.apache.beam.model.job_management.v1.LegacyArtifactRetrievalService",
+  [
+    {
+      name: "GetManifest",
+      options: {},
+      I: GetManifestRequest,
+      O: GetManifestResponse,
+    },
+    {
+      name: "GetArtifact",
+      serverStreaming: true,
+      options: {},
+      I: LegacyGetArtifactRequest,
+      O: ArtifactChunk,
+    },
+  ]
+);

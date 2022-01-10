@@ -5,20 +5,42 @@
 //     --environment_config='localhost:5555' --runner=PortableRunner
 //     --job_endpoint=embed
 
-import * as grpc from '@grpc/grpc-js';
+import * as grpc from "@grpc/grpc-js";
 
-import {InstructionRequest, InstructionResponse, ProcessBundleDescriptor, ProcessBundleResponse, StartWorkerRequest, StartWorkerResponse, StopWorkerRequest, StopWorkerResponse} from '../proto/beam_fn_api';
-import {BeamFnControlClient, IBeamFnControlClient,} from '../proto/beam_fn_api.grpc-client';
-import {beamFnExternalWorkerPoolDefinition, IBeamFnExternalWorkerPool,} from '../proto/beam_fn_api.grpc-server';
-import {PCollection, PTransform} from '../proto/beam_runner_api';
+import {
+  InstructionRequest,
+  InstructionResponse,
+  ProcessBundleDescriptor,
+  ProcessBundleResponse,
+  StartWorkerRequest,
+  StartWorkerResponse,
+  StopWorkerRequest,
+  StopWorkerResponse,
+} from "../proto/beam_fn_api";
+import {
+  BeamFnControlClient,
+  IBeamFnControlClient,
+} from "../proto/beam_fn_api.grpc-client";
+import {
+  beamFnExternalWorkerPoolDefinition,
+  IBeamFnExternalWorkerPool,
+} from "../proto/beam_fn_api.grpc-server";
+import { PCollection, PTransform } from "../proto/beam_runner_api";
 
-import {IDataChannel, MultiplexingDataChannel} from './data';
-import {createOperator, IOperator, OperatorContext, Receiver,} from './operators';
+import { IDataChannel, MultiplexingDataChannel } from "./data";
+import {
+  createOperator,
+  IOperator,
+  OperatorContext,
+  Receiver,
+} from "./operators";
 
 export class Worker {
   controlClient: BeamFnControlClient;
-  controlChannel:
-      grpc.ClientDuplexStream<InstructionResponse, InstructionRequest>;
+  controlChannel: grpc.ClientDuplexStream<
+    InstructionResponse,
+    InstructionRequest
+  >;
 
   processBundleDescriptors: Map<string, ProcessBundleDescriptor> = new Map();
   bundleProcessors: Map<string, BundleProcessor[]> = new Map();
@@ -26,20 +48,23 @@ export class Worker {
 
   constructor(private id: string, private endpoints: StartWorkerRequest) {
     if (endpoints?.controlEndpoint?.url == undefined) {
-      throw 'Missing control endpoint.';
+      throw "Missing control endpoint.";
     }
     const metadata = new grpc.Metadata();
-    metadata.add('worker_id', this.id);
+    metadata.add("worker_id", this.id);
     this.controlClient = new BeamFnControlClient(
-        endpoints.controlEndpoint.url, grpc.ChannelCredentials.createInsecure(),
-        {}, {});
+      endpoints.controlEndpoint.url,
+      grpc.ChannelCredentials.createInsecure(),
+      {},
+      {}
+    );
     this.controlChannel = this.controlClient.control(metadata);
-    this.controlChannel.on('data', async request => {
+    this.controlChannel.on("data", async (request) => {
       console.log(request);
-      if (request.request.oneofKind == 'processBundle') {
+      if (request.request.oneofKind == "processBundle") {
         await this.process(request);
       } else {
-        console.log('Unknown instruction type: ', request);
+        console.log("Unknown instruction type: ", request);
       }
     });
   }
@@ -50,32 +75,33 @@ export class Worker {
 
   async process(request) {
     const descriptorId =
-        request.request.processBundle.processBundleDescriptorId;
+      request.request.processBundle.processBundleDescriptorId;
     if (!this.processBundleDescriptors.has(descriptorId)) {
       const call = this.controlClient.getProcessBundleDescriptor(
-          {
-            processBundleDescriptorId: descriptorId,
-          },
-          (err, value: ProcessBundleDescriptor) => {
-            if (err) {
-              this.respond({
-                instructionId: request.instructionId,
-                error: '' + err,
-                response: {
-                  oneofKind: 'processBundle',
-                  processBundle: {
-                    residualRoots: [],
-                    monitoringInfos: [],
-                    requiresFinalization: false,
-                    monitoringData: {},
-                  },
+        {
+          processBundleDescriptorId: descriptorId,
+        },
+        (err, value: ProcessBundleDescriptor) => {
+          if (err) {
+            this.respond({
+              instructionId: request.instructionId,
+              error: "" + err,
+              response: {
+                oneofKind: "processBundle",
+                processBundle: {
+                  residualRoots: [],
+                  monitoringInfos: [],
+                  requiresFinalization: false,
+                  monitoringData: {},
                 },
-              });
-            } else {
-              this.processBundleDescriptors.set(descriptorId, value);
-              this.process(request);
-            }
-          });
+              },
+            });
+          } else {
+            this.processBundleDescriptors.set(descriptorId, value);
+            this.process(request);
+          }
+        }
+      );
       return;
     }
 
@@ -84,9 +110,9 @@ export class Worker {
       await processor.process(request.instructionId);
       await this.respond({
         instructionId: request.instructionId,
-        error: '',
+        error: "",
         response: {
-          oneofKind: 'processBundle',
+          oneofKind: "processBundle",
           processBundle: {
             residualRoots: [],
             monitoringInfos: [],
@@ -96,10 +122,10 @@ export class Worker {
         },
       });
     } catch (error) {
-      console.error('PROCESS ERROR', error);
+      console.error("PROCESS ERROR", error);
       await this.respond({
         instructionId: request.instructionId,
-        error: '' + error,
+        error: "" + error,
         response: undefined!,
       });
     }
@@ -115,8 +141,9 @@ export class Worker {
       return processor;
     } else {
       return new BundleProcessor(
-          this.processBundleDescriptors.get(descriptorId)!,
-          this.getDataChannel.bind(this));
+        this.processBundleDescriptors.get(descriptorId)!,
+        this.getDataChannel.bind(this)
+      );
     }
   }
 
@@ -127,7 +154,9 @@ export class Worker {
   getDataChannel(endpoint: string): MultiplexingDataChannel {
     if (!this.dataChannels.has(endpoint)) {
       this.dataChannels.set(
-          endpoint, new MultiplexingDataChannel(endpoint, this.id));
+        endpoint,
+        new MultiplexingDataChannel(endpoint, this.id)
+      );
     }
     return this.dataChannels.get(endpoint)!;
   }
@@ -148,9 +177,10 @@ export class BundleProcessor {
   currentBundleId?: string;
 
   constructor(
-      descriptor: ProcessBundleDescriptor,
-      getDataChannel: (string) => MultiplexingDataChannel,
-      root_urns = ['beam:runner:source:v1']) {
+    descriptor: ProcessBundleDescriptor,
+    getDataChannel: (string) => MultiplexingDataChannel,
+    root_urns = ["beam:runner:source:v1"]
+  ) {
     this.descriptor = descriptor;
     this.getDataChannel = getDataChannel;
 
@@ -160,26 +190,26 @@ export class BundleProcessor {
     const creationOrderedOperators: IOperator[] = [];
 
     const consumers = new Map<string, string[]>();
-    Object.entries(descriptor.transforms).forEach(([
-                                                    transformId, transform
-                                                  ]) => {
-      if (isPrimitive(transform)) {
-        Object.values(transform.inputs).forEach((pcollectionId: string) => {
-          // TODO: is there a javascript defaultdict?
-          if (!consumers.has(pcollectionId)) {
-            consumers.set(pcollectionId, []);
-          }
-          consumers.get(pcollectionId)!.push(transformId);
-        });
+    Object.entries(descriptor.transforms).forEach(
+      ([transformId, transform]) => {
+        if (isPrimitive(transform)) {
+          Object.values(transform.inputs).forEach((pcollectionId: string) => {
+            // TODO: is there a javascript defaultdict?
+            if (!consumers.has(pcollectionId)) {
+              consumers.set(pcollectionId, []);
+            }
+            consumers.get(pcollectionId)!.push(transformId);
+          });
+        }
       }
-    });
+    );
 
     function getReceiver(pcollectionId: string): Receiver {
       if (!this_.receivers.has(pcollectionId)) {
         this_.receivers.set(
-            pcollectionId,
-            new Receiver(
-                (consumers.get(pcollectionId) || []).map(getOperator)));
+          pcollectionId,
+          new Receiver((consumers.get(pcollectionId) || []).map(getOperator))
+        );
       }
       return this_.receivers.get(pcollectionId)!;
     }
@@ -187,24 +217,29 @@ export class BundleProcessor {
     function getOperator(transformId: string): IOperator {
       if (!this_.operators.has(transformId)) {
         this_.operators.set(
+          transformId,
+          createOperator(
             transformId,
-            createOperator(
-                transformId,
-                new OperatorContext(
-                    descriptor, getReceiver, this_.getDataChannel,
-                    this_.getBundleId.bind(this_))));
+            new OperatorContext(
+              descriptor,
+              getReceiver,
+              this_.getDataChannel,
+              this_.getBundleId.bind(this_)
+            )
+          )
+        );
         creationOrderedOperators.push(this_.operators.get(transformId)!);
       }
       return this_.operators.get(transformId)!;
     }
 
-    Object.entries(descriptor.transforms).forEach(([
-                                                    transformId, transform
-                                                  ]) => {
-      if (root_urns.includes(transform?.spec?.urn!)) {
-        getOperator(transformId);
+    Object.entries(descriptor.transforms).forEach(
+      ([transformId, transform]) => {
+        if (root_urns.includes(transform?.spec?.urn!)) {
+          getOperator(transformId);
+        }
       }
-    });
+    );
     this.topologicallyOrderedOperators = creationOrderedOperators.reverse();
   }
 
@@ -214,25 +249,27 @@ export class BundleProcessor {
 
   // Put this on a worker thread...
   async process(instructionId: string, delay_ms = 600) {
-    console.log('Processing ', this.descriptor.id, 'for', instructionId);
+    console.log("Processing ", this.descriptor.id, "for", instructionId);
     this.currentBundleId = instructionId;
-    this.topologicallyOrderedOperators.slice().reverse().forEach(
-        o => o.startBundle());
+    this.topologicallyOrderedOperators
+      .slice()
+      .reverse()
+      .forEach((o) => o.startBundle());
 
     if (delay_ms > 0) {
-      console.log('Waiting...');
-      await new Promise(resolve => {
+      console.log("Waiting...");
+      await new Promise((resolve) => {
         setTimeout(resolve, delay_ms);
       });
-      console.log('Done waiting.');
+      console.log("Done waiting.");
     }
 
-    this.topologicallyOrderedOperators.forEach(o => o.finishBundle());
+    this.topologicallyOrderedOperators.forEach((o) => o.finishBundle());
     this.currentBundleId = undefined;
   }
 }
 
-export const primitiveSinks = ['beam:runner:sink:v1'];
+export const primitiveSinks = ["beam:runner:sink:v1"];
 
 function isPrimitive(transform: PTransform): boolean {
   const inputs = Object.values(transform.inputs);
@@ -240,8 +277,8 @@ function isPrimitive(transform: PTransform): boolean {
     return true;
   } else {
     return (
-        transform.subtransforms.length == 0 &&
-        Object.values(transform.outputs)
-            .some(pcoll => !inputs.includes(pcoll)));
+      transform.subtransforms.length == 0 &&
+      Object.values(transform.outputs).some((pcoll) => !inputs.includes(pcoll))
+    );
   }
 }

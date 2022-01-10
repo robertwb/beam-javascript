@@ -26,12 +26,12 @@
 // Protocol Buffers describing the Expansion API, an api for expanding
 // transforms in a remote SDK.
 //
-import {ExpansionService} from './beam_expansion_api';
-import type {BinaryWriteOptions} from '@protobuf-ts/runtime';
-import type {BinaryReadOptions} from '@protobuf-ts/runtime';
-import type {ExpansionResponse} from './beam_expansion_api';
-import type {ExpansionRequest} from './beam_expansion_api';
-import * as grpc from '@grpc/grpc-js';
+import { ExpansionService } from "./beam_expansion_api";
+import type { BinaryWriteOptions } from "@protobuf-ts/runtime";
+import type { BinaryReadOptions } from "@protobuf-ts/runtime";
+import type { ExpansionResponse } from "./beam_expansion_api";
+import type { ExpansionRequest } from "./beam_expansion_api";
+import * as grpc from "@grpc/grpc-js";
 /**
  * Job Service for constructing pipelines
  *
@@ -45,26 +45,25 @@ export interface IExpansionServiceClient {
    * (org.apache.beam.model.expansion.v1.ExpansionResponse);
    */
   expand(
-      input: ExpansionRequest, metadata: grpc.Metadata,
-      options: grpc.CallOptions,
-      callback:
-          (err: grpc.ServiceError|null, value?: ExpansionResponse) => void):
-      grpc.ClientUnaryCall;
+    input: ExpansionRequest,
+    metadata: grpc.Metadata,
+    options: grpc.CallOptions,
+    callback: (err: grpc.ServiceError | null, value?: ExpansionResponse) => void
+  ): grpc.ClientUnaryCall;
   expand(
-      input: ExpansionRequest, metadata: grpc.Metadata,
-      callback:
-          (err: grpc.ServiceError|null, value?: ExpansionResponse) => void):
-      grpc.ClientUnaryCall;
+    input: ExpansionRequest,
+    metadata: grpc.Metadata,
+    callback: (err: grpc.ServiceError | null, value?: ExpansionResponse) => void
+  ): grpc.ClientUnaryCall;
   expand(
-      input: ExpansionRequest, options: grpc.CallOptions,
-      callback:
-          (err: grpc.ServiceError|null, value?: ExpansionResponse) => void):
-      grpc.ClientUnaryCall;
+    input: ExpansionRequest,
+    options: grpc.CallOptions,
+    callback: (err: grpc.ServiceError | null, value?: ExpansionResponse) => void
+  ): grpc.ClientUnaryCall;
   expand(
-      input: ExpansionRequest,
-      callback:
-          (err: grpc.ServiceError|null, value?: ExpansionResponse) => void):
-      grpc.ClientUnaryCall;
+    input: ExpansionRequest,
+    callback: (err: grpc.ServiceError | null, value?: ExpansionResponse) => void
+  ): grpc.ClientUnaryCall;
 }
 /**
  * Job Service for constructing pipelines
@@ -72,14 +71,19 @@ export interface IExpansionServiceClient {
  * @generated from protobuf service
  * org.apache.beam.model.expansion.v1.ExpansionService
  */
-export class ExpansionServiceClient extends grpc.Client implements
-    IExpansionServiceClient {
-  private readonly _binaryOptions:
-      Partial<BinaryReadOptions&BinaryWriteOptions>;
+export class ExpansionServiceClient
+  extends grpc.Client
+  implements IExpansionServiceClient
+{
+  private readonly _binaryOptions: Partial<
+    BinaryReadOptions & BinaryWriteOptions
+  >;
   constructor(
-      address: string, credentials: grpc.ChannelCredentials,
-      options: grpc.ClientOptions = {},
-      binaryOptions: Partial<BinaryReadOptions&BinaryWriteOptions> = {}) {
+    address: string,
+    credentials: grpc.ChannelCredentials,
+    options: grpc.ClientOptions = {},
+    binaryOptions: Partial<BinaryReadOptions & BinaryWriteOptions> = {}
+  ) {
     super(address, credentials, options);
     this._binaryOptions = binaryOptions;
   }
@@ -89,21 +93,30 @@ export class ExpansionServiceClient extends grpc.Client implements
    * (org.apache.beam.model.expansion.v1.ExpansionResponse);
    */
   expand(
-      input: ExpansionRequest,
-      metadata: grpc.Metadata|grpc.CallOptions|
-      ((err: grpc.ServiceError|null, value?: ExpansionResponse) => void),
-      options?: grpc.CallOptions|
-      ((err: grpc.ServiceError|null, value?: ExpansionResponse) => void),
-      callback?:
-          ((err: grpc.ServiceError|null, value?: ExpansionResponse) => void)):
-      grpc.ClientUnaryCall {
+    input: ExpansionRequest,
+    metadata:
+      | grpc.Metadata
+      | grpc.CallOptions
+      | ((err: grpc.ServiceError | null, value?: ExpansionResponse) => void),
+    options?:
+      | grpc.CallOptions
+      | ((err: grpc.ServiceError | null, value?: ExpansionResponse) => void),
+    callback?: (
+      err: grpc.ServiceError | null,
+      value?: ExpansionResponse
+    ) => void
+  ): grpc.ClientUnaryCall {
     const method = ExpansionService.methods[0];
     return this.makeUnaryRequest<ExpansionRequest, ExpansionResponse>(
-        `/${ExpansionService.typeName}/${method.name}`,
-        (value: ExpansionRequest): Buffer =>
-            Buffer.from(method.I.toBinary(value, this._binaryOptions)),
-        (value: Buffer): ExpansionResponse =>
-            method.O.fromBinary(value, this._binaryOptions),
-        input, (metadata as any), (options as any), (callback as any));
+      `/${ExpansionService.typeName}/${method.name}`,
+      (value: ExpansionRequest): Buffer =>
+        Buffer.from(method.I.toBinary(value, this._binaryOptions)),
+      (value: Buffer): ExpansionResponse =>
+        method.O.fromBinary(value, this._binaryOptions),
+      input,
+      metadata as any,
+      options as any,
+      callback as any
+    );
   }
 }

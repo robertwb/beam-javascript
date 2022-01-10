@@ -29,16 +29,16 @@
 // The primary application of Schema is as the payload for the standard coder
 // "beam:coder:row:v1", defined in beam_runner_api.proto
 //
-import type {BinaryWriteOptions} from '@protobuf-ts/runtime';
-import type {IBinaryWriter} from '@protobuf-ts/runtime';
-import {WireType} from '@protobuf-ts/runtime';
-import type {BinaryReadOptions} from '@protobuf-ts/runtime';
-import type {IBinaryReader} from '@protobuf-ts/runtime';
-import {UnknownFieldHandler} from '@protobuf-ts/runtime';
-import type {PartialMessage} from '@protobuf-ts/runtime';
-import {reflectionMergePartial} from '@protobuf-ts/runtime';
-import {MESSAGE_TYPE} from '@protobuf-ts/runtime';
-import {MessageType} from '@protobuf-ts/runtime';
+import type { BinaryWriteOptions } from "@protobuf-ts/runtime";
+import type { IBinaryWriter } from "@protobuf-ts/runtime";
+import { WireType } from "@protobuf-ts/runtime";
+import type { BinaryReadOptions } from "@protobuf-ts/runtime";
+import type { IBinaryReader } from "@protobuf-ts/runtime";
+import { UnknownFieldHandler } from "@protobuf-ts/runtime";
+import type { PartialMessage } from "@protobuf-ts/runtime";
+import { reflectionMergePartial } from "@protobuf-ts/runtime";
+import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
+import { MessageType } from "@protobuf-ts/runtime";
 /**
  * @generated from protobuf message org.apache.beam.model.pipeline.v1.Schema
  */
@@ -123,56 +123,58 @@ export interface FieldType {
   /**
    * @generated from protobuf oneof: type_info
    */
-  typeInfo: {
-    oneofKind: 'atomicType';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.AtomicType atomic_type = 2;
-     */
-    atomicType: AtomicType;
-  }|{
-    oneofKind: 'arrayType';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.ArrayType array_type = 3;
-     */
-    arrayType: ArrayType;
-  }
-  |{
-    oneofKind: 'iterableType';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.IterableType iterable_type = 4;
-     */
-    iterableType: IterableType;
-  }
-  |{
-    oneofKind: 'mapType';
-    /**
-     * @generated from protobuf field: org.apache.beam.model.pipeline.v1.MapType
-     * map_type = 5;
-     */
-    mapType: MapType;
-  }
-  |{
-    oneofKind: 'rowType';
-    /**
-     * @generated from protobuf field: org.apache.beam.model.pipeline.v1.RowType
-     * row_type = 6;
-     */
-    rowType: RowType;
-  }
-  |{
-    oneofKind: 'logicalType';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.LogicalType logical_type = 7;
-     */
-    logicalType: LogicalType;
-  }
-  |{
-    oneofKind: undefined;
-  };
+  typeInfo:
+    | {
+        oneofKind: "atomicType";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.AtomicType atomic_type = 2;
+         */
+        atomicType: AtomicType;
+      }
+    | {
+        oneofKind: "arrayType";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.ArrayType array_type = 3;
+         */
+        arrayType: ArrayType;
+      }
+    | {
+        oneofKind: "iterableType";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.IterableType iterable_type = 4;
+         */
+        iterableType: IterableType;
+      }
+    | {
+        oneofKind: "mapType";
+        /**
+         * @generated from protobuf field: org.apache.beam.model.pipeline.v1.MapType
+         * map_type = 5;
+         */
+        mapType: MapType;
+      }
+    | {
+        oneofKind: "rowType";
+        /**
+         * @generated from protobuf field: org.apache.beam.model.pipeline.v1.RowType
+         * row_type = 6;
+         */
+        rowType: RowType;
+      }
+    | {
+        oneofKind: "logicalType";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.LogicalType logical_type = 7;
+         */
+        logicalType: LogicalType;
+      }
+    | {
+        oneofKind: undefined;
+      };
 }
 /**
  * @generated from protobuf message org.apache.beam.model.pipeline.v1.ArrayType
@@ -291,57 +293,59 @@ export interface FieldValue {
   /**
    * @generated from protobuf oneof: field_value
    */
-  fieldValue: {
-    oneofKind: 'atomicValue';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.AtomicTypeValue atomic_value = 1;
-     */
-    atomicValue: AtomicTypeValue;
-  }|{
-    oneofKind: 'arrayValue';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.ArrayTypeValue array_value = 2;
-     */
-    arrayValue: ArrayTypeValue;
-  }
-  |{
-    oneofKind: 'iterableValue';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.IterableTypeValue iterable_value = 3;
-     */
-    iterableValue: IterableTypeValue;
-  }
-  |{
-    oneofKind: 'mapValue';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.MapTypeValue map_value = 4;
-     */
-    mapValue: MapTypeValue;
-  }
-  |{
-    oneofKind: 'rowValue';
-    /**
-     * @generated from protobuf field: org.apache.beam.model.pipeline.v1.Row
-     * row_value = 5;
-     */
-    rowValue: Row;
-  }
-  |{
-    oneofKind: 'logicalTypeValue';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.LogicalTypeValue logical_type_value =
-     * 6;
-     */
-    logicalTypeValue: LogicalTypeValue;
-  }
-  |{
-    oneofKind: undefined;
-  };
+  fieldValue:
+    | {
+        oneofKind: "atomicValue";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.AtomicTypeValue atomic_value = 1;
+         */
+        atomicValue: AtomicTypeValue;
+      }
+    | {
+        oneofKind: "arrayValue";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.ArrayTypeValue array_value = 2;
+         */
+        arrayValue: ArrayTypeValue;
+      }
+    | {
+        oneofKind: "iterableValue";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.IterableTypeValue iterable_value = 3;
+         */
+        iterableValue: IterableTypeValue;
+      }
+    | {
+        oneofKind: "mapValue";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.MapTypeValue map_value = 4;
+         */
+        mapValue: MapTypeValue;
+      }
+    | {
+        oneofKind: "rowValue";
+        /**
+         * @generated from protobuf field: org.apache.beam.model.pipeline.v1.Row
+         * row_value = 5;
+         */
+        rowValue: Row;
+      }
+    | {
+        oneofKind: "logicalTypeValue";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.LogicalTypeValue logical_type_value =
+         * 6;
+         */
+        logicalTypeValue: LogicalTypeValue;
+      }
+    | {
+        oneofKind: undefined;
+      };
 }
 /**
  * @generated from protobuf message
@@ -351,71 +355,73 @@ export interface AtomicTypeValue {
   /**
    * @generated from protobuf oneof: value
    */
-  value: {
-    oneofKind: 'byte';
-    /**
-     * @generated from protobuf field: int32 byte = 1;
-     */
-    byte: number;
-  }|{
-    oneofKind: 'int16';
-    /**
-     * @generated from protobuf field: int32 int16 = 2;
-     */
-    int16: number;
-  }
-  |{
-    oneofKind: 'int32';
-    /**
-     * @generated from protobuf field: int32 int32 = 3;
-     */
-    int32: number;
-  }
-  |{
-    oneofKind: 'int64';
-    /**
-     * @generated from protobuf field: int64 int64 = 4;
-     */
-    int64: bigint;
-  }
-  |{
-    oneofKind: 'float';
-    /**
-     * @generated from protobuf field: float float = 5;
-     */
-    float: number;
-  }
-  |{
-    oneofKind: 'double';
-    /**
-     * @generated from protobuf field: double double = 6;
-     */
-    double: number;
-  }
-  |{
-    oneofKind: 'string';
-    /**
-     * @generated from protobuf field: string string = 7;
-     */
-    string: string;
-  }
-  |{
-    oneofKind: 'boolean';
-    /**
-     * @generated from protobuf field: bool boolean = 8;
-     */
-    boolean: boolean;
-  }
-  |{
-    oneofKind: 'bytes';
-    /**
-     * @generated from protobuf field: bytes bytes = 9;
-     */
-    bytes: Uint8Array;
-  }
-  |{
-    oneofKind: undefined;
-  };
+  value:
+    | {
+        oneofKind: "byte";
+        /**
+         * @generated from protobuf field: int32 byte = 1;
+         */
+        byte: number;
+      }
+    | {
+        oneofKind: "int16";
+        /**
+         * @generated from protobuf field: int32 int16 = 2;
+         */
+        int16: number;
+      }
+    | {
+        oneofKind: "int32";
+        /**
+         * @generated from protobuf field: int32 int32 = 3;
+         */
+        int32: number;
+      }
+    | {
+        oneofKind: "int64";
+        /**
+         * @generated from protobuf field: int64 int64 = 4;
+         */
+        int64: bigint;
+      }
+    | {
+        oneofKind: "float";
+        /**
+         * @generated from protobuf field: float float = 5;
+         */
+        float: number;
+      }
+    | {
+        oneofKind: "double";
+        /**
+         * @generated from protobuf field: double double = 6;
+         */
+        double: number;
+      }
+    | {
+        oneofKind: "string";
+        /**
+         * @generated from protobuf field: string string = 7;
+         */
+        string: string;
+      }
+    | {
+        oneofKind: "boolean";
+        /**
+         * @generated from protobuf field: bool boolean = 8;
+         */
+        boolean: boolean;
+      }
+    | {
+        oneofKind: "bytes";
+        /**
+         * @generated from protobuf field: bytes bytes = 9;
+         */
+        bytes: Uint8Array;
+      }
+    | {
+        oneofKind: undefined;
+      };
 }
 /**
  * @generated from protobuf message
@@ -520,105 +526,129 @@ export enum AtomicType {
   /**
    * @generated from protobuf enum value: BYTES = 9;
    */
-  BYTES = 9
+  BYTES = 9,
 }
 // @generated message type with reflection information, may provide speed
 // optimized methods
 class Schema$Type extends MessageType<Schema> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.Schema', [
+    super("org.apache.beam.model.pipeline.v1.Schema", [
       {
         no: 1,
-        name: 'fields',
-        kind: 'message',
+        name: "fields",
+        kind: "message",
         repeat: 1 /*RepeatType.PACKED*/,
-        T: () => Field
+        T: () => Field,
       },
-      {no: 2, name: 'id', kind: 'scalar', T: 9 /*ScalarType.STRING*/}, {
+      { no: 2, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      {
         no: 3,
-        name: 'options',
-        kind: 'message',
+        name: "options",
+        kind: "message",
         repeat: 1 /*RepeatType.PACKED*/,
-        T: () => Option
+        T: () => Option,
       },
       {
         no: 4,
-        name: 'encoding_positions_set',
-        kind: 'scalar',
-        T: 8 /*ScalarType.BOOL*/
-      }
+        name: "encoding_positions_set",
+        kind: "scalar",
+        T: 8 /*ScalarType.BOOL*/,
+      },
     ]);
   }
   create(value?: PartialMessage<Schema>): Schema {
-    const message =
-        {fields: [], id: '', options: [], encodingPositionsSet: false};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = {
+      fields: [],
+      id: "",
+      options: [],
+      encodingPositionsSet: false,
+    };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<Schema>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: Schema): Schema {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Schema
+  ): Schema {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* repeated org.apache.beam.model.pipeline.v1.Field fields */ 1:
           message.fields.push(
-              Field.internalBinaryRead(reader, reader.uint32(), options));
+            Field.internalBinaryRead(reader, reader.uint32(), options)
+          );
           break;
         case /* string id */ 2:
           message.id = reader.string();
           break;
         case /* repeated org.apache.beam.model.pipeline.v1.Option options */ 3:
           message.options.push(
-              Option.internalBinaryRead(reader, reader.uint32(), options));
+            Option.internalBinaryRead(reader, reader.uint32(), options)
+          );
           break;
         case /* bool encoding_positions_set */ 4:
           message.encodingPositionsSet = reader.bool();
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: Schema, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: Schema,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* repeated org.apache.beam.model.pipeline.v1.Field fields = 1; */
     for (let i = 0; i < message.fields.length; i++)
-      Field
-          .internalBinaryWrite(
-              message.fields[i], writer.tag(1, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      Field.internalBinaryWrite(
+        message.fields[i],
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* string id = 2; */
-    if (message.id !== '')
+    if (message.id !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.id);
     /* repeated org.apache.beam.model.pipeline.v1.Option options = 3; */
     for (let i = 0; i < message.options.length; i++)
-      Option
-          .internalBinaryWrite(
-              message.options[i],
-              writer.tag(3, WireType.LengthDelimited).fork(), options)
-          .join();
+      Option.internalBinaryWrite(
+        message.options[i],
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* bool encoding_positions_set = 4; */
     if (message.encodingPositionsSet !== false)
       writer.tag(4, WireType.Varint).bool(message.encodingPositionsSet);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -631,38 +661,55 @@ export const Schema = new Schema$Type();
 // optimized methods
 class Field$Type extends MessageType<Field> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.Field', [
-      {no: 1, name: 'name', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 2, name: 'description', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 3, name: 'type', kind: 'message', T: () => FieldType},
-      {no: 4, name: 'id', kind: 'scalar', T: 5 /*ScalarType.INT32*/}, {
+    super("org.apache.beam.model.pipeline.v1.Field", [
+      { no: 1, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      {
+        no: 2,
+        name: "description",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
+      { no: 3, name: "type", kind: "message", T: () => FieldType },
+      { no: 4, name: "id", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
+      {
         no: 5,
-        name: 'encoding_position',
-        kind: 'scalar',
-        T: 5 /*ScalarType.INT32*/
+        name: "encoding_position",
+        kind: "scalar",
+        T: 5 /*ScalarType.INT32*/,
       },
       {
         no: 6,
-        name: 'options',
-        kind: 'message',
+        name: "options",
+        kind: "message",
         repeat: 1 /*RepeatType.PACKED*/,
-        T: () => Option
-      }
+        T: () => Option,
+      },
     ]);
   }
   create(value?: PartialMessage<Field>): Field {
-    const message =
-        {name: '', description: '', id: 0, encodingPosition: 0, options: []};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = {
+      name: "",
+      description: "",
+      id: 0,
+      encodingPosition: 0,
+      options: [],
+    };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<Field>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: Field): Field {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Field
+  ): Field {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -674,7 +721,11 @@ class Field$Type extends MessageType<Field> {
           break;
         case /* org.apache.beam.model.pipeline.v1.FieldType type */ 3:
           message.type = FieldType.internalBinaryRead(
-              reader, reader.uint32(), options, message.type);
+            reader,
+            reader.uint32(),
+            options,
+            message.type
+          );
           break;
         case /* int32 id */ 4:
           message.id = reader.int32();
@@ -684,37 +735,46 @@ class Field$Type extends MessageType<Field> {
           break;
         case /* repeated org.apache.beam.model.pipeline.v1.Option options */ 6:
           message.options.push(
-              Option.internalBinaryRead(reader, reader.uint32(), options));
+            Option.internalBinaryRead(reader, reader.uint32(), options)
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: Field, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: Field,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string name = 1; */
-    if (message.name !== '')
+    if (message.name !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.name);
     /* string description = 2; */
-    if (message.description !== '')
+    if (message.description !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.description);
     /* org.apache.beam.model.pipeline.v1.FieldType type = 3; */
     if (message.type)
-      FieldType
-          .internalBinaryWrite(
-              message.type, writer.tag(3, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      FieldType.internalBinaryWrite(
+        message.type,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* int32 id = 4; */
     if (message.id !== 0) writer.tag(4, WireType.Varint).int32(message.id);
     /* int32 encoding_position = 5; */
@@ -722,15 +782,18 @@ class Field$Type extends MessageType<Field> {
       writer.tag(5, WireType.Varint).int32(message.encodingPosition);
     /* repeated org.apache.beam.model.pipeline.v1.Option options = 6; */
     for (let i = 0; i < message.options.length; i++)
-      Option
-          .internalBinaryWrite(
-              message.options[i],
-              writer.tag(6, WireType.LengthDelimited).fork(), options)
-          .join();
+      Option.internalBinaryWrite(
+        message.options[i],
+        writer.tag(6, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -743,63 +806,70 @@ export const Field = new Field$Type();
 // optimized methods
 class FieldType$Type extends MessageType<FieldType> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.FieldType', [
-      {no: 1, name: 'nullable', kind: 'scalar', T: 8 /*ScalarType.BOOL*/}, {
+    super("org.apache.beam.model.pipeline.v1.FieldType", [
+      { no: 1, name: "nullable", kind: "scalar", T: 8 /*ScalarType.BOOL*/ },
+      {
         no: 2,
-        name: 'atomic_type',
-        kind: 'enum',
-        oneof: 'typeInfo',
-        T: () => ['org.apache.beam.model.pipeline.v1.AtomicType', AtomicType]
+        name: "atomic_type",
+        kind: "enum",
+        oneof: "typeInfo",
+        T: () => ["org.apache.beam.model.pipeline.v1.AtomicType", AtomicType],
       },
       {
         no: 3,
-        name: 'array_type',
-        kind: 'message',
-        oneof: 'typeInfo',
-        T: () => ArrayType
+        name: "array_type",
+        kind: "message",
+        oneof: "typeInfo",
+        T: () => ArrayType,
       },
       {
         no: 4,
-        name: 'iterable_type',
-        kind: 'message',
-        oneof: 'typeInfo',
-        T: () => IterableType
+        name: "iterable_type",
+        kind: "message",
+        oneof: "typeInfo",
+        T: () => IterableType,
       },
       {
         no: 5,
-        name: 'map_type',
-        kind: 'message',
-        oneof: 'typeInfo',
-        T: () => MapType
+        name: "map_type",
+        kind: "message",
+        oneof: "typeInfo",
+        T: () => MapType,
       },
       {
         no: 6,
-        name: 'row_type',
-        kind: 'message',
-        oneof: 'typeInfo',
-        T: () => RowType
+        name: "row_type",
+        kind: "message",
+        oneof: "typeInfo",
+        T: () => RowType,
       },
       {
         no: 7,
-        name: 'logical_type',
-        kind: 'message',
-        oneof: 'typeInfo',
-        T: () => LogicalType
-      }
+        name: "logical_type",
+        kind: "message",
+        oneof: "typeInfo",
+        T: () => LogicalType,
+      },
     ]);
   }
   create(value?: PartialMessage<FieldType>): FieldType {
-    const message = {nullable: false, typeInfo: {oneofKind: undefined}};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { nullable: false, typeInfo: { oneofKind: undefined } };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<FieldType>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: FieldType): FieldType {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: FieldType
+  ): FieldType {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -808,112 +878,138 @@ class FieldType$Type extends MessageType<FieldType> {
           break;
         case /* org.apache.beam.model.pipeline.v1.AtomicType atomic_type */ 2:
           message.typeInfo = {
-            oneofKind: 'atomicType',
-            atomicType: reader.int32()
+            oneofKind: "atomicType",
+            atomicType: reader.int32(),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.ArrayType array_type */ 3:
           message.typeInfo = {
-            oneofKind: 'arrayType',
+            oneofKind: "arrayType",
             arrayType: ArrayType.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.typeInfo as any).arrayType)
+              reader,
+              reader.uint32(),
+              options,
+              (message.typeInfo as any).arrayType
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.IterableType iterable_type */
-            4:
+        4:
           message.typeInfo = {
-            oneofKind: 'iterableType',
+            oneofKind: "iterableType",
             iterableType: IterableType.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.typeInfo as any).iterableType)
+              reader,
+              reader.uint32(),
+              options,
+              (message.typeInfo as any).iterableType
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.MapType map_type */ 5:
           message.typeInfo = {
-            oneofKind: 'mapType',
+            oneofKind: "mapType",
             mapType: MapType.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.typeInfo as any).mapType)
+              reader,
+              reader.uint32(),
+              options,
+              (message.typeInfo as any).mapType
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.RowType row_type */ 6:
           message.typeInfo = {
-            oneofKind: 'rowType',
+            oneofKind: "rowType",
             rowType: RowType.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.typeInfo as any).rowType)
+              reader,
+              reader.uint32(),
+              options,
+              (message.typeInfo as any).rowType
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.LogicalType logical_type */ 7:
           message.typeInfo = {
-            oneofKind: 'logicalType',
+            oneofKind: "logicalType",
             logicalType: LogicalType.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.typeInfo as any).logicalType)
+              reader,
+              reader.uint32(),
+              options,
+              (message.typeInfo as any).logicalType
+            ),
           };
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: FieldType, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: FieldType,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* bool nullable = 1; */
     if (message.nullable !== false)
       writer.tag(1, WireType.Varint).bool(message.nullable);
     /* org.apache.beam.model.pipeline.v1.AtomicType atomic_type = 2; */
-    if (message.typeInfo.oneofKind === 'atomicType')
+    if (message.typeInfo.oneofKind === "atomicType")
       writer.tag(2, WireType.Varint).int32(message.typeInfo.atomicType);
     /* org.apache.beam.model.pipeline.v1.ArrayType array_type = 3; */
-    if (message.typeInfo.oneofKind === 'arrayType')
-      ArrayType
-          .internalBinaryWrite(
-              message.typeInfo.arrayType,
-              writer.tag(3, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.typeInfo.oneofKind === "arrayType")
+      ArrayType.internalBinaryWrite(
+        message.typeInfo.arrayType,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.IterableType iterable_type = 4; */
-    if (message.typeInfo.oneofKind === 'iterableType')
-      IterableType
-          .internalBinaryWrite(
-              message.typeInfo.iterableType,
-              writer.tag(4, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.typeInfo.oneofKind === "iterableType")
+      IterableType.internalBinaryWrite(
+        message.typeInfo.iterableType,
+        writer.tag(4, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.MapType map_type = 5; */
-    if (message.typeInfo.oneofKind === 'mapType')
-      MapType
-          .internalBinaryWrite(
-              message.typeInfo.mapType,
-              writer.tag(5, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.typeInfo.oneofKind === "mapType")
+      MapType.internalBinaryWrite(
+        message.typeInfo.mapType,
+        writer.tag(5, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.RowType row_type = 6; */
-    if (message.typeInfo.oneofKind === 'rowType')
-      RowType
-          .internalBinaryWrite(
-              message.typeInfo.rowType,
-              writer.tag(6, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.typeInfo.oneofKind === "rowType")
+      RowType.internalBinaryWrite(
+        message.typeInfo.rowType,
+        writer.tag(6, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.LogicalType logical_type = 7; */
-    if (message.typeInfo.oneofKind === 'logicalType')
-      LogicalType
-          .internalBinaryWrite(
-              message.typeInfo.logicalType,
-              writer.tag(7, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.typeInfo.oneofKind === "logicalType")
+      LogicalType.internalBinaryWrite(
+        message.typeInfo.logicalType,
+        writer.tag(7, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -926,56 +1022,77 @@ export const FieldType = new FieldType$Type();
 // optimized methods
 class ArrayType$Type extends MessageType<ArrayType> {
   constructor() {
-    super(
-        'org.apache.beam.model.pipeline.v1.ArrayType',
-        [{no: 1, name: 'element_type', kind: 'message', T: () => FieldType}]);
+    super("org.apache.beam.model.pipeline.v1.ArrayType", [
+      { no: 1, name: "element_type", kind: "message", T: () => FieldType },
+    ]);
   }
   create(value?: PartialMessage<ArrayType>): ArrayType {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ArrayType>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ArrayType): ArrayType {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ArrayType
+  ): ArrayType {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.FieldType element_type */ 1:
           message.elementType = FieldType.internalBinaryRead(
-              reader, reader.uint32(), options, message.elementType);
+            reader,
+            reader.uint32(),
+            options,
+            message.elementType
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ArrayType, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ArrayType,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.FieldType element_type = 1; */
     if (message.elementType)
-      FieldType
-          .internalBinaryWrite(
-              message.elementType,
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+      FieldType.internalBinaryWrite(
+        message.elementType,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -988,56 +1105,77 @@ export const ArrayType = new ArrayType$Type();
 // optimized methods
 class IterableType$Type extends MessageType<IterableType> {
   constructor() {
-    super(
-        'org.apache.beam.model.pipeline.v1.IterableType',
-        [{no: 1, name: 'element_type', kind: 'message', T: () => FieldType}]);
+    super("org.apache.beam.model.pipeline.v1.IterableType", [
+      { no: 1, name: "element_type", kind: "message", T: () => FieldType },
+    ]);
   }
   create(value?: PartialMessage<IterableType>): IterableType {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<IterableType>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: IterableType): IterableType {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: IterableType
+  ): IterableType {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.FieldType element_type */ 1:
           message.elementType = FieldType.internalBinaryRead(
-              reader, reader.uint32(), options, message.elementType);
+            reader,
+            reader.uint32(),
+            options,
+            message.elementType
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: IterableType, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: IterableType,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.FieldType element_type = 1; */
     if (message.elementType)
-      FieldType
-          .internalBinaryWrite(
-              message.elementType,
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+      FieldType.internalBinaryWrite(
+        message.elementType,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1050,68 +1188,93 @@ export const IterableType = new IterableType$Type();
 // optimized methods
 class MapType$Type extends MessageType<MapType> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.MapType', [
-      {no: 1, name: 'key_type', kind: 'message', T: () => FieldType},
-      {no: 2, name: 'value_type', kind: 'message', T: () => FieldType}
+    super("org.apache.beam.model.pipeline.v1.MapType", [
+      { no: 1, name: "key_type", kind: "message", T: () => FieldType },
+      { no: 2, name: "value_type", kind: "message", T: () => FieldType },
     ]);
   }
   create(value?: PartialMessage<MapType>): MapType {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<MapType>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: MapType): MapType {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: MapType
+  ): MapType {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.FieldType key_type */ 1:
           message.keyType = FieldType.internalBinaryRead(
-              reader, reader.uint32(), options, message.keyType);
+            reader,
+            reader.uint32(),
+            options,
+            message.keyType
+          );
           break;
         case /* org.apache.beam.model.pipeline.v1.FieldType value_type */ 2:
           message.valueType = FieldType.internalBinaryRead(
-              reader, reader.uint32(), options, message.valueType);
+            reader,
+            reader.uint32(),
+            options,
+            message.valueType
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: MapType, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: MapType,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.FieldType key_type = 1; */
     if (message.keyType)
-      FieldType
-          .internalBinaryWrite(
-              message.keyType, writer.tag(1, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      FieldType.internalBinaryWrite(
+        message.keyType,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.FieldType value_type = 2; */
     if (message.valueType)
-      FieldType
-          .internalBinaryWrite(
-              message.valueType, writer.tag(2, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      FieldType.internalBinaryWrite(
+        message.valueType,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1124,56 +1287,77 @@ export const MapType = new MapType$Type();
 // optimized methods
 class RowType$Type extends MessageType<RowType> {
   constructor() {
-    super(
-        'org.apache.beam.model.pipeline.v1.RowType',
-        [{no: 1, name: 'schema', kind: 'message', T: () => Schema}]);
+    super("org.apache.beam.model.pipeline.v1.RowType", [
+      { no: 1, name: "schema", kind: "message", T: () => Schema },
+    ]);
   }
   create(value?: PartialMessage<RowType>): RowType {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<RowType>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: RowType): RowType {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: RowType
+  ): RowType {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.Schema schema */ 1:
           message.schema = Schema.internalBinaryRead(
-              reader, reader.uint32(), options, message.schema);
+            reader,
+            reader.uint32(),
+            options,
+            message.schema
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: RowType, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: RowType,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.Schema schema = 1; */
     if (message.schema)
-      Schema
-          .internalBinaryWrite(
-              message.schema, writer.tag(1, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      Schema.internalBinaryWrite(
+        message.schema,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1186,26 +1370,32 @@ export const RowType = new RowType$Type();
 // optimized methods
 class LogicalType$Type extends MessageType<LogicalType> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.LogicalType', [
-      {no: 1, name: 'urn', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 2, name: 'payload', kind: 'scalar', T: 12 /*ScalarType.BYTES*/},
-      {no: 3, name: 'representation', kind: 'message', T: () => FieldType},
-      {no: 4, name: 'argument_type', kind: 'message', T: () => FieldType},
-      {no: 5, name: 'argument', kind: 'message', T: () => FieldValue}
+    super("org.apache.beam.model.pipeline.v1.LogicalType", [
+      { no: 1, name: "urn", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      { no: 2, name: "payload", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
+      { no: 3, name: "representation", kind: "message", T: () => FieldType },
+      { no: 4, name: "argument_type", kind: "message", T: () => FieldType },
+      { no: 5, name: "argument", kind: "message", T: () => FieldValue },
     ]);
   }
   create(value?: PartialMessage<LogicalType>): LogicalType {
-    const message = {urn: '', payload: new Uint8Array(0)};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { urn: "", payload: new Uint8Array(0) };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<LogicalType>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: LogicalType): LogicalType {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: LogicalType
+  ): LogicalType {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -1217,63 +1407,86 @@ class LogicalType$Type extends MessageType<LogicalType> {
           break;
         case /* org.apache.beam.model.pipeline.v1.FieldType representation */ 3:
           message.representation = FieldType.internalBinaryRead(
-              reader, reader.uint32(), options, message.representation);
+            reader,
+            reader.uint32(),
+            options,
+            message.representation
+          );
           break;
         case /* org.apache.beam.model.pipeline.v1.FieldType argument_type */ 4:
           message.argumentType = FieldType.internalBinaryRead(
-              reader, reader.uint32(), options, message.argumentType);
+            reader,
+            reader.uint32(),
+            options,
+            message.argumentType
+          );
           break;
         case /* org.apache.beam.model.pipeline.v1.FieldValue argument */ 5:
           message.argument = FieldValue.internalBinaryRead(
-              reader, reader.uint32(), options, message.argument);
+            reader,
+            reader.uint32(),
+            options,
+            message.argument
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: LogicalType, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: LogicalType,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string urn = 1; */
-    if (message.urn !== '')
+    if (message.urn !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.urn);
     /* bytes payload = 2; */
     if (message.payload.length)
       writer.tag(2, WireType.LengthDelimited).bytes(message.payload);
     /* org.apache.beam.model.pipeline.v1.FieldType representation = 3; */
     if (message.representation)
-      FieldType
-          .internalBinaryWrite(
-              message.representation,
-              writer.tag(3, WireType.LengthDelimited).fork(), options)
-          .join();
+      FieldType.internalBinaryWrite(
+        message.representation,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.FieldType argument_type = 4; */
     if (message.argumentType)
-      FieldType
-          .internalBinaryWrite(
-              message.argumentType,
-              writer.tag(4, WireType.LengthDelimited).fork(), options)
-          .join();
+      FieldType.internalBinaryWrite(
+        message.argumentType,
+        writer.tag(4, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.FieldValue argument = 5; */
     if (message.argument)
-      FieldValue
-          .internalBinaryWrite(
-              message.argument, writer.tag(5, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      FieldValue.internalBinaryWrite(
+        message.argument,
+        writer.tag(5, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1286,24 +1499,30 @@ export const LogicalType = new LogicalType$Type();
 // optimized methods
 class Option$Type extends MessageType<Option> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.Option', [
-      {no: 1, name: 'name', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 2, name: 'type', kind: 'message', T: () => FieldType},
-      {no: 3, name: 'value', kind: 'message', T: () => FieldValue}
+    super("org.apache.beam.model.pipeline.v1.Option", [
+      { no: 1, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      { no: 2, name: "type", kind: "message", T: () => FieldType },
+      { no: 3, name: "value", kind: "message", T: () => FieldValue },
     ]);
   }
   create(value?: PartialMessage<Option>): Option {
-    const message = {name: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { name: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<Option>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: Option): Option {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Option
+  ): Option {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -1312,49 +1531,68 @@ class Option$Type extends MessageType<Option> {
           break;
         case /* org.apache.beam.model.pipeline.v1.FieldType type */ 2:
           message.type = FieldType.internalBinaryRead(
-              reader, reader.uint32(), options, message.type);
+            reader,
+            reader.uint32(),
+            options,
+            message.type
+          );
           break;
         case /* org.apache.beam.model.pipeline.v1.FieldValue value */ 3:
           message.value = FieldValue.internalBinaryRead(
-              reader, reader.uint32(), options, message.value);
+            reader,
+            reader.uint32(),
+            options,
+            message.value
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: Option, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: Option,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string name = 1; */
-    if (message.name !== '')
+    if (message.name !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.name);
     /* org.apache.beam.model.pipeline.v1.FieldType type = 2; */
     if (message.type)
-      FieldType
-          .internalBinaryWrite(
-              message.type, writer.tag(2, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      FieldType.internalBinaryWrite(
+        message.type,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.FieldValue value = 3; */
     if (message.value)
-      FieldValue
-          .internalBinaryWrite(
-              message.value, writer.tag(3, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      FieldValue.internalBinaryWrite(
+        message.value,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1367,60 +1605,80 @@ export const Option = new Option$Type();
 // optimized methods
 class Row$Type extends MessageType<Row> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.Row', [{
-            no: 1,
-            name: 'values',
-            kind: 'message',
-            repeat: 1 /*RepeatType.PACKED*/,
-            T: () => FieldValue
-          }]);
+    super("org.apache.beam.model.pipeline.v1.Row", [
+      {
+        no: 1,
+        name: "values",
+        kind: "message",
+        repeat: 1 /*RepeatType.PACKED*/,
+        T: () => FieldValue,
+      },
+    ]);
   }
   create(value?: PartialMessage<Row>): Row {
-    const message = {values: []};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { values: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined) reflectionMergePartial<Row>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: Row): Row {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Row
+  ): Row {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* repeated org.apache.beam.model.pipeline.v1.FieldValue values */
-            1:
+        1:
           message.values.push(
-              FieldValue.internalBinaryRead(reader, reader.uint32(), options));
+            FieldValue.internalBinaryRead(reader, reader.uint32(), options)
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: Row, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: Row,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* repeated org.apache.beam.model.pipeline.v1.FieldValue values = 1; */
     for (let i = 0; i < message.values.length; i++)
-      FieldValue
-          .internalBinaryWrite(
-              message.values[i], writer.tag(1, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      FieldValue.internalBinaryWrite(
+        message.values[i],
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1433,184 +1691,220 @@ export const Row = new Row$Type();
 // optimized methods
 class FieldValue$Type extends MessageType<FieldValue> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.FieldValue', [
+    super("org.apache.beam.model.pipeline.v1.FieldValue", [
       {
         no: 1,
-        name: 'atomic_value',
-        kind: 'message',
-        oneof: 'fieldValue',
-        T: () => AtomicTypeValue
+        name: "atomic_value",
+        kind: "message",
+        oneof: "fieldValue",
+        T: () => AtomicTypeValue,
       },
       {
         no: 2,
-        name: 'array_value',
-        kind: 'message',
-        oneof: 'fieldValue',
-        T: () => ArrayTypeValue
+        name: "array_value",
+        kind: "message",
+        oneof: "fieldValue",
+        T: () => ArrayTypeValue,
       },
       {
         no: 3,
-        name: 'iterable_value',
-        kind: 'message',
-        oneof: 'fieldValue',
-        T: () => IterableTypeValue
+        name: "iterable_value",
+        kind: "message",
+        oneof: "fieldValue",
+        T: () => IterableTypeValue,
       },
       {
         no: 4,
-        name: 'map_value',
-        kind: 'message',
-        oneof: 'fieldValue',
-        T: () => MapTypeValue
+        name: "map_value",
+        kind: "message",
+        oneof: "fieldValue",
+        T: () => MapTypeValue,
       },
       {
         no: 5,
-        name: 'row_value',
-        kind: 'message',
-        oneof: 'fieldValue',
-        T: () => Row
+        name: "row_value",
+        kind: "message",
+        oneof: "fieldValue",
+        T: () => Row,
       },
       {
         no: 6,
-        name: 'logical_type_value',
-        kind: 'message',
-        oneof: 'fieldValue',
-        T: () => LogicalTypeValue
-      }
+        name: "logical_type_value",
+        kind: "message",
+        oneof: "fieldValue",
+        T: () => LogicalTypeValue,
+      },
     ]);
   }
   create(value?: PartialMessage<FieldValue>): FieldValue {
-    const message = {fieldValue: {oneofKind: undefined}};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { fieldValue: { oneofKind: undefined } };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<FieldValue>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: FieldValue): FieldValue {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: FieldValue
+  ): FieldValue {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.AtomicTypeValue atomic_value
-              */
-            1:
+         */
+        1:
           message.fieldValue = {
-            oneofKind: 'atomicValue',
+            oneofKind: "atomicValue",
             atomicValue: AtomicTypeValue.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.fieldValue as any).atomicValue)
+              reader,
+              reader.uint32(),
+              options,
+              (message.fieldValue as any).atomicValue
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.ArrayTypeValue array_value */
-            2:
+        2:
           message.fieldValue = {
-            oneofKind: 'arrayValue',
+            oneofKind: "arrayValue",
             arrayValue: ArrayTypeValue.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.fieldValue as any).arrayValue)
+              reader,
+              reader.uint32(),
+              options,
+              (message.fieldValue as any).arrayValue
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.IterableTypeValue
                 iterable_value */
-            3:
+        3:
           message.fieldValue = {
-            oneofKind: 'iterableValue',
+            oneofKind: "iterableValue",
             iterableValue: IterableTypeValue.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.fieldValue as any).iterableValue)
+              reader,
+              reader.uint32(),
+              options,
+              (message.fieldValue as any).iterableValue
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.MapTypeValue map_value */ 4:
           message.fieldValue = {
-            oneofKind: 'mapValue',
+            oneofKind: "mapValue",
             mapValue: MapTypeValue.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.fieldValue as any).mapValue)
+              reader,
+              reader.uint32(),
+              options,
+              (message.fieldValue as any).mapValue
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.Row row_value */ 5:
           message.fieldValue = {
-            oneofKind: 'rowValue',
+            oneofKind: "rowValue",
             rowValue: Row.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.fieldValue as any).rowValue)
+              reader,
+              reader.uint32(),
+              options,
+              (message.fieldValue as any).rowValue
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.LogicalTypeValue
                 logical_type_value */
-            6:
+        6:
           message.fieldValue = {
-            oneofKind: 'logicalTypeValue',
+            oneofKind: "logicalTypeValue",
             logicalTypeValue: LogicalTypeValue.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.fieldValue as any).logicalTypeValue)
+              reader,
+              reader.uint32(),
+              options,
+              (message.fieldValue as any).logicalTypeValue
+            ),
           };
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: FieldValue, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: FieldValue,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.AtomicTypeValue atomic_value = 1; */
-    if (message.fieldValue.oneofKind === 'atomicValue')
-      AtomicTypeValue
-          .internalBinaryWrite(
-              message.fieldValue.atomicValue,
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.fieldValue.oneofKind === "atomicValue")
+      AtomicTypeValue.internalBinaryWrite(
+        message.fieldValue.atomicValue,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.ArrayTypeValue array_value = 2; */
-    if (message.fieldValue.oneofKind === 'arrayValue')
-      ArrayTypeValue
-          .internalBinaryWrite(
-              message.fieldValue.arrayValue,
-              writer.tag(2, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.fieldValue.oneofKind === "arrayValue")
+      ArrayTypeValue.internalBinaryWrite(
+        message.fieldValue.arrayValue,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.IterableTypeValue iterable_value = 3;
      */
-    if (message.fieldValue.oneofKind === 'iterableValue')
-      IterableTypeValue
-          .internalBinaryWrite(
-              message.fieldValue.iterableValue,
-              writer.tag(3, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.fieldValue.oneofKind === "iterableValue")
+      IterableTypeValue.internalBinaryWrite(
+        message.fieldValue.iterableValue,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.MapTypeValue map_value = 4; */
-    if (message.fieldValue.oneofKind === 'mapValue')
-      MapTypeValue
-          .internalBinaryWrite(
-              message.fieldValue.mapValue,
-              writer.tag(4, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.fieldValue.oneofKind === "mapValue")
+      MapTypeValue.internalBinaryWrite(
+        message.fieldValue.mapValue,
+        writer.tag(4, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.Row row_value = 5; */
-    if (message.fieldValue.oneofKind === 'rowValue')
+    if (message.fieldValue.oneofKind === "rowValue")
       Row.internalBinaryWrite(
-             message.fieldValue.rowValue,
-             writer.tag(5, WireType.LengthDelimited).fork(), options)
-          .join();
+        message.fieldValue.rowValue,
+        writer.tag(5, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.LogicalTypeValue logical_type_value =
      * 6; */
-    if (message.fieldValue.oneofKind === 'logicalTypeValue')
-      LogicalTypeValue
-          .internalBinaryWrite(
-              message.fieldValue.logicalTypeValue,
-              writer.tag(6, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.fieldValue.oneofKind === "logicalTypeValue")
+      LogicalTypeValue.internalBinaryWrite(
+        message.fieldValue.logicalTypeValue,
+        writer.tag(6, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1623,165 +1917,182 @@ export const FieldValue = new FieldValue$Type();
 // optimized methods
 class AtomicTypeValue$Type extends MessageType<AtomicTypeValue> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.AtomicTypeValue', [
+    super("org.apache.beam.model.pipeline.v1.AtomicTypeValue", [
       {
         no: 1,
-        name: 'byte',
-        kind: 'scalar',
-        oneof: 'value',
-        T: 5 /*ScalarType.INT32*/
+        name: "byte",
+        kind: "scalar",
+        oneof: "value",
+        T: 5 /*ScalarType.INT32*/,
       },
       {
         no: 2,
-        name: 'int16',
-        kind: 'scalar',
-        oneof: 'value',
-        T: 5 /*ScalarType.INT32*/
+        name: "int16",
+        kind: "scalar",
+        oneof: "value",
+        T: 5 /*ScalarType.INT32*/,
       },
       {
         no: 3,
-        name: 'int32',
-        kind: 'scalar',
-        oneof: 'value',
-        T: 5 /*ScalarType.INT32*/
+        name: "int32",
+        kind: "scalar",
+        oneof: "value",
+        T: 5 /*ScalarType.INT32*/,
       },
       {
         no: 4,
-        name: 'int64',
-        kind: 'scalar',
-        oneof: 'value',
+        name: "int64",
+        kind: "scalar",
+        oneof: "value",
         T: 3 /*ScalarType.INT64*/,
-        L: 0 /*LongType.BIGINT*/
+        L: 0 /*LongType.BIGINT*/,
       },
       {
         no: 5,
-        name: 'float',
-        kind: 'scalar',
-        oneof: 'value',
-        T: 2 /*ScalarType.FLOAT*/
+        name: "float",
+        kind: "scalar",
+        oneof: "value",
+        T: 2 /*ScalarType.FLOAT*/,
       },
       {
         no: 6,
-        name: 'double',
-        kind: 'scalar',
-        oneof: 'value',
-        T: 1 /*ScalarType.DOUBLE*/
+        name: "double",
+        kind: "scalar",
+        oneof: "value",
+        T: 1 /*ScalarType.DOUBLE*/,
       },
       {
         no: 7,
-        name: 'string',
-        kind: 'scalar',
-        oneof: 'value',
-        T: 9 /*ScalarType.STRING*/
+        name: "string",
+        kind: "scalar",
+        oneof: "value",
+        T: 9 /*ScalarType.STRING*/,
       },
       {
         no: 8,
-        name: 'boolean',
-        kind: 'scalar',
-        oneof: 'value',
-        T: 8 /*ScalarType.BOOL*/
+        name: "boolean",
+        kind: "scalar",
+        oneof: "value",
+        T: 8 /*ScalarType.BOOL*/,
       },
       {
         no: 9,
-        name: 'bytes',
-        kind: 'scalar',
-        oneof: 'value',
-        T: 12 /*ScalarType.BYTES*/
-      }
+        name: "bytes",
+        kind: "scalar",
+        oneof: "value",
+        T: 12 /*ScalarType.BYTES*/,
+      },
     ]);
   }
   create(value?: PartialMessage<AtomicTypeValue>): AtomicTypeValue {
-    const message = {value: {oneofKind: undefined}};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { value: { oneofKind: undefined } };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<AtomicTypeValue>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: AtomicTypeValue): AtomicTypeValue {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: AtomicTypeValue
+  ): AtomicTypeValue {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* int32 byte */ 1:
-          message.value = {oneofKind: 'byte', byte: reader.int32()};
+          message.value = { oneofKind: "byte", byte: reader.int32() };
           break;
         case /* int32 int16 */ 2:
-          message.value = {oneofKind: 'int16', int16: reader.int32()};
+          message.value = { oneofKind: "int16", int16: reader.int32() };
           break;
         case /* int32 int32 */ 3:
-          message.value = {oneofKind: 'int32', int32: reader.int32()};
+          message.value = { oneofKind: "int32", int32: reader.int32() };
           break;
         case /* int64 int64 */ 4:
           message.value = {
-            oneofKind: 'int64',
-            int64: reader.int64().toBigInt()
+            oneofKind: "int64",
+            int64: reader.int64().toBigInt(),
           };
           break;
         case /* float float */ 5:
-          message.value = {oneofKind: 'float', float: reader.float()};
+          message.value = { oneofKind: "float", float: reader.float() };
           break;
         case /* double double */ 6:
-          message.value = {oneofKind: 'double', double: reader.double()};
+          message.value = { oneofKind: "double", double: reader.double() };
           break;
         case /* string string */ 7:
-          message.value = {oneofKind: 'string', string: reader.string()};
+          message.value = { oneofKind: "string", string: reader.string() };
           break;
         case /* bool boolean */ 8:
-          message.value = {oneofKind: 'boolean', boolean: reader.bool()};
+          message.value = { oneofKind: "boolean", boolean: reader.bool() };
           break;
         case /* bytes bytes */ 9:
-          message.value = {oneofKind: 'bytes', bytes: reader.bytes()};
+          message.value = { oneofKind: "bytes", bytes: reader.bytes() };
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: AtomicTypeValue, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: AtomicTypeValue,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* int32 byte = 1; */
-    if (message.value.oneofKind === 'byte')
+    if (message.value.oneofKind === "byte")
       writer.tag(1, WireType.Varint).int32(message.value.byte);
     /* int32 int16 = 2; */
-    if (message.value.oneofKind === 'int16')
+    if (message.value.oneofKind === "int16")
       writer.tag(2, WireType.Varint).int32(message.value.int16);
     /* int32 int32 = 3; */
-    if (message.value.oneofKind === 'int32')
+    if (message.value.oneofKind === "int32")
       writer.tag(3, WireType.Varint).int32(message.value.int32);
     /* int64 int64 = 4; */
-    if (message.value.oneofKind === 'int64')
+    if (message.value.oneofKind === "int64")
       writer.tag(4, WireType.Varint).int64(message.value.int64);
     /* float float = 5; */
-    if (message.value.oneofKind === 'float')
+    if (message.value.oneofKind === "float")
       writer.tag(5, WireType.Bit32).float(message.value.float);
     /* double double = 6; */
-    if (message.value.oneofKind === 'double')
+    if (message.value.oneofKind === "double")
       writer.tag(6, WireType.Bit64).double(message.value.double);
     /* string string = 7; */
-    if (message.value.oneofKind === 'string')
+    if (message.value.oneofKind === "string")
       writer.tag(7, WireType.LengthDelimited).string(message.value.string);
     /* bool boolean = 8; */
-    if (message.value.oneofKind === 'boolean')
+    if (message.value.oneofKind === "boolean")
       writer.tag(8, WireType.Varint).bool(message.value.boolean);
     /* bytes bytes = 9; */
-    if (message.value.oneofKind === 'bytes')
+    if (message.value.oneofKind === "bytes")
       writer.tag(9, WireType.LengthDelimited).bytes(message.value.bytes);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1794,61 +2105,81 @@ export const AtomicTypeValue = new AtomicTypeValue$Type();
 // optimized methods
 class ArrayTypeValue$Type extends MessageType<ArrayTypeValue> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.ArrayTypeValue', [{
-            no: 1,
-            name: 'element',
-            kind: 'message',
-            repeat: 1 /*RepeatType.PACKED*/,
-            T: () => FieldValue
-          }]);
+    super("org.apache.beam.model.pipeline.v1.ArrayTypeValue", [
+      {
+        no: 1,
+        name: "element",
+        kind: "message",
+        repeat: 1 /*RepeatType.PACKED*/,
+        T: () => FieldValue,
+      },
+    ]);
   }
   create(value?: PartialMessage<ArrayTypeValue>): ArrayTypeValue {
-    const message = {element: []};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { element: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ArrayTypeValue>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ArrayTypeValue): ArrayTypeValue {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ArrayTypeValue
+  ): ArrayTypeValue {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* repeated org.apache.beam.model.pipeline.v1.FieldValue element */
-            1:
+        1:
           message.element.push(
-              FieldValue.internalBinaryRead(reader, reader.uint32(), options));
+            FieldValue.internalBinaryRead(reader, reader.uint32(), options)
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ArrayTypeValue, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ArrayTypeValue,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* repeated org.apache.beam.model.pipeline.v1.FieldValue element = 1; */
     for (let i = 0; i < message.element.length; i++)
-      FieldValue
-          .internalBinaryWrite(
-              message.element[i],
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+      FieldValue.internalBinaryWrite(
+        message.element[i],
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1861,61 +2192,81 @@ export const ArrayTypeValue = new ArrayTypeValue$Type();
 // optimized methods
 class IterableTypeValue$Type extends MessageType<IterableTypeValue> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.IterableTypeValue', [{
-            no: 1,
-            name: 'element',
-            kind: 'message',
-            repeat: 1 /*RepeatType.PACKED*/,
-            T: () => FieldValue
-          }]);
+    super("org.apache.beam.model.pipeline.v1.IterableTypeValue", [
+      {
+        no: 1,
+        name: "element",
+        kind: "message",
+        repeat: 1 /*RepeatType.PACKED*/,
+        T: () => FieldValue,
+      },
+    ]);
   }
   create(value?: PartialMessage<IterableTypeValue>): IterableTypeValue {
-    const message = {element: []};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { element: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<IterableTypeValue>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: IterableTypeValue): IterableTypeValue {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: IterableTypeValue
+  ): IterableTypeValue {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* repeated org.apache.beam.model.pipeline.v1.FieldValue element */
-            1:
+        1:
           message.element.push(
-              FieldValue.internalBinaryRead(reader, reader.uint32(), options));
+            FieldValue.internalBinaryRead(reader, reader.uint32(), options)
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: IterableTypeValue, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: IterableTypeValue,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* repeated org.apache.beam.model.pipeline.v1.FieldValue element = 1; */
     for (let i = 0; i < message.element.length; i++)
-      FieldValue
-          .internalBinaryWrite(
-              message.element[i],
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+      FieldValue.internalBinaryWrite(
+        message.element[i],
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1928,62 +2279,82 @@ export const IterableTypeValue = new IterableTypeValue$Type();
 // optimized methods
 class MapTypeValue$Type extends MessageType<MapTypeValue> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.MapTypeValue', [{
-            no: 1,
-            name: 'entries',
-            kind: 'message',
-            repeat: 1 /*RepeatType.PACKED*/,
-            T: () => MapTypeEntry
-          }]);
+    super("org.apache.beam.model.pipeline.v1.MapTypeValue", [
+      {
+        no: 1,
+        name: "entries",
+        kind: "message",
+        repeat: 1 /*RepeatType.PACKED*/,
+        T: () => MapTypeEntry,
+      },
+    ]);
   }
   create(value?: PartialMessage<MapTypeValue>): MapTypeValue {
-    const message = {entries: []};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { entries: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<MapTypeValue>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: MapTypeValue): MapTypeValue {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: MapTypeValue
+  ): MapTypeValue {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* repeated org.apache.beam.model.pipeline.v1.MapTypeEntry entries
-              */
-            1:
-          message.entries.push(MapTypeEntry.internalBinaryRead(
-              reader, reader.uint32(), options));
+         */
+        1:
+          message.entries.push(
+            MapTypeEntry.internalBinaryRead(reader, reader.uint32(), options)
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: MapTypeValue, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: MapTypeValue,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* repeated org.apache.beam.model.pipeline.v1.MapTypeEntry entries = 1; */
     for (let i = 0; i < message.entries.length; i++)
-      MapTypeEntry
-          .internalBinaryWrite(
-              message.entries[i],
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+      MapTypeEntry.internalBinaryWrite(
+        message.entries[i],
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1996,68 +2367,93 @@ export const MapTypeValue = new MapTypeValue$Type();
 // optimized methods
 class MapTypeEntry$Type extends MessageType<MapTypeEntry> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.MapTypeEntry', [
-      {no: 1, name: 'key', kind: 'message', T: () => FieldValue},
-      {no: 2, name: 'value', kind: 'message', T: () => FieldValue}
+    super("org.apache.beam.model.pipeline.v1.MapTypeEntry", [
+      { no: 1, name: "key", kind: "message", T: () => FieldValue },
+      { no: 2, name: "value", kind: "message", T: () => FieldValue },
     ]);
   }
   create(value?: PartialMessage<MapTypeEntry>): MapTypeEntry {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<MapTypeEntry>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: MapTypeEntry): MapTypeEntry {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: MapTypeEntry
+  ): MapTypeEntry {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.FieldValue key */ 1:
           message.key = FieldValue.internalBinaryRead(
-              reader, reader.uint32(), options, message.key);
+            reader,
+            reader.uint32(),
+            options,
+            message.key
+          );
           break;
         case /* org.apache.beam.model.pipeline.v1.FieldValue value */ 2:
           message.value = FieldValue.internalBinaryRead(
-              reader, reader.uint32(), options, message.value);
+            reader,
+            reader.uint32(),
+            options,
+            message.value
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: MapTypeEntry, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: MapTypeEntry,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.FieldValue key = 1; */
     if (message.key)
-      FieldValue
-          .internalBinaryWrite(
-              message.key, writer.tag(1, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      FieldValue.internalBinaryWrite(
+        message.key,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.FieldValue value = 2; */
     if (message.value)
-      FieldValue
-          .internalBinaryWrite(
-              message.value, writer.tag(2, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      FieldValue.internalBinaryWrite(
+        message.value,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -2070,56 +2466,77 @@ export const MapTypeEntry = new MapTypeEntry$Type();
 // optimized methods
 class LogicalTypeValue$Type extends MessageType<LogicalTypeValue> {
   constructor() {
-    super(
-        'org.apache.beam.model.pipeline.v1.LogicalTypeValue',
-        [{no: 1, name: 'value', kind: 'message', T: () => FieldValue}]);
+    super("org.apache.beam.model.pipeline.v1.LogicalTypeValue", [
+      { no: 1, name: "value", kind: "message", T: () => FieldValue },
+    ]);
   }
   create(value?: PartialMessage<LogicalTypeValue>): LogicalTypeValue {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<LogicalTypeValue>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: LogicalTypeValue): LogicalTypeValue {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: LogicalTypeValue
+  ): LogicalTypeValue {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.FieldValue value */ 1:
           message.value = FieldValue.internalBinaryRead(
-              reader, reader.uint32(), options, message.value);
+            reader,
+            reader.uint32(),
+            options,
+            message.value
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: LogicalTypeValue, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: LogicalTypeValue,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.FieldValue value = 1; */
     if (message.value)
-      FieldValue
-          .internalBinaryWrite(
-              message.value, writer.tag(1, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      FieldValue.internalBinaryWrite(
+        message.value,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }

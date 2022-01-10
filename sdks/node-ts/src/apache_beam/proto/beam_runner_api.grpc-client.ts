@@ -26,12 +26,12 @@
 // Protocol Buffers describing the Runner API, which is the runner-independent,
 // SDK-independent definition of the Beam model.
 //
-import {TestStreamService} from './beam_runner_api';
-import type {BinaryWriteOptions} from '@protobuf-ts/runtime';
-import type {BinaryReadOptions} from '@protobuf-ts/runtime';
-import type {TestStreamPayload_Event} from './beam_runner_api';
-import type {EventsRequest} from './beam_runner_api';
-import * as grpc from '@grpc/grpc-js';
+import { TestStreamService } from "./beam_runner_api";
+import type { BinaryWriteOptions } from "@protobuf-ts/runtime";
+import type { BinaryReadOptions } from "@protobuf-ts/runtime";
+import type { TestStreamPayload_Event } from "./beam_runner_api";
+import type { EventsRequest } from "./beam_runner_api";
+import * as grpc from "@grpc/grpc-js";
 /**
  * @generated from protobuf service
  * org.apache.beam.model.pipeline.v1.TestStreamService
@@ -45,24 +45,32 @@ export interface ITestStreamServiceClient {
    * org.apache.beam.model.pipeline.v1.TestStreamPayload.Event);
    */
   events(
-      input: EventsRequest, metadata?: grpc.Metadata,
-      options?: grpc.CallOptions):
-      grpc.ClientReadableStream<TestStreamPayload_Event>;
-  events(input: EventsRequest, options?: grpc.CallOptions):
-      grpc.ClientReadableStream<TestStreamPayload_Event>;
+    input: EventsRequest,
+    metadata?: grpc.Metadata,
+    options?: grpc.CallOptions
+  ): grpc.ClientReadableStream<TestStreamPayload_Event>;
+  events(
+    input: EventsRequest,
+    options?: grpc.CallOptions
+  ): grpc.ClientReadableStream<TestStreamPayload_Event>;
 }
 /**
  * @generated from protobuf service
  * org.apache.beam.model.pipeline.v1.TestStreamService
  */
-export class TestStreamServiceClient extends grpc.Client implements
-    ITestStreamServiceClient {
-  private readonly _binaryOptions:
-      Partial<BinaryReadOptions&BinaryWriteOptions>;
+export class TestStreamServiceClient
+  extends grpc.Client
+  implements ITestStreamServiceClient
+{
+  private readonly _binaryOptions: Partial<
+    BinaryReadOptions & BinaryWriteOptions
+  >;
   constructor(
-      address: string, credentials: grpc.ChannelCredentials,
-      options: grpc.ClientOptions = {},
-      binaryOptions: Partial<BinaryReadOptions&BinaryWriteOptions> = {}) {
+    address: string,
+    credentials: grpc.ChannelCredentials,
+    options: grpc.ClientOptions = {},
+    binaryOptions: Partial<BinaryReadOptions & BinaryWriteOptions> = {}
+  ) {
     super(address, credentials, options);
     this._binaryOptions = binaryOptions;
   }
@@ -74,16 +82,20 @@ export class TestStreamServiceClient extends grpc.Client implements
    * org.apache.beam.model.pipeline.v1.TestStreamPayload.Event);
    */
   events(
-      input: EventsRequest, metadata?: grpc.Metadata|grpc.CallOptions,
-      options?: grpc.CallOptions):
-      grpc.ClientReadableStream<TestStreamPayload_Event> {
+    input: EventsRequest,
+    metadata?: grpc.Metadata | grpc.CallOptions,
+    options?: grpc.CallOptions
+  ): grpc.ClientReadableStream<TestStreamPayload_Event> {
     const method = TestStreamService.methods[0];
     return this.makeServerStreamRequest<EventsRequest, TestStreamPayload_Event>(
-        `/${TestStreamService.typeName}/${method.name}`,
-        (value: EventsRequest): Buffer =>
-            Buffer.from(method.I.toBinary(value, this._binaryOptions)),
-        (value: Buffer): TestStreamPayload_Event =>
-            method.O.fromBinary(value, this._binaryOptions),
-        input, (metadata as any), options);
+      `/${TestStreamService.typeName}/${method.name}`,
+      (value: EventsRequest): Buffer =>
+        Buffer.from(method.I.toBinary(value, this._binaryOptions)),
+      (value: Buffer): TestStreamPayload_Event =>
+        method.O.fromBinary(value, this._binaryOptions),
+      input,
+      metadata as any,
+      options
+    );
   }
 }

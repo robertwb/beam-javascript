@@ -1,30 +1,30 @@
-import Long from 'long';
+import Long from "long";
 
-import * as beam from '../src/apache_beam';
-import * as assert from 'assert';
+import * as beam from "../src/apache_beam";
+import * as assert from "assert";
 import {
   BytesCoder,
   IterableCoder,
   KVCoder,
-} from '../src/apache_beam/coders/standard_coders';
-import {GroupBy} from '../src/apache_beam/transforms/core';
-import {GeneralObjectCoder} from '../src/apache_beam/coders/js_coders';
+} from "../src/apache_beam/coders/standard_coders";
+import { GroupBy } from "../src/apache_beam/transforms/core";
+import { GeneralObjectCoder } from "../src/apache_beam/coders/js_coders";
 
-import {DirectRunner} from '../src/apache_beam/runners/direct_runner';
-import * as testing from '../src/apache_beam/testing/assert';
-import * as windowing from '../src/apache_beam/transforms/windowing';
+import { DirectRunner } from "../src/apache_beam/runners/direct_runner";
+import * as testing from "../src/apache_beam/testing/assert";
+import * as windowing from "../src/apache_beam/transforms/windowing";
 
-describe('primitives module', () => {
-  describe('applies basic transforms', () => {
+describe("primitives module", () => {
+  describe("applies basic transforms", () => {
     // TODO: test output with direct runner.
-    it('runs a basic Impulse expansion', () => {
+    it("runs a basic Impulse expansion", () => {
       const p = new beam.Pipeline();
       const res = p.apply(new beam.Impulse());
 
-      assert.equal(res.type, 'pcollection');
+      assert.equal(res.type, "pcollection");
       assert.deepEqual(p.getCoder(res.proto.coderId), new BytesCoder());
     });
-    it('runs a ParDo expansion', () => {
+    it("runs a ParDo expansion", () => {
       const p = new beam.Pipeline();
       const res = p
         .apply(new beam.Impulse())
@@ -37,17 +37,17 @@ describe('primitives module', () => {
 
       const coder = p.getCoder(res.proto.coderId);
       assert.deepEqual(coder, new GeneralObjectCoder());
-      assert.equal(res.type, 'pcollection');
+      assert.equal(res.type, "pcollection");
     });
     // why doesn't map need types here?
-    it('runs a GroupBy expansion', () => {
+    it("runs a GroupBy expansion", () => {
       const p = new beam.Pipeline();
       const res = p
         .apply(new beam.Impulse())
-        .map(v => {
-          return {name: 'pablo', lastName: 'wat'};
+        .map((v) => {
+          return { name: "pablo", lastName: "wat" };
         })
-        .apply(new GroupBy('lastName'));
+        .apply(new GroupBy("lastName"));
 
       const coder = p.getCoder(res.proto.coderId);
       assert.deepEqual(
@@ -59,41 +59,41 @@ describe('primitives module', () => {
       );
     });
   });
-  describe('runs a basic transforms', () => {
-    it('runs a Splitter', async () => {
-      await new DirectRunner().run(root => {
+  describe("runs a basic transforms", () => {
+    it("runs a Splitter", async () => {
+      await new DirectRunner().run((root) => {
         const pcolls = root
-          .apply(new beam.Create(['apple', 'apricot', 'banana']))
-          .apply(new beam.Split(e => e[0], 'a', 'b'));
-        pcolls.a.apply(new testing.AssertDeepEqual(['apple', 'apricot']));
-        pcolls.b.apply(new testing.AssertDeepEqual(['banana']));
+          .apply(new beam.Create(["apple", "apricot", "banana"]))
+          .apply(new beam.Split((e) => e[0], "a", "b"));
+        pcolls.a.apply(new testing.AssertDeepEqual(["apple", "apricot"]));
+        pcolls.b.apply(new testing.AssertDeepEqual(["banana"]));
       });
     });
-    it('runs a WindowInto', async () => {
-      await new DirectRunner().run(root => {
+    it("runs a WindowInto", async () => {
+      await new DirectRunner().run((root) => {
         root
-          .apply(new beam.Create(['apple', 'apricot', 'banana']))
+          .apply(new beam.Create(["apple", "apricot", "banana"]))
           .apply(new beam.WindowInto(new windowing.GlobalWindows()))
           .apply(new beam.GroupBy((e: string) => e[0]))
           .apply(
             new testing.AssertDeepEqual([
-              {key: 'a', value: ['apple', 'apricot']},
-              {key: 'b', value: ['banana']},
+              { key: "a", value: ["apple", "apricot"] },
+              { key: "b", value: ["banana"] },
             ])
           );
       });
     });
-    it('runs a WindowInto IntervalWindow', async () => {
-      await new DirectRunner().run(root => {
+    it("runs a WindowInto IntervalWindow", async () => {
+      await new DirectRunner().run((root) => {
         root
           .apply(new beam.Create([1, 2, 3, 4, 5, 10, 11, 12]))
-          .apply(new beam.AssignTimestamps(t => Long.fromValue(t * 1000)))
+          .apply(new beam.AssignTimestamps((t) => Long.fromValue(t * 1000)))
           .apply(new beam.WindowInto(new windowing.FixedWindows(10)))
-          .apply(new beam.GroupBy((e: number) => ''))
+          .apply(new beam.GroupBy((e: number) => ""))
           .apply(
             new testing.AssertDeepEqual([
-              {key: '', value: [1, 2, 3, 4, 5]},
-              {key: '', value: [10, 11, 12]},
+              { key: "", value: [1, 2, 3, 4, 5] },
+              { key: "", value: [10, 11, 12] },
             ])
           );
       });

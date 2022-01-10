@@ -26,9 +26,12 @@
 // Protocol Buffers describing the Provision API, for communicating with a
 // runner for job and environment provisioning information over GRPC.
 //
-import * as grpc from '@grpc/grpc-js';
+import * as grpc from "@grpc/grpc-js";
 
-import {GetProvisionInfoRequest, GetProvisionInfoResponse} from './beam_provision_api';
+import {
+  GetProvisionInfoRequest,
+  GetProvisionInfoResponse,
+} from "./beam_provision_api";
 
 /**
  * A service to provide runtime provisioning information to the SDK harness
@@ -46,8 +49,10 @@ export interface IProvisionService extends grpc.UntypedServiceImplementation {
    * GetProvisionInfo(org.apache.beam.model.fn_execution.v1.GetProvisionInfoRequest)
    * returns (org.apache.beam.model.fn_execution.v1.GetProvisionInfoResponse);
    */
-  getProvisionInfo:
-      grpc.handleUnaryCall<GetProvisionInfoRequest, GetProvisionInfoResponse>;
+  getProvisionInfo: grpc.handleUnaryCall<
+    GetProvisionInfoRequest,
+    GetProvisionInfoResponse
+  >;
 }
 /**
  * @grpc/grpc-js definition for the protobuf service
@@ -61,19 +66,19 @@ export interface IProvisionService extends grpc.UntypedServiceImplementation {
  * server.addService(provisionServiceDefinition, service);
  * ```
  */
-export const provisionServiceDefinition:
-    grpc.ServiceDefinition<IProvisionService> = {
-  getProvisionInfo: {
-    path:
-        '/org.apache.beam.model.fn_execution.v1.ProvisionService/GetProvisionInfo',
-    originalName: 'GetProvisionInfo',
-    requestStream: false,
-    responseStream: false,
-    responseDeserialize: bytes => GetProvisionInfoResponse.fromBinary(bytes),
-    requestDeserialize: bytes => GetProvisionInfoRequest.fromBinary(bytes),
-    responseSerialize: value =>
+export const provisionServiceDefinition: grpc.ServiceDefinition<IProvisionService> =
+  {
+    getProvisionInfo: {
+      path: "/org.apache.beam.model.fn_execution.v1.ProvisionService/GetProvisionInfo",
+      originalName: "GetProvisionInfo",
+      requestStream: false,
+      responseStream: false,
+      responseDeserialize: (bytes) =>
+        GetProvisionInfoResponse.fromBinary(bytes),
+      requestDeserialize: (bytes) => GetProvisionInfoRequest.fromBinary(bytes),
+      responseSerialize: (value) =>
         Buffer.from(GetProvisionInfoResponse.toBinary(value)),
-    requestSerialize: value =>
-        Buffer.from(GetProvisionInfoRequest.toBinary(value))
-  }
-};
+      requestSerialize: (value) =>
+        Buffer.from(GetProvisionInfoRequest.toBinary(value)),
+    },
+  };

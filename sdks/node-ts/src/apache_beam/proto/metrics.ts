@@ -26,17 +26,17 @@
 // Protocol Buffers for metrics classes, used in the Fn API, Job API, and by
 // SDKs.
 //
-import type {BinaryWriteOptions} from '@protobuf-ts/runtime';
-import type {IBinaryWriter} from '@protobuf-ts/runtime';
-import {WireType} from '@protobuf-ts/runtime';
-import type {BinaryReadOptions} from '@protobuf-ts/runtime';
-import type {IBinaryReader} from '@protobuf-ts/runtime';
-import {UnknownFieldHandler} from '@protobuf-ts/runtime';
-import type {PartialMessage} from '@protobuf-ts/runtime';
-import {reflectionMergePartial} from '@protobuf-ts/runtime';
-import {MESSAGE_TYPE} from '@protobuf-ts/runtime';
-import {MessageType} from '@protobuf-ts/runtime';
-import {Timestamp} from './google/protobuf/timestamp';
+import type { BinaryWriteOptions } from "@protobuf-ts/runtime";
+import type { IBinaryWriter } from "@protobuf-ts/runtime";
+import { WireType } from "@protobuf-ts/runtime";
+import type { BinaryReadOptions } from "@protobuf-ts/runtime";
+import type { IBinaryReader } from "@protobuf-ts/runtime";
+import { UnknownFieldHandler } from "@protobuf-ts/runtime";
+import type { PartialMessage } from "@protobuf-ts/runtime";
+import { reflectionMergePartial } from "@protobuf-ts/runtime";
+import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
+import { MessageType } from "@protobuf-ts/runtime";
+import { Timestamp } from "./google/protobuf/timestamp";
 /**
  * A specification for describing a well known MonitoringInfo.
  *
@@ -232,7 +232,7 @@ export enum MonitoringInfoSpecs_Enum {
   /**
    * @generated from protobuf enum value: API_REQUEST_LATENCIES = 20;
    */
-  API_REQUEST_LATENCIES = 20
+  API_REQUEST_LATENCIES = 20,
 }
 /**
  * A set of properties for the MonitoringInfoLabel, this is useful to obtain
@@ -294,7 +294,7 @@ export interface MonitoringInfo {
    *
    * @generated from protobuf field: map<string, string> labels = 4;
    */
-  labels: {[key: string]: string;};
+  labels: { [key: string]: string };
   /**
    * This indicates the start of the time range over which this value was
    * measured.
@@ -433,7 +433,7 @@ export enum MonitoringInfo_MonitoringInfoLabels {
   /**
    * @generated from protobuf enum value: SPANNER_QUERY_NAME = 27;
    */
-  SPANNER_QUERY_NAME = 27
+  SPANNER_QUERY_NAME = 27,
 }
 /**
  * A set of well known URNs that specify the encoding and aggregation method.
@@ -568,42 +568,49 @@ export enum MonitoringInfoTypeUrns_Enum {
    *
    * @generated from protobuf enum value: PROGRESS_TYPE = 10;
    */
-  PROGRESS_TYPE = 10
+  PROGRESS_TYPE = 10,
 }
 // @generated message type with reflection information, may provide speed
 // optimized methods
 class MonitoringInfoSpec$Type extends MessageType<MonitoringInfoSpec> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.MonitoringInfoSpec', [
-      {no: 1, name: 'urn', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 2, name: 'type', kind: 'scalar', T: 9 /*ScalarType.STRING*/}, {
+    super("org.apache.beam.model.pipeline.v1.MonitoringInfoSpec", [
+      { no: 1, name: "urn", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      { no: 2, name: "type", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      {
         no: 3,
-        name: 'required_labels',
-        kind: 'scalar',
+        name: "required_labels",
+        kind: "scalar",
         repeat: 2 /*RepeatType.UNPACKED*/,
-        T: 9 /*ScalarType.STRING*/
+        T: 9 /*ScalarType.STRING*/,
       },
       {
         no: 4,
-        name: 'annotations',
-        kind: 'message',
+        name: "annotations",
+        kind: "message",
         repeat: 1 /*RepeatType.PACKED*/,
-        T: () => Annotation
-      }
+        T: () => Annotation,
+      },
     ]);
   }
   create(value?: PartialMessage<MonitoringInfoSpec>): MonitoringInfoSpec {
-    const message = {urn: '', type: '', requiredLabels: [], annotations: []};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { urn: "", type: "", requiredLabels: [], annotations: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<MonitoringInfoSpec>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: MonitoringInfoSpec): MonitoringInfoSpec {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: MonitoringInfoSpec
+  ): MonitoringInfoSpec {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -618,46 +625,58 @@ class MonitoringInfoSpec$Type extends MessageType<MonitoringInfoSpec> {
           break;
         case /* repeated org.apache.beam.model.pipeline.v1.Annotation
                 annotations */
-            4:
+        4:
           message.annotations.push(
-              Annotation.internalBinaryRead(reader, reader.uint32(), options));
+            Annotation.internalBinaryRead(reader, reader.uint32(), options)
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: MonitoringInfoSpec, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: MonitoringInfoSpec,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string urn = 1; */
-    if (message.urn !== '')
+    if (message.urn !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.urn);
     /* string type = 2; */
-    if (message.type !== '')
+    if (message.type !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.type);
     /* repeated string required_labels = 3; */
     for (let i = 0; i < message.requiredLabels.length; i++)
       writer.tag(3, WireType.LengthDelimited).string(message.requiredLabels[i]);
     /* repeated org.apache.beam.model.pipeline.v1.Annotation annotations = 4; */
     for (let i = 0; i < message.annotations.length; i++)
-      Annotation
-          .internalBinaryWrite(
-              message.annotations[i],
-              writer.tag(4, WireType.LengthDelimited).fork(), options)
-          .join();
+      Annotation.internalBinaryWrite(
+        message.annotations[i],
+        writer.tag(4, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -670,23 +689,29 @@ export const MonitoringInfoSpec = new MonitoringInfoSpec$Type();
 // optimized methods
 class Annotation$Type extends MessageType<Annotation> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.Annotation', [
-      {no: 1, name: 'key', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 2, name: 'value', kind: 'scalar', T: 9 /*ScalarType.STRING*/}
+    super("org.apache.beam.model.pipeline.v1.Annotation", [
+      { no: 1, name: "key", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      { no: 2, name: "value", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
     ]);
   }
   create(value?: PartialMessage<Annotation>): Annotation {
-    const message = {key: '', value: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { key: "", value: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<Annotation>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: Annotation): Annotation {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Annotation
+  ): Annotation {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -698,30 +723,41 @@ class Annotation$Type extends MessageType<Annotation> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: Annotation, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: Annotation,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string key = 1; */
-    if (message.key !== '')
+    if (message.key !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.key);
     /* string value = 2; */
-    if (message.value !== '')
+    if (message.value !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.value);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -734,28 +770,38 @@ export const Annotation = new Annotation$Type();
 // optimized methods
 class MonitoringInfoSpecs$Type extends MessageType<MonitoringInfoSpecs> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.MonitoringInfoSpecs', []);
+    super("org.apache.beam.model.pipeline.v1.MonitoringInfoSpecs", []);
   }
   create(value?: PartialMessage<MonitoringInfoSpecs>): MonitoringInfoSpecs {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<MonitoringInfoSpecs>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: MonitoringInfoSpecs): MonitoringInfoSpecs {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: MonitoringInfoSpecs
+  ): MonitoringInfoSpecs {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: MonitoringInfoSpecs, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: MonitoringInfoSpecs,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -766,26 +812,32 @@ class MonitoringInfoSpecs$Type extends MessageType<MonitoringInfoSpecs> {
 export const MonitoringInfoSpecs = new MonitoringInfoSpecs$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class MonitoringInfoLabelProps$Type extends
-    MessageType<MonitoringInfoLabelProps> {
+class MonitoringInfoLabelProps$Type extends MessageType<MonitoringInfoLabelProps> {
   constructor() {
-    super(
-        'org.apache.beam.model.pipeline.v1.MonitoringInfoLabelProps',
-        [{no: 1, name: 'name', kind: 'scalar', T: 9 /*ScalarType.STRING*/}]);
+    super("org.apache.beam.model.pipeline.v1.MonitoringInfoLabelProps", [
+      { no: 1, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+    ]);
   }
-  create(value?: PartialMessage<MonitoringInfoLabelProps>):
-      MonitoringInfoLabelProps {
-    const message = {name: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<MonitoringInfoLabelProps>
+  ): MonitoringInfoLabelProps {
+    const message = { name: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<MonitoringInfoLabelProps>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: MonitoringInfoLabelProps): MonitoringInfoLabelProps {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: MonitoringInfoLabelProps
+  ): MonitoringInfoLabelProps {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -794,27 +846,38 @@ class MonitoringInfoLabelProps$Type extends
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: MonitoringInfoLabelProps, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: MonitoringInfoLabelProps,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string name = 1; */
-    if (message.name !== '')
+    if (message.name !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.name);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -827,31 +890,43 @@ export const MonitoringInfoLabelProps = new MonitoringInfoLabelProps$Type();
 // optimized methods
 class MonitoringInfo$Type extends MessageType<MonitoringInfo> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.MonitoringInfo', [
-      {no: 1, name: 'urn', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 2, name: 'type', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 3, name: 'payload', kind: 'scalar', T: 12 /*ScalarType.BYTES*/}, {
+    super("org.apache.beam.model.pipeline.v1.MonitoringInfo", [
+      { no: 1, name: "urn", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      { no: 2, name: "type", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      { no: 3, name: "payload", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
+      {
         no: 4,
-        name: 'labels',
-        kind: 'map',
+        name: "labels",
+        kind: "map",
         K: 9 /*ScalarType.STRING*/,
-        V: {kind: 'scalar', T: 9 /*ScalarType.STRING*/}
+        V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ },
       },
-      {no: 5, name: 'start_time', kind: 'message', T: () => Timestamp}
+      { no: 5, name: "start_time", kind: "message", T: () => Timestamp },
     ]);
   }
   create(value?: PartialMessage<MonitoringInfo>): MonitoringInfo {
-    const message = {urn: '', type: '', payload: new Uint8Array(0), labels: {}};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = {
+      urn: "",
+      type: "",
+      payload: new Uint8Array(0),
+      labels: {},
+    };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<MonitoringInfo>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: MonitoringInfo): MonitoringInfo {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: MonitoringInfo
+  ): MonitoringInfo {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -869,27 +944,40 @@ class MonitoringInfo$Type extends MessageType<MonitoringInfo> {
           break;
         case /* google.protobuf.Timestamp start_time */ 5:
           message.startTime = Timestamp.internalBinaryRead(
-              reader, reader.uint32(), options, message.startTime);
+            reader,
+            reader.uint32(),
+            options,
+            message.startTime
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   private binaryReadMap4(
-      map: MonitoringInfo['labels'], reader: IBinaryReader,
-      options: BinaryReadOptions): void {
-    let len = reader.uint32(), end = reader.pos + len,
-        key: keyof MonitoringInfo['labels']|undefined,
-        val: MonitoringInfo['labels'][any]|undefined;
+    map: MonitoringInfo["labels"],
+    reader: IBinaryReader,
+    options: BinaryReadOptions
+  ): void {
+    let len = reader.uint32(),
+      end = reader.pos + len,
+      key: keyof MonitoringInfo["labels"] | undefined,
+      val: MonitoringInfo["labels"][any] | undefined;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -901,43 +989,50 @@ class MonitoringInfo$Type extends MessageType<MonitoringInfo> {
           break;
         default:
           throw new globalThis.Error(
-              'unknown map entry field for field org.apache.beam.model.pipeline.v1.MonitoringInfo.labels');
+            "unknown map entry field for field org.apache.beam.model.pipeline.v1.MonitoringInfo.labels"
+          );
       }
     }
-    map[key ?? ''] = val ?? '';
+    map[key ?? ""] = val ?? "";
   }
   internalBinaryWrite(
-      message: MonitoringInfo, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: MonitoringInfo,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string urn = 1; */
-    if (message.urn !== '')
+    if (message.urn !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.urn);
     /* string type = 2; */
-    if (message.type !== '')
+    if (message.type !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.type);
     /* bytes payload = 3; */
     if (message.payload.length)
       writer.tag(3, WireType.LengthDelimited).bytes(message.payload);
     /* map<string, string> labels = 4; */
     for (let k of Object.keys(message.labels))
-      writer.tag(4, WireType.LengthDelimited)
-          .fork()
-          .tag(1, WireType.LengthDelimited)
-          .string(k)
-          .tag(2, WireType.LengthDelimited)
-          .string(message.labels[k])
-          .join();
+      writer
+        .tag(4, WireType.LengthDelimited)
+        .fork()
+        .tag(1, WireType.LengthDelimited)
+        .string(k)
+        .tag(2, WireType.LengthDelimited)
+        .string(message.labels[k])
+        .join();
     /* google.protobuf.Timestamp start_time = 5; */
     if (message.startTime)
-      Timestamp
-          .internalBinaryWrite(
-              message.startTime, writer.tag(5, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      Timestamp.internalBinaryWrite(
+        message.startTime,
+        writer.tag(5, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -950,29 +1045,40 @@ export const MonitoringInfo = new MonitoringInfo$Type();
 // optimized methods
 class MonitoringInfoTypeUrns$Type extends MessageType<MonitoringInfoTypeUrns> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.MonitoringInfoTypeUrns', []);
+    super("org.apache.beam.model.pipeline.v1.MonitoringInfoTypeUrns", []);
   }
-  create(value?: PartialMessage<MonitoringInfoTypeUrns>):
-      MonitoringInfoTypeUrns {
+  create(
+    value?: PartialMessage<MonitoringInfoTypeUrns>
+  ): MonitoringInfoTypeUrns {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<MonitoringInfoTypeUrns>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: MonitoringInfoTypeUrns): MonitoringInfoTypeUrns {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: MonitoringInfoTypeUrns
+  ): MonitoringInfoTypeUrns {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: MonitoringInfoTypeUrns, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: MonitoringInfoTypeUrns,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }

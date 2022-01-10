@@ -26,14 +26,14 @@
 // Protocol Buffers describing the Provision API, for communicating with a
 // runner for job and environment provisioning information over GRPC.
 //
-import type {RpcTransport} from '@protobuf-ts/runtime-rpc';
-import type {ServiceInfo} from '@protobuf-ts/runtime-rpc';
-import {ProvisionService} from './beam_provision_api';
-import {stackIntercept} from '@protobuf-ts/runtime-rpc';
-import type {GetProvisionInfoResponse} from './beam_provision_api';
-import type {GetProvisionInfoRequest} from './beam_provision_api';
-import type {UnaryCall} from '@protobuf-ts/runtime-rpc';
-import type {RpcOptions} from '@protobuf-ts/runtime-rpc';
+import type { RpcTransport } from "@protobuf-ts/runtime-rpc";
+import type { ServiceInfo } from "@protobuf-ts/runtime-rpc";
+import { ProvisionService } from "./beam_provision_api";
+import { stackIntercept } from "@protobuf-ts/runtime-rpc";
+import type { GetProvisionInfoResponse } from "./beam_provision_api";
+import type { GetProvisionInfoRequest } from "./beam_provision_api";
+import type { UnaryCall } from "@protobuf-ts/runtime-rpc";
+import type { RpcOptions } from "@protobuf-ts/runtime-rpc";
 /**
  * A service to provide runtime provisioning information to the SDK harness
  * worker instances -- such as pipeline options, resource constraints and
@@ -50,8 +50,10 @@ export interface IProvisionServiceClient {
    * GetProvisionInfo(org.apache.beam.model.fn_execution.v1.GetProvisionInfoRequest)
    * returns (org.apache.beam.model.fn_execution.v1.GetProvisionInfoResponse);
    */
-  getProvisionInfo(input: GetProvisionInfoRequest, options?: RpcOptions):
-      UnaryCall<GetProvisionInfoRequest, GetProvisionInfoResponse>;
+  getProvisionInfo(
+    input: GetProvisionInfoRequest,
+    options?: RpcOptions
+  ): UnaryCall<GetProvisionInfoRequest, GetProvisionInfoResponse>;
 }
 /**
  * A service to provide runtime provisioning information to the SDK harness
@@ -61,8 +63,9 @@ export interface IProvisionServiceClient {
  * @generated from protobuf service
  * org.apache.beam.model.fn_execution.v1.ProvisionService
  */
-export class ProvisionServiceClient implements IProvisionServiceClient,
-                                               ServiceInfo {
+export class ProvisionServiceClient
+  implements IProvisionServiceClient, ServiceInfo
+{
   typeName = ProvisionService.typeName;
   methods = ProvisionService.methods;
   options = ProvisionService.options;
@@ -74,10 +77,18 @@ export class ProvisionServiceClient implements IProvisionServiceClient,
    * GetProvisionInfo(org.apache.beam.model.fn_execution.v1.GetProvisionInfoRequest)
    * returns (org.apache.beam.model.fn_execution.v1.GetProvisionInfoResponse);
    */
-  getProvisionInfo(input: GetProvisionInfoRequest, options?: RpcOptions):
-      UnaryCall<GetProvisionInfoRequest, GetProvisionInfoResponse> {
-    const method = this.methods[0], opt = this._transport.mergeOptions(options);
+  getProvisionInfo(
+    input: GetProvisionInfoRequest,
+    options?: RpcOptions
+  ): UnaryCall<GetProvisionInfoRequest, GetProvisionInfoResponse> {
+    const method = this.methods[0],
+      opt = this._transport.mergeOptions(options);
     return stackIntercept<GetProvisionInfoRequest, GetProvisionInfoResponse>(
-        'unary', this._transport, method, opt, input);
+      "unary",
+      this._transport,
+      method,
+      opt,
+      input
+    );
   }
 }

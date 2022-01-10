@@ -25,32 +25,32 @@
 // Protocol Buffers describing the Artifact API, for communicating with a runner
 // for artifact staging and retrieval over GRPC.
 //
-import {LegacyArtifactRetrievalService} from './beam_artifact_api';
-import type {ArtifactChunk} from './beam_artifact_api';
-import type {LegacyGetArtifactRequest} from './beam_artifact_api';
-import type {GetManifestResponse} from './beam_artifact_api';
-import type {GetManifestRequest} from './beam_artifact_api';
-import {LegacyArtifactStagingService} from './beam_artifact_api';
-import type {CommitManifestResponse} from './beam_artifact_api';
-import type {CommitManifestRequest} from './beam_artifact_api';
-import type {PutArtifactResponse} from './beam_artifact_api';
-import type {PutArtifactRequest} from './beam_artifact_api';
-import type {ClientStreamingCall} from '@protobuf-ts/runtime-rpc';
-import {ArtifactStagingService} from './beam_artifact_api';
-import type {ArtifactRequestWrapper} from './beam_artifact_api';
-import type {ArtifactResponseWrapper} from './beam_artifact_api';
-import type {DuplexStreamingCall} from '@protobuf-ts/runtime-rpc';
-import type {RpcTransport} from '@protobuf-ts/runtime-rpc';
-import type {ServiceInfo} from '@protobuf-ts/runtime-rpc';
-import {ArtifactRetrievalService} from './beam_artifact_api';
-import type {GetArtifactResponse} from './beam_artifact_api';
-import type {GetArtifactRequest} from './beam_artifact_api';
-import type {ServerStreamingCall} from '@protobuf-ts/runtime-rpc';
-import {stackIntercept} from '@protobuf-ts/runtime-rpc';
-import type {ResolveArtifactsResponse} from './beam_artifact_api';
-import type {ResolveArtifactsRequest} from './beam_artifact_api';
-import type {UnaryCall} from '@protobuf-ts/runtime-rpc';
-import type {RpcOptions} from '@protobuf-ts/runtime-rpc';
+import { LegacyArtifactRetrievalService } from "./beam_artifact_api";
+import type { ArtifactChunk } from "./beam_artifact_api";
+import type { LegacyGetArtifactRequest } from "./beam_artifact_api";
+import type { GetManifestResponse } from "./beam_artifact_api";
+import type { GetManifestRequest } from "./beam_artifact_api";
+import { LegacyArtifactStagingService } from "./beam_artifact_api";
+import type { CommitManifestResponse } from "./beam_artifact_api";
+import type { CommitManifestRequest } from "./beam_artifact_api";
+import type { PutArtifactResponse } from "./beam_artifact_api";
+import type { PutArtifactRequest } from "./beam_artifact_api";
+import type { ClientStreamingCall } from "@protobuf-ts/runtime-rpc";
+import { ArtifactStagingService } from "./beam_artifact_api";
+import type { ArtifactRequestWrapper } from "./beam_artifact_api";
+import type { ArtifactResponseWrapper } from "./beam_artifact_api";
+import type { DuplexStreamingCall } from "@protobuf-ts/runtime-rpc";
+import type { RpcTransport } from "@protobuf-ts/runtime-rpc";
+import type { ServiceInfo } from "@protobuf-ts/runtime-rpc";
+import { ArtifactRetrievalService } from "./beam_artifact_api";
+import type { GetArtifactResponse } from "./beam_artifact_api";
+import type { GetArtifactRequest } from "./beam_artifact_api";
+import type { ServerStreamingCall } from "@protobuf-ts/runtime-rpc";
+import { stackIntercept } from "@protobuf-ts/runtime-rpc";
+import type { ResolveArtifactsResponse } from "./beam_artifact_api";
+import type { ResolveArtifactsRequest } from "./beam_artifact_api";
+import type { UnaryCall } from "@protobuf-ts/runtime-rpc";
+import type { RpcOptions } from "@protobuf-ts/runtime-rpc";
 /**
  * A service to retrieve artifacts for use in a Job.
  *
@@ -67,8 +67,10 @@ export interface IArtifactRetrievalServiceClient {
    * ResolveArtifacts(org.apache.beam.model.job_management.v1.ResolveArtifactsRequest)
    * returns (org.apache.beam.model.job_management.v1.ResolveArtifactsResponse);
    */
-  resolveArtifacts(input: ResolveArtifactsRequest, options?: RpcOptions):
-      UnaryCall<ResolveArtifactsRequest, ResolveArtifactsResponse>;
+  resolveArtifacts(
+    input: ResolveArtifactsRequest,
+    options?: RpcOptions
+  ): UnaryCall<ResolveArtifactsRequest, ResolveArtifactsResponse>;
   /**
    * Retrieves the given artifact as a stream of bytes.
    *
@@ -77,8 +79,10 @@ export interface IArtifactRetrievalServiceClient {
    * returns (stream
    * org.apache.beam.model.job_management.v1.GetArtifactResponse);
    */
-  getArtifact(input: GetArtifactRequest, options?: RpcOptions):
-      ServerStreamingCall<GetArtifactRequest, GetArtifactResponse>;
+  getArtifact(
+    input: GetArtifactRequest,
+    options?: RpcOptions
+  ): ServerStreamingCall<GetArtifactRequest, GetArtifactResponse>;
 }
 /**
  * A service to retrieve artifacts for use in a Job.
@@ -86,8 +90,9 @@ export interface IArtifactRetrievalServiceClient {
  * @generated from protobuf service
  * org.apache.beam.model.job_management.v1.ArtifactRetrievalService
  */
-export class ArtifactRetrievalServiceClient implements
-    IArtifactRetrievalServiceClient, ServiceInfo {
+export class ArtifactRetrievalServiceClient
+  implements IArtifactRetrievalServiceClient, ServiceInfo
+{
   typeName = ArtifactRetrievalService.typeName;
   methods = ArtifactRetrievalService.methods;
   options = ArtifactRetrievalService.options;
@@ -101,11 +106,19 @@ export class ArtifactRetrievalServiceClient implements
    * ResolveArtifacts(org.apache.beam.model.job_management.v1.ResolveArtifactsRequest)
    * returns (org.apache.beam.model.job_management.v1.ResolveArtifactsResponse);
    */
-  resolveArtifacts(input: ResolveArtifactsRequest, options?: RpcOptions):
-      UnaryCall<ResolveArtifactsRequest, ResolveArtifactsResponse> {
-    const method = this.methods[0], opt = this._transport.mergeOptions(options);
+  resolveArtifacts(
+    input: ResolveArtifactsRequest,
+    options?: RpcOptions
+  ): UnaryCall<ResolveArtifactsRequest, ResolveArtifactsResponse> {
+    const method = this.methods[0],
+      opt = this._transport.mergeOptions(options);
     return stackIntercept<ResolveArtifactsRequest, ResolveArtifactsResponse>(
-        'unary', this._transport, method, opt, input);
+      "unary",
+      this._transport,
+      method,
+      opt,
+      input
+    );
   }
   /**
    * Retrieves the given artifact as a stream of bytes.
@@ -115,11 +128,19 @@ export class ArtifactRetrievalServiceClient implements
    * returns (stream
    * org.apache.beam.model.job_management.v1.GetArtifactResponse);
    */
-  getArtifact(input: GetArtifactRequest, options?: RpcOptions):
-      ServerStreamingCall<GetArtifactRequest, GetArtifactResponse> {
-    const method = this.methods[1], opt = this._transport.mergeOptions(options);
+  getArtifact(
+    input: GetArtifactRequest,
+    options?: RpcOptions
+  ): ServerStreamingCall<GetArtifactRequest, GetArtifactResponse> {
+    const method = this.methods[1],
+      opt = this._transport.mergeOptions(options);
     return stackIntercept<GetArtifactRequest, GetArtifactResponse>(
-        'serverStreaming', this._transport, method, opt, input);
+      "serverStreaming",
+      this._transport,
+      method,
+      opt,
+      input
+    );
   }
 }
 /**
@@ -139,8 +160,9 @@ export interface IArtifactStagingServiceClient {
    * org.apache.beam.model.job_management.v1.ArtifactResponseWrapper) returns
    * (stream org.apache.beam.model.job_management.v1.ArtifactRequestWrapper);
    */
-  reverseArtifactRetrievalService(options?: RpcOptions):
-      DuplexStreamingCall<ArtifactResponseWrapper, ArtifactRequestWrapper>;
+  reverseArtifactRetrievalService(
+    options?: RpcOptions
+  ): DuplexStreamingCall<ArtifactResponseWrapper, ArtifactRequestWrapper>;
 }
 /**
  * A service that allows the client to act as an ArtifactRetrievalService,
@@ -153,8 +175,9 @@ export interface IArtifactStagingServiceClient {
  * @generated from protobuf service
  * org.apache.beam.model.job_management.v1.ArtifactStagingService
  */
-export class ArtifactStagingServiceClient implements
-    IArtifactStagingServiceClient, ServiceInfo {
+export class ArtifactStagingServiceClient
+  implements IArtifactStagingServiceClient, ServiceInfo
+{
   typeName = ArtifactStagingService.typeName;
   methods = ArtifactStagingService.methods;
   options = ArtifactStagingService.options;
@@ -164,11 +187,17 @@ export class ArtifactStagingServiceClient implements
    * org.apache.beam.model.job_management.v1.ArtifactResponseWrapper) returns
    * (stream org.apache.beam.model.job_management.v1.ArtifactRequestWrapper);
    */
-  reverseArtifactRetrievalService(options?: RpcOptions):
-      DuplexStreamingCall<ArtifactResponseWrapper, ArtifactRequestWrapper> {
-    const method = this.methods[0], opt = this._transport.mergeOptions(options);
+  reverseArtifactRetrievalService(
+    options?: RpcOptions
+  ): DuplexStreamingCall<ArtifactResponseWrapper, ArtifactRequestWrapper> {
+    const method = this.methods[0],
+      opt = this._transport.mergeOptions(options);
     return stackIntercept<ArtifactResponseWrapper, ArtifactRequestWrapper>(
-        'duplex', this._transport, method, opt);
+      "duplex",
+      this._transport,
+      method,
+      opt
+    );
   }
 }
 // Legacy artifact staging service for pipeline-level artifacts.
@@ -189,8 +218,9 @@ export interface ILegacyArtifactStagingServiceClient {
    * org.apache.beam.model.job_management.v1.PutArtifactRequest) returns
    * (org.apache.beam.model.job_management.v1.PutArtifactResponse);
    */
-  putArtifact(options?: RpcOptions):
-      ClientStreamingCall<PutArtifactRequest, PutArtifactResponse>;
+  putArtifact(
+    options?: RpcOptions
+  ): ClientStreamingCall<PutArtifactRequest, PutArtifactResponse>;
   /**
    * Commit the manifest for a Job. All artifacts must have been successfully
    * uploaded before this call is made.
@@ -202,8 +232,10 @@ export interface ILegacyArtifactStagingServiceClient {
    * CommitManifest(org.apache.beam.model.job_management.v1.CommitManifestRequest)
    * returns (org.apache.beam.model.job_management.v1.CommitManifestResponse);
    */
-  commitManifest(input: CommitManifestRequest, options?: RpcOptions):
-      UnaryCall<CommitManifestRequest, CommitManifestResponse>;
+  commitManifest(
+    input: CommitManifestRequest,
+    options?: RpcOptions
+  ): UnaryCall<CommitManifestRequest, CommitManifestResponse>;
 }
 // Legacy artifact staging service for pipeline-level artifacts.
 
@@ -213,8 +245,9 @@ export interface ILegacyArtifactStagingServiceClient {
  * @generated from protobuf service
  * org.apache.beam.model.job_management.v1.LegacyArtifactStagingService
  */
-export class LegacyArtifactStagingServiceClient implements
-    ILegacyArtifactStagingServiceClient, ServiceInfo {
+export class LegacyArtifactStagingServiceClient
+  implements ILegacyArtifactStagingServiceClient, ServiceInfo
+{
   typeName = LegacyArtifactStagingService.typeName;
   methods = LegacyArtifactStagingService.methods;
   options = LegacyArtifactStagingService.options;
@@ -228,11 +261,17 @@ export class LegacyArtifactStagingServiceClient implements
    * org.apache.beam.model.job_management.v1.PutArtifactRequest) returns
    * (org.apache.beam.model.job_management.v1.PutArtifactResponse);
    */
-  putArtifact(options?: RpcOptions):
-      ClientStreamingCall<PutArtifactRequest, PutArtifactResponse> {
-    const method = this.methods[0], opt = this._transport.mergeOptions(options);
+  putArtifact(
+    options?: RpcOptions
+  ): ClientStreamingCall<PutArtifactRequest, PutArtifactResponse> {
+    const method = this.methods[0],
+      opt = this._transport.mergeOptions(options);
     return stackIntercept<PutArtifactRequest, PutArtifactResponse>(
-        'clientStreaming', this._transport, method, opt);
+      "clientStreaming",
+      this._transport,
+      method,
+      opt
+    );
   }
   /**
    * Commit the manifest for a Job. All artifacts must have been successfully
@@ -245,11 +284,19 @@ export class LegacyArtifactStagingServiceClient implements
    * CommitManifest(org.apache.beam.model.job_management.v1.CommitManifestRequest)
    * returns (org.apache.beam.model.job_management.v1.CommitManifestResponse);
    */
-  commitManifest(input: CommitManifestRequest, options?: RpcOptions):
-      UnaryCall<CommitManifestRequest, CommitManifestResponse> {
-    const method = this.methods[1], opt = this._transport.mergeOptions(options);
+  commitManifest(
+    input: CommitManifestRequest,
+    options?: RpcOptions
+  ): UnaryCall<CommitManifestRequest, CommitManifestResponse> {
+    const method = this.methods[1],
+      opt = this._transport.mergeOptions(options);
     return stackIntercept<CommitManifestRequest, CommitManifestResponse>(
-        'unary', this._transport, method, opt, input);
+      "unary",
+      this._transport,
+      method,
+      opt,
+      input
+    );
   }
 }
 /**
@@ -266,8 +313,10 @@ export interface ILegacyArtifactRetrievalServiceClient {
    * GetManifest(org.apache.beam.model.job_management.v1.GetManifestRequest)
    * returns (org.apache.beam.model.job_management.v1.GetManifestResponse);
    */
-  getManifest(input: GetManifestRequest, options?: RpcOptions):
-      UnaryCall<GetManifestRequest, GetManifestResponse>;
+  getManifest(
+    input: GetManifestRequest,
+    options?: RpcOptions
+  ): UnaryCall<GetManifestRequest, GetManifestResponse>;
   /**
    * Get an artifact staged for the job. The requested artifact must be within
    * the manifest
@@ -276,8 +325,10 @@ export interface ILegacyArtifactRetrievalServiceClient {
    * GetArtifact(org.apache.beam.model.job_management.v1.LegacyGetArtifactRequest)
    * returns (stream org.apache.beam.model.job_management.v1.ArtifactChunk);
    */
-  getArtifact(input: LegacyGetArtifactRequest, options?: RpcOptions):
-      ServerStreamingCall<LegacyGetArtifactRequest, ArtifactChunk>;
+  getArtifact(
+    input: LegacyGetArtifactRequest,
+    options?: RpcOptions
+  ): ServerStreamingCall<LegacyGetArtifactRequest, ArtifactChunk>;
 }
 /**
  * A service to retrieve artifacts for use in a Job.
@@ -285,8 +336,9 @@ export interface ILegacyArtifactRetrievalServiceClient {
  * @generated from protobuf service
  * org.apache.beam.model.job_management.v1.LegacyArtifactRetrievalService
  */
-export class LegacyArtifactRetrievalServiceClient implements
-    ILegacyArtifactRetrievalServiceClient, ServiceInfo {
+export class LegacyArtifactRetrievalServiceClient
+  implements ILegacyArtifactRetrievalServiceClient, ServiceInfo
+{
   typeName = LegacyArtifactRetrievalService.typeName;
   methods = LegacyArtifactRetrievalService.methods;
   options = LegacyArtifactRetrievalService.options;
@@ -298,11 +350,19 @@ export class LegacyArtifactRetrievalServiceClient implements
    * GetManifest(org.apache.beam.model.job_management.v1.GetManifestRequest)
    * returns (org.apache.beam.model.job_management.v1.GetManifestResponse);
    */
-  getManifest(input: GetManifestRequest, options?: RpcOptions):
-      UnaryCall<GetManifestRequest, GetManifestResponse> {
-    const method = this.methods[0], opt = this._transport.mergeOptions(options);
+  getManifest(
+    input: GetManifestRequest,
+    options?: RpcOptions
+  ): UnaryCall<GetManifestRequest, GetManifestResponse> {
+    const method = this.methods[0],
+      opt = this._transport.mergeOptions(options);
     return stackIntercept<GetManifestRequest, GetManifestResponse>(
-        'unary', this._transport, method, opt, input);
+      "unary",
+      this._transport,
+      method,
+      opt,
+      input
+    );
   }
   /**
    * Get an artifact staged for the job. The requested artifact must be within
@@ -312,10 +372,18 @@ export class LegacyArtifactRetrievalServiceClient implements
    * GetArtifact(org.apache.beam.model.job_management.v1.LegacyGetArtifactRequest)
    * returns (stream org.apache.beam.model.job_management.v1.ArtifactChunk);
    */
-  getArtifact(input: LegacyGetArtifactRequest, options?: RpcOptions):
-      ServerStreamingCall<LegacyGetArtifactRequest, ArtifactChunk> {
-    const method = this.methods[1], opt = this._transport.mergeOptions(options);
+  getArtifact(
+    input: LegacyGetArtifactRequest,
+    options?: RpcOptions
+  ): ServerStreamingCall<LegacyGetArtifactRequest, ArtifactChunk> {
+    const method = this.methods[1],
+      opt = this._transport.mergeOptions(options);
     return stackIntercept<LegacyGetArtifactRequest, ArtifactChunk>(
-        'serverStreaming', this._transport, method, opt, input);
+      "serverStreaming",
+      this._transport,
+      method,
+      opt,
+      input
+    );
   }
 }

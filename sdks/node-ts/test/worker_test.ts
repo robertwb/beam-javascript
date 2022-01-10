@@ -1,32 +1,32 @@
-import Long from 'long';
+import Long from "long";
 
 import {
   GlobalWindow,
   PaneInfoCoder,
-} from '../src/apache_beam/coders/standard_coders';
+} from "../src/apache_beam/coders/standard_coders";
 
 import {
   PTransform,
   PCollection,
-} from '../src/apache_beam/proto/beam_runner_api';
-import {ProcessBundleDescriptor} from '../src/apache_beam/proto/beam_fn_api';
+} from "../src/apache_beam/proto/beam_runner_api";
+import { ProcessBundleDescriptor } from "../src/apache_beam/proto/beam_fn_api";
 
-import * as worker from '../src/apache_beam/worker/worker';
-import * as operators from '../src/apache_beam/worker/operators';
+import * as worker from "../src/apache_beam/worker/worker";
+import * as operators from "../src/apache_beam/worker/operators";
 import {
   BoundedWindow,
   Instant,
   PaneInfo,
   WindowedValue,
-} from '../src/apache_beam/values';
+} from "../src/apache_beam/values";
 
-const assert = require('assert');
+const assert = require("assert");
 
 ////////// Define some mock operators for use in our tests. //////////
 
-const CREATE_URN = 'create';
-const RECORDING_URN = 'recording';
-const PARTITION_URN = 'partition';
+const CREATE_URN = "create";
+const RECORDING_URN = "recording";
+const PARTITION_URN = "partition";
 
 class Create implements operators.IOperator {
   data: any;
@@ -45,13 +45,13 @@ class Create implements operators.IOperator {
 
   startBundle() {
     const this_ = this;
-    this_.data.forEach(datum => {
-      this_.receivers.map(receiver =>
+    this_.data.forEach((datum) => {
+      this_.receivers.map((receiver) =>
         receiver.receive({
           value: datum,
           windows: [new GlobalWindow()],
           pane: PaneInfoCoder.ONE_AND_ONLY_FIRING,
-          timestamp: Long.fromValue('-9223372036854775'),
+          timestamp: Long.fromValue("-9223372036854775"),
         })
       );
     });
@@ -81,16 +81,16 @@ class Recording implements operators.IOperator {
   }
 
   startBundle() {
-    Recording.log.push(this.transformId + '.startBundle()');
+    Recording.log.push(this.transformId + ".startBundle()");
   }
 
   process(wvalue: WindowedValue<any>) {
-    Recording.log.push(this.transformId + '.process(' + wvalue.value + ')');
-    this.receivers.map(receiver => receiver.receive(wvalue));
+    Recording.log.push(this.transformId + ".process(" + wvalue.value + ")");
+    this.receivers.map((receiver) => receiver.receive(wvalue));
   }
 
   finishBundle() {
-    Recording.log.push(this.transformId + '.finishBundle()');
+    Recording.log.push(this.transformId + ".finishBundle()");
   }
 }
 
@@ -127,8 +127,8 @@ operators.registerOperator(PARTITION_URN, Partition);
 
 function makePTransform(
   urn: string,
-  inputs: {[key: string]: string},
-  outputs: {[key: string]: string},
+  inputs: { [key: string]: string },
+  outputs: { [key: string]: string },
   payload: any = null
 ): PTransform {
   return {
@@ -138,8 +138,8 @@ function makePTransform(
     },
     inputs: inputs,
     outputs: outputs,
-    uniqueName: '',
-    environmentId: '',
+    uniqueName: "",
+    environmentId: "",
     displayData: [],
     annotations: {},
     subtransforms: [],
@@ -148,15 +148,15 @@ function makePTransform(
 
 ////////// The actual tests. //////////
 
-describe('worker module', () => {
-  it('operator construction', async () => {
+describe("worker module", () => {
+  it("operator construction", async () => {
     const descriptor: ProcessBundleDescriptor = {
-      id: '',
+      id: "",
       transforms: {
         // Note the inverted order should still be resolved correctly.
-        y: makePTransform(RECORDING_URN, {input: 'pc1'}, {out: 'pc2'}),
-        z: makePTransform(RECORDING_URN, {input: 'pc2'}, {}),
-        x: makePTransform(CREATE_URN, {}, {out: 'pc1'}, ['a', 'b', 'c']),
+        y: makePTransform(RECORDING_URN, { input: "pc1" }, { out: "pc2" }),
+        z: makePTransform(RECORDING_URN, { input: "pc2" }, {}),
+        x: makePTransform(CREATE_URN, {}, { out: "pc1" }, ["a", "b", "c"]),
       },
       pcollections: {},
       windowingStrategies: {},
@@ -167,37 +167,37 @@ describe('worker module', () => {
     const processor = new worker.BundleProcessor(descriptor, null!, [
       CREATE_URN,
     ]);
-    await processor.process('bundle_id', 0);
+    await processor.process("bundle_id", 0);
     assert.deepEqual(Recording.log, [
-      'z.startBundle()',
-      'y.startBundle()',
-      'y.process(a)',
-      'z.process(a)',
-      'y.process(b)',
-      'z.process(b)',
-      'y.process(c)',
-      'z.process(c)',
-      'y.finishBundle()',
-      'z.finishBundle()',
+      "z.startBundle()",
+      "y.startBundle()",
+      "y.process(a)",
+      "z.process(a)",
+      "y.process(b)",
+      "z.process(b)",
+      "y.process(c)",
+      "z.process(c)",
+      "y.finishBundle()",
+      "z.finishBundle()",
     ]);
   });
 
-  it('forking operator construction', async () => {
+  it("forking operator construction", async () => {
     const descriptor: ProcessBundleDescriptor = {
-      id: '',
+      id: "",
       transforms: {
         // Note the inverted order should still be resolved correctly.
-        all: makePTransform(RECORDING_URN, {input: 'pcAll'}, {}),
-        big: makePTransform(RECORDING_URN, {input: 'pcBig'}, {}),
+        all: makePTransform(RECORDING_URN, { input: "pcAll" }, {}),
+        big: makePTransform(RECORDING_URN, { input: "pcBig" }, {}),
         part: makePTransform(
           PARTITION_URN,
-          {input: 'pc1'},
-          {all: 'pcAll', big: 'pcBig'}
+          { input: "pc1" },
+          { all: "pcAll", big: "pcBig" }
         ),
-        create: makePTransform(CREATE_URN, {}, {out: 'pc1'}, [
-          'a',
-          'b',
-          'ccccc',
+        create: makePTransform(CREATE_URN, {}, { out: "pc1" }, [
+          "a",
+          "b",
+          "ccccc",
         ]),
       },
       pcollections: {},
@@ -209,16 +209,16 @@ describe('worker module', () => {
     const processor = new worker.BundleProcessor(descriptor, null!, [
       CREATE_URN,
     ]);
-    await processor.process('bundle_id', 0);
+    await processor.process("bundle_id", 0);
     assert.deepEqual(Recording.log, [
-      'all.startBundle()',
-      'big.startBundle()',
-      'all.process(a)',
-      'all.process(b)',
-      'all.process(ccccc)',
-      'big.process(ccccc)',
-      'big.finishBundle()',
-      'all.finishBundle()',
+      "all.startBundle()",
+      "big.startBundle()",
+      "all.process(a)",
+      "all.process(b)",
+      "all.process(ccccc)",
+      "big.process(ccccc)",
+      "big.finishBundle()",
+      "all.finishBundle()",
     ]);
   });
 });

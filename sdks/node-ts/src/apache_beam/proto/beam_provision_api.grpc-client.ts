@@ -26,12 +26,12 @@
 // Protocol Buffers describing the Provision API, for communicating with a
 // runner for job and environment provisioning information over GRPC.
 //
-import {ProvisionService} from './beam_provision_api';
-import type {BinaryWriteOptions} from '@protobuf-ts/runtime';
-import type {BinaryReadOptions} from '@protobuf-ts/runtime';
-import type {GetProvisionInfoResponse} from './beam_provision_api';
-import type {GetProvisionInfoRequest} from './beam_provision_api';
-import * as grpc from '@grpc/grpc-js';
+import { ProvisionService } from "./beam_provision_api";
+import type { BinaryWriteOptions } from "@protobuf-ts/runtime";
+import type { BinaryReadOptions } from "@protobuf-ts/runtime";
+import type { GetProvisionInfoResponse } from "./beam_provision_api";
+import type { GetProvisionInfoRequest } from "./beam_provision_api";
+import * as grpc from "@grpc/grpc-js";
 /**
  * A service to provide runtime provisioning information to the SDK harness
  * worker instances -- such as pipeline options, resource constraints and
@@ -49,26 +49,37 @@ export interface IProvisionServiceClient {
    * returns (org.apache.beam.model.fn_execution.v1.GetProvisionInfoResponse);
    */
   getProvisionInfo(
-      input: GetProvisionInfoRequest, metadata: grpc.Metadata,
-      options: grpc.CallOptions,
-      callback:
-          (err: grpc.ServiceError|null,
-           value?: GetProvisionInfoResponse) => void): grpc.ClientUnaryCall;
+    input: GetProvisionInfoRequest,
+    metadata: grpc.Metadata,
+    options: grpc.CallOptions,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: GetProvisionInfoResponse
+    ) => void
+  ): grpc.ClientUnaryCall;
   getProvisionInfo(
-      input: GetProvisionInfoRequest, metadata: grpc.Metadata,
-      callback:
-          (err: grpc.ServiceError|null,
-           value?: GetProvisionInfoResponse) => void): grpc.ClientUnaryCall;
+    input: GetProvisionInfoRequest,
+    metadata: grpc.Metadata,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: GetProvisionInfoResponse
+    ) => void
+  ): grpc.ClientUnaryCall;
   getProvisionInfo(
-      input: GetProvisionInfoRequest, options: grpc.CallOptions,
-      callback:
-          (err: grpc.ServiceError|null,
-           value?: GetProvisionInfoResponse) => void): grpc.ClientUnaryCall;
+    input: GetProvisionInfoRequest,
+    options: grpc.CallOptions,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: GetProvisionInfoResponse
+    ) => void
+  ): grpc.ClientUnaryCall;
   getProvisionInfo(
-      input: GetProvisionInfoRequest,
-      callback:
-          (err: grpc.ServiceError|null,
-           value?: GetProvisionInfoResponse) => void): grpc.ClientUnaryCall;
+    input: GetProvisionInfoRequest,
+    callback: (
+      err: grpc.ServiceError | null,
+      value?: GetProvisionInfoResponse
+    ) => void
+  ): grpc.ClientUnaryCall;
 }
 /**
  * A service to provide runtime provisioning information to the SDK harness
@@ -78,14 +89,19 @@ export interface IProvisionServiceClient {
  * @generated from protobuf service
  * org.apache.beam.model.fn_execution.v1.ProvisionService
  */
-export class ProvisionServiceClient extends grpc.Client implements
-    IProvisionServiceClient {
-  private readonly _binaryOptions:
-      Partial<BinaryReadOptions&BinaryWriteOptions>;
+export class ProvisionServiceClient
+  extends grpc.Client
+  implements IProvisionServiceClient
+{
+  private readonly _binaryOptions: Partial<
+    BinaryReadOptions & BinaryWriteOptions
+  >;
   constructor(
-      address: string, credentials: grpc.ChannelCredentials,
-      options: grpc.ClientOptions = {},
-      binaryOptions: Partial<BinaryReadOptions&BinaryWriteOptions> = {}) {
+    address: string,
+    credentials: grpc.ChannelCredentials,
+    options: grpc.ClientOptions = {},
+    binaryOptions: Partial<BinaryReadOptions & BinaryWriteOptions> = {}
+  ) {
     super(address, credentials, options);
     this._binaryOptions = binaryOptions;
   }
@@ -97,22 +113,39 @@ export class ProvisionServiceClient extends grpc.Client implements
    * returns (org.apache.beam.model.fn_execution.v1.GetProvisionInfoResponse);
    */
   getProvisionInfo(
-      input: GetProvisionInfoRequest,
-      metadata: grpc.Metadata|grpc.CallOptions|
-      ((err: grpc.ServiceError|null, value?: GetProvisionInfoResponse) => void),
-      options?: grpc.CallOptions|
-      ((err: grpc.ServiceError|null, value?: GetProvisionInfoResponse) => void),
-      callback?:
-          ((err: grpc.ServiceError|null,
-            value?: GetProvisionInfoResponse) => void)): grpc.ClientUnaryCall {
+    input: GetProvisionInfoRequest,
+    metadata:
+      | grpc.Metadata
+      | grpc.CallOptions
+      | ((
+          err: grpc.ServiceError | null,
+          value?: GetProvisionInfoResponse
+        ) => void),
+    options?:
+      | grpc.CallOptions
+      | ((
+          err: grpc.ServiceError | null,
+          value?: GetProvisionInfoResponse
+        ) => void),
+    callback?: (
+      err: grpc.ServiceError | null,
+      value?: GetProvisionInfoResponse
+    ) => void
+  ): grpc.ClientUnaryCall {
     const method = ProvisionService.methods[0];
-    return this
-        .makeUnaryRequest<GetProvisionInfoRequest, GetProvisionInfoResponse>(
-            `/${ProvisionService.typeName}/${method.name}`,
-            (value: GetProvisionInfoRequest): Buffer =>
-                Buffer.from(method.I.toBinary(value, this._binaryOptions)),
-            (value: Buffer): GetProvisionInfoResponse =>
-                method.O.fromBinary(value, this._binaryOptions),
-            input, (metadata as any), (options as any), (callback as any));
+    return this.makeUnaryRequest<
+      GetProvisionInfoRequest,
+      GetProvisionInfoResponse
+    >(
+      `/${ProvisionService.typeName}/${method.name}`,
+      (value: GetProvisionInfoRequest): Buffer =>
+        Buffer.from(method.I.toBinary(value, this._binaryOptions)),
+      (value: Buffer): GetProvisionInfoResponse =>
+        method.O.fromBinary(value, this._binaryOptions),
+      input,
+      metadata as any,
+      options as any,
+      callback as any
+    );
   }
 }

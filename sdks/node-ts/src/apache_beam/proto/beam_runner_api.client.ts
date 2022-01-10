@@ -26,14 +26,14 @@
 // Protocol Buffers describing the Runner API, which is the runner-independent,
 // SDK-independent definition of the Beam model.
 //
-import type {RpcTransport} from '@protobuf-ts/runtime-rpc';
-import type {ServiceInfo} from '@protobuf-ts/runtime-rpc';
-import {TestStreamService} from './beam_runner_api';
-import {stackIntercept} from '@protobuf-ts/runtime-rpc';
-import type {TestStreamPayload_Event} from './beam_runner_api';
-import type {EventsRequest} from './beam_runner_api';
-import type {ServerStreamingCall} from '@protobuf-ts/runtime-rpc';
-import type {RpcOptions} from '@protobuf-ts/runtime-rpc';
+import type { RpcTransport } from "@protobuf-ts/runtime-rpc";
+import type { ServiceInfo } from "@protobuf-ts/runtime-rpc";
+import { TestStreamService } from "./beam_runner_api";
+import { stackIntercept } from "@protobuf-ts/runtime-rpc";
+import type { TestStreamPayload_Event } from "./beam_runner_api";
+import type { EventsRequest } from "./beam_runner_api";
+import type { ServerStreamingCall } from "@protobuf-ts/runtime-rpc";
+import type { RpcOptions } from "@protobuf-ts/runtime-rpc";
 /**
  * @generated from protobuf service
  * org.apache.beam.model.pipeline.v1.TestStreamService
@@ -46,15 +46,18 @@ export interface ITestStreamServiceClient {
    * Events(org.apache.beam.model.pipeline.v1.EventsRequest) returns (stream
    * org.apache.beam.model.pipeline.v1.TestStreamPayload.Event);
    */
-  events(input: EventsRequest, options?: RpcOptions):
-      ServerStreamingCall<EventsRequest, TestStreamPayload_Event>;
+  events(
+    input: EventsRequest,
+    options?: RpcOptions
+  ): ServerStreamingCall<EventsRequest, TestStreamPayload_Event>;
 }
 /**
  * @generated from protobuf service
  * org.apache.beam.model.pipeline.v1.TestStreamService
  */
-export class TestStreamServiceClient implements ITestStreamServiceClient,
-                                                ServiceInfo {
+export class TestStreamServiceClient
+  implements ITestStreamServiceClient, ServiceInfo
+{
   typeName = TestStreamService.typeName;
   methods = TestStreamService.methods;
   options = TestStreamService.options;
@@ -66,10 +69,18 @@ export class TestStreamServiceClient implements ITestStreamServiceClient,
    * Events(org.apache.beam.model.pipeline.v1.EventsRequest) returns (stream
    * org.apache.beam.model.pipeline.v1.TestStreamPayload.Event);
    */
-  events(input: EventsRequest, options?: RpcOptions):
-      ServerStreamingCall<EventsRequest, TestStreamPayload_Event> {
-    const method = this.methods[0], opt = this._transport.mergeOptions(options);
+  events(
+    input: EventsRequest,
+    options?: RpcOptions
+  ): ServerStreamingCall<EventsRequest, TestStreamPayload_Event> {
+    const method = this.methods[0],
+      opt = this._transport.mergeOptions(options);
     return stackIntercept<EventsRequest, TestStreamPayload_Event>(
-        'serverStreaming', this._transport, method, opt, input);
+      "serverStreaming",
+      this._transport,
+      method,
+      opt,
+      input
+    );
   }
 }

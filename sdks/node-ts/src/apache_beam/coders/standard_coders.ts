@@ -1,11 +1,19 @@
-import Long from 'long';
-import {Reader, Writer} from 'protobufjs';
+import Long from "long";
+import { Reader, Writer } from "protobufjs";
 
-import {PipelineContext} from '../base';
-import * as runnerApi from '../proto/beam_runner_api';
-import {BoundedWindow, Instant, IntervalWindow, KV, PaneInfo, Timing, WindowedValue,} from '../values';
+import { PipelineContext } from "../base";
+import * as runnerApi from "../proto/beam_runner_api";
+import {
+  BoundedWindow,
+  Instant,
+  IntervalWindow,
+  KV,
+  PaneInfo,
+  Timing,
+  WindowedValue,
+} from "../values";
 
-import {Coder, CODER_REGISTRY, Context} from './coders';
+import { Coder, CODER_REGISTRY, Context } from "./coders";
 
 function writeBytes(val, buf, pos) {
   for (let i = 0; i < val.length; ++i) {
@@ -18,9 +26,9 @@ function writeByte(val, buf, pos) {
 }
 
 export class BytesCoder implements Coder<Uint8Array> {
-  static URN = 'beam:coder:bytes:v1';
+  static URN = "beam:coder:bytes:v1";
   static INSTANCE: BytesCoder = new BytesCoder();
-  type = 'bytescoder';
+  type = "bytescoder";
 
   encode(value: Uint8Array, writer: Writer, context: Context) {
     const len = value.length;
@@ -34,7 +42,7 @@ export class BytesCoder implements Coder<Uint8Array> {
         hackedWriter._push(writeBytes, len, value);
         break;
       default:
-        throw new Error('Unknown type of encoding context');
+        throw new Error("Unknown type of encoding context");
     }
   }
 
@@ -49,7 +57,7 @@ export class BytesCoder implements Coder<Uint8Array> {
         reader.pos += length;
         return value;
       default:
-        throw new Error('Unknown type of decoding context');
+        throw new Error("Unknown type of decoding context");
     }
   }
 
@@ -66,8 +74,8 @@ export class BytesCoder implements Coder<Uint8Array> {
 CODER_REGISTRY.register(BytesCoder.URN, BytesCoder);
 
 export class KVCoder<K, V> implements Coder<KV<K, V>> {
-  static URN = 'beam:coder:kv:v1';
-  type = 'kvcoder';
+  static URN = "beam:coder:kv:v1";
+  type = "kvcoder";
 
   keyCoder: Coder<K>;
   valueCoder: Coder<V>;
@@ -107,13 +115,16 @@ CODER_REGISTRY.register(KVCoder.URN, KVCoder);
 
 function swapEndian32(x: number): number {
   return (
-      ((x & 0xff000000) >> 24) | ((x & 0x00ff0000) >> 8) |
-      ((x & 0x0000ff00) << 8) | ((x & 0x000000ff) << 24));
+    ((x & 0xff000000) >> 24) |
+    ((x & 0x00ff0000) >> 8) |
+    ((x & 0x0000ff00) << 8) |
+    ((x & 0x000000ff) << 24)
+  );
 }
 
 export class IterableCoder<T> implements Coder<Iterable<T>> {
-  static URN = 'beam:coder:iterable:v1';
-  type = 'iterablecoder';
+  static URN = "beam:coder:iterable:v1";
+  type = "iterablecoder";
 
   elementCoder: Coder<T>;
   constructor(elementCoder: Coder<T>) {
@@ -137,7 +148,7 @@ export class IterableCoder<T> implements Coder<Iterable<T>> {
         this.elementCoder.encode(eArray[i], writer, Context.needsDelimiters);
       }
     } else {
-      throw new Error('Length-unknown iterables are not yet implemented');
+      throw new Error("Length-unknown iterables are not yet implemented");
     }
   }
 
@@ -159,7 +170,8 @@ export class IterableCoder<T> implements Coder<Iterable<T>> {
         }
         for (let i = 0; i < count; i++) {
           result.push(
-              this.elementCoder.decode(reader, Context.needsDelimiters));
+            this.elementCoder.decode(reader, Context.needsDelimiters)
+          );
         }
       }
     }
@@ -168,7 +180,7 @@ export class IterableCoder<T> implements Coder<Iterable<T>> {
 CODER_REGISTRY.register(IterableCoder.URN, IterableCoder);
 
 export class LengthPrefixedCoder<T> implements Coder<T> {
-  static URN = 'beam:coder:length_prefix:v1';
+  static URN = "beam:coder:length_prefix:v1";
 
   elementCoder: Coder<T>;
   constructor(elementCoder: Coder<T>) {
@@ -192,15 +204,18 @@ export class LengthPrefixedCoder<T> implements Coder<T> {
 
   decode(reader: Reader, context: Context): T {
     return this.elementCoder.decode(
-        new Reader(reader.bytes()), Context.wholeStream);
+      new Reader(reader.bytes()),
+      Context.wholeStream
+    );
   }
 }
 CODER_REGISTRY.register(LengthPrefixedCoder.URN, LengthPrefixedCoder);
 
-export class FullWindowedValueCoder<T, W extends BoundedWindow> implements
-    Coder<WindowedValue<T>> {
-  static URN = 'beam:coder:windowed_value:v1';
-  windowIterableCoder: IterableCoder<W>;  // really W
+export class FullWindowedValueCoder<T, W extends BoundedWindow>
+  implements Coder<WindowedValue<T>>
+{
+  static URN = "beam:coder:windowed_value:v1";
+  windowIterableCoder: IterableCoder<W>; // really W
 
   constructor(public elementCoder: Coder<T>, public windowCoder: Coder<W>) {
     this.windowIterableCoder = new IterableCoder(windowCoder);
@@ -220,20 +235,32 @@ export class FullWindowedValueCoder<T, W extends BoundedWindow> implements
 
   encode(windowedValue: WindowedValue<T>, writer: Writer, context: Context) {
     InstantCoder.INSTANCE.encode(
-        windowedValue.timestamp, writer, Context.needsDelimiters);
+      windowedValue.timestamp,
+      writer,
+      Context.needsDelimiters
+    );
     this.windowIterableCoder.encode(
-        <Array<W>>windowedValue.windows, writer,
-        Context.needsDelimiters);  // Windows.
+      <Array<W>>windowedValue.windows,
+      writer,
+      Context.needsDelimiters
+    ); // Windows.
     PaneInfoCoder.INSTANCE.encode(
-        windowedValue.pane, writer, Context.needsDelimiters);
+      windowedValue.pane,
+      writer,
+      Context.needsDelimiters
+    );
     this.elementCoder.encode(windowedValue.value, writer, context);
   }
 
   decode(reader: Reader, context: Context): WindowedValue<T> {
-    const timestamp =
-        InstantCoder.INSTANCE.decode(reader, Context.needsDelimiters);
-    const windows =
-        this.windowIterableCoder.decode(reader, Context.needsDelimiters);
+    const timestamp = InstantCoder.INSTANCE.decode(
+      reader,
+      Context.needsDelimiters
+    );
+    const windows = this.windowIterableCoder.decode(
+      reader,
+      Context.needsDelimiters
+    );
     const pane = PaneInfoCoder.INSTANCE.decode(reader, Context.needsDelimiters);
     const value = this.elementCoder.decode(reader, context);
     return {
@@ -248,14 +275,13 @@ CODER_REGISTRY.register(FullWindowedValueCoder.URN, FullWindowedValueCoder);
 
 export class GlobalWindow implements BoundedWindow {
   maxTimestamp(): Instant {
-    return Long.fromValue(
-        '9223371950454775');  // TODO: Pull constant out of proto, or at least
-                              // as a constant elsewhere.
+    return Long.fromValue("9223371950454775"); // TODO: Pull constant out of proto, or at least
+    // as a constant elsewhere.
   }
 }
 
 export class GlobalWindowCoder implements Coder<GlobalWindow> {
-  static URN = 'beam:coder:global_window:v1';
+  static URN = "beam:coder:global_window:v1";
   static INSTANCE: GlobalWindowCoder = new GlobalWindowCoder();
 
   encode(value: GlobalWindow, writer: Writer, context: Context) {}
@@ -287,8 +313,10 @@ enum PaneInfoEncoding {
 }
 export class PaneInfoCoder implements Coder<PaneInfo> {
   static INSTANCE = new PaneInfoCoder();
-  static ONE_AND_ONLY_FIRING =
-      PaneInfoCoder.INSTANCE.decode(new Reader(new Uint8Array([0x09])), null!);
+  static ONE_AND_ONLY_FIRING = PaneInfoCoder.INSTANCE.decode(
+    new Reader(new Uint8Array([0x09])),
+    null!
+  );
 
   private static decodeTiming(timingNumber): Timing {
     switch (timingNumber) {
@@ -302,8 +330,10 @@ export class PaneInfoCoder implements Coder<PaneInfo> {
         return Timing.UNKNOWN;
       default:
         throw new Error(
-            'Timing number 0b' + timingNumber.toString(2) +
-            ' has more than two bits of info');
+          "Timing number 0b" +
+            timingNumber.toString(2) +
+            " has more than two bits of info"
+        );
     }
   }
 
@@ -318,16 +348,20 @@ export class PaneInfoCoder implements Coder<PaneInfo> {
       case Timing.UNKNOWN:
         return 0b11;
       default:
-        throw new Error('Unknown timing constant: ' + timing);
+        throw new Error("Unknown timing constant: " + timing);
     }
   }
 
   private static chooseEncoding(value: PaneInfo): number {
-    if ((value.index == 0 && value.onTimeIndex == 0) ||
-        value.timing == Timing.UNKNOWN) {
+    if (
+      (value.index == 0 && value.onTimeIndex == 0) ||
+      value.timing == Timing.UNKNOWN
+    ) {
       return PaneInfoEncoding.NO_INDEX;
     } else if (
-        value.index == value.onTimeIndex || value.timing == Timing.EARLY) {
+      value.index == value.onTimeIndex ||
+      value.timing == Timing.EARLY
+    ) {
       return PaneInfoEncoding.ONE_INDEX;
     } else {
       return PaneInfoEncoding.TWO_INDICES;
@@ -360,8 +394,10 @@ export class PaneInfoCoder implements Coder<PaneInfo> {
 
       case PaneInfoEncoding.ONE_INDEX:
         // Only pane index included, as the non-speculative index can be derived
-        const onlyIndex =
-            VarIntCoder.INSTANCE.decode(reader, Context.needsDelimiters);
+        const onlyIndex = VarIntCoder.INSTANCE.decode(
+          reader,
+          Context.needsDelimiters
+        );
         return {
           isFirst: isFirst,
           isLast: isLast,
@@ -372,10 +408,14 @@ export class PaneInfoCoder implements Coder<PaneInfo> {
 
       case PaneInfoEncoding.TWO_INDICES:
         // Both pane index and non-speculative index included
-        const paneIndex =
-            VarIntCoder.INSTANCE.decode(reader, Context.needsDelimiters);
-        const nonSpeculativeIndex =
-            VarIntCoder.INSTANCE.decode(reader, Context.needsDelimiters);
+        const paneIndex = VarIntCoder.INSTANCE.decode(
+          reader,
+          Context.needsDelimiters
+        );
+        const nonSpeculativeIndex = VarIntCoder.INSTANCE.decode(
+          reader,
+          Context.needsDelimiters
+        );
         return {
           isFirst: isFirst,
           isLast: isLast,
@@ -384,18 +424,19 @@ export class PaneInfoCoder implements Coder<PaneInfo> {
           timing: timing,
         };
       default:
-        throw new Error('Unknown PaneInfo encoding 0x' + encoding.toString(16));
+        throw new Error("Unknown PaneInfo encoding 0x" + encoding.toString(16));
     }
   }
 
   encode(value: PaneInfo, writer: Writer, context: Context) {
     // low 4 bits are used regardless of encoding
-    const low4 = (value.isFirst ? 0b000000001 : 0) |
-        (value.isLast ? 0b00000010 : 0) |
-        (PaneInfoCoder.encodeTiming(value.timing) << 2);
+    const low4 =
+      (value.isFirst ? 0b000000001 : 0) |
+      (value.isLast ? 0b00000010 : 0) |
+      (PaneInfoCoder.encodeTiming(value.timing) << 2);
 
     const encodingNibble: PaneInfoEncoding =
-        PaneInfoCoder.chooseEncoding(value);
+      PaneInfoCoder.chooseEncoding(value);
     const hackedWriter = <any>writer;
     hackedWriter._push(writeByte, 1, low4 | (encodingNibble << 4));
 
@@ -408,17 +449,21 @@ export class PaneInfoCoder implements Coder<PaneInfo> {
         return;
       case PaneInfoEncoding.TWO_INDICES:
         VarIntCoder.INSTANCE.encode(
-            value.index, writer, Context.needsDelimiters);
+          value.index,
+          writer,
+          Context.needsDelimiters
+        );
         VarIntCoder.INSTANCE.encode(value.onTimeIndex, writer, context);
         return;
       default:
-        throw new Error('Unknown PaneInfo encoding: ' + encodingNibble);
+        throw new Error("Unknown PaneInfo encoding: " + encodingNibble);
     }
   }
 
   toProto(pipelineContext: PipelineContext): runnerApi.Coder {
     throw new Error(
-        'No proto encoding for PaneInfoCoder, always part of WindowedValue codec');
+      "No proto encoding for PaneInfoCoder, always part of WindowedValue codec"
+    );
   }
 }
 
@@ -427,8 +472,11 @@ export class InstantCoder implements Coder<Instant> {
   static INSTANT_BYTES = 8;
 
   decode(reader: Reader, context: Context): Instant {
-    const shiftedMillis = Long.fromBytesBE(Array.from(
-        reader.buf.slice(reader.pos, reader.pos + InstantCoder.INSTANT_BYTES)));
+    const shiftedMillis = Long.fromBytesBE(
+      Array.from(
+        reader.buf.slice(reader.pos, reader.pos + InstantCoder.INSTANT_BYTES)
+      )
+    );
     reader.pos += InstantCoder.INSTANT_BYTES;
     return shiftedMillis.add(Long.MIN_VALUE);
   }
@@ -445,7 +493,7 @@ export class InstantCoder implements Coder<Instant> {
 }
 
 export class IntervalWindowCoder implements Coder<IntervalWindow> {
-  static URN = 'beam:coder:interval_window:v1';
+  static URN = "beam:coder:interval_window:v1";
   static INSTANCE: IntervalWindowCoder = new IntervalWindowCoder();
   static DURATION_BYTES = 8;
 
@@ -473,8 +521,8 @@ export class IntervalWindowCoder implements Coder<IntervalWindow> {
 CODER_REGISTRY.register(IntervalWindowCoder.URN, IntervalWindowCoder);
 
 export class StrUtf8Coder implements Coder<String> {
-  static URN = 'beam:coder:string_utf8:v1';
-  type = 'stringutf8coder';
+  static URN = "beam:coder:string_utf8:v1";
+  type = "stringutf8coder";
   encoder = new TextEncoder();
   decoder = new TextDecoder();
 
@@ -499,11 +547,11 @@ export class StrUtf8Coder implements Coder<String> {
 CODER_REGISTRY.register(StrUtf8Coder.URN, StrUtf8Coder);
 
 export class VarIntCoder implements Coder<number> {
-  static URN = 'beam:coder:varint:v1';
+  static URN = "beam:coder:varint:v1";
   static INSTANCE = new VarIntCoder();
 
-  type = 'varintcoder';
-  encode(element: Number|Long|BigInt, writer: Writer, context: Context) {
+  type = "varintcoder";
+  encode(element: Number | Long | BigInt, writer: Writer, context: Context) {
     const numEl = element as number;
     writer.int32(numEl);
     return;
@@ -526,7 +574,7 @@ export class VarIntCoder implements Coder<number> {
 CODER_REGISTRY.register(VarIntCoder.URN, VarIntCoder);
 
 export class DoubleCoder implements Coder<number> {
-  static URN = 'beam:coder:double:v1';
+  static URN = "beam:coder:double:v1";
   encode(element: number, writer: Writer, context: Context) {
     const farr = new Float64Array([element]);
     const barr = new Uint8Array(farr.buffer).reverse();
@@ -552,8 +600,8 @@ export class DoubleCoder implements Coder<number> {
 CODER_REGISTRY.register(DoubleCoder.URN, DoubleCoder);
 
 export class BoolCoder implements Coder<Boolean> {
-  static URN = 'beam:coder:bool:v1';
-  type = 'boolcoder';
+  static URN = "beam:coder:bool:v1";
+  type = "boolcoder";
   encode(element: Boolean, writer: Writer, context: Context) {
     writer.bool(element as boolean);
   }

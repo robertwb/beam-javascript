@@ -1,14 +1,14 @@
-import * as protobufjs from 'protobufjs';
+import * as protobufjs from "protobufjs";
 
-import * as base from '../base';
-import {Coder, Context as CoderContext} from '../coders/coders';
-import * as translations from '../internal/translations';
-import {ProcessBundleDescriptor, RemoteGrpcPort} from '../proto/beam_fn_api';
-import * as runnerApi from '../proto/beam_runner_api';
-import {PCollection, PTransform} from '../proto/beam_runner_api';
-import {BoundedWindow, Instant, PaneInfo, WindowedValue} from '../values';
+import * as base from "../base";
+import { Coder, Context as CoderContext } from "../coders/coders";
+import * as translations from "../internal/translations";
+import { ProcessBundleDescriptor, RemoteGrpcPort } from "../proto/beam_fn_api";
+import * as runnerApi from "../proto/beam_runner_api";
+import { PCollection, PTransform } from "../proto/beam_runner_api";
+import { BoundedWindow, Instant, PaneInfo, WindowedValue } from "../values";
 
-import {IDataChannel, MultiplexingDataChannel} from './data';
+import { IDataChannel, MultiplexingDataChannel } from "./data";
 
 export interface IOperator {
   startBundle: () => void;
@@ -29,22 +29,25 @@ export class Receiver {
 export class OperatorContext {
   pipelineContext: base.PipelineContext;
   constructor(
-      public descriptor: ProcessBundleDescriptor,
-      public getReceiver: (string) => Receiver,
-      public getDataChannel: (string) => MultiplexingDataChannel,
-      public getBundleId: () => string) {
+    public descriptor: ProcessBundleDescriptor,
+    public getReceiver: (string) => Receiver,
+    public getDataChannel: (string) => MultiplexingDataChannel,
+    public getBundleId: () => string
+  ) {
     this.pipelineContext = new base.PipelineContext(descriptor);
   }
 }
 
 export function createOperator(
-    transformId: string, context: OperatorContext): IOperator {
+  transformId: string,
+  context: OperatorContext
+): IOperator {
   const transform = context.descriptor.transforms[transformId];
   // Ensure receivers are eagerly created.
   Object.values(transform.outputs).map(context.getReceiver);
   let operatorConstructor = operatorsByUrn.get(transform.spec!.urn!);
   if (operatorConstructor == undefined) {
-    console.log('Unknown transform type:', transform.spec?.urn);
+    console.log("Unknown transform type:", transform.spec?.urn);
     // TODO: For testing only...
     operatorConstructor = (transformId, transformProto, context) => {
       return new PassThroughOperator(transformId, transformProto, context);
@@ -55,12 +58,17 @@ export function createOperator(
 
 // TODO: Is there a good way to get the construtor as a function to avoid this
 // new operator hacking?
-type OperatorConstructor =
-    (transformId: string, transformProto: PTransform,
-     context: OperatorContext) => IOperator;
+type OperatorConstructor = (
+  transformId: string,
+  transformProto: PTransform,
+  context: OperatorContext
+) => IOperator;
 interface OperatorClass {
-  new(transformId: string, transformProto: PTransform,
-      context: OperatorContext): IOperator;
+  new (
+    transformId: string,
+    transformProto: PTransform,
+    context: OperatorContext
+  ): IOperator;
 }
 
 const operatorsByUrn: Map<string, OperatorConstructor> = new Map();
@@ -72,7 +80,9 @@ export function registerOperator(urn: string, cls: OperatorClass) {
 }
 
 export function registerOperatorConstructor(
-    urn: string, constructor: OperatorConstructor) {
+  urn: string,
+  constructor: OperatorConstructor
+) {
   operatorsByUrn.set(urn, constructor);
 }
 
@@ -88,14 +98,19 @@ class DataSourceOperator implements IOperator {
   error?: Error;
 
   constructor(
-      transformId: string, transform: PTransform, context: OperatorContext) {
+    transformId: string,
+    transform: PTransform,
+    context: OperatorContext
+  ) {
     const readPort = RemoteGrpcPort.fromBinary(transform.spec!.payload);
-    this.multiplexingDataChannel =
-        context.getDataChannel(readPort.apiServiceDescriptor!.url);
+    this.multiplexingDataChannel = context.getDataChannel(
+      readPort.apiServiceDescriptor!.url
+    );
     this.transformId = transformId;
     this.getBundleId = context.getBundleId;
-    this.receiver =
-        context.getReceiver(onlyElement(Object.values(transform.outputs)));
+    this.receiver = context.getReceiver(
+      onlyElement(Object.values(transform.outputs))
+    );
     this.coder = context.pipelineContext.getCoder(readPort.coderId);
   }
 
@@ -103,30 +118,34 @@ class DataSourceOperator implements IOperator {
     this.done = false;
     const this_ = this;
     this.multiplexingDataChannel.registerConsumer(
-        this.getBundleId(), this.transformId, {
-          sendData: function(data: Uint8Array) {
-            console.log('Got', data);
-            const reader = new protobufjs.Reader(data);
-            while (reader.pos < reader.len) {
-              this_.receiver.receive(
-                  this_.coder.decode(reader, CoderContext.needsDelimiters));
-            }
-          },
-          sendTimers: function(timerFamilyId: string, timers: Uint8Array) {
-            throw Error('Not expecting timers.');
-          },
-          close: function() {
-            this_.done = true;
-          },
-          onError: function(error: Error) {
-            this_.done = true;
-            this_.error = error;
-          },
-        });
+      this.getBundleId(),
+      this.transformId,
+      {
+        sendData: function (data: Uint8Array) {
+          console.log("Got", data);
+          const reader = new protobufjs.Reader(data);
+          while (reader.pos < reader.len) {
+            this_.receiver.receive(
+              this_.coder.decode(reader, CoderContext.needsDelimiters)
+            );
+          }
+        },
+        sendTimers: function (timerFamilyId: string, timers: Uint8Array) {
+          throw Error("Not expecting timers.");
+        },
+        close: function () {
+          this_.done = true;
+        },
+        onError: function (error: Error) {
+          this_.done = true;
+          this_.error = error;
+        },
+      }
+    );
   }
 
   process(wvalue: WindowedValue<any>) {
-    throw Error('Data should not come in via process.');
+    throw Error("Data should not come in via process.");
   }
 
   finishBundle() {
@@ -140,14 +159,16 @@ class DataSourceOperator implements IOperator {
     //         }
     //         console.log("Done waiting for all data.")
     this.multiplexingDataChannel.unregisterConsumer(
-        this.getBundleId(), this.transformId);
+      this.getBundleId(),
+      this.transformId
+    );
     if (this.error) {
       throw this.error;
     }
   }
 }
 
-registerOperator('beam:runner:source:v1', DataSourceOperator);
+registerOperator("beam:runner:source:v1", DataSourceOperator);
 
 class DataSinkOperator implements IOperator {
   transformId: string;
@@ -158,10 +179,14 @@ class DataSinkOperator implements IOperator {
   buffer: protobufjs.Writer;
 
   constructor(
-      transformId: string, transform: PTransform, context: OperatorContext) {
+    transformId: string,
+    transform: PTransform,
+    context: OperatorContext
+  ) {
     const writePort = RemoteGrpcPort.fromBinary(transform.spec!.payload);
-    this.multiplexingDataChannel =
-        context.getDataChannel(writePort.apiServiceDescriptor!.url);
+    this.multiplexingDataChannel = context.getDataChannel(
+      writePort.apiServiceDescriptor!.url
+    );
     this.transformId = transformId;
     this.getBundleId = context.getBundleId;
     this.coder = context.pipelineContext.getCoder(writePort.coderId);
@@ -169,7 +194,9 @@ class DataSinkOperator implements IOperator {
 
   startBundle() {
     this.channel = this.multiplexingDataChannel.getSendChannel(
-        this.getBundleId(), this.transformId);
+      this.getBundleId(),
+      this.transformId
+    );
     this.buffer = new protobufjs.Writer();
   }
 
@@ -193,15 +220,19 @@ class DataSinkOperator implements IOperator {
   }
 }
 
-registerOperator('beam:runner:sink:v1', DataSinkOperator);
+registerOperator("beam:runner:sink:v1", DataSinkOperator);
 
 class FlattenOperator implements IOperator {
   receiver: Receiver;
 
   constructor(
-      transformId: string, transform: PTransform, context: OperatorContext) {
-    this.receiver =
-        context.getReceiver(onlyElement(Object.values(transform.outputs)));
+    transformId: string,
+    transform: PTransform,
+    context: OperatorContext
+  ) {
+    this.receiver = context.getReceiver(
+      onlyElement(Object.values(transform.outputs))
+    );
   }
 
   startBundle() {}
@@ -213,12 +244,14 @@ class FlattenOperator implements IOperator {
   finishBundle() {}
 }
 
-registerOperator('beam:transform:flatten:v1', FlattenOperator);
+registerOperator("beam:transform:flatten:v1", FlattenOperator);
 
 class GenericParDoOperator implements IOperator {
   constructor(
-      private receiver: Receiver, private spec: runnerApi.ParDoPayload,
-      private doFn: base.DoFn<any, any>) {}
+    private receiver: Receiver,
+    private spec: runnerApi.ParDoPayload,
+    private doFn: base.DoFn<any, any>
+  ) {}
 
   startBundle() {
     this.doFn.startBundle();
@@ -268,8 +301,9 @@ class IdentityParDoOperator implements IOperator {
 
 class SplittingDoFnOperator implements IOperator {
   constructor(
-      private splitter: (any) => string,
-      private receivers: {[key: string]: Receiver}) {}
+    private splitter: (any) => string,
+    private receivers: { [key: string]: Receiver }
+  ) {}
 
   startBundle() {}
 
@@ -281,8 +315,13 @@ class SplittingDoFnOperator implements IOperator {
     } else {
       // TODO: Make this configurable.
       throw new Error(
-          'Unexpected tag \'' + tag + '\' for ' + wvalue.value + ' not in ' +
-          [...Object.keys(this.receivers)]);
+        "Unexpected tag '" +
+          tag +
+          "' for " +
+          wvalue.value +
+          " not in " +
+          [...Object.keys(this.receivers)]
+      );
     }
   }
 
@@ -291,7 +330,9 @@ class SplittingDoFnOperator implements IOperator {
 
 class AssignWindowsParDoOperator implements IOperator {
   constructor(
-      private receiver: Receiver, private windowFn: base.WindowFn<any>) {}
+    private receiver: Receiver,
+    private windowFn: base.WindowFn<any>
+  ) {}
 
   startBundle() {}
 
@@ -317,8 +358,9 @@ class AssignWindowsParDoOperator implements IOperator {
 
 class AssignTimestampsParDoOperator implements IOperator {
   constructor(
-      private receiver: Receiver,
-      private func: (any, Instant) => typeof Instant) {}
+    private receiver: Receiver,
+    private func: (any, Instant) => typeof Instant
+  ) {}
 
   startBundle() {}
 
@@ -336,41 +378,49 @@ class AssignTimestampsParDoOperator implements IOperator {
 }
 
 registerOperatorConstructor(
-    base.ParDo.urn,
-    (transformId: string, transform: PTransform, context: OperatorContext) => {
-      const receiver =
-          context.getReceiver(onlyElement(Object.values(transform.outputs)));
-      const spec = runnerApi.ParDoPayload.fromBinary(transform.spec!.payload);
-      // TODO: Ideally we could branch on the urn itself, but some runners have
-      // a closed set of known URNs.
-      if (spec.doFn?.urn == translations.SERIALIZED_JS_DOFN_INFO) {
-        return new GenericParDoOperator(
-            context.getReceiver(onlyElement(Object.values(transform.outputs))),
-            spec, base.fakeDeserialize(spec.doFn.payload!));
-      } else if (spec.doFn?.urn == translations.IDENTITY_DOFN_URN) {
-        return new IdentityParDoOperator(
-            context.getReceiver(onlyElement(Object.values(transform.outputs))));
-      } else if (spec.doFn?.urn == translations.JS_WINDOW_INTO_DOFN_URN) {
-        return new AssignWindowsParDoOperator(
-            context.getReceiver(onlyElement(Object.values(transform.outputs))),
-            base.fakeDeserialize(spec.doFn.payload!).windowFn);
-      } else if (spec.doFn?.urn == translations.JS_ASSIGN_TIMESTAMPS_DOFN_URN) {
-        return new AssignTimestampsParDoOperator(
-            context.getReceiver(onlyElement(Object.values(transform.outputs))),
-            base.fakeDeserialize(spec.doFn.payload!).func);
-      } else if (spec.doFn?.urn == translations.SPLITTING_JS_DOFN_URN) {
-        return new SplittingDoFnOperator(
-            base.fakeDeserialize(spec.doFn.payload!).splitter,
-            Object.fromEntries(Object.entries(transform.outputs)
-                                   .map(
-                                       ([tag, pcId]) =>
-                                           [tag,
-                                            context.getReceiver(pcId),
-        ])));
-      } else {
-        throw new Error('Unknown DoFn type: ' + spec);
-      }
-    });
+  base.ParDo.urn,
+  (transformId: string, transform: PTransform, context: OperatorContext) => {
+    const receiver = context.getReceiver(
+      onlyElement(Object.values(transform.outputs))
+    );
+    const spec = runnerApi.ParDoPayload.fromBinary(transform.spec!.payload);
+    // TODO: Ideally we could branch on the urn itself, but some runners have
+    // a closed set of known URNs.
+    if (spec.doFn?.urn == translations.SERIALIZED_JS_DOFN_INFO) {
+      return new GenericParDoOperator(
+        context.getReceiver(onlyElement(Object.values(transform.outputs))),
+        spec,
+        base.fakeDeserialize(spec.doFn.payload!)
+      );
+    } else if (spec.doFn?.urn == translations.IDENTITY_DOFN_URN) {
+      return new IdentityParDoOperator(
+        context.getReceiver(onlyElement(Object.values(transform.outputs)))
+      );
+    } else if (spec.doFn?.urn == translations.JS_WINDOW_INTO_DOFN_URN) {
+      return new AssignWindowsParDoOperator(
+        context.getReceiver(onlyElement(Object.values(transform.outputs))),
+        base.fakeDeserialize(spec.doFn.payload!).windowFn
+      );
+    } else if (spec.doFn?.urn == translations.JS_ASSIGN_TIMESTAMPS_DOFN_URN) {
+      return new AssignTimestampsParDoOperator(
+        context.getReceiver(onlyElement(Object.values(transform.outputs))),
+        base.fakeDeserialize(spec.doFn.payload!).func
+      );
+    } else if (spec.doFn?.urn == translations.SPLITTING_JS_DOFN_URN) {
+      return new SplittingDoFnOperator(
+        base.fakeDeserialize(spec.doFn.payload!).splitter,
+        Object.fromEntries(
+          Object.entries(transform.outputs).map(([tag, pcId]) => [
+            tag,
+            context.getReceiver(pcId),
+          ])
+        )
+      );
+    } else {
+      throw new Error("Unknown DoFn type: " + spec);
+    }
+  }
+);
 
 class PassThroughOperator implements IOperator {
   transformId: string;
@@ -378,7 +428,10 @@ class PassThroughOperator implements IOperator {
   receivers: Receiver[];
 
   constructor(
-      transformId: string, transform: PTransform, context: OperatorContext) {
+    transformId: string,
+    transform: PTransform,
+    context: OperatorContext
+  ) {
     this.transformId = transformId;
     this.transformUrn = transform.spec!.urn;
     this.receivers = Object.values(transform.outputs).map(context.getReceiver);
@@ -388,7 +441,12 @@ class PassThroughOperator implements IOperator {
 
   process(wvalue) {
     console.log(
-        'forwarding', wvalue.value, 'for', this.transformId, this.transformUrn);
+      "forwarding",
+      wvalue.value,
+      "for",
+      this.transformId,
+      this.transformUrn
+    );
     this.receivers.map((receiver: Receiver) => receiver.receive(wvalue));
   }
 
@@ -397,7 +455,7 @@ class PassThroughOperator implements IOperator {
 
 function onlyElement<Type>(arg: Type[]): Type {
   if (arg.length > 1) {
-    Error('Expecting exactly one element.');
+    Error("Expecting exactly one element.");
   }
   return arg[0];
 }

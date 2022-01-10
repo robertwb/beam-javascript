@@ -1,16 +1,20 @@
-import {Coder, CODER_REGISTRY, Context} from '../src/apache_beam/coders/coders';
-import {GlobalWindow} from '../src/apache_beam/coders/standard_coders';
-import {Writer, Reader} from 'protobufjs';
-import Long from 'long';
+import {
+  Coder,
+  CODER_REGISTRY,
+  Context,
+} from "../src/apache_beam/coders/coders";
+import { GlobalWindow } from "../src/apache_beam/coders/standard_coders";
+import { Writer, Reader } from "protobufjs";
+import Long from "long";
 
-import assertions = require('assert');
-import yaml = require('js-yaml');
-import fs = require('fs');
-import util = require('util');
-import {Timing} from '../src/apache_beam/values';
+import assertions = require("assert");
+import yaml = require("js-yaml");
+import fs = require("fs");
+import util = require("util");
+import { Timing } from "../src/apache_beam/values";
 
 const STANDARD_CODERS_FILE =
-  '../../model/fn-execution/src/main/resources/org/apache/beam/model/fnexecution/v1/standard_coders.yaml';
+  "../../model/fn-execution/src/main/resources/org/apache/beam/model/fnexecution/v1/standard_coders.yaml";
 
 interface CoderRepr {
   urn: string;
@@ -27,34 +31,36 @@ type CoderSpec = {
 
 // TODO(pabloem): Empty this list.
 const UNSUPPORTED_CODERS = [
-  'beam:coder:timer:v1',
-  'beam:coder:param_windowed_value:v1',
-  'beam:coder:row:v1',
-  'beam:coder:sharded_key:v1',
-  'beam:coder:custom_window:v1',
+  "beam:coder:timer:v1",
+  "beam:coder:param_windowed_value:v1",
+  "beam:coder:row:v1",
+  "beam:coder:sharded_key:v1",
+  "beam:coder:custom_window:v1",
 ];
 
 const UNSUPPORTED_EXAMPLES = {
-  'beam:coder:interval_window:v1': ['8020c49ba5e353f700'],
+  "beam:coder:interval_window:v1": ["8020c49ba5e353f700"],
 };
 
 const _urn_to_json_value_parser = {
-  'beam:coder:bytes:v1': _ => x => new TextEncoder().encode(x),
-  'beam:coder:bool:v1': _ => x => x,
-  'beam:coder:string_utf8:v1': _ => x => x as string,
-  'beam:coder:varint:v1': _ => x => x,
-  'beam:coder:double:v1': _ => x => x === 'NaN' ? NaN : x,
-  'beam:coder:kv:v1': components => x => ({
-    key: components[0](x['key']),
-    value: components[1](x['value']),
+  "beam:coder:bytes:v1": (_) => (x) => new TextEncoder().encode(x),
+  "beam:coder:bool:v1": (_) => (x) => x,
+  "beam:coder:string_utf8:v1": (_) => (x) => x as string,
+  "beam:coder:varint:v1": (_) => (x) => x,
+  "beam:coder:double:v1": (_) => (x) => x === "NaN" ? NaN : x,
+  "beam:coder:kv:v1": (components) => (x) => ({
+    key: components[0](x["key"]),
+    value: components[1](x["value"]),
   }),
-  'beam:coder:iterable:v1': components => x => x.map(elm => components[0](elm)),
-  'beam:coder:global_window:v1': _ => x => new GlobalWindow(),
-  'beam:coder:interval_window:v1': _ => (x: {end: number; span: number}) => ({
-    start: Long.fromNumber(x.end).sub(x.span),
-    end: Long.fromNumber(x.end),
-  }),
-  'beam:coder:windowed_value:v1': components => x => ({
+  "beam:coder:iterable:v1": (components) => (x) =>
+    x.map((elm) => components[0](elm)),
+  "beam:coder:global_window:v1": (_) => (x) => new GlobalWindow(),
+  "beam:coder:interval_window:v1":
+    (_) => (x: { end: number; span: number }) => ({
+      start: Long.fromNumber(x.end).sub(x.span),
+      end: Long.fromNumber(x.end),
+    }),
+  "beam:coder:windowed_value:v1": (components) => (x) => ({
     value: components[0](x.value),
     windows: x.windows.map(components[1]),
     pane: {
@@ -74,22 +80,22 @@ function get_json_value_parser(coderRepr: CoderRepr) {
 
   if (value_parser_factory === undefined) {
     throw new Error(
-      util.format('Do not know how to parse example values for %s', coderRepr)
+      util.format("Do not know how to parse example values for %s", coderRepr)
     );
   }
 
   const components = coderRepr.components || [];
-  const componentParsers = components.map(componentRepr =>
+  const componentParsers = components.map((componentRepr) =>
     get_json_value_parser(componentRepr)
   );
   return value_parser_factory(componentParsers);
 }
 
-describe('standard Beam coders on Javascript', () => {
+describe("standard Beam coders on Javascript", () => {
   const docs: Array<CoderSpec> = yaml.loadAll(
-    fs.readFileSync(STANDARD_CODERS_FILE, 'utf8')
+    fs.readFileSync(STANDARD_CODERS_FILE, "utf8")
   );
-  docs.forEach(doc => {
+  docs.forEach((doc) => {
     const urn = doc.coder.urn;
     if (UNSUPPORTED_CODERS.includes(urn)) {
       return;
@@ -104,8 +110,8 @@ describe('standard Beam coders on Javascript', () => {
       contexts.push(Context.needsDelimiters);
     }
 
-    contexts.forEach(context => {
-      describe('in Context ' + context, () => {
+    contexts.forEach((context) => {
+      describe("in Context " + context, () => {
         const spec = doc;
 
         const coderConstructor = CODER_REGISTRY.get(urn);
@@ -114,7 +120,7 @@ describe('standard Beam coders on Javascript', () => {
           let components;
           try {
             components = spec.coder.components.map(
-              c => new (CODER_REGISTRY.get(c.urn))()
+              (c) => new (CODER_REGISTRY.get(c.urn))()
             );
           } catch (Error) {
             return;
@@ -132,18 +138,18 @@ describe('standard Beam coders on Javascript', () => {
 function describeCoder<T>(coder: Coder<T>, urn, context, spec: CoderSpec) {
   describe(
     util.format(
-      'coder %s (%s)',
-      util.inspect(coder, {colors: true, breakLength: Infinity}),
-      spec.coder.non_deterministic ? 'nondeterministic' : 'deterministic'
+      "coder %s (%s)",
+      util.inspect(coder, { colors: true, breakLength: Infinity }),
+      spec.coder.non_deterministic ? "nondeterministic" : "deterministic"
     ),
     () => {
       const parser = get_json_value_parser(spec.coder);
       for (const expected in spec.examples) {
         const value = parser(spec.examples[expected]);
-        const expectedEncoded = Buffer.from(expected, 'binary');
+        const expectedEncoded = Buffer.from(expected, "binary");
         if (
           (UNSUPPORTED_EXAMPLES[spec.coder.urn] || []).includes(
-            expectedEncoded.toString('hex')
+            expectedEncoded.toString("hex")
           )
         ) {
           continue;
@@ -170,9 +176,9 @@ function coderCase<T>(
   if (!non_deterministic) {
     it(
       util.format(
-        'encodes %s to %s',
-        util.inspect(obj, {colors: true, depth: Infinity}),
-        Buffer.from(expectedEncoded).toString('hex')
+        "encodes %s to %s",
+        util.inspect(obj, { colors: true, depth: Infinity }),
+        Buffer.from(expectedEncoded).toString("hex")
       ),
       () => {
         const writer = new Writer();
@@ -184,9 +190,9 @@ function coderCase<T>(
 
   it(
     util.format(
-      'decodes %s to %s correctly',
-      Buffer.from(expectedEncoded).toString('hex'),
-      util.inspect(obj, {colors: true, depth: Infinity})
+      "decodes %s to %s correctly",
+      Buffer.from(expectedEncoded).toString("hex"),
+      util.inspect(obj, { colors: true, depth: Infinity })
     ),
     () => {
       const decoded = coder.decode(new Reader(expectedEncoded), context);

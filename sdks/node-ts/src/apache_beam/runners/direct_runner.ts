@@ -1,21 +1,28 @@
-import Long from 'long';
-import * as protobufjs from 'protobufjs';
+import Long from "long";
+import * as protobufjs from "protobufjs";
 
-import {GroupByKey, Impulse, Pipeline, PipelineResult, Root, Runner,} from '../base';
-import {Coder, Context as CoderContext} from '../coders/coders';
-import {GlobalWindow, PaneInfoCoder} from '../coders/standard_coders';
-import {ProcessBundleDescriptor} from '../proto/beam_fn_api';
-import {JobState_Enum} from '../proto/beam_job_api';
-import * as runnerApi from '../proto/beam_runner_api';
-import {PCollection, PTransform} from '../proto/beam_runner_api';
-import {BoundedWindow, Instant, PaneInfo, WindowedValue} from '../values';
-import * as operators from '../worker/operators';
-import * as worker from '../worker/worker';
+import {
+  GroupByKey,
+  Impulse,
+  Pipeline,
+  PipelineResult,
+  Root,
+  Runner,
+} from "../base";
+import { Coder, Context as CoderContext } from "../coders/coders";
+import { GlobalWindow, PaneInfoCoder } from "../coders/standard_coders";
+import { ProcessBundleDescriptor } from "../proto/beam_fn_api";
+import { JobState_Enum } from "../proto/beam_job_api";
+import * as runnerApi from "../proto/beam_runner_api";
+import { PCollection, PTransform } from "../proto/beam_runner_api";
+import { BoundedWindow, Instant, PaneInfo, WindowedValue } from "../values";
+import * as operators from "../worker/operators";
+import * as worker from "../worker/worker";
 
 export class DirectRunner extends Runner {
   async runPipeline(p): Promise<PipelineResult> {
     const descriptor: ProcessBundleDescriptor = {
-      id: '',
+      id: "",
       transforms: p.proto.components!.transforms,
       pcollections: p.proto.components!.pcollections,
       windowingStrategies: p.proto.components!.windowingStrategies,
@@ -26,11 +33,11 @@ export class DirectRunner extends Runner {
     const processor = new worker.BundleProcessor(descriptor, null!, [
       Impulse.urn,
     ]);
-    await processor.process('bundle_id', 0);
+    await processor.process("bundle_id", 0);
 
     return {
       waitUntilFinish: (duration?: number) =>
-          Promise.resolve(JobState_Enum.DONE),
+        Promise.resolve(JobState_Enum.DONE),
     };
   }
 }
@@ -41,10 +48,13 @@ class DirectImpulseOperator implements operators.IOperator {
   receiver: operators.Receiver;
 
   constructor(
-      transformId: string, transform: PTransform,
-      context: operators.OperatorContext) {
-    this.receiver =
-        context.getReceiver(onlyElement(Object.values(transform.outputs)));
+    transformId: string,
+    transform: PTransform,
+    context: operators.OperatorContext
+  ) {
+    this.receiver = context.getReceiver(
+      onlyElement(Object.values(transform.outputs))
+    );
   }
 
   process(wvalue: WindowedValue<any>) {}
@@ -54,9 +64,8 @@ class DirectImpulseOperator implements operators.IOperator {
       value: new Uint8Array(),
       windows: [new GlobalWindow()],
       pane: PaneInfoCoder.ONE_AND_ONLY_FIRING,
-      timestamp: Long.fromValue(
-          '-9223372036854775'),  // TODO: Pull constant out of proto, or at
-                                 // least as a constant elsewhere.
+      timestamp: Long.fromValue("-9223372036854775"), // TODO: Pull constant out of proto, or at
+      // least as a constant elsewhere.
     });
   }
 
@@ -74,31 +83,40 @@ class DirectGbkOperator implements operators.IOperator {
   windowCoder: Coder<any>;
 
   constructor(
-      transformId: string, transform: PTransform,
-      context: operators.OperatorContext) {
-    this.receiver =
-        context.getReceiver(onlyElement(Object.values(transform.outputs)));
+    transformId: string,
+    transform: PTransform,
+    context: operators.OperatorContext
+  ) {
+    this.receiver = context.getReceiver(
+      onlyElement(Object.values(transform.outputs))
+    );
     const inputPc =
-        context.descriptor
-            .pcollections[onlyElement(Object.values(transform.inputs))];
+      context.descriptor.pcollections[
+        onlyElement(Object.values(transform.inputs))
+      ];
     this.keyCoder = context.pipelineContext.getCoder(
-        context.descriptor.coders[inputPc.coderId].componentCoderIds[0]);
+      context.descriptor.coders[inputPc.coderId].componentCoderIds[0]
+    );
     const windowingStrategy =
-        context.descriptor.windowingStrategies[inputPc.windowingStrategyId];
+      context.descriptor.windowingStrategies[inputPc.windowingStrategyId];
     // TODO: Check or implement triggers, etc.
-    if (windowingStrategy.mergeStatus !=
-        runnerApi.MergeStatus_Enum.NON_MERGING) {
-      throw new Error('Non-merging WindowFn: ' + windowingStrategy);
+    if (
+      windowingStrategy.mergeStatus != runnerApi.MergeStatus_Enum.NON_MERGING
+    ) {
+      throw new Error("Non-merging WindowFn: " + windowingStrategy);
     }
-    this.windowCoder =
-        context.pipelineContext.getCoder(windowingStrategy.windowCoderId);
+    this.windowCoder = context.pipelineContext.getCoder(
+      windowingStrategy.windowCoderId
+    );
   }
 
   process(wvalue: WindowedValue<any>) {
     // TODO: Assert non-merging, EOW timestamp, etc.
     for (const window of wvalue.windows) {
-      const wkey = encodeToBase64(window, this.windowCoder) + ' ' +
-          encodeToBase64(wvalue.value.key, this.keyCoder);
+      const wkey =
+        encodeToBase64(window, this.windowCoder) +
+        " " +
+        encodeToBase64(wvalue.value.key, this.keyCoder);
       if (!this.groups.has(wkey)) {
         this.groups.set(wkey, []);
       }
@@ -113,7 +131,7 @@ class DirectGbkOperator implements operators.IOperator {
   finishBundle() {
     const this_ = this;
     this.groups.forEach((values, wkey, _) => {
-      const [encodedWindow, encodedKey] = wkey.split(' ');
+      const [encodedWindow, encodedKey] = wkey.split(" ");
       const window = decodeFromBase64(encodedWindow, this.windowCoder);
       this_.receiver.receive({
         value: {
@@ -134,18 +152,19 @@ operators.registerOperator(GroupByKey.urn, DirectGbkOperator);
 export function encodeToBase64<T>(element: T, coder: Coder<T>): string {
   const writer = new protobufjs.Writer();
   coder.encode(element, writer, CoderContext.wholeStream);
-  return Buffer.from(writer.finish()).toString('base64');
+  return Buffer.from(writer.finish()).toString("base64");
 }
 
 export function decodeFromBase64<T>(s: string, coder: Coder<T>): T {
   return coder.decode(
-      new protobufjs.Reader(Buffer.from(s, 'base64')),
-      CoderContext.wholeStream);
+    new protobufjs.Reader(Buffer.from(s, "base64")),
+    CoderContext.wholeStream
+  );
 }
 
 function onlyElement<T>(arg: T[]): T {
   if (arg.length > 1) {
-    Error('Expecting exactly one element.');
+    Error("Expecting exactly one element.");
   }
   return arg[0];
 }

@@ -35,27 +35,27 @@
 // TODO: Consider consolidating common components in another package
 // and language namespaces for re-use with Runner Api.
 //
-import {ServiceType} from '@protobuf-ts/runtime-rpc';
-import type {BinaryWriteOptions} from '@protobuf-ts/runtime';
-import type {IBinaryWriter} from '@protobuf-ts/runtime';
-import {WireType} from '@protobuf-ts/runtime';
-import type {BinaryReadOptions} from '@protobuf-ts/runtime';
-import type {IBinaryReader} from '@protobuf-ts/runtime';
-import {UnknownFieldHandler} from '@protobuf-ts/runtime';
-import type {PartialMessage} from '@protobuf-ts/runtime';
-import {reflectionMergePartial} from '@protobuf-ts/runtime';
-import {MESSAGE_TYPE} from '@protobuf-ts/runtime';
-import {MessageType} from '@protobuf-ts/runtime';
-import {MonitoringInfo} from './metrics';
-import {Duration} from './google/protobuf/duration';
-import {IsBounded_Enum} from './beam_runner_api';
-import {Timestamp} from './google/protobuf/timestamp';
-import {Environment} from './beam_runner_api';
-import {Coder} from './beam_runner_api';
-import {WindowingStrategy} from './beam_runner_api';
-import {PCollection} from './beam_runner_api';
-import {PTransform} from './beam_runner_api';
-import {ApiServiceDescriptor} from './endpoints';
+import { ServiceType } from "@protobuf-ts/runtime-rpc";
+import type { BinaryWriteOptions } from "@protobuf-ts/runtime";
+import type { IBinaryWriter } from "@protobuf-ts/runtime";
+import { WireType } from "@protobuf-ts/runtime";
+import type { BinaryReadOptions } from "@protobuf-ts/runtime";
+import type { IBinaryReader } from "@protobuf-ts/runtime";
+import { UnknownFieldHandler } from "@protobuf-ts/runtime";
+import type { PartialMessage } from "@protobuf-ts/runtime";
+import { reflectionMergePartial } from "@protobuf-ts/runtime";
+import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
+import { MessageType } from "@protobuf-ts/runtime";
+import { MonitoringInfo } from "./metrics";
+import { Duration } from "./google/protobuf/duration";
+import { IsBounded_Enum } from "./beam_runner_api";
+import { Timestamp } from "./google/protobuf/timestamp";
+import { Environment } from "./beam_runner_api";
+import { Coder } from "./beam_runner_api";
+import { WindowingStrategy } from "./beam_runner_api";
+import { PCollection } from "./beam_runner_api";
+import { PTransform } from "./beam_runner_api";
+import { ApiServiceDescriptor } from "./endpoints";
 /**
  * A descriptor for connecting to a remote port using the Beam Fn Data API.
  * Allows for communication between two environments (for example between the
@@ -115,72 +115,74 @@ export interface InstructionRequest {
   /**
    * @generated from protobuf oneof: request
    */
-  request: {
-    oneofKind: 'processBundle';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.fn_execution.v1.ProcessBundleRequest process_bundle
-     * = 1001;
-     */
-    processBundle: ProcessBundleRequest;
-  }|{
-    oneofKind: 'processBundleProgress';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.fn_execution.v1.ProcessBundleProgressRequest
-     * process_bundle_progress = 1002;
-     */
-    processBundleProgress: ProcessBundleProgressRequest;
-  }
-  |{
-    oneofKind: 'processBundleSplit';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.fn_execution.v1.ProcessBundleSplitRequest
-     * process_bundle_split = 1003;
-     */
-    processBundleSplit: ProcessBundleSplitRequest;
-  }
-  |{
-    oneofKind: 'finalizeBundle';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.fn_execution.v1.FinalizeBundleRequest
-     * finalize_bundle = 1004;
-     */
-    finalizeBundle: FinalizeBundleRequest;
-  }
-  |{
-    oneofKind: 'monitoringInfos';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.fn_execution.v1.MonitoringInfosMetadataRequest
-     * monitoring_infos = 1005;
-     */
-    monitoringInfos: MonitoringInfosMetadataRequest;
-  }
-  |{
-    oneofKind: 'harnessMonitoringInfos';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.fn_execution.v1.HarnessMonitoringInfosRequest
-     * harness_monitoring_infos = 1006;
-     */
-    harnessMonitoringInfos: HarnessMonitoringInfosRequest;
-  }
-  |{
-    oneofKind: 'register';
-    /**
-     * DEPRECATED
-     *
-     * @generated from protobuf field:
-     * org.apache.beam.model.fn_execution.v1.RegisterRequest register = 1000;
-     */
-    register: RegisterRequest;
-  }
-  |{
-    oneofKind: undefined;
-  };
+  request:
+    | {
+        oneofKind: "processBundle";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.fn_execution.v1.ProcessBundleRequest process_bundle
+         * = 1001;
+         */
+        processBundle: ProcessBundleRequest;
+      }
+    | {
+        oneofKind: "processBundleProgress";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.fn_execution.v1.ProcessBundleProgressRequest
+         * process_bundle_progress = 1002;
+         */
+        processBundleProgress: ProcessBundleProgressRequest;
+      }
+    | {
+        oneofKind: "processBundleSplit";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.fn_execution.v1.ProcessBundleSplitRequest
+         * process_bundle_split = 1003;
+         */
+        processBundleSplit: ProcessBundleSplitRequest;
+      }
+    | {
+        oneofKind: "finalizeBundle";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.fn_execution.v1.FinalizeBundleRequest
+         * finalize_bundle = 1004;
+         */
+        finalizeBundle: FinalizeBundleRequest;
+      }
+    | {
+        oneofKind: "monitoringInfos";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.fn_execution.v1.MonitoringInfosMetadataRequest
+         * monitoring_infos = 1005;
+         */
+        monitoringInfos: MonitoringInfosMetadataRequest;
+      }
+    | {
+        oneofKind: "harnessMonitoringInfos";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.fn_execution.v1.HarnessMonitoringInfosRequest
+         * harness_monitoring_infos = 1006;
+         */
+        harnessMonitoringInfos: HarnessMonitoringInfosRequest;
+      }
+    | {
+        oneofKind: "register";
+        /**
+         * DEPRECATED
+         *
+         * @generated from protobuf field:
+         * org.apache.beam.model.fn_execution.v1.RegisterRequest register = 1000;
+         */
+        register: RegisterRequest;
+      }
+    | {
+        oneofKind: undefined;
+      };
 }
 /**
  * The response for an associated request the SDK had been asked to fulfill.
@@ -209,72 +211,74 @@ export interface InstructionResponse {
   /**
    * @generated from protobuf oneof: response
    */
-  response: {
-    oneofKind: 'processBundle';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.fn_execution.v1.ProcessBundleResponse
-     * process_bundle = 1001;
-     */
-    processBundle: ProcessBundleResponse;
-  }|{
-    oneofKind: 'processBundleProgress';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.fn_execution.v1.ProcessBundleProgressResponse
-     * process_bundle_progress = 1002;
-     */
-    processBundleProgress: ProcessBundleProgressResponse;
-  }
-  |{
-    oneofKind: 'processBundleSplit';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.fn_execution.v1.ProcessBundleSplitResponse
-     * process_bundle_split = 1003;
-     */
-    processBundleSplit: ProcessBundleSplitResponse;
-  }
-  |{
-    oneofKind: 'finalizeBundle';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.fn_execution.v1.FinalizeBundleResponse
-     * finalize_bundle = 1004;
-     */
-    finalizeBundle: FinalizeBundleResponse;
-  }
-  |{
-    oneofKind: 'monitoringInfos';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.fn_execution.v1.MonitoringInfosMetadataResponse
-     * monitoring_infos = 1005;
-     */
-    monitoringInfos: MonitoringInfosMetadataResponse;
-  }
-  |{
-    oneofKind: 'harnessMonitoringInfos';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.fn_execution.v1.HarnessMonitoringInfosResponse
-     * harness_monitoring_infos = 1006;
-     */
-    harnessMonitoringInfos: HarnessMonitoringInfosResponse;
-  }
-  |{
-    oneofKind: 'register';
-    /**
-     * DEPRECATED
-     *
-     * @generated from protobuf field:
-     * org.apache.beam.model.fn_execution.v1.RegisterResponse register = 1000;
-     */
-    register: RegisterResponse;
-  }
-  |{
-    oneofKind: undefined;
-  };
+  response:
+    | {
+        oneofKind: "processBundle";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.fn_execution.v1.ProcessBundleResponse
+         * process_bundle = 1001;
+         */
+        processBundle: ProcessBundleResponse;
+      }
+    | {
+        oneofKind: "processBundleProgress";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.fn_execution.v1.ProcessBundleProgressResponse
+         * process_bundle_progress = 1002;
+         */
+        processBundleProgress: ProcessBundleProgressResponse;
+      }
+    | {
+        oneofKind: "processBundleSplit";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.fn_execution.v1.ProcessBundleSplitResponse
+         * process_bundle_split = 1003;
+         */
+        processBundleSplit: ProcessBundleSplitResponse;
+      }
+    | {
+        oneofKind: "finalizeBundle";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.fn_execution.v1.FinalizeBundleResponse
+         * finalize_bundle = 1004;
+         */
+        finalizeBundle: FinalizeBundleResponse;
+      }
+    | {
+        oneofKind: "monitoringInfos";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.fn_execution.v1.MonitoringInfosMetadataResponse
+         * monitoring_infos = 1005;
+         */
+        monitoringInfos: MonitoringInfosMetadataResponse;
+      }
+    | {
+        oneofKind: "harnessMonitoringInfos";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.fn_execution.v1.HarnessMonitoringInfosResponse
+         * harness_monitoring_infos = 1006;
+         */
+        harnessMonitoringInfos: HarnessMonitoringInfosResponse;
+      }
+    | {
+        oneofKind: "register";
+        /**
+         * DEPRECATED
+         *
+         * @generated from protobuf field:
+         * org.apache.beam.model.fn_execution.v1.RegisterResponse register = 1000;
+         */
+        register: RegisterResponse;
+      }
+    | {
+        oneofKind: undefined;
+      };
 }
 /**
  * A request to provide full MonitoringInfo associated with the entire SDK
@@ -315,7 +319,7 @@ export interface HarnessMonitoringInfosResponse {
    *
    * @generated from protobuf field: map<string, bytes> monitoring_data = 1;
    */
-  monitoringData: {[key: string]: Uint8Array;};
+  monitoringData: { [key: string]: Uint8Array };
 }
 /**
  * A list of objects which can be referred to by the runner in
@@ -362,14 +366,14 @@ export interface ProcessBundleDescriptor {
    * @generated from protobuf field: map<string,
    * org.apache.beam.model.pipeline.v1.PTransform> transforms = 2;
    */
-  transforms: {[key: string]: PTransform;};
+  transforms: { [key: string]: PTransform };
   /**
    * (Required) A map from pipeline-scoped id to PCollection.
    *
    * @generated from protobuf field: map<string,
    * org.apache.beam.model.pipeline.v1.PCollection> pcollections = 3;
    */
-  pcollections: {[key: string]: PCollection;};
+  pcollections: { [key: string]: PCollection };
   /**
    * (Required) A map from pipeline-scoped id to WindowingStrategy.
    *
@@ -377,21 +381,21 @@ export interface ProcessBundleDescriptor {
    * org.apache.beam.model.pipeline.v1.WindowingStrategy> windowing_strategies =
    * 4;
    */
-  windowingStrategies: {[key: string]: WindowingStrategy;};
+  windowingStrategies: { [key: string]: WindowingStrategy };
   /**
    * (Required) A map from pipeline-scoped id to Coder.
    *
    * @generated from protobuf field: map<string,
    * org.apache.beam.model.pipeline.v1.Coder> coders = 5;
    */
-  coders: {[key: string]: Coder;};
+  coders: { [key: string]: Coder };
   /**
    * (Required) A map from pipeline-scoped id to Environment.
    *
    * @generated from protobuf field: map<string,
    * org.apache.beam.model.pipeline.v1.Environment> environments = 6;
    */
-  environments: {[key: string]: Environment;};
+  environments: { [key: string]: Environment };
   /**
    * A descriptor describing the end point to use for State API
    * calls. Required if the Runner intends to send remote references over the
@@ -453,7 +457,7 @@ export interface BundleApplication {
    * @generated from protobuf field: map<string, google.protobuf.Timestamp>
    * output_watermarks = 4;
    */
-  outputWatermarks: {[key: string]: Timestamp;};
+  outputWatermarks: { [key: string]: Timestamp };
   /**
    * Whether this application potentially produces an unbounded
    * amount of data. Note that this should only be set to BOUNDED if and
@@ -539,26 +543,28 @@ export interface ProcessBundleRequest_CacheToken {
   /**
    * @generated from protobuf oneof: type
    */
-  type: {
-    oneofKind: 'userState';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.fn_execution.v1.ProcessBundleRequest.CacheToken.UserState
-     * user_state = 1;
-     */
-    userState: ProcessBundleRequest_CacheToken_UserState;
-  }|{
-    oneofKind: 'sideInput';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.fn_execution.v1.ProcessBundleRequest.CacheToken.SideInput
-     * side_input = 2;
-     */
-    sideInput: ProcessBundleRequest_CacheToken_SideInput;
-  }
-  |{
-    oneofKind: undefined;
-  };
+  type:
+    | {
+        oneofKind: "userState";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.fn_execution.v1.ProcessBundleRequest.CacheToken.UserState
+         * user_state = 1;
+         */
+        userState: ProcessBundleRequest_CacheToken_UserState;
+      }
+    | {
+        oneofKind: "sideInput";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.fn_execution.v1.ProcessBundleRequest.CacheToken.SideInput
+         * side_input = 2;
+         */
+        sideInput: ProcessBundleRequest_CacheToken_SideInput;
+      }
+    | {
+        oneofKind: undefined;
+      };
   /**
    * The cache token identifier which should be globally unique.
    *
@@ -640,7 +646,7 @@ export interface ProcessBundleResponse {
    *
    * @generated from protobuf field: map<string, bytes> monitoring_data = 5;
    */
-  monitoringData: {[key: string]: Uint8Array;};
+  monitoringData: { [key: string]: Uint8Array };
   /**
    * (Optional) Output elements of the processed bundle. Either all or
    * none of the bundle elements should be included in the
@@ -724,7 +730,7 @@ export interface ProcessBundleProgressResponse {
    *
    * @generated from protobuf field: map<string, bytes> monitoring_data = 5;
    */
-  monitoringData: {[key: string]: Uint8Array;};
+  monitoringData: { [key: string]: Uint8Array };
 }
 /**
  * A response that contains the full mapping information associated with
@@ -750,7 +756,7 @@ export interface MonitoringInfosMetadataResponse {
    * @generated from protobuf field: map<string,
    * org.apache.beam.model.pipeline.v1.MonitoringInfo> monitoring_info = 1;
    */
-  monitoringInfo: {[key: string]: MonitoringInfo;};
+  monitoringInfo: { [key: string]: MonitoringInfo };
 }
 /**
  * Represents a request to the SDK to split a currently active bundle.
@@ -777,7 +783,7 @@ export interface ProcessBundleSplitRequest {
    * org.apache.beam.model.fn_execution.v1.ProcessBundleSplitRequest.DesiredSplit>
    * desired_splits = 3;
    */
-  desiredSplits: {[key: string]: ProcessBundleSplitRequest_DesiredSplit;};
+  desiredSplits: { [key: string]: ProcessBundleSplitRequest_DesiredSplit };
 }
 /**
  * A message specifying the desired split for a single transform.
@@ -1062,38 +1068,40 @@ export interface StateRequest {
   /**
    * @generated from protobuf oneof: request
    */
-  request: {
-    oneofKind: 'get';
-    /**
-     * A request to get state.
-     *
-     * @generated from protobuf field:
-     * org.apache.beam.model.fn_execution.v1.StateGetRequest get = 1000;
-     */
-    get: StateGetRequest;
-  }|{
-    oneofKind: 'append';
-    /**
-     * A request to append to state.
-     *
-     * @generated from protobuf field:
-     * org.apache.beam.model.fn_execution.v1.StateAppendRequest append = 1001;
-     */
-    append: StateAppendRequest;
-  }
-  |{
-    oneofKind: 'clear';
-    /**
-     * A request to clear state.
-     *
-     * @generated from protobuf field:
-     * org.apache.beam.model.fn_execution.v1.StateClearRequest clear = 1002;
-     */
-    clear: StateClearRequest;
-  }
-  |{
-    oneofKind: undefined;
-  };
+  request:
+    | {
+        oneofKind: "get";
+        /**
+         * A request to get state.
+         *
+         * @generated from protobuf field:
+         * org.apache.beam.model.fn_execution.v1.StateGetRequest get = 1000;
+         */
+        get: StateGetRequest;
+      }
+    | {
+        oneofKind: "append";
+        /**
+         * A request to append to state.
+         *
+         * @generated from protobuf field:
+         * org.apache.beam.model.fn_execution.v1.StateAppendRequest append = 1001;
+         */
+        append: StateAppendRequest;
+      }
+    | {
+        oneofKind: "clear";
+        /**
+         * A request to clear state.
+         *
+         * @generated from protobuf field:
+         * org.apache.beam.model.fn_execution.v1.StateClearRequest clear = 1002;
+         */
+        clear: StateClearRequest;
+      }
+    | {
+        oneofKind: undefined;
+      };
 }
 /**
  * @generated from protobuf message
@@ -1119,38 +1127,40 @@ export interface StateResponse {
   /**
    * @generated from protobuf oneof: response
    */
-  response: {
-    oneofKind: 'get';
-    /**
-     * A response to getting state.
-     *
-     * @generated from protobuf field:
-     * org.apache.beam.model.fn_execution.v1.StateGetResponse get = 1000;
-     */
-    get: StateGetResponse;
-  }|{
-    oneofKind: 'append';
-    /**
-     * A response to appending to state.
-     *
-     * @generated from protobuf field:
-     * org.apache.beam.model.fn_execution.v1.StateAppendResponse append = 1001;
-     */
-    append: StateAppendResponse;
-  }
-  |{
-    oneofKind: 'clear';
-    /**
-     * A response to clearing state.
-     *
-     * @generated from protobuf field:
-     * org.apache.beam.model.fn_execution.v1.StateClearResponse clear = 1002;
-     */
-    clear: StateClearResponse;
-  }
-  |{
-    oneofKind: undefined;
-  };
+  response:
+    | {
+        oneofKind: "get";
+        /**
+         * A response to getting state.
+         *
+         * @generated from protobuf field:
+         * org.apache.beam.model.fn_execution.v1.StateGetResponse get = 1000;
+         */
+        get: StateGetResponse;
+      }
+    | {
+        oneofKind: "append";
+        /**
+         * A response to appending to state.
+         *
+         * @generated from protobuf field:
+         * org.apache.beam.model.fn_execution.v1.StateAppendResponse append = 1001;
+         */
+        append: StateAppendResponse;
+      }
+    | {
+        oneofKind: "clear";
+        /**
+         * A response to clearing state.
+         *
+         * @generated from protobuf field:
+         * org.apache.beam.model.fn_execution.v1.StateClearResponse clear = 1002;
+         */
+        clear: StateClearResponse;
+      }
+    | {
+        oneofKind: undefined;
+      };
 }
 /**
  * @generated from protobuf message
@@ -1160,70 +1170,72 @@ export interface StateKey {
   /**
    * @generated from protobuf oneof: type
    */
-  type: {
-    oneofKind: 'runner';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.fn_execution.v1.StateKey.Runner runner = 1;
-     */
-    runner: StateKey_Runner;
-  }|{
-    oneofKind: 'multimapSideInput';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.fn_execution.v1.StateKey.MultimapSideInput
-     * multimap_side_input = 2;
-     */
-    multimapSideInput: StateKey_MultimapSideInput;
-  }
-  |{
-    oneofKind: 'bagUserState';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.fn_execution.v1.StateKey.BagUserState
-     * bag_user_state = 3;
-     */
-    bagUserState: StateKey_BagUserState;
-  }
-  |{
-    oneofKind: 'iterableSideInput';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.fn_execution.v1.StateKey.IterableSideInput
-     * iterable_side_input = 4;
-     */
-    iterableSideInput: StateKey_IterableSideInput;
-  }
-  |{
-    oneofKind: 'multimapKeysSideInput';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.fn_execution.v1.StateKey.MultimapKeysSideInput
-     * multimap_keys_side_input = 5;
-     */
-    multimapKeysSideInput: StateKey_MultimapKeysSideInput;
-  }
-  |{
-    oneofKind: 'multimapKeysUserState';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.fn_execution.v1.StateKey.MultimapKeysUserState
-     * multimap_keys_user_state = 6;
-     */
-    multimapKeysUserState: StateKey_MultimapKeysUserState;
-  }
-  |{
-    oneofKind: 'multimapUserState';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.fn_execution.v1.StateKey.MultimapUserState
-     * multimap_user_state = 7;
-     */
-    multimapUserState: StateKey_MultimapUserState;
-  }
-  |{
-    oneofKind: undefined;
-  };
+  type:
+    | {
+        oneofKind: "runner";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.fn_execution.v1.StateKey.Runner runner = 1;
+         */
+        runner: StateKey_Runner;
+      }
+    | {
+        oneofKind: "multimapSideInput";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.fn_execution.v1.StateKey.MultimapSideInput
+         * multimap_side_input = 2;
+         */
+        multimapSideInput: StateKey_MultimapSideInput;
+      }
+    | {
+        oneofKind: "bagUserState";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.fn_execution.v1.StateKey.BagUserState
+         * bag_user_state = 3;
+         */
+        bagUserState: StateKey_BagUserState;
+      }
+    | {
+        oneofKind: "iterableSideInput";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.fn_execution.v1.StateKey.IterableSideInput
+         * iterable_side_input = 4;
+         */
+        iterableSideInput: StateKey_IterableSideInput;
+      }
+    | {
+        oneofKind: "multimapKeysSideInput";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.fn_execution.v1.StateKey.MultimapKeysSideInput
+         * multimap_keys_side_input = 5;
+         */
+        multimapKeysSideInput: StateKey_MultimapKeysSideInput;
+      }
+    | {
+        oneofKind: "multimapKeysUserState";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.fn_execution.v1.StateKey.MultimapKeysUserState
+         * multimap_keys_user_state = 6;
+         */
+        multimapKeysUserState: StateKey_MultimapKeysUserState;
+      }
+    | {
+        oneofKind: "multimapUserState";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.fn_execution.v1.StateKey.MultimapUserState
+         * multimap_user_state = 7;
+         */
+        multimapUserState: StateKey_MultimapUserState;
+      }
+    | {
+        oneofKind: undefined;
+      };
 }
 /**
  * @generated from protobuf message
@@ -1733,7 +1745,7 @@ export enum LogEntry_Severity_Enum {
    *
    * @generated from protobuf enum value: CRITICAL = 7;
    */
-  CRITICAL = 7
+  CRITICAL = 7,
 }
 /**
  * @generated from protobuf message
@@ -1776,7 +1788,7 @@ export interface StartWorkerRequest {
   /**
    * @generated from protobuf field: map<string, string> params = 10;
    */
-  params: {[key: string]: string;};
+  params: { [key: string]: string };
 }
 /**
  * @generated from protobuf message
@@ -1858,73 +1870,93 @@ export interface WorkerStatusResponse {
 // optimized methods
 class RemoteGrpcPort$Type extends MessageType<RemoteGrpcPort> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.RemoteGrpcPort', [
+    super("org.apache.beam.model.fn_execution.v1.RemoteGrpcPort", [
       {
         no: 1,
-        name: 'api_service_descriptor',
-        kind: 'message',
-        T: () => ApiServiceDescriptor
+        name: "api_service_descriptor",
+        kind: "message",
+        T: () => ApiServiceDescriptor,
       },
-      {no: 2, name: 'coder_id', kind: 'scalar', T: 9 /*ScalarType.STRING*/}
+      { no: 2, name: "coder_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
     ]);
   }
   create(value?: PartialMessage<RemoteGrpcPort>): RemoteGrpcPort {
-    const message = {coderId: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { coderId: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<RemoteGrpcPort>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: RemoteGrpcPort): RemoteGrpcPort {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: RemoteGrpcPort
+  ): RemoteGrpcPort {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.ApiServiceDescriptor
                 api_service_descriptor */
-            1:
+        1:
           message.apiServiceDescriptor =
-              ApiServiceDescriptor.internalBinaryRead(
-                  reader, reader.uint32(), options,
-                  message.apiServiceDescriptor);
+            ApiServiceDescriptor.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              message.apiServiceDescriptor
+            );
           break;
         case /* string coder_id */ 2:
           message.coderId = reader.string();
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: RemoteGrpcPort, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: RemoteGrpcPort,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.ApiServiceDescriptor
      * api_service_descriptor = 1; */
     if (message.apiServiceDescriptor)
-      ApiServiceDescriptor
-          .internalBinaryWrite(
-              message.apiServiceDescriptor,
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+      ApiServiceDescriptor.internalBinaryWrite(
+        message.apiServiceDescriptor,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* string coder_id = 2; */
-    if (message.coderId !== '')
+    if (message.coderId !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.coderId);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -1935,33 +1967,44 @@ class RemoteGrpcPort$Type extends MessageType<RemoteGrpcPort> {
 export const RemoteGrpcPort = new RemoteGrpcPort$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class GetProcessBundleDescriptorRequest$Type extends
-    MessageType<GetProcessBundleDescriptorRequest> {
+class GetProcessBundleDescriptorRequest$Type extends MessageType<GetProcessBundleDescriptorRequest> {
   constructor() {
     super(
-        'org.apache.beam.model.fn_execution.v1.GetProcessBundleDescriptorRequest',
-        [{
+      "org.apache.beam.model.fn_execution.v1.GetProcessBundleDescriptorRequest",
+      [
+        {
           no: 1,
-          name: 'process_bundle_descriptor_id',
-          kind: 'scalar',
-          T: 9 /*ScalarType.STRING*/
-        }]);
+          name: "process_bundle_descriptor_id",
+          kind: "scalar",
+          T: 9 /*ScalarType.STRING*/,
+        },
+      ]
+    );
   }
-  create(value?: PartialMessage<GetProcessBundleDescriptorRequest>):
-      GetProcessBundleDescriptorRequest {
-    const message = {processBundleDescriptorId: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<GetProcessBundleDescriptorRequest>
+  ): GetProcessBundleDescriptorRequest {
+    const message = { processBundleDescriptorId: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<GetProcessBundleDescriptorRequest>(
-          this, message, value);
+        this,
+        message,
+        value
+      );
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: GetProcessBundleDescriptorRequest):
-      GetProcessBundleDescriptorRequest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: GetProcessBundleDescriptorRequest
+  ): GetProcessBundleDescriptorRequest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -1970,28 +2013,40 @@ class GetProcessBundleDescriptorRequest$Type extends
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: GetProcessBundleDescriptorRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: GetProcessBundleDescriptorRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string process_bundle_descriptor_id = 1; */
-    if (message.processBundleDescriptorId !== '')
-      writer.tag(1, WireType.LengthDelimited)
-          .string(message.processBundleDescriptorId);
+    if (message.processBundleDescriptorId !== "")
+      writer
+        .tag(1, WireType.LengthDelimited)
+        .string(message.processBundleDescriptorId);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -2000,81 +2055,87 @@ class GetProcessBundleDescriptorRequest$Type extends
  * org.apache.beam.model.fn_execution.v1.GetProcessBundleDescriptorRequest
  */
 export const GetProcessBundleDescriptorRequest =
-    new GetProcessBundleDescriptorRequest$Type();
+  new GetProcessBundleDescriptorRequest$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
 class InstructionRequest$Type extends MessageType<InstructionRequest> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.InstructionRequest', [
+    super("org.apache.beam.model.fn_execution.v1.InstructionRequest", [
       {
         no: 1,
-        name: 'instruction_id',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
+        name: "instruction_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
       },
       {
         no: 1001,
-        name: 'process_bundle',
-        kind: 'message',
-        oneof: 'request',
-        T: () => ProcessBundleRequest
+        name: "process_bundle",
+        kind: "message",
+        oneof: "request",
+        T: () => ProcessBundleRequest,
       },
       {
         no: 1002,
-        name: 'process_bundle_progress',
-        kind: 'message',
-        oneof: 'request',
-        T: () => ProcessBundleProgressRequest
+        name: "process_bundle_progress",
+        kind: "message",
+        oneof: "request",
+        T: () => ProcessBundleProgressRequest,
       },
       {
         no: 1003,
-        name: 'process_bundle_split',
-        kind: 'message',
-        oneof: 'request',
-        T: () => ProcessBundleSplitRequest
+        name: "process_bundle_split",
+        kind: "message",
+        oneof: "request",
+        T: () => ProcessBundleSplitRequest,
       },
       {
         no: 1004,
-        name: 'finalize_bundle',
-        kind: 'message',
-        oneof: 'request',
-        T: () => FinalizeBundleRequest
+        name: "finalize_bundle",
+        kind: "message",
+        oneof: "request",
+        T: () => FinalizeBundleRequest,
       },
       {
         no: 1005,
-        name: 'monitoring_infos',
-        kind: 'message',
-        oneof: 'request',
-        T: () => MonitoringInfosMetadataRequest
+        name: "monitoring_infos",
+        kind: "message",
+        oneof: "request",
+        T: () => MonitoringInfosMetadataRequest,
       },
       {
         no: 1006,
-        name: 'harness_monitoring_infos',
-        kind: 'message',
-        oneof: 'request',
-        T: () => HarnessMonitoringInfosRequest
+        name: "harness_monitoring_infos",
+        kind: "message",
+        oneof: "request",
+        T: () => HarnessMonitoringInfosRequest,
       },
       {
         no: 1000,
-        name: 'register',
-        kind: 'message',
-        oneof: 'request',
-        T: () => RegisterRequest
-      }
+        name: "register",
+        kind: "message",
+        oneof: "request",
+        T: () => RegisterRequest,
+      },
     ]);
   }
   create(value?: PartialMessage<InstructionRequest>): InstructionRequest {
-    const message = {instructionId: '', request: {oneofKind: undefined}};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { instructionId: "", request: { oneofKind: undefined } };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<InstructionRequest>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: InstructionRequest): InstructionRequest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: InstructionRequest
+  ): InstructionRequest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -2083,154 +2144,186 @@ class InstructionRequest$Type extends MessageType<InstructionRequest> {
           break;
         case /* org.apache.beam.model.fn_execution.v1.ProcessBundleRequest
                 process_bundle */
-            1001:
+        1001:
           message.request = {
-            oneofKind: 'processBundle',
+            oneofKind: "processBundle",
             processBundle: ProcessBundleRequest.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.request as any).processBundle)
+              reader,
+              reader.uint32(),
+              options,
+              (message.request as any).processBundle
+            ),
           };
           break;
         case /* org.apache.beam.model.fn_execution.v1.ProcessBundleProgressRequest
                 process_bundle_progress */
-            1002:
+        1002:
           message.request = {
-            oneofKind: 'processBundleProgress',
+            oneofKind: "processBundleProgress",
             processBundleProgress:
-                ProcessBundleProgressRequest.internalBinaryRead(
-                    reader, reader.uint32(), options,
-                    (message.request as any).processBundleProgress)
+              ProcessBundleProgressRequest.internalBinaryRead(
+                reader,
+                reader.uint32(),
+                options,
+                (message.request as any).processBundleProgress
+              ),
           };
           break;
         case /* org.apache.beam.model.fn_execution.v1.ProcessBundleSplitRequest
                 process_bundle_split */
-            1003:
+        1003:
           message.request = {
-            oneofKind: 'processBundleSplit',
+            oneofKind: "processBundleSplit",
             processBundleSplit: ProcessBundleSplitRequest.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.request as any).processBundleSplit)
+              reader,
+              reader.uint32(),
+              options,
+              (message.request as any).processBundleSplit
+            ),
           };
           break;
         case /* org.apache.beam.model.fn_execution.v1.FinalizeBundleRequest
                 finalize_bundle */
-            1004:
+        1004:
           message.request = {
-            oneofKind: 'finalizeBundle',
+            oneofKind: "finalizeBundle",
             finalizeBundle: FinalizeBundleRequest.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.request as any).finalizeBundle)
+              reader,
+              reader.uint32(),
+              options,
+              (message.request as any).finalizeBundle
+            ),
           };
           break;
         case /* org.apache.beam.model.fn_execution.v1.MonitoringInfosMetadataRequest
                 monitoring_infos */
-            1005:
+        1005:
           message.request = {
-            oneofKind: 'monitoringInfos',
+            oneofKind: "monitoringInfos",
             monitoringInfos: MonitoringInfosMetadataRequest.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.request as any).monitoringInfos)
+              reader,
+              reader.uint32(),
+              options,
+              (message.request as any).monitoringInfos
+            ),
           };
           break;
         case /* org.apache.beam.model.fn_execution.v1.HarnessMonitoringInfosRequest
                 harness_monitoring_infos */
-            1006:
+        1006:
           message.request = {
-            oneofKind: 'harnessMonitoringInfos',
+            oneofKind: "harnessMonitoringInfos",
             harnessMonitoringInfos:
-                HarnessMonitoringInfosRequest.internalBinaryRead(
-                    reader, reader.uint32(), options,
-                    (message.request as any).harnessMonitoringInfos)
+              HarnessMonitoringInfosRequest.internalBinaryRead(
+                reader,
+                reader.uint32(),
+                options,
+                (message.request as any).harnessMonitoringInfos
+              ),
           };
           break;
         case /* org.apache.beam.model.fn_execution.v1.RegisterRequest register
-              */
-            1000:
+         */
+        1000:
           message.request = {
-            oneofKind: 'register',
+            oneofKind: "register",
             register: RegisterRequest.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.request as any).register)
+              reader,
+              reader.uint32(),
+              options,
+              (message.request as any).register
+            ),
           };
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: InstructionRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: InstructionRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string instruction_id = 1; */
-    if (message.instructionId !== '')
+    if (message.instructionId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.instructionId);
     /* org.apache.beam.model.fn_execution.v1.ProcessBundleRequest process_bundle
      * = 1001; */
-    if (message.request.oneofKind === 'processBundle')
-      ProcessBundleRequest
-          .internalBinaryWrite(
-              message.request.processBundle,
-              writer.tag(1001, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.request.oneofKind === "processBundle")
+      ProcessBundleRequest.internalBinaryWrite(
+        message.request.processBundle,
+        writer.tag(1001, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.fn_execution.v1.ProcessBundleProgressRequest
      * process_bundle_progress = 1002; */
-    if (message.request.oneofKind === 'processBundleProgress')
-      ProcessBundleProgressRequest
-          .internalBinaryWrite(
-              message.request.processBundleProgress,
-              writer.tag(1002, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.request.oneofKind === "processBundleProgress")
+      ProcessBundleProgressRequest.internalBinaryWrite(
+        message.request.processBundleProgress,
+        writer.tag(1002, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.fn_execution.v1.ProcessBundleSplitRequest
      * process_bundle_split = 1003; */
-    if (message.request.oneofKind === 'processBundleSplit')
-      ProcessBundleSplitRequest
-          .internalBinaryWrite(
-              message.request.processBundleSplit,
-              writer.tag(1003, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.request.oneofKind === "processBundleSplit")
+      ProcessBundleSplitRequest.internalBinaryWrite(
+        message.request.processBundleSplit,
+        writer.tag(1003, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.fn_execution.v1.FinalizeBundleRequest
      * finalize_bundle = 1004; */
-    if (message.request.oneofKind === 'finalizeBundle')
-      FinalizeBundleRequest
-          .internalBinaryWrite(
-              message.request.finalizeBundle,
-              writer.tag(1004, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.request.oneofKind === "finalizeBundle")
+      FinalizeBundleRequest.internalBinaryWrite(
+        message.request.finalizeBundle,
+        writer.tag(1004, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.fn_execution.v1.MonitoringInfosMetadataRequest
      * monitoring_infos = 1005; */
-    if (message.request.oneofKind === 'monitoringInfos')
-      MonitoringInfosMetadataRequest
-          .internalBinaryWrite(
-              message.request.monitoringInfos,
-              writer.tag(1005, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.request.oneofKind === "monitoringInfos")
+      MonitoringInfosMetadataRequest.internalBinaryWrite(
+        message.request.monitoringInfos,
+        writer.tag(1005, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.fn_execution.v1.HarnessMonitoringInfosRequest
      * harness_monitoring_infos = 1006; */
-    if (message.request.oneofKind === 'harnessMonitoringInfos')
-      HarnessMonitoringInfosRequest
-          .internalBinaryWrite(
-              message.request.harnessMonitoringInfos,
-              writer.tag(1006, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.request.oneofKind === "harnessMonitoringInfos")
+      HarnessMonitoringInfosRequest.internalBinaryWrite(
+        message.request.harnessMonitoringInfos,
+        writer.tag(1006, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.fn_execution.v1.RegisterRequest register = 1000; */
-    if (message.request.oneofKind === 'register')
-      RegisterRequest
-          .internalBinaryWrite(
-              message.request.register,
-              writer.tag(1000, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.request.oneofKind === "register")
+      RegisterRequest.internalBinaryWrite(
+        message.request.register,
+        writer.tag(1000, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -2243,80 +2336,87 @@ export const InstructionRequest = new InstructionRequest$Type();
 // optimized methods
 class InstructionResponse$Type extends MessageType<InstructionResponse> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.InstructionResponse', [
+    super("org.apache.beam.model.fn_execution.v1.InstructionResponse", [
       {
         no: 1,
-        name: 'instruction_id',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
+        name: "instruction_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
       },
-      {no: 2, name: 'error', kind: 'scalar', T: 9 /*ScalarType.STRING*/}, {
+      { no: 2, name: "error", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      {
         no: 1001,
-        name: 'process_bundle',
-        kind: 'message',
-        oneof: 'response',
-        T: () => ProcessBundleResponse
+        name: "process_bundle",
+        kind: "message",
+        oneof: "response",
+        T: () => ProcessBundleResponse,
       },
       {
         no: 1002,
-        name: 'process_bundle_progress',
-        kind: 'message',
-        oneof: 'response',
-        T: () => ProcessBundleProgressResponse
+        name: "process_bundle_progress",
+        kind: "message",
+        oneof: "response",
+        T: () => ProcessBundleProgressResponse,
       },
       {
         no: 1003,
-        name: 'process_bundle_split',
-        kind: 'message',
-        oneof: 'response',
-        T: () => ProcessBundleSplitResponse
+        name: "process_bundle_split",
+        kind: "message",
+        oneof: "response",
+        T: () => ProcessBundleSplitResponse,
       },
       {
         no: 1004,
-        name: 'finalize_bundle',
-        kind: 'message',
-        oneof: 'response',
-        T: () => FinalizeBundleResponse
+        name: "finalize_bundle",
+        kind: "message",
+        oneof: "response",
+        T: () => FinalizeBundleResponse,
       },
       {
         no: 1005,
-        name: 'monitoring_infos',
-        kind: 'message',
-        oneof: 'response',
-        T: () => MonitoringInfosMetadataResponse
+        name: "monitoring_infos",
+        kind: "message",
+        oneof: "response",
+        T: () => MonitoringInfosMetadataResponse,
       },
       {
         no: 1006,
-        name: 'harness_monitoring_infos',
-        kind: 'message',
-        oneof: 'response',
-        T: () => HarnessMonitoringInfosResponse
+        name: "harness_monitoring_infos",
+        kind: "message",
+        oneof: "response",
+        T: () => HarnessMonitoringInfosResponse,
       },
       {
         no: 1000,
-        name: 'register',
-        kind: 'message',
-        oneof: 'response',
-        T: () => RegisterResponse
-      }
+        name: "register",
+        kind: "message",
+        oneof: "response",
+        T: () => RegisterResponse,
+      },
     ]);
   }
   create(value?: PartialMessage<InstructionResponse>): InstructionResponse {
     const message = {
-      instructionId: '',
-      error: '',
-      response: {oneofKind: undefined}
+      instructionId: "",
+      error: "",
+      response: { oneofKind: undefined },
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<InstructionResponse>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: InstructionResponse): InstructionResponse {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: InstructionResponse
+  ): InstructionResponse {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -2328,158 +2428,190 @@ class InstructionResponse$Type extends MessageType<InstructionResponse> {
           break;
         case /* org.apache.beam.model.fn_execution.v1.ProcessBundleResponse
                 process_bundle */
-            1001:
+        1001:
           message.response = {
-            oneofKind: 'processBundle',
+            oneofKind: "processBundle",
             processBundle: ProcessBundleResponse.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.response as any).processBundle)
+              reader,
+              reader.uint32(),
+              options,
+              (message.response as any).processBundle
+            ),
           };
           break;
         case /* org.apache.beam.model.fn_execution.v1.ProcessBundleProgressResponse
                 process_bundle_progress */
-            1002:
+        1002:
           message.response = {
-            oneofKind: 'processBundleProgress',
+            oneofKind: "processBundleProgress",
             processBundleProgress:
-                ProcessBundleProgressResponse.internalBinaryRead(
-                    reader, reader.uint32(), options,
-                    (message.response as any).processBundleProgress)
+              ProcessBundleProgressResponse.internalBinaryRead(
+                reader,
+                reader.uint32(),
+                options,
+                (message.response as any).processBundleProgress
+              ),
           };
           break;
         case /* org.apache.beam.model.fn_execution.v1.ProcessBundleSplitResponse
                 process_bundle_split */
-            1003:
+        1003:
           message.response = {
-            oneofKind: 'processBundleSplit',
+            oneofKind: "processBundleSplit",
             processBundleSplit: ProcessBundleSplitResponse.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.response as any).processBundleSplit)
+              reader,
+              reader.uint32(),
+              options,
+              (message.response as any).processBundleSplit
+            ),
           };
           break;
         case /* org.apache.beam.model.fn_execution.v1.FinalizeBundleResponse
                 finalize_bundle */
-            1004:
+        1004:
           message.response = {
-            oneofKind: 'finalizeBundle',
+            oneofKind: "finalizeBundle",
             finalizeBundle: FinalizeBundleResponse.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.response as any).finalizeBundle)
+              reader,
+              reader.uint32(),
+              options,
+              (message.response as any).finalizeBundle
+            ),
           };
           break;
         case /* org.apache.beam.model.fn_execution.v1.MonitoringInfosMetadataResponse
                 monitoring_infos */
-            1005:
+        1005:
           message.response = {
-            oneofKind: 'monitoringInfos',
+            oneofKind: "monitoringInfos",
             monitoringInfos: MonitoringInfosMetadataResponse.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.response as any).monitoringInfos)
+              reader,
+              reader.uint32(),
+              options,
+              (message.response as any).monitoringInfos
+            ),
           };
           break;
         case /* org.apache.beam.model.fn_execution.v1.HarnessMonitoringInfosResponse
                 harness_monitoring_infos */
-            1006:
+        1006:
           message.response = {
-            oneofKind: 'harnessMonitoringInfos',
+            oneofKind: "harnessMonitoringInfos",
             harnessMonitoringInfos:
-                HarnessMonitoringInfosResponse.internalBinaryRead(
-                    reader, reader.uint32(), options,
-                    (message.response as any).harnessMonitoringInfos)
+              HarnessMonitoringInfosResponse.internalBinaryRead(
+                reader,
+                reader.uint32(),
+                options,
+                (message.response as any).harnessMonitoringInfos
+              ),
           };
           break;
         case /* org.apache.beam.model.fn_execution.v1.RegisterResponse register
-              */
-            1000:
+         */
+        1000:
           message.response = {
-            oneofKind: 'register',
+            oneofKind: "register",
             register: RegisterResponse.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.response as any).register)
+              reader,
+              reader.uint32(),
+              options,
+              (message.response as any).register
+            ),
           };
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: InstructionResponse, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: InstructionResponse,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string instruction_id = 1; */
-    if (message.instructionId !== '')
+    if (message.instructionId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.instructionId);
     /* string error = 2; */
-    if (message.error !== '')
+    if (message.error !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.error);
     /* org.apache.beam.model.fn_execution.v1.ProcessBundleResponse
      * process_bundle = 1001; */
-    if (message.response.oneofKind === 'processBundle')
-      ProcessBundleResponse
-          .internalBinaryWrite(
-              message.response.processBundle,
-              writer.tag(1001, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.response.oneofKind === "processBundle")
+      ProcessBundleResponse.internalBinaryWrite(
+        message.response.processBundle,
+        writer.tag(1001, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.fn_execution.v1.ProcessBundleProgressResponse
      * process_bundle_progress = 1002; */
-    if (message.response.oneofKind === 'processBundleProgress')
-      ProcessBundleProgressResponse
-          .internalBinaryWrite(
-              message.response.processBundleProgress,
-              writer.tag(1002, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.response.oneofKind === "processBundleProgress")
+      ProcessBundleProgressResponse.internalBinaryWrite(
+        message.response.processBundleProgress,
+        writer.tag(1002, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.fn_execution.v1.ProcessBundleSplitResponse
      * process_bundle_split = 1003; */
-    if (message.response.oneofKind === 'processBundleSplit')
-      ProcessBundleSplitResponse
-          .internalBinaryWrite(
-              message.response.processBundleSplit,
-              writer.tag(1003, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.response.oneofKind === "processBundleSplit")
+      ProcessBundleSplitResponse.internalBinaryWrite(
+        message.response.processBundleSplit,
+        writer.tag(1003, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.fn_execution.v1.FinalizeBundleResponse
      * finalize_bundle = 1004; */
-    if (message.response.oneofKind === 'finalizeBundle')
-      FinalizeBundleResponse
-          .internalBinaryWrite(
-              message.response.finalizeBundle,
-              writer.tag(1004, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.response.oneofKind === "finalizeBundle")
+      FinalizeBundleResponse.internalBinaryWrite(
+        message.response.finalizeBundle,
+        writer.tag(1004, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.fn_execution.v1.MonitoringInfosMetadataResponse
      * monitoring_infos = 1005; */
-    if (message.response.oneofKind === 'monitoringInfos')
-      MonitoringInfosMetadataResponse
-          .internalBinaryWrite(
-              message.response.monitoringInfos,
-              writer.tag(1005, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.response.oneofKind === "monitoringInfos")
+      MonitoringInfosMetadataResponse.internalBinaryWrite(
+        message.response.monitoringInfos,
+        writer.tag(1005, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.fn_execution.v1.HarnessMonitoringInfosResponse
      * harness_monitoring_infos = 1006; */
-    if (message.response.oneofKind === 'harnessMonitoringInfos')
-      HarnessMonitoringInfosResponse
-          .internalBinaryWrite(
-              message.response.harnessMonitoringInfos,
-              writer.tag(1006, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.response.oneofKind === "harnessMonitoringInfos")
+      HarnessMonitoringInfosResponse.internalBinaryWrite(
+        message.response.harnessMonitoringInfos,
+        writer.tag(1006, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.fn_execution.v1.RegisterResponse register = 1000;
      */
-    if (message.response.oneofKind === 'register')
-      RegisterResponse
-          .internalBinaryWrite(
-              message.response.register,
-              writer.tag(1000, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.response.oneofKind === "register")
+      RegisterResponse.internalBinaryWrite(
+        message.response.register,
+        writer.tag(1000, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -2490,35 +2622,49 @@ class InstructionResponse$Type extends MessageType<InstructionResponse> {
 export const InstructionResponse = new InstructionResponse$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class HarnessMonitoringInfosRequest$Type extends
-    MessageType<HarnessMonitoringInfosRequest> {
+class HarnessMonitoringInfosRequest$Type extends MessageType<HarnessMonitoringInfosRequest> {
   constructor() {
     super(
-        'org.apache.beam.model.fn_execution.v1.HarnessMonitoringInfosRequest',
-        []);
+      "org.apache.beam.model.fn_execution.v1.HarnessMonitoringInfosRequest",
+      []
+    );
   }
-  create(value?: PartialMessage<HarnessMonitoringInfosRequest>):
-      HarnessMonitoringInfosRequest {
+  create(
+    value?: PartialMessage<HarnessMonitoringInfosRequest>
+  ): HarnessMonitoringInfosRequest {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<HarnessMonitoringInfosRequest>(
-          this, message, value);
+        this,
+        message,
+        value
+      );
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: HarnessMonitoringInfosRequest): HarnessMonitoringInfosRequest {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: HarnessMonitoringInfosRequest
+  ): HarnessMonitoringInfosRequest {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: HarnessMonitoringInfosRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: HarnessMonitoringInfosRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -2527,36 +2673,48 @@ class HarnessMonitoringInfosRequest$Type extends
  * org.apache.beam.model.fn_execution.v1.HarnessMonitoringInfosRequest
  */
 export const HarnessMonitoringInfosRequest =
-    new HarnessMonitoringInfosRequest$Type();
+  new HarnessMonitoringInfosRequest$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class HarnessMonitoringInfosResponse$Type extends
-    MessageType<HarnessMonitoringInfosResponse> {
+class HarnessMonitoringInfosResponse$Type extends MessageType<HarnessMonitoringInfosResponse> {
   constructor() {
     super(
-        'org.apache.beam.model.fn_execution.v1.HarnessMonitoringInfosResponse',
-        [{
+      "org.apache.beam.model.fn_execution.v1.HarnessMonitoringInfosResponse",
+      [
+        {
           no: 1,
-          name: 'monitoring_data',
-          kind: 'map',
+          name: "monitoring_data",
+          kind: "map",
           K: 9 /*ScalarType.STRING*/,
-          V: {kind: 'scalar', T: 12 /*ScalarType.BYTES*/}
-        }]);
+          V: { kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
+        },
+      ]
+    );
   }
-  create(value?: PartialMessage<HarnessMonitoringInfosResponse>):
-      HarnessMonitoringInfosResponse {
-    const message = {monitoringData: {}};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<HarnessMonitoringInfosResponse>
+  ): HarnessMonitoringInfosResponse {
+    const message = { monitoringData: {} };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<HarnessMonitoringInfosResponse>(
-          this, message, value);
+        this,
+        message,
+        value
+      );
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: HarnessMonitoringInfosResponse): HarnessMonitoringInfosResponse {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: HarnessMonitoringInfosResponse
+  ): HarnessMonitoringInfosResponse {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -2565,23 +2723,32 @@ class HarnessMonitoringInfosResponse$Type extends
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   private binaryReadMap1(
-      map: HarnessMonitoringInfosResponse['monitoringData'],
-      reader: IBinaryReader, options: BinaryReadOptions): void {
-    let len = reader.uint32(), end = reader.pos + len,
-        key: keyof HarnessMonitoringInfosResponse['monitoringData']|undefined,
-        val: HarnessMonitoringInfosResponse['monitoringData'][any]|undefined;
+    map: HarnessMonitoringInfosResponse["monitoringData"],
+    reader: IBinaryReader,
+    options: BinaryReadOptions
+  ): void {
+    let len = reader.uint32(),
+      end = reader.pos + len,
+      key: keyof HarnessMonitoringInfosResponse["monitoringData"] | undefined,
+      val: HarnessMonitoringInfosResponse["monitoringData"][any] | undefined;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -2593,27 +2760,34 @@ class HarnessMonitoringInfosResponse$Type extends
           break;
         default:
           throw new globalThis.Error(
-              'unknown map entry field for field org.apache.beam.model.fn_execution.v1.HarnessMonitoringInfosResponse.monitoring_data');
+            "unknown map entry field for field org.apache.beam.model.fn_execution.v1.HarnessMonitoringInfosResponse.monitoring_data"
+          );
       }
     }
-    map[key ?? ''] = val ?? new Uint8Array(0);
+    map[key ?? ""] = val ?? new Uint8Array(0);
   }
   internalBinaryWrite(
-      message: HarnessMonitoringInfosResponse, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: HarnessMonitoringInfosResponse,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* map<string, bytes> monitoring_data = 1; */
     for (let k of Object.keys(message.monitoringData))
-      writer.tag(1, WireType.LengthDelimited)
-          .fork()
-          .tag(1, WireType.LengthDelimited)
-          .string(k)
-          .tag(2, WireType.LengthDelimited)
-          .bytes(message.monitoringData[k])
-          .join();
+      writer
+        .tag(1, WireType.LengthDelimited)
+        .fork()
+        .tag(1, WireType.LengthDelimited)
+        .string(k)
+        .tag(2, WireType.LengthDelimited)
+        .bytes(message.monitoringData[k])
+        .join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -2622,70 +2796,93 @@ class HarnessMonitoringInfosResponse$Type extends
  * org.apache.beam.model.fn_execution.v1.HarnessMonitoringInfosResponse
  */
 export const HarnessMonitoringInfosResponse =
-    new HarnessMonitoringInfosResponse$Type();
+  new HarnessMonitoringInfosResponse$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
 class RegisterRequest$Type extends MessageType<RegisterRequest> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.RegisterRequest', [{
-            no: 1,
-            name: 'process_bundle_descriptor',
-            kind: 'message',
-            repeat: 1 /*RepeatType.PACKED*/,
-            T: () => ProcessBundleDescriptor
-          }]);
+    super("org.apache.beam.model.fn_execution.v1.RegisterRequest", [
+      {
+        no: 1,
+        name: "process_bundle_descriptor",
+        kind: "message",
+        repeat: 1 /*RepeatType.PACKED*/,
+        T: () => ProcessBundleDescriptor,
+      },
+    ]);
   }
   create(value?: PartialMessage<RegisterRequest>): RegisterRequest {
-    const message = {processBundleDescriptor: []};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { processBundleDescriptor: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<RegisterRequest>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: RegisterRequest): RegisterRequest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: RegisterRequest
+  ): RegisterRequest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* repeated
                 org.apache.beam.model.fn_execution.v1.ProcessBundleDescriptor
                 process_bundle_descriptor */
-            1:
+        1:
           message.processBundleDescriptor.push(
-              ProcessBundleDescriptor.internalBinaryRead(
-                  reader, reader.uint32(), options));
+            ProcessBundleDescriptor.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options
+            )
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: RegisterRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: RegisterRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* repeated org.apache.beam.model.fn_execution.v1.ProcessBundleDescriptor
      * process_bundle_descriptor = 1; */
     for (let i = 0; i < message.processBundleDescriptor.length; i++)
-      ProcessBundleDescriptor
-          .internalBinaryWrite(
-              message.processBundleDescriptor[i],
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+      ProcessBundleDescriptor.internalBinaryWrite(
+        message.processBundleDescriptor[i],
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -2698,28 +2895,38 @@ export const RegisterRequest = new RegisterRequest$Type();
 // optimized methods
 class RegisterResponse$Type extends MessageType<RegisterResponse> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.RegisterResponse', []);
+    super("org.apache.beam.model.fn_execution.v1.RegisterResponse", []);
   }
   create(value?: PartialMessage<RegisterResponse>): RegisterResponse {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<RegisterResponse>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: RegisterResponse): RegisterResponse {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: RegisterResponse
+  ): RegisterResponse {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: RegisterResponse, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: RegisterResponse,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -2730,79 +2937,86 @@ class RegisterResponse$Type extends MessageType<RegisterResponse> {
 export const RegisterResponse = new RegisterResponse$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class ProcessBundleDescriptor$Type extends
-    MessageType<ProcessBundleDescriptor> {
+class ProcessBundleDescriptor$Type extends MessageType<ProcessBundleDescriptor> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.ProcessBundleDescriptor', [
-      {no: 1, name: 'id', kind: 'scalar', T: 9 /*ScalarType.STRING*/}, {
+    super("org.apache.beam.model.fn_execution.v1.ProcessBundleDescriptor", [
+      { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      {
         no: 2,
-        name: 'transforms',
-        kind: 'map',
+        name: "transforms",
+        kind: "map",
         K: 9 /*ScalarType.STRING*/,
-        V: {kind: 'message', T: () => PTransform}
+        V: { kind: "message", T: () => PTransform },
       },
       {
         no: 3,
-        name: 'pcollections',
-        kind: 'map',
+        name: "pcollections",
+        kind: "map",
         K: 9 /*ScalarType.STRING*/,
-        V: {kind: 'message', T: () => PCollection}
+        V: { kind: "message", T: () => PCollection },
       },
       {
         no: 4,
-        name: 'windowing_strategies',
-        kind: 'map',
+        name: "windowing_strategies",
+        kind: "map",
         K: 9 /*ScalarType.STRING*/,
-        V: {kind: 'message', T: () => WindowingStrategy}
+        V: { kind: "message", T: () => WindowingStrategy },
       },
       {
         no: 5,
-        name: 'coders',
-        kind: 'map',
+        name: "coders",
+        kind: "map",
         K: 9 /*ScalarType.STRING*/,
-        V: {kind: 'message', T: () => Coder}
+        V: { kind: "message", T: () => Coder },
       },
       {
         no: 6,
-        name: 'environments',
-        kind: 'map',
+        name: "environments",
+        kind: "map",
         K: 9 /*ScalarType.STRING*/,
-        V: {kind: 'message', T: () => Environment}
+        V: { kind: "message", T: () => Environment },
       },
       {
         no: 7,
-        name: 'state_api_service_descriptor',
-        kind: 'message',
-        T: () => ApiServiceDescriptor
+        name: "state_api_service_descriptor",
+        kind: "message",
+        T: () => ApiServiceDescriptor,
       },
       {
         no: 8,
-        name: 'timer_api_service_descriptor',
-        kind: 'message',
-        T: () => ApiServiceDescriptor
-      }
+        name: "timer_api_service_descriptor",
+        kind: "message",
+        T: () => ApiServiceDescriptor,
+      },
     ]);
   }
-  create(value?: PartialMessage<ProcessBundleDescriptor>):
-      ProcessBundleDescriptor {
+  create(
+    value?: PartialMessage<ProcessBundleDescriptor>
+  ): ProcessBundleDescriptor {
     const message = {
-      id: '',
+      id: "",
       transforms: {},
       pcollections: {},
       windowingStrategies: {},
       coders: {},
-      environments: {}
+      environments: {},
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ProcessBundleDescriptor>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ProcessBundleDescriptor): ProcessBundleDescriptor {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ProcessBundleDescriptor
+  ): ProcessBundleDescriptor {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -2811,63 +3025,78 @@ class ProcessBundleDescriptor$Type extends
           break;
         case /* map<string, org.apache.beam.model.pipeline.v1.PTransform>
                 transforms */
-            2:
+        2:
           this.binaryReadMap2(message.transforms, reader, options);
           break;
         case /* map<string, org.apache.beam.model.pipeline.v1.PCollection>
                 pcollections */
-            3:
+        3:
           this.binaryReadMap3(message.pcollections, reader, options);
           break;
         case /* map<string, org.apache.beam.model.pipeline.v1.WindowingStrategy>
                 windowing_strategies */
-            4:
+        4:
           this.binaryReadMap4(message.windowingStrategies, reader, options);
           break;
         case /* map<string, org.apache.beam.model.pipeline.v1.Coder> coders */
-            5:
+        5:
           this.binaryReadMap5(message.coders, reader, options);
           break;
         case /* map<string, org.apache.beam.model.pipeline.v1.Environment>
                 environments */
-            6:
+        6:
           this.binaryReadMap6(message.environments, reader, options);
           break;
         case /* org.apache.beam.model.pipeline.v1.ApiServiceDescriptor
                 state_api_service_descriptor */
-            7:
+        7:
           message.stateApiServiceDescriptor =
-              ApiServiceDescriptor.internalBinaryRead(
-                  reader, reader.uint32(), options,
-                  message.stateApiServiceDescriptor);
+            ApiServiceDescriptor.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              message.stateApiServiceDescriptor
+            );
           break;
         case /* org.apache.beam.model.pipeline.v1.ApiServiceDescriptor
                 timer_api_service_descriptor */
-            8:
+        8:
           message.timerApiServiceDescriptor =
-              ApiServiceDescriptor.internalBinaryRead(
-                  reader, reader.uint32(), options,
-                  message.timerApiServiceDescriptor);
+            ApiServiceDescriptor.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              message.timerApiServiceDescriptor
+            );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   private binaryReadMap2(
-      map: ProcessBundleDescriptor['transforms'], reader: IBinaryReader,
-      options: BinaryReadOptions): void {
-    let len = reader.uint32(), end = reader.pos + len,
-        key: keyof ProcessBundleDescriptor['transforms']|undefined,
-        val: ProcessBundleDescriptor['transforms'][any]|undefined;
+    map: ProcessBundleDescriptor["transforms"],
+    reader: IBinaryReader,
+    options: BinaryReadOptions
+  ): void {
+    let len = reader.uint32(),
+      end = reader.pos + len,
+      key: keyof ProcessBundleDescriptor["transforms"] | undefined,
+      val: ProcessBundleDescriptor["transforms"][any] | undefined;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -2879,17 +3108,21 @@ class ProcessBundleDescriptor$Type extends
           break;
         default:
           throw new globalThis.Error(
-              'unknown map entry field for field org.apache.beam.model.fn_execution.v1.ProcessBundleDescriptor.transforms');
+            "unknown map entry field for field org.apache.beam.model.fn_execution.v1.ProcessBundleDescriptor.transforms"
+          );
       }
     }
-    map[key ?? ''] = val ?? PTransform.create();
+    map[key ?? ""] = val ?? PTransform.create();
   }
   private binaryReadMap3(
-      map: ProcessBundleDescriptor['pcollections'], reader: IBinaryReader,
-      options: BinaryReadOptions): void {
-    let len = reader.uint32(), end = reader.pos + len,
-        key: keyof ProcessBundleDescriptor['pcollections']|undefined,
-        val: ProcessBundleDescriptor['pcollections'][any]|undefined;
+    map: ProcessBundleDescriptor["pcollections"],
+    reader: IBinaryReader,
+    options: BinaryReadOptions
+  ): void {
+    let len = reader.uint32(),
+      end = reader.pos + len,
+      key: keyof ProcessBundleDescriptor["pcollections"] | undefined,
+      val: ProcessBundleDescriptor["pcollections"][any] | undefined;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -2897,22 +3130,29 @@ class ProcessBundleDescriptor$Type extends
           key = reader.string();
           break;
         case 2:
-          val =
-              PCollection.internalBinaryRead(reader, reader.uint32(), options);
+          val = PCollection.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options
+          );
           break;
         default:
           throw new globalThis.Error(
-              'unknown map entry field for field org.apache.beam.model.fn_execution.v1.ProcessBundleDescriptor.pcollections');
+            "unknown map entry field for field org.apache.beam.model.fn_execution.v1.ProcessBundleDescriptor.pcollections"
+          );
       }
     }
-    map[key ?? ''] = val ?? PCollection.create();
+    map[key ?? ""] = val ?? PCollection.create();
   }
   private binaryReadMap4(
-      map: ProcessBundleDescriptor['windowingStrategies'],
-      reader: IBinaryReader, options: BinaryReadOptions): void {
-    let len = reader.uint32(), end = reader.pos + len,
-        key: keyof ProcessBundleDescriptor['windowingStrategies']|undefined,
-        val: ProcessBundleDescriptor['windowingStrategies'][any]|undefined;
+    map: ProcessBundleDescriptor["windowingStrategies"],
+    reader: IBinaryReader,
+    options: BinaryReadOptions
+  ): void {
+    let len = reader.uint32(),
+      end = reader.pos + len,
+      key: keyof ProcessBundleDescriptor["windowingStrategies"] | undefined,
+      val: ProcessBundleDescriptor["windowingStrategies"][any] | undefined;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -2921,21 +3161,28 @@ class ProcessBundleDescriptor$Type extends
           break;
         case 2:
           val = WindowingStrategy.internalBinaryRead(
-              reader, reader.uint32(), options);
+            reader,
+            reader.uint32(),
+            options
+          );
           break;
         default:
           throw new globalThis.Error(
-              'unknown map entry field for field org.apache.beam.model.fn_execution.v1.ProcessBundleDescriptor.windowing_strategies');
+            "unknown map entry field for field org.apache.beam.model.fn_execution.v1.ProcessBundleDescriptor.windowing_strategies"
+          );
       }
     }
-    map[key ?? ''] = val ?? WindowingStrategy.create();
+    map[key ?? ""] = val ?? WindowingStrategy.create();
   }
   private binaryReadMap5(
-      map: ProcessBundleDescriptor['coders'], reader: IBinaryReader,
-      options: BinaryReadOptions): void {
-    let len = reader.uint32(), end = reader.pos + len,
-        key: keyof ProcessBundleDescriptor['coders']|undefined,
-        val: ProcessBundleDescriptor['coders'][any]|undefined;
+    map: ProcessBundleDescriptor["coders"],
+    reader: IBinaryReader,
+    options: BinaryReadOptions
+  ): void {
+    let len = reader.uint32(),
+      end = reader.pos + len,
+      key: keyof ProcessBundleDescriptor["coders"] | undefined,
+      val: ProcessBundleDescriptor["coders"][any] | undefined;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -2947,17 +3194,21 @@ class ProcessBundleDescriptor$Type extends
           break;
         default:
           throw new globalThis.Error(
-              'unknown map entry field for field org.apache.beam.model.fn_execution.v1.ProcessBundleDescriptor.coders');
+            "unknown map entry field for field org.apache.beam.model.fn_execution.v1.ProcessBundleDescriptor.coders"
+          );
       }
     }
-    map[key ?? ''] = val ?? Coder.create();
+    map[key ?? ""] = val ?? Coder.create();
   }
   private binaryReadMap6(
-      map: ProcessBundleDescriptor['environments'], reader: IBinaryReader,
-      options: BinaryReadOptions): void {
-    let len = reader.uint32(), end = reader.pos + len,
-        key: keyof ProcessBundleDescriptor['environments']|undefined,
-        val: ProcessBundleDescriptor['environments'][any]|undefined;
+    map: ProcessBundleDescriptor["environments"],
+    reader: IBinaryReader,
+    options: BinaryReadOptions
+  ): void {
+    let len = reader.uint32(),
+      end = reader.pos + len,
+      key: keyof ProcessBundleDescriptor["environments"] | undefined,
+      val: ProcessBundleDescriptor["environments"][any] | undefined;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -2965,29 +3216,36 @@ class ProcessBundleDescriptor$Type extends
           key = reader.string();
           break;
         case 2:
-          val =
-              Environment.internalBinaryRead(reader, reader.uint32(), options);
+          val = Environment.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options
+          );
           break;
         default:
           throw new globalThis.Error(
-              'unknown map entry field for field org.apache.beam.model.fn_execution.v1.ProcessBundleDescriptor.environments');
+            "unknown map entry field for field org.apache.beam.model.fn_execution.v1.ProcessBundleDescriptor.environments"
+          );
       }
     }
-    map[key ?? ''] = val ?? Environment.create();
+    map[key ?? ""] = val ?? Environment.create();
   }
   internalBinaryWrite(
-      message: ProcessBundleDescriptor, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ProcessBundleDescriptor,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string id = 1; */
-    if (message.id !== '')
+    if (message.id !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.id);
     /* map<string, org.apache.beam.model.pipeline.v1.PTransform> transforms = 2;
      */
     for (let k of Object.keys(message.transforms)) {
-      writer.tag(2, WireType.LengthDelimited)
-          .fork()
-          .tag(1, WireType.LengthDelimited)
-          .string(k);
+      writer
+        .tag(2, WireType.LengthDelimited)
+        .fork()
+        .tag(1, WireType.LengthDelimited)
+        .string(k);
       writer.tag(2, WireType.LengthDelimited).fork();
       PTransform.internalBinaryWrite(message.transforms[k], writer, options);
       writer.join().join();
@@ -2995,10 +3253,11 @@ class ProcessBundleDescriptor$Type extends
     /* map<string, org.apache.beam.model.pipeline.v1.PCollection> pcollections =
      * 3; */
     for (let k of Object.keys(message.pcollections)) {
-      writer.tag(3, WireType.LengthDelimited)
-          .fork()
-          .tag(1, WireType.LengthDelimited)
-          .string(k);
+      writer
+        .tag(3, WireType.LengthDelimited)
+        .fork()
+        .tag(1, WireType.LengthDelimited)
+        .string(k);
       writer.tag(2, WireType.LengthDelimited).fork();
       PCollection.internalBinaryWrite(message.pcollections[k], writer, options);
       writer.join().join();
@@ -3006,21 +3265,26 @@ class ProcessBundleDescriptor$Type extends
     /* map<string, org.apache.beam.model.pipeline.v1.WindowingStrategy>
      * windowing_strategies = 4; */
     for (let k of Object.keys(message.windowingStrategies)) {
-      writer.tag(4, WireType.LengthDelimited)
-          .fork()
-          .tag(1, WireType.LengthDelimited)
-          .string(k);
+      writer
+        .tag(4, WireType.LengthDelimited)
+        .fork()
+        .tag(1, WireType.LengthDelimited)
+        .string(k);
       writer.tag(2, WireType.LengthDelimited).fork();
       WindowingStrategy.internalBinaryWrite(
-          message.windowingStrategies[k], writer, options);
+        message.windowingStrategies[k],
+        writer,
+        options
+      );
       writer.join().join();
     }
     /* map<string, org.apache.beam.model.pipeline.v1.Coder> coders = 5; */
     for (let k of Object.keys(message.coders)) {
-      writer.tag(5, WireType.LengthDelimited)
-          .fork()
-          .tag(1, WireType.LengthDelimited)
-          .string(k);
+      writer
+        .tag(5, WireType.LengthDelimited)
+        .fork()
+        .tag(1, WireType.LengthDelimited)
+        .string(k);
       writer.tag(2, WireType.LengthDelimited).fork();
       Coder.internalBinaryWrite(message.coders[k], writer, options);
       writer.join().join();
@@ -3028,10 +3292,11 @@ class ProcessBundleDescriptor$Type extends
     /* map<string, org.apache.beam.model.pipeline.v1.Environment> environments =
      * 6; */
     for (let k of Object.keys(message.environments)) {
-      writer.tag(6, WireType.LengthDelimited)
-          .fork()
-          .tag(1, WireType.LengthDelimited)
-          .string(k);
+      writer
+        .tag(6, WireType.LengthDelimited)
+        .fork()
+        .tag(1, WireType.LengthDelimited)
+        .string(k);
       writer.tag(2, WireType.LengthDelimited).fork();
       Environment.internalBinaryWrite(message.environments[k], writer, options);
       writer.join().join();
@@ -3039,23 +3304,26 @@ class ProcessBundleDescriptor$Type extends
     /* org.apache.beam.model.pipeline.v1.ApiServiceDescriptor
      * state_api_service_descriptor = 7; */
     if (message.stateApiServiceDescriptor)
-      ApiServiceDescriptor
-          .internalBinaryWrite(
-              message.stateApiServiceDescriptor,
-              writer.tag(7, WireType.LengthDelimited).fork(), options)
-          .join();
+      ApiServiceDescriptor.internalBinaryWrite(
+        message.stateApiServiceDescriptor,
+        writer.tag(7, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.ApiServiceDescriptor
      * timer_api_service_descriptor = 8; */
     if (message.timerApiServiceDescriptor)
-      ApiServiceDescriptor
-          .internalBinaryWrite(
-              message.timerApiServiceDescriptor,
-              writer.tag(8, WireType.LengthDelimited).fork(), options)
-          .join();
+      ApiServiceDescriptor.internalBinaryWrite(
+        message.timerApiServiceDescriptor,
+        writer.tag(8, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -3068,43 +3336,57 @@ export const ProcessBundleDescriptor = new ProcessBundleDescriptor$Type();
 // optimized methods
 class BundleApplication$Type extends MessageType<BundleApplication> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.BundleApplication', [
-      {no: 1, name: 'transform_id', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 2, name: 'input_id', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 3, name: 'element', kind: 'scalar', T: 12 /*ScalarType.BYTES*/}, {
+    super("org.apache.beam.model.fn_execution.v1.BundleApplication", [
+      {
+        no: 1,
+        name: "transform_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
+      { no: 2, name: "input_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      { no: 3, name: "element", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
+      {
         no: 4,
-        name: 'output_watermarks',
-        kind: 'map',
+        name: "output_watermarks",
+        kind: "map",
         K: 9 /*ScalarType.STRING*/,
-        V: {kind: 'message', T: () => Timestamp}
+        V: { kind: "message", T: () => Timestamp },
       },
       {
         no: 5,
-        name: 'is_bounded',
-        kind: 'enum',
-        T: () =>
-            ['org.apache.beam.model.pipeline.v1.IsBounded.Enum', IsBounded_Enum]
-      }
+        name: "is_bounded",
+        kind: "enum",
+        T: () => [
+          "org.apache.beam.model.pipeline.v1.IsBounded.Enum",
+          IsBounded_Enum,
+        ],
+      },
     ]);
   }
   create(value?: PartialMessage<BundleApplication>): BundleApplication {
     const message = {
-      transformId: '',
-      inputId: '',
+      transformId: "",
+      inputId: "",
       element: new Uint8Array(0),
       outputWatermarks: {},
-      isBounded: 0
+      isBounded: 0,
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<BundleApplication>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: BundleApplication): BundleApplication {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: BundleApplication
+  ): BundleApplication {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -3121,28 +3403,37 @@ class BundleApplication$Type extends MessageType<BundleApplication> {
           this.binaryReadMap4(message.outputWatermarks, reader, options);
           break;
         case /* org.apache.beam.model.pipeline.v1.IsBounded.Enum is_bounded */
-            5:
+        5:
           message.isBounded = reader.int32();
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   private binaryReadMap4(
-      map: BundleApplication['outputWatermarks'], reader: IBinaryReader,
-      options: BinaryReadOptions): void {
-    let len = reader.uint32(), end = reader.pos + len,
-        key: keyof BundleApplication['outputWatermarks']|undefined,
-        val: BundleApplication['outputWatermarks'][any]|undefined;
+    map: BundleApplication["outputWatermarks"],
+    reader: IBinaryReader,
+    options: BinaryReadOptions
+  ): void {
+    let len = reader.uint32(),
+      end = reader.pos + len,
+      key: keyof BundleApplication["outputWatermarks"] | undefined,
+      val: BundleApplication["outputWatermarks"][any] | undefined;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -3154,32 +3445,39 @@ class BundleApplication$Type extends MessageType<BundleApplication> {
           break;
         default:
           throw new globalThis.Error(
-              'unknown map entry field for field org.apache.beam.model.fn_execution.v1.BundleApplication.output_watermarks');
+            "unknown map entry field for field org.apache.beam.model.fn_execution.v1.BundleApplication.output_watermarks"
+          );
       }
     }
-    map[key ?? ''] = val ?? Timestamp.create();
+    map[key ?? ""] = val ?? Timestamp.create();
   }
   internalBinaryWrite(
-      message: BundleApplication, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: BundleApplication,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string transform_id = 1; */
-    if (message.transformId !== '')
+    if (message.transformId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.transformId);
     /* string input_id = 2; */
-    if (message.inputId !== '')
+    if (message.inputId !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.inputId);
     /* bytes element = 3; */
     if (message.element.length)
       writer.tag(3, WireType.LengthDelimited).bytes(message.element);
     /* map<string, google.protobuf.Timestamp> output_watermarks = 4; */
     for (let k of Object.keys(message.outputWatermarks)) {
-      writer.tag(4, WireType.LengthDelimited)
-          .fork()
-          .tag(1, WireType.LengthDelimited)
-          .string(k);
+      writer
+        .tag(4, WireType.LengthDelimited)
+        .fork()
+        .tag(1, WireType.LengthDelimited)
+        .string(k);
       writer.tag(2, WireType.LengthDelimited).fork();
       Timestamp.internalBinaryWrite(
-          message.outputWatermarks[k], writer, options);
+        message.outputWatermarks[k],
+        writer,
+        options
+      );
       writer.join().join();
     }
     /* org.apache.beam.model.pipeline.v1.IsBounded.Enum is_bounded = 5; */
@@ -3188,7 +3486,10 @@ class BundleApplication$Type extends MessageType<BundleApplication> {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -3199,75 +3500,110 @@ class BundleApplication$Type extends MessageType<BundleApplication> {
 export const BundleApplication = new BundleApplication$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class DelayedBundleApplication$Type extends
-    MessageType<DelayedBundleApplication> {
+class DelayedBundleApplication$Type extends MessageType<DelayedBundleApplication> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.DelayedBundleApplication', [
-      {no: 1, name: 'application', kind: 'message', T: () => BundleApplication},
-      {no: 2, name: 'requested_time_delay', kind: 'message', T: () => Duration}
+    super("org.apache.beam.model.fn_execution.v1.DelayedBundleApplication", [
+      {
+        no: 1,
+        name: "application",
+        kind: "message",
+        T: () => BundleApplication,
+      },
+      {
+        no: 2,
+        name: "requested_time_delay",
+        kind: "message",
+        T: () => Duration,
+      },
     ]);
   }
-  create(value?: PartialMessage<DelayedBundleApplication>):
-      DelayedBundleApplication {
+  create(
+    value?: PartialMessage<DelayedBundleApplication>
+  ): DelayedBundleApplication {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<DelayedBundleApplication>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: DelayedBundleApplication): DelayedBundleApplication {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: DelayedBundleApplication
+  ): DelayedBundleApplication {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.fn_execution.v1.BundleApplication
                 application */
-            1:
+        1:
           message.application = BundleApplication.internalBinaryRead(
-              reader, reader.uint32(), options, message.application);
+            reader,
+            reader.uint32(),
+            options,
+            message.application
+          );
           break;
         case /* google.protobuf.Duration requested_time_delay */ 2:
           message.requestedTimeDelay = Duration.internalBinaryRead(
-              reader, reader.uint32(), options, message.requestedTimeDelay);
+            reader,
+            reader.uint32(),
+            options,
+            message.requestedTimeDelay
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: DelayedBundleApplication, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: DelayedBundleApplication,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.fn_execution.v1.BundleApplication application = 1;
      */
     if (message.application)
-      BundleApplication
-          .internalBinaryWrite(
-              message.application,
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+      BundleApplication.internalBinaryWrite(
+        message.application,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* google.protobuf.Duration requested_time_delay = 2; */
     if (message.requestedTimeDelay)
-      Duration
-          .internalBinaryWrite(
-              message.requestedTimeDelay,
-              writer.tag(2, WireType.LengthDelimited).fork(), options)
-          .join();
+      Duration.internalBinaryWrite(
+        message.requestedTimeDelay,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -3280,35 +3616,41 @@ export const DelayedBundleApplication = new DelayedBundleApplication$Type();
 // optimized methods
 class ProcessBundleRequest$Type extends MessageType<ProcessBundleRequest> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.ProcessBundleRequest', [
+    super("org.apache.beam.model.fn_execution.v1.ProcessBundleRequest", [
       {
         no: 1,
-        name: 'process_bundle_descriptor_id',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
+        name: "process_bundle_descriptor_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
       },
       {
         no: 2,
-        name: 'cache_tokens',
-        kind: 'message',
+        name: "cache_tokens",
+        kind: "message",
         repeat: 1 /*RepeatType.PACKED*/,
-        T: () => ProcessBundleRequest_CacheToken
+        T: () => ProcessBundleRequest_CacheToken,
       },
-      {no: 3, name: 'elements', kind: 'message', T: () => Elements}
+      { no: 3, name: "elements", kind: "message", T: () => Elements },
     ]);
   }
   create(value?: PartialMessage<ProcessBundleRequest>): ProcessBundleRequest {
-    const message = {processBundleDescriptorId: '', cacheTokens: []};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { processBundleDescriptorId: "", cacheTokens: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ProcessBundleRequest>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ProcessBundleRequest): ProcessBundleRequest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ProcessBundleRequest
+  ): ProcessBundleRequest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -3318,55 +3660,75 @@ class ProcessBundleRequest$Type extends MessageType<ProcessBundleRequest> {
         case /* repeated
                 org.apache.beam.model.fn_execution.v1.ProcessBundleRequest.CacheToken
                 cache_tokens */
-            2:
+        2:
           message.cacheTokens.push(
-              ProcessBundleRequest_CacheToken.internalBinaryRead(
-                  reader, reader.uint32(), options));
+            ProcessBundleRequest_CacheToken.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options
+            )
+          );
           break;
         case /* org.apache.beam.model.fn_execution.v1.Elements elements */ 3:
           message.elements = Elements.internalBinaryRead(
-              reader, reader.uint32(), options, message.elements);
+            reader,
+            reader.uint32(),
+            options,
+            message.elements
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ProcessBundleRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ProcessBundleRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string process_bundle_descriptor_id = 1; */
-    if (message.processBundleDescriptorId !== '')
-      writer.tag(1, WireType.LengthDelimited)
-          .string(message.processBundleDescriptorId);
+    if (message.processBundleDescriptorId !== "")
+      writer
+        .tag(1, WireType.LengthDelimited)
+        .string(message.processBundleDescriptorId);
     /* repeated
      * org.apache.beam.model.fn_execution.v1.ProcessBundleRequest.CacheToken
      * cache_tokens = 2; */
     for (let i = 0; i < message.cacheTokens.length; i++)
-      ProcessBundleRequest_CacheToken
-          .internalBinaryWrite(
-              message.cacheTokens[i],
-              writer.tag(2, WireType.LengthDelimited).fork(), options)
-          .join();
+      ProcessBundleRequest_CacheToken.internalBinaryWrite(
+        message.cacheTokens[i],
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.fn_execution.v1.Elements elements = 3; */
     if (message.elements)
-      Elements
-          .internalBinaryWrite(
-              message.elements, writer.tag(3, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      Elements.internalBinaryWrite(
+        message.elements,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -3377,67 +3739,85 @@ class ProcessBundleRequest$Type extends MessageType<ProcessBundleRequest> {
 export const ProcessBundleRequest = new ProcessBundleRequest$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class ProcessBundleRequest_CacheToken$Type extends
-    MessageType<ProcessBundleRequest_CacheToken> {
+class ProcessBundleRequest_CacheToken$Type extends MessageType<ProcessBundleRequest_CacheToken> {
   constructor() {
     super(
-        'org.apache.beam.model.fn_execution.v1.ProcessBundleRequest.CacheToken',
-        [
-          {
-            no: 1,
-            name: 'user_state',
-            kind: 'message',
-            oneof: 'type',
-            T: () => ProcessBundleRequest_CacheToken_UserState
-          },
-          {
-            no: 2,
-            name: 'side_input',
-            kind: 'message',
-            oneof: 'type',
-            T: () => ProcessBundleRequest_CacheToken_SideInput
-          },
-          {no: 10, name: 'token', kind: 'scalar', T: 12 /*ScalarType.BYTES*/}
-        ]);
+      "org.apache.beam.model.fn_execution.v1.ProcessBundleRequest.CacheToken",
+      [
+        {
+          no: 1,
+          name: "user_state",
+          kind: "message",
+          oneof: "type",
+          T: () => ProcessBundleRequest_CacheToken_UserState,
+        },
+        {
+          no: 2,
+          name: "side_input",
+          kind: "message",
+          oneof: "type",
+          T: () => ProcessBundleRequest_CacheToken_SideInput,
+        },
+        { no: 10, name: "token", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
+      ]
+    );
   }
-  create(value?: PartialMessage<ProcessBundleRequest_CacheToken>):
-      ProcessBundleRequest_CacheToken {
-    const message = {type: {oneofKind: undefined}, token: new Uint8Array(0)};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<ProcessBundleRequest_CacheToken>
+  ): ProcessBundleRequest_CacheToken {
+    const message = {
+      type: { oneofKind: undefined },
+      token: new Uint8Array(0),
+    };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ProcessBundleRequest_CacheToken>(
-          this, message, value);
+        this,
+        message,
+        value
+      );
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ProcessBundleRequest_CacheToken):
-      ProcessBundleRequest_CacheToken {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ProcessBundleRequest_CacheToken
+  ): ProcessBundleRequest_CacheToken {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.fn_execution.v1.ProcessBundleRequest.CacheToken.UserState
                 user_state */
-            1:
+        1:
           message.type = {
-            oneofKind: 'userState',
+            oneofKind: "userState",
             userState:
-                ProcessBundleRequest_CacheToken_UserState.internalBinaryRead(
-                    reader, reader.uint32(), options,
-                    (message.type as any).userState)
+              ProcessBundleRequest_CacheToken_UserState.internalBinaryRead(
+                reader,
+                reader.uint32(),
+                options,
+                (message.type as any).userState
+              ),
           };
           break;
         case /* org.apache.beam.model.fn_execution.v1.ProcessBundleRequest.CacheToken.SideInput
                 side_input */
-            2:
+        2:
           message.type = {
-            oneofKind: 'sideInput',
+            oneofKind: "sideInput",
             sideInput:
-                ProcessBundleRequest_CacheToken_SideInput.internalBinaryRead(
-                    reader, reader.uint32(), options,
-                    (message.type as any).sideInput)
+              ProcessBundleRequest_CacheToken_SideInput.internalBinaryRead(
+                reader,
+                reader.uint32(),
+                options,
+                (message.type as any).sideInput
+              ),
           };
           break;
         case /* bytes token */ 10:
@@ -3445,43 +3825,54 @@ class ProcessBundleRequest_CacheToken$Type extends
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ProcessBundleRequest_CacheToken, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ProcessBundleRequest_CacheToken,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.fn_execution.v1.ProcessBundleRequest.CacheToken.UserState
      * user_state = 1; */
-    if (message.type.oneofKind === 'userState')
-      ProcessBundleRequest_CacheToken_UserState
-          .internalBinaryWrite(
-              message.type.userState,
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.type.oneofKind === "userState")
+      ProcessBundleRequest_CacheToken_UserState.internalBinaryWrite(
+        message.type.userState,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.fn_execution.v1.ProcessBundleRequest.CacheToken.SideInput
      * side_input = 2; */
-    if (message.type.oneofKind === 'sideInput')
-      ProcessBundleRequest_CacheToken_SideInput
-          .internalBinaryWrite(
-              message.type.sideInput,
-              writer.tag(2, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.type.oneofKind === "sideInput")
+      ProcessBundleRequest_CacheToken_SideInput.internalBinaryWrite(
+        message.type.sideInput,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* bytes token = 10; */
     if (message.token.length)
       writer.tag(10, WireType.LengthDelimited).bytes(message.token);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -3490,39 +3881,52 @@ class ProcessBundleRequest_CacheToken$Type extends
  * org.apache.beam.model.fn_execution.v1.ProcessBundleRequest.CacheToken
  */
 export const ProcessBundleRequest_CacheToken =
-    new ProcessBundleRequest_CacheToken$Type();
+  new ProcessBundleRequest_CacheToken$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class ProcessBundleRequest_CacheToken_UserState$Type extends
-    MessageType<ProcessBundleRequest_CacheToken_UserState> {
+class ProcessBundleRequest_CacheToken_UserState$Type extends MessageType<ProcessBundleRequest_CacheToken_UserState> {
   constructor() {
     super(
-        'org.apache.beam.model.fn_execution.v1.ProcessBundleRequest.CacheToken.UserState',
-        []);
+      "org.apache.beam.model.fn_execution.v1.ProcessBundleRequest.CacheToken.UserState",
+      []
+    );
   }
-  create(value?: PartialMessage<ProcessBundleRequest_CacheToken_UserState>):
-      ProcessBundleRequest_CacheToken_UserState {
+  create(
+    value?: PartialMessage<ProcessBundleRequest_CacheToken_UserState>
+  ): ProcessBundleRequest_CacheToken_UserState {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ProcessBundleRequest_CacheToken_UserState>(
-          this, message, value);
+        this,
+        message,
+        value
+      );
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ProcessBundleRequest_CacheToken_UserState):
-      ProcessBundleRequest_CacheToken_UserState {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ProcessBundleRequest_CacheToken_UserState
+  ): ProcessBundleRequest_CacheToken_UserState {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: ProcessBundleRequest_CacheToken_UserState, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ProcessBundleRequest_CacheToken_UserState,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -3531,44 +3935,53 @@ class ProcessBundleRequest_CacheToken_UserState$Type extends
  * org.apache.beam.model.fn_execution.v1.ProcessBundleRequest.CacheToken.UserState
  */
 export const ProcessBundleRequest_CacheToken_UserState =
-    new ProcessBundleRequest_CacheToken_UserState$Type();
+  new ProcessBundleRequest_CacheToken_UserState$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class ProcessBundleRequest_CacheToken_SideInput$Type extends
-    MessageType<ProcessBundleRequest_CacheToken_SideInput> {
+class ProcessBundleRequest_CacheToken_SideInput$Type extends MessageType<ProcessBundleRequest_CacheToken_SideInput> {
   constructor() {
     super(
-        'org.apache.beam.model.fn_execution.v1.ProcessBundleRequest.CacheToken.SideInput',
-        [
-          {
-            no: 1,
-            name: 'transform_id',
-            kind: 'scalar',
-            T: 9 /*ScalarType.STRING*/
-          },
-          {
-            no: 2,
-            name: 'side_input_id',
-            kind: 'scalar',
-            T: 9 /*ScalarType.STRING*/
-          }
-        ]);
+      "org.apache.beam.model.fn_execution.v1.ProcessBundleRequest.CacheToken.SideInput",
+      [
+        {
+          no: 1,
+          name: "transform_id",
+          kind: "scalar",
+          T: 9 /*ScalarType.STRING*/,
+        },
+        {
+          no: 2,
+          name: "side_input_id",
+          kind: "scalar",
+          T: 9 /*ScalarType.STRING*/,
+        },
+      ]
+    );
   }
-  create(value?: PartialMessage<ProcessBundleRequest_CacheToken_SideInput>):
-      ProcessBundleRequest_CacheToken_SideInput {
-    const message = {transformId: '', sideInputId: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<ProcessBundleRequest_CacheToken_SideInput>
+  ): ProcessBundleRequest_CacheToken_SideInput {
+    const message = { transformId: "", sideInputId: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ProcessBundleRequest_CacheToken_SideInput>(
-          this, message, value);
+        this,
+        message,
+        value
+      );
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ProcessBundleRequest_CacheToken_SideInput):
-      ProcessBundleRequest_CacheToken_SideInput {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ProcessBundleRequest_CacheToken_SideInput
+  ): ProcessBundleRequest_CacheToken_SideInput {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -3580,30 +3993,41 @@ class ProcessBundleRequest_CacheToken_SideInput$Type extends
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ProcessBundleRequest_CacheToken_SideInput, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ProcessBundleRequest_CacheToken_SideInput,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string transform_id = 1; */
-    if (message.transformId !== '')
+    if (message.transformId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.transformId);
     /* string side_input_id = 2; */
-    if (message.sideInputId !== '')
+    if (message.sideInputId !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.sideInputId);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -3612,40 +4036,40 @@ class ProcessBundleRequest_CacheToken_SideInput$Type extends
  * org.apache.beam.model.fn_execution.v1.ProcessBundleRequest.CacheToken.SideInput
  */
 export const ProcessBundleRequest_CacheToken_SideInput =
-    new ProcessBundleRequest_CacheToken_SideInput$Type();
+  new ProcessBundleRequest_CacheToken_SideInput$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
 class ProcessBundleResponse$Type extends MessageType<ProcessBundleResponse> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.ProcessBundleResponse', [
+    super("org.apache.beam.model.fn_execution.v1.ProcessBundleResponse", [
       {
         no: 2,
-        name: 'residual_roots',
-        kind: 'message',
+        name: "residual_roots",
+        kind: "message",
         repeat: 1 /*RepeatType.PACKED*/,
-        T: () => DelayedBundleApplication
+        T: () => DelayedBundleApplication,
       },
       {
         no: 3,
-        name: 'monitoring_infos',
-        kind: 'message',
+        name: "monitoring_infos",
+        kind: "message",
         repeat: 1 /*RepeatType.PACKED*/,
-        T: () => MonitoringInfo
+        T: () => MonitoringInfo,
       },
       {
         no: 4,
-        name: 'requires_finalization',
-        kind: 'scalar',
-        T: 8 /*ScalarType.BOOL*/
+        name: "requires_finalization",
+        kind: "scalar",
+        T: 8 /*ScalarType.BOOL*/,
       },
       {
         no: 5,
-        name: 'monitoring_data',
-        kind: 'map',
+        name: "monitoring_data",
+        kind: "map",
         K: 9 /*ScalarType.STRING*/,
-        V: {kind: 'scalar', T: 12 /*ScalarType.BYTES*/}
+        V: { kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
       },
-      {no: 6, name: 'elements', kind: 'message', T: () => Elements}
+      { no: 6, name: "elements", kind: "message", T: () => Elements },
     ]);
   }
   create(value?: PartialMessage<ProcessBundleResponse>): ProcessBundleResponse {
@@ -3653,34 +4077,45 @@ class ProcessBundleResponse$Type extends MessageType<ProcessBundleResponse> {
       residualRoots: [],
       monitoringInfos: [],
       requiresFinalization: false,
-      monitoringData: {}
+      monitoringData: {},
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ProcessBundleResponse>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ProcessBundleResponse): ProcessBundleResponse {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ProcessBundleResponse
+  ): ProcessBundleResponse {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* repeated
                 org.apache.beam.model.fn_execution.v1.DelayedBundleApplication
                 residual_roots */
-            2:
+        2:
           message.residualRoots.push(
-              DelayedBundleApplication.internalBinaryRead(
-                  reader, reader.uint32(), options));
+            DelayedBundleApplication.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options
+            )
+          );
           break;
         case /* repeated org.apache.beam.model.pipeline.v1.MonitoringInfo
                 monitoring_infos */
-            3:
-          message.monitoringInfos.push(MonitoringInfo.internalBinaryRead(
-              reader, reader.uint32(), options));
+        3:
+          message.monitoringInfos.push(
+            MonitoringInfo.internalBinaryRead(reader, reader.uint32(), options)
+          );
           break;
         case /* bool requires_finalization */ 4:
           message.requiresFinalization = reader.bool();
@@ -3690,27 +4125,40 @@ class ProcessBundleResponse$Type extends MessageType<ProcessBundleResponse> {
           break;
         case /* org.apache.beam.model.fn_execution.v1.Elements elements */ 6:
           message.elements = Elements.internalBinaryRead(
-              reader, reader.uint32(), options, message.elements);
+            reader,
+            reader.uint32(),
+            options,
+            message.elements
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   private binaryReadMap5(
-      map: ProcessBundleResponse['monitoringData'], reader: IBinaryReader,
-      options: BinaryReadOptions): void {
-    let len = reader.uint32(), end = reader.pos + len,
-        key: keyof ProcessBundleResponse['monitoringData']|undefined,
-        val: ProcessBundleResponse['monitoringData'][any]|undefined;
+    map: ProcessBundleResponse["monitoringData"],
+    reader: IBinaryReader,
+    options: BinaryReadOptions
+  ): void {
+    let len = reader.uint32(),
+      end = reader.pos + len,
+      key: keyof ProcessBundleResponse["monitoringData"] | undefined,
+      val: ProcessBundleResponse["monitoringData"][any] | undefined;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -3722,53 +4170,60 @@ class ProcessBundleResponse$Type extends MessageType<ProcessBundleResponse> {
           break;
         default:
           throw new globalThis.Error(
-              'unknown map entry field for field org.apache.beam.model.fn_execution.v1.ProcessBundleResponse.monitoring_data');
+            "unknown map entry field for field org.apache.beam.model.fn_execution.v1.ProcessBundleResponse.monitoring_data"
+          );
       }
     }
-    map[key ?? ''] = val ?? new Uint8Array(0);
+    map[key ?? ""] = val ?? new Uint8Array(0);
   }
   internalBinaryWrite(
-      message: ProcessBundleResponse, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ProcessBundleResponse,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* repeated org.apache.beam.model.fn_execution.v1.DelayedBundleApplication
      * residual_roots = 2; */
     for (let i = 0; i < message.residualRoots.length; i++)
-      DelayedBundleApplication
-          .internalBinaryWrite(
-              message.residualRoots[i],
-              writer.tag(2, WireType.LengthDelimited).fork(), options)
-          .join();
+      DelayedBundleApplication.internalBinaryWrite(
+        message.residualRoots[i],
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* repeated org.apache.beam.model.pipeline.v1.MonitoringInfo
      * monitoring_infos = 3; */
     for (let i = 0; i < message.monitoringInfos.length; i++)
-      MonitoringInfo
-          .internalBinaryWrite(
-              message.monitoringInfos[i],
-              writer.tag(3, WireType.LengthDelimited).fork(), options)
-          .join();
+      MonitoringInfo.internalBinaryWrite(
+        message.monitoringInfos[i],
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* bool requires_finalization = 4; */
     if (message.requiresFinalization !== false)
       writer.tag(4, WireType.Varint).bool(message.requiresFinalization);
     /* map<string, bytes> monitoring_data = 5; */
     for (let k of Object.keys(message.monitoringData))
-      writer.tag(5, WireType.LengthDelimited)
-          .fork()
-          .tag(1, WireType.LengthDelimited)
-          .string(k)
-          .tag(2, WireType.LengthDelimited)
-          .bytes(message.monitoringData[k])
-          .join();
+      writer
+        .tag(5, WireType.LengthDelimited)
+        .fork()
+        .tag(1, WireType.LengthDelimited)
+        .string(k)
+        .tag(2, WireType.LengthDelimited)
+        .bytes(message.monitoringData[k])
+        .join();
     /* org.apache.beam.model.fn_execution.v1.Elements elements = 6; */
     if (message.elements)
-      Elements
-          .internalBinaryWrite(
-              message.elements, writer.tag(6, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      Elements.internalBinaryWrite(
+        message.elements,
+        writer.tag(6, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -3779,31 +4234,44 @@ class ProcessBundleResponse$Type extends MessageType<ProcessBundleResponse> {
 export const ProcessBundleResponse = new ProcessBundleResponse$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class ProcessBundleProgressRequest$Type extends
-    MessageType<ProcessBundleProgressRequest> {
+class ProcessBundleProgressRequest$Type extends MessageType<ProcessBundleProgressRequest> {
   constructor() {
     super(
-        'org.apache.beam.model.fn_execution.v1.ProcessBundleProgressRequest', [{
+      "org.apache.beam.model.fn_execution.v1.ProcessBundleProgressRequest",
+      [
+        {
           no: 1,
-          name: 'instruction_id',
-          kind: 'scalar',
-          T: 9 /*ScalarType.STRING*/
-        }]);
+          name: "instruction_id",
+          kind: "scalar",
+          T: 9 /*ScalarType.STRING*/,
+        },
+      ]
+    );
   }
-  create(value?: PartialMessage<ProcessBundleProgressRequest>):
-      ProcessBundleProgressRequest {
-    const message = {instructionId: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<ProcessBundleProgressRequest>
+  ): ProcessBundleProgressRequest {
+    const message = { instructionId: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ProcessBundleProgressRequest>(
-          this, message, value);
+        this,
+        message,
+        value
+      );
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ProcessBundleProgressRequest): ProcessBundleProgressRequest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ProcessBundleProgressRequest
+  ): ProcessBundleProgressRequest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -3812,27 +4280,38 @@ class ProcessBundleProgressRequest$Type extends
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ProcessBundleProgressRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ProcessBundleProgressRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string instruction_id = 1; */
-    if (message.instructionId !== '')
+    if (message.instructionId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.instructionId);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -3841,36 +4320,48 @@ class ProcessBundleProgressRequest$Type extends
  * org.apache.beam.model.fn_execution.v1.ProcessBundleProgressRequest
  */
 export const ProcessBundleProgressRequest =
-    new ProcessBundleProgressRequest$Type();
+  new ProcessBundleProgressRequest$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class MonitoringInfosMetadataRequest$Type extends
-    MessageType<MonitoringInfosMetadataRequest> {
+class MonitoringInfosMetadataRequest$Type extends MessageType<MonitoringInfosMetadataRequest> {
   constructor() {
     super(
-        'org.apache.beam.model.fn_execution.v1.MonitoringInfosMetadataRequest',
-        [{
+      "org.apache.beam.model.fn_execution.v1.MonitoringInfosMetadataRequest",
+      [
+        {
           no: 1,
-          name: 'monitoring_info_id',
-          kind: 'scalar',
+          name: "monitoring_info_id",
+          kind: "scalar",
           repeat: 2 /*RepeatType.UNPACKED*/,
-          T: 9 /*ScalarType.STRING*/
-        }]);
+          T: 9 /*ScalarType.STRING*/,
+        },
+      ]
+    );
   }
-  create(value?: PartialMessage<MonitoringInfosMetadataRequest>):
-      MonitoringInfosMetadataRequest {
-    const message = {monitoringInfoId: []};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<MonitoringInfosMetadataRequest>
+  ): MonitoringInfosMetadataRequest {
+    const message = { monitoringInfoId: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<MonitoringInfosMetadataRequest>(
-          this, message, value);
+        this,
+        message,
+        value
+      );
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: MonitoringInfosMetadataRequest): MonitoringInfosMetadataRequest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: MonitoringInfosMetadataRequest
+  ): MonitoringInfosMetadataRequest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -3879,28 +4370,40 @@ class MonitoringInfosMetadataRequest$Type extends
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: MonitoringInfosMetadataRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: MonitoringInfosMetadataRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* repeated string monitoring_info_id = 1; */
     for (let i = 0; i < message.monitoringInfoId.length; i++)
-      writer.tag(1, WireType.LengthDelimited)
-          .string(message.monitoringInfoId[i]);
+      writer
+        .tag(1, WireType.LengthDelimited)
+        .string(message.monitoringInfoId[i]);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -3909,75 +4412,96 @@ class MonitoringInfosMetadataRequest$Type extends
  * org.apache.beam.model.fn_execution.v1.MonitoringInfosMetadataRequest
  */
 export const MonitoringInfosMetadataRequest =
-    new MonitoringInfosMetadataRequest$Type();
+  new MonitoringInfosMetadataRequest$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class ProcessBundleProgressResponse$Type extends
-    MessageType<ProcessBundleProgressResponse> {
+class ProcessBundleProgressResponse$Type extends MessageType<ProcessBundleProgressResponse> {
   constructor() {
     super(
-        'org.apache.beam.model.fn_execution.v1.ProcessBundleProgressResponse', [
-          {
-            no: 3,
-            name: 'monitoring_infos',
-            kind: 'message',
-            repeat: 1 /*RepeatType.PACKED*/,
-            T: () => MonitoringInfo
-          },
-          {
-            no: 5,
-            name: 'monitoring_data',
-            kind: 'map',
-            K: 9 /*ScalarType.STRING*/,
-            V: {kind: 'scalar', T: 12 /*ScalarType.BYTES*/}
-          }
-        ]);
+      "org.apache.beam.model.fn_execution.v1.ProcessBundleProgressResponse",
+      [
+        {
+          no: 3,
+          name: "monitoring_infos",
+          kind: "message",
+          repeat: 1 /*RepeatType.PACKED*/,
+          T: () => MonitoringInfo,
+        },
+        {
+          no: 5,
+          name: "monitoring_data",
+          kind: "map",
+          K: 9 /*ScalarType.STRING*/,
+          V: { kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
+        },
+      ]
+    );
   }
-  create(value?: PartialMessage<ProcessBundleProgressResponse>):
-      ProcessBundleProgressResponse {
-    const message = {monitoringInfos: [], monitoringData: {}};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<ProcessBundleProgressResponse>
+  ): ProcessBundleProgressResponse {
+    const message = { monitoringInfos: [], monitoringData: {} };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ProcessBundleProgressResponse>(
-          this, message, value);
+        this,
+        message,
+        value
+      );
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ProcessBundleProgressResponse): ProcessBundleProgressResponse {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ProcessBundleProgressResponse
+  ): ProcessBundleProgressResponse {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* repeated org.apache.beam.model.pipeline.v1.MonitoringInfo
                 monitoring_infos */
-            3:
-          message.monitoringInfos.push(MonitoringInfo.internalBinaryRead(
-              reader, reader.uint32(), options));
+        3:
+          message.monitoringInfos.push(
+            MonitoringInfo.internalBinaryRead(reader, reader.uint32(), options)
+          );
           break;
         case /* map<string, bytes> monitoring_data */ 5:
           this.binaryReadMap5(message.monitoringData, reader, options);
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   private binaryReadMap5(
-      map: ProcessBundleProgressResponse['monitoringData'],
-      reader: IBinaryReader, options: BinaryReadOptions): void {
-    let len = reader.uint32(), end = reader.pos + len,
-        key: keyof ProcessBundleProgressResponse['monitoringData']|undefined,
-        val: ProcessBundleProgressResponse['monitoringData'][any]|undefined;
+    map: ProcessBundleProgressResponse["monitoringData"],
+    reader: IBinaryReader,
+    options: BinaryReadOptions
+  ): void {
+    let len = reader.uint32(),
+      end = reader.pos + len,
+      key: keyof ProcessBundleProgressResponse["monitoringData"] | undefined,
+      val: ProcessBundleProgressResponse["monitoringData"][any] | undefined;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -3989,35 +4513,42 @@ class ProcessBundleProgressResponse$Type extends
           break;
         default:
           throw new globalThis.Error(
-              'unknown map entry field for field org.apache.beam.model.fn_execution.v1.ProcessBundleProgressResponse.monitoring_data');
+            "unknown map entry field for field org.apache.beam.model.fn_execution.v1.ProcessBundleProgressResponse.monitoring_data"
+          );
       }
     }
-    map[key ?? ''] = val ?? new Uint8Array(0);
+    map[key ?? ""] = val ?? new Uint8Array(0);
   }
   internalBinaryWrite(
-      message: ProcessBundleProgressResponse, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ProcessBundleProgressResponse,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* repeated org.apache.beam.model.pipeline.v1.MonitoringInfo
      * monitoring_infos = 3; */
     for (let i = 0; i < message.monitoringInfos.length; i++)
-      MonitoringInfo
-          .internalBinaryWrite(
-              message.monitoringInfos[i],
-              writer.tag(3, WireType.LengthDelimited).fork(), options)
-          .join();
+      MonitoringInfo.internalBinaryWrite(
+        message.monitoringInfos[i],
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* map<string, bytes> monitoring_data = 5; */
     for (let k of Object.keys(message.monitoringData))
-      writer.tag(5, WireType.LengthDelimited)
-          .fork()
-          .tag(1, WireType.LengthDelimited)
-          .string(k)
-          .tag(2, WireType.LengthDelimited)
-          .bytes(message.monitoringData[k])
-          .join();
+      writer
+        .tag(5, WireType.LengthDelimited)
+        .fork()
+        .tag(1, WireType.LengthDelimited)
+        .string(k)
+        .tag(2, WireType.LengthDelimited)
+        .bytes(message.monitoringData[k])
+        .join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -4026,64 +4557,84 @@ class ProcessBundleProgressResponse$Type extends
  * org.apache.beam.model.fn_execution.v1.ProcessBundleProgressResponse
  */
 export const ProcessBundleProgressResponse =
-    new ProcessBundleProgressResponse$Type();
+  new ProcessBundleProgressResponse$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class MonitoringInfosMetadataResponse$Type extends
-    MessageType<MonitoringInfosMetadataResponse> {
+class MonitoringInfosMetadataResponse$Type extends MessageType<MonitoringInfosMetadataResponse> {
   constructor() {
     super(
-        'org.apache.beam.model.fn_execution.v1.MonitoringInfosMetadataResponse',
-        [{
+      "org.apache.beam.model.fn_execution.v1.MonitoringInfosMetadataResponse",
+      [
+        {
           no: 1,
-          name: 'monitoring_info',
-          kind: 'map',
+          name: "monitoring_info",
+          kind: "map",
           K: 9 /*ScalarType.STRING*/,
-          V: {kind: 'message', T: () => MonitoringInfo}
-        }]);
+          V: { kind: "message", T: () => MonitoringInfo },
+        },
+      ]
+    );
   }
-  create(value?: PartialMessage<MonitoringInfosMetadataResponse>):
-      MonitoringInfosMetadataResponse {
-    const message = {monitoringInfo: {}};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<MonitoringInfosMetadataResponse>
+  ): MonitoringInfosMetadataResponse {
+    const message = { monitoringInfo: {} };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<MonitoringInfosMetadataResponse>(
-          this, message, value);
+        this,
+        message,
+        value
+      );
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: MonitoringInfosMetadataResponse):
-      MonitoringInfosMetadataResponse {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: MonitoringInfosMetadataResponse
+  ): MonitoringInfosMetadataResponse {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* map<string, org.apache.beam.model.pipeline.v1.MonitoringInfo>
                 monitoring_info */
-            1:
+        1:
           this.binaryReadMap1(message.monitoringInfo, reader, options);
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   private binaryReadMap1(
-      map: MonitoringInfosMetadataResponse['monitoringInfo'],
-      reader: IBinaryReader, options: BinaryReadOptions): void {
-    let len = reader.uint32(), end = reader.pos + len,
-        key: keyof MonitoringInfosMetadataResponse['monitoringInfo']|undefined,
-        val: MonitoringInfosMetadataResponse['monitoringInfo'][any]|undefined;
+    map: MonitoringInfosMetadataResponse["monitoringInfo"],
+    reader: IBinaryReader,
+    options: BinaryReadOptions
+  ): void {
+    let len = reader.uint32(),
+      end = reader.pos + len,
+      key: keyof MonitoringInfosMetadataResponse["monitoringInfo"] | undefined,
+      val: MonitoringInfosMetadataResponse["monitoringInfo"][any] | undefined;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -4092,34 +4643,47 @@ class MonitoringInfosMetadataResponse$Type extends
           break;
         case 2:
           val = MonitoringInfo.internalBinaryRead(
-              reader, reader.uint32(), options);
+            reader,
+            reader.uint32(),
+            options
+          );
           break;
         default:
           throw new globalThis.Error(
-              'unknown map entry field for field org.apache.beam.model.fn_execution.v1.MonitoringInfosMetadataResponse.monitoring_info');
+            "unknown map entry field for field org.apache.beam.model.fn_execution.v1.MonitoringInfosMetadataResponse.monitoring_info"
+          );
       }
     }
-    map[key ?? ''] = val ?? MonitoringInfo.create();
+    map[key ?? ""] = val ?? MonitoringInfo.create();
   }
   internalBinaryWrite(
-      message: MonitoringInfosMetadataResponse, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: MonitoringInfosMetadataResponse,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* map<string, org.apache.beam.model.pipeline.v1.MonitoringInfo>
      * monitoring_info = 1; */
     for (let k of Object.keys(message.monitoringInfo)) {
-      writer.tag(1, WireType.LengthDelimited)
-          .fork()
-          .tag(1, WireType.LengthDelimited)
-          .string(k);
+      writer
+        .tag(1, WireType.LengthDelimited)
+        .fork()
+        .tag(1, WireType.LengthDelimited)
+        .string(k);
       writer.tag(2, WireType.LengthDelimited).fork();
       MonitoringInfo.internalBinaryWrite(
-          message.monitoringInfo[k], writer, options);
+        message.monitoringInfo[k],
+        writer,
+        options
+      );
       writer.join().join();
     }
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -4128,41 +4692,47 @@ class MonitoringInfosMetadataResponse$Type extends
  * org.apache.beam.model.fn_execution.v1.MonitoringInfosMetadataResponse
  */
 export const MonitoringInfosMetadataResponse =
-    new MonitoringInfosMetadataResponse$Type();
+  new MonitoringInfosMetadataResponse$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class ProcessBundleSplitRequest$Type extends
-    MessageType<ProcessBundleSplitRequest> {
+class ProcessBundleSplitRequest$Type extends MessageType<ProcessBundleSplitRequest> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.ProcessBundleSplitRequest', [
+    super("org.apache.beam.model.fn_execution.v1.ProcessBundleSplitRequest", [
       {
         no: 1,
-        name: 'instruction_id',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
+        name: "instruction_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
       },
       {
         no: 3,
-        name: 'desired_splits',
-        kind: 'map',
+        name: "desired_splits",
+        kind: "map",
         K: 9 /*ScalarType.STRING*/,
-        V: {kind: 'message', T: () => ProcessBundleSplitRequest_DesiredSplit}
-      }
+        V: { kind: "message", T: () => ProcessBundleSplitRequest_DesiredSplit },
+      },
     ]);
   }
-  create(value?: PartialMessage<ProcessBundleSplitRequest>):
-      ProcessBundleSplitRequest {
-    const message = {instructionId: '', desiredSplits: {}};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<ProcessBundleSplitRequest>
+  ): ProcessBundleSplitRequest {
+    const message = { instructionId: "", desiredSplits: {} };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ProcessBundleSplitRequest>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ProcessBundleSplitRequest): ProcessBundleSplitRequest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ProcessBundleSplitRequest
+  ): ProcessBundleSplitRequest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -4172,28 +4742,37 @@ class ProcessBundleSplitRequest$Type extends
         case /* map<string,
                 org.apache.beam.model.fn_execution.v1.ProcessBundleSplitRequest.DesiredSplit>
                 desired_splits */
-            3:
+        3:
           this.binaryReadMap3(message.desiredSplits, reader, options);
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   private binaryReadMap3(
-      map: ProcessBundleSplitRequest['desiredSplits'], reader: IBinaryReader,
-      options: BinaryReadOptions): void {
-    let len = reader.uint32(), end = reader.pos + len,
-        key: keyof ProcessBundleSplitRequest['desiredSplits']|undefined,
-        val: ProcessBundleSplitRequest['desiredSplits'][any]|undefined;
+    map: ProcessBundleSplitRequest["desiredSplits"],
+    reader: IBinaryReader,
+    options: BinaryReadOptions
+  ): void {
+    let len = reader.uint32(),
+      end = reader.pos + len,
+      key: keyof ProcessBundleSplitRequest["desiredSplits"] | undefined,
+      val: ProcessBundleSplitRequest["desiredSplits"][any] | undefined;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -4202,38 +4781,51 @@ class ProcessBundleSplitRequest$Type extends
           break;
         case 2:
           val = ProcessBundleSplitRequest_DesiredSplit.internalBinaryRead(
-              reader, reader.uint32(), options);
+            reader,
+            reader.uint32(),
+            options
+          );
           break;
         default:
           throw new globalThis.Error(
-              'unknown map entry field for field org.apache.beam.model.fn_execution.v1.ProcessBundleSplitRequest.desired_splits');
+            "unknown map entry field for field org.apache.beam.model.fn_execution.v1.ProcessBundleSplitRequest.desired_splits"
+          );
       }
     }
-    map[key ?? ''] = val ?? ProcessBundleSplitRequest_DesiredSplit.create();
+    map[key ?? ""] = val ?? ProcessBundleSplitRequest_DesiredSplit.create();
   }
   internalBinaryWrite(
-      message: ProcessBundleSplitRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ProcessBundleSplitRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string instruction_id = 1; */
-    if (message.instructionId !== '')
+    if (message.instructionId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.instructionId);
     /* map<string,
      * org.apache.beam.model.fn_execution.v1.ProcessBundleSplitRequest.DesiredSplit>
      * desired_splits = 3; */
     for (let k of Object.keys(message.desiredSplits)) {
-      writer.tag(3, WireType.LengthDelimited)
-          .fork()
-          .tag(1, WireType.LengthDelimited)
-          .string(k);
+      writer
+        .tag(3, WireType.LengthDelimited)
+        .fork()
+        .tag(1, WireType.LengthDelimited)
+        .string(k);
       writer.tag(2, WireType.LengthDelimited).fork();
       ProcessBundleSplitRequest_DesiredSplit.internalBinaryWrite(
-          message.desiredSplits[k], writer, options);
+        message.desiredSplits[k],
+        writer,
+        options
+      );
       writer.join().join();
     }
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -4244,54 +4836,63 @@ class ProcessBundleSplitRequest$Type extends
 export const ProcessBundleSplitRequest = new ProcessBundleSplitRequest$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class ProcessBundleSplitRequest_DesiredSplit$Type extends
-    MessageType<ProcessBundleSplitRequest_DesiredSplit> {
+class ProcessBundleSplitRequest_DesiredSplit$Type extends MessageType<ProcessBundleSplitRequest_DesiredSplit> {
   constructor() {
     super(
-        'org.apache.beam.model.fn_execution.v1.ProcessBundleSplitRequest.DesiredSplit',
-        [
-          {
-            no: 1,
-            name: 'fraction_of_remainder',
-            kind: 'scalar',
-            T: 1 /*ScalarType.DOUBLE*/
-          },
-          {
-            no: 3,
-            name: 'allowed_split_points',
-            kind: 'scalar',
-            repeat: 1 /*RepeatType.PACKED*/,
-            T: 3 /*ScalarType.INT64*/,
-            L: 0 /*LongType.BIGINT*/
-          },
-          {
-            no: 2,
-            name: 'estimated_input_elements',
-            kind: 'scalar',
-            T: 3 /*ScalarType.INT64*/,
-            L: 0 /*LongType.BIGINT*/
-          }
-        ]);
+      "org.apache.beam.model.fn_execution.v1.ProcessBundleSplitRequest.DesiredSplit",
+      [
+        {
+          no: 1,
+          name: "fraction_of_remainder",
+          kind: "scalar",
+          T: 1 /*ScalarType.DOUBLE*/,
+        },
+        {
+          no: 3,
+          name: "allowed_split_points",
+          kind: "scalar",
+          repeat: 1 /*RepeatType.PACKED*/,
+          T: 3 /*ScalarType.INT64*/,
+          L: 0 /*LongType.BIGINT*/,
+        },
+        {
+          no: 2,
+          name: "estimated_input_elements",
+          kind: "scalar",
+          T: 3 /*ScalarType.INT64*/,
+          L: 0 /*LongType.BIGINT*/,
+        },
+      ]
+    );
   }
-  create(value?: PartialMessage<ProcessBundleSplitRequest_DesiredSplit>):
-      ProcessBundleSplitRequest_DesiredSplit {
+  create(
+    value?: PartialMessage<ProcessBundleSplitRequest_DesiredSplit>
+  ): ProcessBundleSplitRequest_DesiredSplit {
     const message = {
       fractionOfRemainder: 0,
       allowedSplitPoints: [],
-      estimatedInputElements: 0n
+      estimatedInputElements: 0n,
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ProcessBundleSplitRequest_DesiredSplit>(
-          this, message, value);
+        this,
+        message,
+        value
+      );
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ProcessBundleSplitRequest_DesiredSplit):
-      ProcessBundleSplitRequest_DesiredSplit {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ProcessBundleSplitRequest_DesiredSplit
+  ): ProcessBundleSplitRequest_DesiredSplit {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -4300,30 +4901,37 @@ class ProcessBundleSplitRequest_DesiredSplit$Type extends
           break;
         case /* repeated int64 allowed_split_points */ 3:
           if (wireType === WireType.LengthDelimited)
-            for (let e = reader.int32() + reader.pos; reader.pos < e;)
+            for (let e = reader.int32() + reader.pos; reader.pos < e; )
               message.allowedSplitPoints.push(reader.int64().toBigInt());
-          else
-            message.allowedSplitPoints.push(reader.int64().toBigInt());
+          else message.allowedSplitPoints.push(reader.int64().toBigInt());
           break;
         case /* int64 estimated_input_elements */ 2:
           message.estimatedInputElements = reader.int64().toBigInt();
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ProcessBundleSplitRequest_DesiredSplit, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ProcessBundleSplitRequest_DesiredSplit,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* double fraction_of_remainder = 1; */
     if (message.fractionOfRemainder !== 0)
       writer.tag(1, WireType.Bit64).double(message.fractionOfRemainder);
@@ -4340,7 +4948,10 @@ class ProcessBundleSplitRequest_DesiredSplit$Type extends
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -4349,119 +4960,149 @@ class ProcessBundleSplitRequest_DesiredSplit$Type extends
  * org.apache.beam.model.fn_execution.v1.ProcessBundleSplitRequest.DesiredSplit
  */
 export const ProcessBundleSplitRequest_DesiredSplit =
-    new ProcessBundleSplitRequest_DesiredSplit$Type();
+  new ProcessBundleSplitRequest_DesiredSplit$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class ProcessBundleSplitResponse$Type extends
-    MessageType<ProcessBundleSplitResponse> {
+class ProcessBundleSplitResponse$Type extends MessageType<ProcessBundleSplitResponse> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.ProcessBundleSplitResponse', [
+    super("org.apache.beam.model.fn_execution.v1.ProcessBundleSplitResponse", [
       {
         no: 1,
-        name: 'primary_roots',
-        kind: 'message',
+        name: "primary_roots",
+        kind: "message",
         repeat: 1 /*RepeatType.PACKED*/,
-        T: () => BundleApplication
+        T: () => BundleApplication,
       },
       {
         no: 2,
-        name: 'residual_roots',
-        kind: 'message',
+        name: "residual_roots",
+        kind: "message",
         repeat: 1 /*RepeatType.PACKED*/,
-        T: () => DelayedBundleApplication
+        T: () => DelayedBundleApplication,
       },
       {
         no: 3,
-        name: 'channel_splits',
-        kind: 'message',
+        name: "channel_splits",
+        kind: "message",
         repeat: 1 /*RepeatType.PACKED*/,
-        T: () => ProcessBundleSplitResponse_ChannelSplit
-      }
+        T: () => ProcessBundleSplitResponse_ChannelSplit,
+      },
     ]);
   }
-  create(value?: PartialMessage<ProcessBundleSplitResponse>):
-      ProcessBundleSplitResponse {
-    const message = {primaryRoots: [], residualRoots: [], channelSplits: []};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<ProcessBundleSplitResponse>
+  ): ProcessBundleSplitResponse {
+    const message = { primaryRoots: [], residualRoots: [], channelSplits: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ProcessBundleSplitResponse>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ProcessBundleSplitResponse): ProcessBundleSplitResponse {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ProcessBundleSplitResponse
+  ): ProcessBundleSplitResponse {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* repeated org.apache.beam.model.fn_execution.v1.BundleApplication
                 primary_roots */
-            1:
-          message.primaryRoots.push(BundleApplication.internalBinaryRead(
-              reader, reader.uint32(), options));
+        1:
+          message.primaryRoots.push(
+            BundleApplication.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options
+            )
+          );
           break;
         case /* repeated
                 org.apache.beam.model.fn_execution.v1.DelayedBundleApplication
                 residual_roots */
-            2:
+        2:
           message.residualRoots.push(
-              DelayedBundleApplication.internalBinaryRead(
-                  reader, reader.uint32(), options));
+            DelayedBundleApplication.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options
+            )
+          );
           break;
         case /* repeated
                 org.apache.beam.model.fn_execution.v1.ProcessBundleSplitResponse.ChannelSplit
                 channel_splits */
-            3:
+        3:
           message.channelSplits.push(
-              ProcessBundleSplitResponse_ChannelSplit.internalBinaryRead(
-                  reader, reader.uint32(), options));
+            ProcessBundleSplitResponse_ChannelSplit.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options
+            )
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ProcessBundleSplitResponse, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ProcessBundleSplitResponse,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* repeated org.apache.beam.model.fn_execution.v1.BundleApplication
      * primary_roots = 1; */
     for (let i = 0; i < message.primaryRoots.length; i++)
-      BundleApplication
-          .internalBinaryWrite(
-              message.primaryRoots[i],
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+      BundleApplication.internalBinaryWrite(
+        message.primaryRoots[i],
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* repeated org.apache.beam.model.fn_execution.v1.DelayedBundleApplication
      * residual_roots = 2; */
     for (let i = 0; i < message.residualRoots.length; i++)
-      DelayedBundleApplication
-          .internalBinaryWrite(
-              message.residualRoots[i],
-              writer.tag(2, WireType.LengthDelimited).fork(), options)
-          .join();
+      DelayedBundleApplication.internalBinaryWrite(
+        message.residualRoots[i],
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* repeated
      * org.apache.beam.model.fn_execution.v1.ProcessBundleSplitResponse.ChannelSplit
      * channel_splits = 3; */
     for (let i = 0; i < message.channelSplits.length; i++)
-      ProcessBundleSplitResponse_ChannelSplit
-          .internalBinaryWrite(
-              message.channelSplits[i],
-              writer.tag(3, WireType.LengthDelimited).fork(), options)
-          .join();
+      ProcessBundleSplitResponse_ChannelSplit.internalBinaryWrite(
+        message.channelSplits[i],
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -4472,53 +5113,62 @@ class ProcessBundleSplitResponse$Type extends
 export const ProcessBundleSplitResponse = new ProcessBundleSplitResponse$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class ProcessBundleSplitResponse_ChannelSplit$Type extends
-    MessageType<ProcessBundleSplitResponse_ChannelSplit> {
+class ProcessBundleSplitResponse_ChannelSplit$Type extends MessageType<ProcessBundleSplitResponse_ChannelSplit> {
   constructor() {
     super(
-        'org.apache.beam.model.fn_execution.v1.ProcessBundleSplitResponse.ChannelSplit',
-        [
-          {
-            no: 1,
-            name: 'transform_id',
-            kind: 'scalar',
-            T: 9 /*ScalarType.STRING*/
-          },
-          {
-            no: 2,
-            name: 'last_primary_element',
-            kind: 'scalar',
-            T: 3 /*ScalarType.INT64*/,
-            L: 0 /*LongType.BIGINT*/
-          },
-          {
-            no: 3,
-            name: 'first_residual_element',
-            kind: 'scalar',
-            T: 3 /*ScalarType.INT64*/,
-            L: 0 /*LongType.BIGINT*/
-          }
-        ]);
+      "org.apache.beam.model.fn_execution.v1.ProcessBundleSplitResponse.ChannelSplit",
+      [
+        {
+          no: 1,
+          name: "transform_id",
+          kind: "scalar",
+          T: 9 /*ScalarType.STRING*/,
+        },
+        {
+          no: 2,
+          name: "last_primary_element",
+          kind: "scalar",
+          T: 3 /*ScalarType.INT64*/,
+          L: 0 /*LongType.BIGINT*/,
+        },
+        {
+          no: 3,
+          name: "first_residual_element",
+          kind: "scalar",
+          T: 3 /*ScalarType.INT64*/,
+          L: 0 /*LongType.BIGINT*/,
+        },
+      ]
+    );
   }
-  create(value?: PartialMessage<ProcessBundleSplitResponse_ChannelSplit>):
-      ProcessBundleSplitResponse_ChannelSplit {
+  create(
+    value?: PartialMessage<ProcessBundleSplitResponse_ChannelSplit>
+  ): ProcessBundleSplitResponse_ChannelSplit {
     const message = {
-      transformId: '',
+      transformId: "",
       lastPrimaryElement: 0n,
-      firstResidualElement: 0n
+      firstResidualElement: 0n,
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ProcessBundleSplitResponse_ChannelSplit>(
-          this, message, value);
+        this,
+        message,
+        value
+      );
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ProcessBundleSplitResponse_ChannelSplit):
-      ProcessBundleSplitResponse_ChannelSplit {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ProcessBundleSplitResponse_ChannelSplit
+  ): ProcessBundleSplitResponse_ChannelSplit {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -4533,22 +5183,30 @@ class ProcessBundleSplitResponse_ChannelSplit$Type extends
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ProcessBundleSplitResponse_ChannelSplit, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ProcessBundleSplitResponse_ChannelSplit,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string transform_id = 1; */
-    if (message.transformId !== '')
+    if (message.transformId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.transformId);
     /* int64 last_primary_element = 2; */
     if (message.lastPrimaryElement !== 0n)
@@ -4559,7 +5217,10 @@ class ProcessBundleSplitResponse_ChannelSplit$Type extends
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -4568,30 +5229,38 @@ class ProcessBundleSplitResponse_ChannelSplit$Type extends
  * org.apache.beam.model.fn_execution.v1.ProcessBundleSplitResponse.ChannelSplit
  */
 export const ProcessBundleSplitResponse_ChannelSplit =
-    new ProcessBundleSplitResponse_ChannelSplit$Type();
+  new ProcessBundleSplitResponse_ChannelSplit$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
 class FinalizeBundleRequest$Type extends MessageType<FinalizeBundleRequest> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.FinalizeBundleRequest', [{
-            no: 1,
-            name: 'instruction_id',
-            kind: 'scalar',
-            T: 9 /*ScalarType.STRING*/
-          }]);
+    super("org.apache.beam.model.fn_execution.v1.FinalizeBundleRequest", [
+      {
+        no: 1,
+        name: "instruction_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
+    ]);
   }
   create(value?: PartialMessage<FinalizeBundleRequest>): FinalizeBundleRequest {
-    const message = {instructionId: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { instructionId: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<FinalizeBundleRequest>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: FinalizeBundleRequest): FinalizeBundleRequest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: FinalizeBundleRequest
+  ): FinalizeBundleRequest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -4600,27 +5269,38 @@ class FinalizeBundleRequest$Type extends MessageType<FinalizeBundleRequest> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: FinalizeBundleRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: FinalizeBundleRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string instruction_id = 1; */
-    if (message.instructionId !== '')
+    if (message.instructionId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.instructionId);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -4633,29 +5313,40 @@ export const FinalizeBundleRequest = new FinalizeBundleRequest$Type();
 // optimized methods
 class FinalizeBundleResponse$Type extends MessageType<FinalizeBundleResponse> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.FinalizeBundleResponse', []);
+    super("org.apache.beam.model.fn_execution.v1.FinalizeBundleResponse", []);
   }
-  create(value?: PartialMessage<FinalizeBundleResponse>):
-      FinalizeBundleResponse {
+  create(
+    value?: PartialMessage<FinalizeBundleResponse>
+  ): FinalizeBundleResponse {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<FinalizeBundleResponse>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: FinalizeBundleResponse): FinalizeBundleResponse {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: FinalizeBundleResponse
+  ): FinalizeBundleResponse {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: FinalizeBundleResponse, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: FinalizeBundleResponse,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -4668,85 +5359,104 @@ export const FinalizeBundleResponse = new FinalizeBundleResponse$Type();
 // optimized methods
 class Elements$Type extends MessageType<Elements> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.Elements', [
+    super("org.apache.beam.model.fn_execution.v1.Elements", [
       {
         no: 1,
-        name: 'data',
-        kind: 'message',
+        name: "data",
+        kind: "message",
         repeat: 1 /*RepeatType.PACKED*/,
-        T: () => Elements_Data
+        T: () => Elements_Data,
       },
       {
         no: 2,
-        name: 'timers',
-        kind: 'message',
+        name: "timers",
+        kind: "message",
         repeat: 1 /*RepeatType.PACKED*/,
-        T: () => Elements_Timers
-      }
+        T: () => Elements_Timers,
+      },
     ]);
   }
   create(value?: PartialMessage<Elements>): Elements {
-    const message = {data: [], timers: []};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { data: [], timers: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<Elements>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: Elements): Elements {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Elements
+  ): Elements {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* repeated org.apache.beam.model.fn_execution.v1.Elements.Data
                 data */
-            1:
-          message.data.push(Elements_Data.internalBinaryRead(
-              reader, reader.uint32(), options));
+        1:
+          message.data.push(
+            Elements_Data.internalBinaryRead(reader, reader.uint32(), options)
+          );
           break;
         case /* repeated org.apache.beam.model.fn_execution.v1.Elements.Timers
                 timers */
-            2:
-          message.timers.push(Elements_Timers.internalBinaryRead(
-              reader, reader.uint32(), options));
+        2:
+          message.timers.push(
+            Elements_Timers.internalBinaryRead(reader, reader.uint32(), options)
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: Elements, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: Elements,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* repeated org.apache.beam.model.fn_execution.v1.Elements.Data data = 1; */
     for (let i = 0; i < message.data.length; i++)
-      Elements_Data
-          .internalBinaryWrite(
-              message.data[i], writer.tag(1, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      Elements_Data.internalBinaryWrite(
+        message.data[i],
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* repeated org.apache.beam.model.fn_execution.v1.Elements.Timers timers =
      * 2; */
     for (let i = 0; i < message.timers.length; i++)
-      Elements_Timers
-          .internalBinaryWrite(
-              message.timers[i], writer.tag(2, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      Elements_Timers.internalBinaryWrite(
+        message.timers[i],
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -4759,35 +5469,46 @@ export const Elements = new Elements$Type();
 // optimized methods
 class Elements_Data$Type extends MessageType<Elements_Data> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.Elements.Data', [
+    super("org.apache.beam.model.fn_execution.v1.Elements.Data", [
       {
         no: 1,
-        name: 'instruction_id',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
+        name: "instruction_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
       },
-      {no: 2, name: 'transform_id', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 3, name: 'data', kind: 'scalar', T: 12 /*ScalarType.BYTES*/},
-      {no: 4, name: 'is_last', kind: 'scalar', T: 8 /*ScalarType.BOOL*/}
+      {
+        no: 2,
+        name: "transform_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
+      { no: 3, name: "data", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
+      { no: 4, name: "is_last", kind: "scalar", T: 8 /*ScalarType.BOOL*/ },
     ]);
   }
   create(value?: PartialMessage<Elements_Data>): Elements_Data {
     const message = {
-      instructionId: '',
-      transformId: '',
+      instructionId: "",
+      transformId: "",
       data: new Uint8Array(0),
-      isLast: false
+      isLast: false,
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<Elements_Data>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: Elements_Data): Elements_Data {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Elements_Data
+  ): Elements_Data {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -4805,25 +5526,33 @@ class Elements_Data$Type extends MessageType<Elements_Data> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: Elements_Data, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: Elements_Data,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string instruction_id = 1; */
-    if (message.instructionId !== '')
+    if (message.instructionId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.instructionId);
     /* string transform_id = 2; */
-    if (message.transformId !== '')
+    if (message.transformId !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.transformId);
     /* bytes data = 3; */
     if (message.data.length)
@@ -4834,7 +5563,10 @@ class Elements_Data$Type extends MessageType<Elements_Data> {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -4847,42 +5579,53 @@ export const Elements_Data = new Elements_Data$Type();
 // optimized methods
 class Elements_Timers$Type extends MessageType<Elements_Timers> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.Elements.Timers', [
+    super("org.apache.beam.model.fn_execution.v1.Elements.Timers", [
       {
         no: 1,
-        name: 'instruction_id',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
+        name: "instruction_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
       },
-      {no: 2, name: 'transform_id', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
+      {
+        no: 2,
+        name: "transform_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
       {
         no: 3,
-        name: 'timer_family_id',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
+        name: "timer_family_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
       },
-      {no: 4, name: 'timers', kind: 'scalar', T: 12 /*ScalarType.BYTES*/},
-      {no: 5, name: 'is_last', kind: 'scalar', T: 8 /*ScalarType.BOOL*/}
+      { no: 4, name: "timers", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
+      { no: 5, name: "is_last", kind: "scalar", T: 8 /*ScalarType.BOOL*/ },
     ]);
   }
   create(value?: PartialMessage<Elements_Timers>): Elements_Timers {
     const message = {
-      instructionId: '',
-      transformId: '',
-      timerFamilyId: '',
+      instructionId: "",
+      transformId: "",
+      timerFamilyId: "",
       timers: new Uint8Array(0),
-      isLast: false
+      isLast: false,
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<Elements_Timers>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: Elements_Timers): Elements_Timers {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Elements_Timers
+  ): Elements_Timers {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -4903,28 +5646,36 @@ class Elements_Timers$Type extends MessageType<Elements_Timers> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: Elements_Timers, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: Elements_Timers,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string instruction_id = 1; */
-    if (message.instructionId !== '')
+    if (message.instructionId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.instructionId);
     /* string transform_id = 2; */
-    if (message.transformId !== '')
+    if (message.transformId !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.transformId);
     /* string timer_family_id = 3; */
-    if (message.timerFamilyId !== '')
+    if (message.timerFamilyId !== "")
       writer.tag(3, WireType.LengthDelimited).string(message.timerFamilyId);
     /* bytes timers = 4; */
     if (message.timers.length)
@@ -4935,7 +5686,10 @@ class Elements_Timers$Type extends MessageType<Elements_Timers> {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -4948,52 +5702,60 @@ export const Elements_Timers = new Elements_Timers$Type();
 // optimized methods
 class StateRequest$Type extends MessageType<StateRequest> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.StateRequest', [
-      {no: 1, name: 'id', kind: 'scalar', T: 9 /*ScalarType.STRING*/}, {
+    super("org.apache.beam.model.fn_execution.v1.StateRequest", [
+      { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      {
         no: 2,
-        name: 'instruction_id',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
+        name: "instruction_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
       },
-      {no: 3, name: 'state_key', kind: 'message', T: () => StateKey}, {
+      { no: 3, name: "state_key", kind: "message", T: () => StateKey },
+      {
         no: 1000,
-        name: 'get',
-        kind: 'message',
-        oneof: 'request',
-        T: () => StateGetRequest
+        name: "get",
+        kind: "message",
+        oneof: "request",
+        T: () => StateGetRequest,
       },
       {
         no: 1001,
-        name: 'append',
-        kind: 'message',
-        oneof: 'request',
-        T: () => StateAppendRequest
+        name: "append",
+        kind: "message",
+        oneof: "request",
+        T: () => StateAppendRequest,
       },
       {
         no: 1002,
-        name: 'clear',
-        kind: 'message',
-        oneof: 'request',
-        T: () => StateClearRequest
-      }
+        name: "clear",
+        kind: "message",
+        oneof: "request",
+        T: () => StateClearRequest,
+      },
     ]);
   }
   create(value?: PartialMessage<StateRequest>): StateRequest {
     const message = {
-      id: '',
-      instructionId: '',
-      request: {oneofKind: undefined}
+      id: "",
+      instructionId: "",
+      request: { oneofKind: undefined },
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StateRequest>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StateRequest): StateRequest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StateRequest
+  ): StateRequest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -5005,90 +5767,115 @@ class StateRequest$Type extends MessageType<StateRequest> {
           break;
         case /* org.apache.beam.model.fn_execution.v1.StateKey state_key */ 3:
           message.stateKey = StateKey.internalBinaryRead(
-              reader, reader.uint32(), options, message.stateKey);
+            reader,
+            reader.uint32(),
+            options,
+            message.stateKey
+          );
           break;
         case /* org.apache.beam.model.fn_execution.v1.StateGetRequest get */
-            1000:
+        1000:
           message.request = {
-            oneofKind: 'get',
+            oneofKind: "get",
             get: StateGetRequest.internalBinaryRead(
-                reader, reader.uint32(), options, (message.request as any).get)
+              reader,
+              reader.uint32(),
+              options,
+              (message.request as any).get
+            ),
           };
           break;
         case /* org.apache.beam.model.fn_execution.v1.StateAppendRequest append
-              */
-            1001:
+         */
+        1001:
           message.request = {
-            oneofKind: 'append',
+            oneofKind: "append",
             append: StateAppendRequest.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.request as any).append)
+              reader,
+              reader.uint32(),
+              options,
+              (message.request as any).append
+            ),
           };
           break;
         case /* org.apache.beam.model.fn_execution.v1.StateClearRequest clear */
-            1002:
+        1002:
           message.request = {
-            oneofKind: 'clear',
+            oneofKind: "clear",
             clear: StateClearRequest.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.request as any).clear)
+              reader,
+              reader.uint32(),
+              options,
+              (message.request as any).clear
+            ),
           };
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: StateRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StateRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string id = 1; */
-    if (message.id !== '')
+    if (message.id !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.id);
     /* string instruction_id = 2; */
-    if (message.instructionId !== '')
+    if (message.instructionId !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.instructionId);
     /* org.apache.beam.model.fn_execution.v1.StateKey state_key = 3; */
     if (message.stateKey)
-      StateKey
-          .internalBinaryWrite(
-              message.stateKey, writer.tag(3, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      StateKey.internalBinaryWrite(
+        message.stateKey,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.fn_execution.v1.StateGetRequest get = 1000; */
-    if (message.request.oneofKind === 'get')
-      StateGetRequest
-          .internalBinaryWrite(
-              message.request.get,
-              writer.tag(1000, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.request.oneofKind === "get")
+      StateGetRequest.internalBinaryWrite(
+        message.request.get,
+        writer.tag(1000, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.fn_execution.v1.StateAppendRequest append = 1001;
      */
-    if (message.request.oneofKind === 'append')
-      StateAppendRequest
-          .internalBinaryWrite(
-              message.request.append,
-              writer.tag(1001, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.request.oneofKind === "append")
+      StateAppendRequest.internalBinaryWrite(
+        message.request.append,
+        writer.tag(1001, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.fn_execution.v1.StateClearRequest clear = 1002; */
-    if (message.request.oneofKind === 'clear')
-      StateClearRequest
-          .internalBinaryWrite(
-              message.request.clear,
-              writer.tag(1002, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.request.oneofKind === "clear")
+      StateClearRequest.internalBinaryWrite(
+        message.request.clear,
+        writer.tag(1002, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -5101,43 +5888,50 @@ export const StateRequest = new StateRequest$Type();
 // optimized methods
 class StateResponse$Type extends MessageType<StateResponse> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.StateResponse', [
-      {no: 1, name: 'id', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 2, name: 'error', kind: 'scalar', T: 9 /*ScalarType.STRING*/}, {
+    super("org.apache.beam.model.fn_execution.v1.StateResponse", [
+      { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      { no: 2, name: "error", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      {
         no: 1000,
-        name: 'get',
-        kind: 'message',
-        oneof: 'response',
-        T: () => StateGetResponse
+        name: "get",
+        kind: "message",
+        oneof: "response",
+        T: () => StateGetResponse,
       },
       {
         no: 1001,
-        name: 'append',
-        kind: 'message',
-        oneof: 'response',
-        T: () => StateAppendResponse
+        name: "append",
+        kind: "message",
+        oneof: "response",
+        T: () => StateAppendResponse,
       },
       {
         no: 1002,
-        name: 'clear',
-        kind: 'message',
-        oneof: 'response',
-        T: () => StateClearResponse
-      }
+        name: "clear",
+        kind: "message",
+        oneof: "response",
+        T: () => StateClearResponse,
+      },
     ]);
   }
   create(value?: PartialMessage<StateResponse>): StateResponse {
-    const message = {id: '', error: '', response: {oneofKind: undefined}};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { id: "", error: "", response: { oneofKind: undefined } };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StateResponse>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StateResponse): StateResponse {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StateResponse
+  ): StateResponse {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -5148,81 +5942,102 @@ class StateResponse$Type extends MessageType<StateResponse> {
           message.error = reader.string();
           break;
         case /* org.apache.beam.model.fn_execution.v1.StateGetResponse get */
-            1000:
+        1000:
           message.response = {
-            oneofKind: 'get',
+            oneofKind: "get",
             get: StateGetResponse.internalBinaryRead(
-                reader, reader.uint32(), options, (message.response as any).get)
+              reader,
+              reader.uint32(),
+              options,
+              (message.response as any).get
+            ),
           };
           break;
         case /* org.apache.beam.model.fn_execution.v1.StateAppendResponse append
-              */
-            1001:
+         */
+        1001:
           message.response = {
-            oneofKind: 'append',
+            oneofKind: "append",
             append: StateAppendResponse.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.response as any).append)
+              reader,
+              reader.uint32(),
+              options,
+              (message.response as any).append
+            ),
           };
           break;
         case /* org.apache.beam.model.fn_execution.v1.StateClearResponse clear
-              */
-            1002:
+         */
+        1002:
           message.response = {
-            oneofKind: 'clear',
+            oneofKind: "clear",
             clear: StateClearResponse.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.response as any).clear)
+              reader,
+              reader.uint32(),
+              options,
+              (message.response as any).clear
+            ),
           };
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: StateResponse, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StateResponse,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string id = 1; */
-    if (message.id !== '')
+    if (message.id !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.id);
     /* string error = 2; */
-    if (message.error !== '')
+    if (message.error !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.error);
     /* org.apache.beam.model.fn_execution.v1.StateGetResponse get = 1000; */
-    if (message.response.oneofKind === 'get')
-      StateGetResponse
-          .internalBinaryWrite(
-              message.response.get,
-              writer.tag(1000, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.response.oneofKind === "get")
+      StateGetResponse.internalBinaryWrite(
+        message.response.get,
+        writer.tag(1000, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.fn_execution.v1.StateAppendResponse append = 1001;
      */
-    if (message.response.oneofKind === 'append')
-      StateAppendResponse
-          .internalBinaryWrite(
-              message.response.append,
-              writer.tag(1001, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.response.oneofKind === "append")
+      StateAppendResponse.internalBinaryWrite(
+        message.response.append,
+        writer.tag(1001, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.fn_execution.v1.StateClearResponse clear = 1002; */
-    if (message.response.oneofKind === 'clear')
-      StateClearResponse
-          .internalBinaryWrite(
-              message.response.clear,
-              writer.tag(1002, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.response.oneofKind === "clear")
+      StateClearResponse.internalBinaryWrite(
+        message.response.clear,
+        writer.tag(1002, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -5235,218 +6050,257 @@ export const StateResponse = new StateResponse$Type();
 // optimized methods
 class StateKey$Type extends MessageType<StateKey> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.StateKey', [
+    super("org.apache.beam.model.fn_execution.v1.StateKey", [
       {
         no: 1,
-        name: 'runner',
-        kind: 'message',
-        oneof: 'type',
-        T: () => StateKey_Runner
+        name: "runner",
+        kind: "message",
+        oneof: "type",
+        T: () => StateKey_Runner,
       },
       {
         no: 2,
-        name: 'multimap_side_input',
-        kind: 'message',
-        oneof: 'type',
-        T: () => StateKey_MultimapSideInput
+        name: "multimap_side_input",
+        kind: "message",
+        oneof: "type",
+        T: () => StateKey_MultimapSideInput,
       },
       {
         no: 3,
-        name: 'bag_user_state',
-        kind: 'message',
-        oneof: 'type',
-        T: () => StateKey_BagUserState
+        name: "bag_user_state",
+        kind: "message",
+        oneof: "type",
+        T: () => StateKey_BagUserState,
       },
       {
         no: 4,
-        name: 'iterable_side_input',
-        kind: 'message',
-        oneof: 'type',
-        T: () => StateKey_IterableSideInput
+        name: "iterable_side_input",
+        kind: "message",
+        oneof: "type",
+        T: () => StateKey_IterableSideInput,
       },
       {
         no: 5,
-        name: 'multimap_keys_side_input',
-        kind: 'message',
-        oneof: 'type',
-        T: () => StateKey_MultimapKeysSideInput
+        name: "multimap_keys_side_input",
+        kind: "message",
+        oneof: "type",
+        T: () => StateKey_MultimapKeysSideInput,
       },
       {
         no: 6,
-        name: 'multimap_keys_user_state',
-        kind: 'message',
-        oneof: 'type',
-        T: () => StateKey_MultimapKeysUserState
+        name: "multimap_keys_user_state",
+        kind: "message",
+        oneof: "type",
+        T: () => StateKey_MultimapKeysUserState,
       },
       {
         no: 7,
-        name: 'multimap_user_state',
-        kind: 'message',
-        oneof: 'type',
-        T: () => StateKey_MultimapUserState
-      }
+        name: "multimap_user_state",
+        kind: "message",
+        oneof: "type",
+        T: () => StateKey_MultimapUserState,
+      },
     ]);
   }
   create(value?: PartialMessage<StateKey>): StateKey {
-    const message = {type: {oneofKind: undefined}};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { type: { oneofKind: undefined } };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StateKey>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StateKey): StateKey {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StateKey
+  ): StateKey {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.fn_execution.v1.StateKey.Runner runner */
-            1:
+        1:
           message.type = {
-            oneofKind: 'runner',
+            oneofKind: "runner",
             runner: StateKey_Runner.internalBinaryRead(
-                reader, reader.uint32(), options, (message.type as any).runner)
+              reader,
+              reader.uint32(),
+              options,
+              (message.type as any).runner
+            ),
           };
           break;
         case /* org.apache.beam.model.fn_execution.v1.StateKey.MultimapSideInput
                 multimap_side_input */
-            2:
+        2:
           message.type = {
-            oneofKind: 'multimapSideInput',
+            oneofKind: "multimapSideInput",
             multimapSideInput: StateKey_MultimapSideInput.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.type as any).multimapSideInput)
+              reader,
+              reader.uint32(),
+              options,
+              (message.type as any).multimapSideInput
+            ),
           };
           break;
         case /* org.apache.beam.model.fn_execution.v1.StateKey.BagUserState
                 bag_user_state */
-            3:
+        3:
           message.type = {
-            oneofKind: 'bagUserState',
+            oneofKind: "bagUserState",
             bagUserState: StateKey_BagUserState.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.type as any).bagUserState)
+              reader,
+              reader.uint32(),
+              options,
+              (message.type as any).bagUserState
+            ),
           };
           break;
         case /* org.apache.beam.model.fn_execution.v1.StateKey.IterableSideInput
                 iterable_side_input */
-            4:
+        4:
           message.type = {
-            oneofKind: 'iterableSideInput',
+            oneofKind: "iterableSideInput",
             iterableSideInput: StateKey_IterableSideInput.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.type as any).iterableSideInput)
+              reader,
+              reader.uint32(),
+              options,
+              (message.type as any).iterableSideInput
+            ),
           };
           break;
         case /* org.apache.beam.model.fn_execution.v1.StateKey.MultimapKeysSideInput
                 multimap_keys_side_input */
-            5:
+        5:
           message.type = {
-            oneofKind: 'multimapKeysSideInput',
+            oneofKind: "multimapKeysSideInput",
             multimapKeysSideInput:
-                StateKey_MultimapKeysSideInput.internalBinaryRead(
-                    reader, reader.uint32(), options,
-                    (message.type as any).multimapKeysSideInput)
+              StateKey_MultimapKeysSideInput.internalBinaryRead(
+                reader,
+                reader.uint32(),
+                options,
+                (message.type as any).multimapKeysSideInput
+              ),
           };
           break;
         case /* org.apache.beam.model.fn_execution.v1.StateKey.MultimapKeysUserState
                 multimap_keys_user_state */
-            6:
+        6:
           message.type = {
-            oneofKind: 'multimapKeysUserState',
+            oneofKind: "multimapKeysUserState",
             multimapKeysUserState:
-                StateKey_MultimapKeysUserState.internalBinaryRead(
-                    reader, reader.uint32(), options,
-                    (message.type as any).multimapKeysUserState)
+              StateKey_MultimapKeysUserState.internalBinaryRead(
+                reader,
+                reader.uint32(),
+                options,
+                (message.type as any).multimapKeysUserState
+              ),
           };
           break;
         case /* org.apache.beam.model.fn_execution.v1.StateKey.MultimapUserState
                 multimap_user_state */
-            7:
+        7:
           message.type = {
-            oneofKind: 'multimapUserState',
+            oneofKind: "multimapUserState",
             multimapUserState: StateKey_MultimapUserState.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.type as any).multimapUserState)
+              reader,
+              reader.uint32(),
+              options,
+              (message.type as any).multimapUserState
+            ),
           };
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: StateKey, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StateKey,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.fn_execution.v1.StateKey.Runner runner = 1; */
-    if (message.type.oneofKind === 'runner')
-      StateKey_Runner
-          .internalBinaryWrite(
-              message.type.runner,
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.type.oneofKind === "runner")
+      StateKey_Runner.internalBinaryWrite(
+        message.type.runner,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.fn_execution.v1.StateKey.MultimapSideInput
      * multimap_side_input = 2; */
-    if (message.type.oneofKind === 'multimapSideInput')
-      StateKey_MultimapSideInput
-          .internalBinaryWrite(
-              message.type.multimapSideInput,
-              writer.tag(2, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.type.oneofKind === "multimapSideInput")
+      StateKey_MultimapSideInput.internalBinaryWrite(
+        message.type.multimapSideInput,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.fn_execution.v1.StateKey.BagUserState
      * bag_user_state = 3; */
-    if (message.type.oneofKind === 'bagUserState')
-      StateKey_BagUserState
-          .internalBinaryWrite(
-              message.type.bagUserState,
-              writer.tag(3, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.type.oneofKind === "bagUserState")
+      StateKey_BagUserState.internalBinaryWrite(
+        message.type.bagUserState,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.fn_execution.v1.StateKey.IterableSideInput
      * iterable_side_input = 4; */
-    if (message.type.oneofKind === 'iterableSideInput')
-      StateKey_IterableSideInput
-          .internalBinaryWrite(
-              message.type.iterableSideInput,
-              writer.tag(4, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.type.oneofKind === "iterableSideInput")
+      StateKey_IterableSideInput.internalBinaryWrite(
+        message.type.iterableSideInput,
+        writer.tag(4, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.fn_execution.v1.StateKey.MultimapKeysSideInput
      * multimap_keys_side_input = 5; */
-    if (message.type.oneofKind === 'multimapKeysSideInput')
-      StateKey_MultimapKeysSideInput
-          .internalBinaryWrite(
-              message.type.multimapKeysSideInput,
-              writer.tag(5, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.type.oneofKind === "multimapKeysSideInput")
+      StateKey_MultimapKeysSideInput.internalBinaryWrite(
+        message.type.multimapKeysSideInput,
+        writer.tag(5, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.fn_execution.v1.StateKey.MultimapKeysUserState
      * multimap_keys_user_state = 6; */
-    if (message.type.oneofKind === 'multimapKeysUserState')
-      StateKey_MultimapKeysUserState
-          .internalBinaryWrite(
-              message.type.multimapKeysUserState,
-              writer.tag(6, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.type.oneofKind === "multimapKeysUserState")
+      StateKey_MultimapKeysUserState.internalBinaryWrite(
+        message.type.multimapKeysUserState,
+        writer.tag(6, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.fn_execution.v1.StateKey.MultimapUserState
      * multimap_user_state = 7; */
-    if (message.type.oneofKind === 'multimapUserState')
-      StateKey_MultimapUserState
-          .internalBinaryWrite(
-              message.type.multimapUserState,
-              writer.tag(7, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.type.oneofKind === "multimapUserState")
+      StateKey_MultimapUserState.internalBinaryWrite(
+        message.type.multimapUserState,
+        writer.tag(7, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -5459,22 +6313,28 @@ export const StateKey = new StateKey$Type();
 // optimized methods
 class StateKey_Runner$Type extends MessageType<StateKey_Runner> {
   constructor() {
-    super(
-        'org.apache.beam.model.fn_execution.v1.StateKey.Runner',
-        [{no: 1, name: 'key', kind: 'scalar', T: 12 /*ScalarType.BYTES*/}]);
+    super("org.apache.beam.model.fn_execution.v1.StateKey.Runner", [
+      { no: 1, name: "key", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
+    ]);
   }
   create(value?: PartialMessage<StateKey_Runner>): StateKey_Runner {
-    const message = {key: new Uint8Array(0)};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { key: new Uint8Array(0) };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StateKey_Runner>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StateKey_Runner): StateKey_Runner {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StateKey_Runner
+  ): StateKey_Runner {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -5483,27 +6343,38 @@ class StateKey_Runner$Type extends MessageType<StateKey_Runner> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: StateKey_Runner, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StateKey_Runner,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* bytes key = 1; */
     if (message.key.length)
       writer.tag(1, WireType.LengthDelimited).bytes(message.key);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -5514,37 +6385,48 @@ class StateKey_Runner$Type extends MessageType<StateKey_Runner> {
 export const StateKey_Runner = new StateKey_Runner$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class StateKey_IterableSideInput$Type extends
-    MessageType<StateKey_IterableSideInput> {
+class StateKey_IterableSideInput$Type extends MessageType<StateKey_IterableSideInput> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.StateKey.IterableSideInput', [
-      {no: 1, name: 'transform_id', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
+    super("org.apache.beam.model.fn_execution.v1.StateKey.IterableSideInput", [
+      {
+        no: 1,
+        name: "transform_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
       {
         no: 2,
-        name: 'side_input_id',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
+        name: "side_input_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
       },
-      {no: 3, name: 'window', kind: 'scalar', T: 12 /*ScalarType.BYTES*/}
+      { no: 3, name: "window", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
     ]);
   }
-  create(value?: PartialMessage<StateKey_IterableSideInput>):
-      StateKey_IterableSideInput {
+  create(
+    value?: PartialMessage<StateKey_IterableSideInput>
+  ): StateKey_IterableSideInput {
     const message = {
-      transformId: '',
-      sideInputId: '',
-      window: new Uint8Array(0)
+      transformId: "",
+      sideInputId: "",
+      window: new Uint8Array(0),
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StateKey_IterableSideInput>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StateKey_IterableSideInput): StateKey_IterableSideInput {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StateKey_IterableSideInput
+  ): StateKey_IterableSideInput {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -5559,25 +6441,33 @@ class StateKey_IterableSideInput$Type extends
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: StateKey_IterableSideInput, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StateKey_IterableSideInput,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string transform_id = 1; */
-    if (message.transformId !== '')
+    if (message.transformId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.transformId);
     /* string side_input_id = 2; */
-    if (message.sideInputId !== '')
+    if (message.sideInputId !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.sideInputId);
     /* bytes window = 3; */
     if (message.window.length)
@@ -5585,7 +6475,10 @@ class StateKey_IterableSideInput$Type extends
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -5596,39 +6489,50 @@ class StateKey_IterableSideInput$Type extends
 export const StateKey_IterableSideInput = new StateKey_IterableSideInput$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class StateKey_MultimapSideInput$Type extends
-    MessageType<StateKey_MultimapSideInput> {
+class StateKey_MultimapSideInput$Type extends MessageType<StateKey_MultimapSideInput> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.StateKey.MultimapSideInput', [
-      {no: 1, name: 'transform_id', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
+    super("org.apache.beam.model.fn_execution.v1.StateKey.MultimapSideInput", [
+      {
+        no: 1,
+        name: "transform_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
       {
         no: 2,
-        name: 'side_input_id',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
+        name: "side_input_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
       },
-      {no: 3, name: 'window', kind: 'scalar', T: 12 /*ScalarType.BYTES*/},
-      {no: 4, name: 'key', kind: 'scalar', T: 12 /*ScalarType.BYTES*/}
+      { no: 3, name: "window", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
+      { no: 4, name: "key", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
     ]);
   }
-  create(value?: PartialMessage<StateKey_MultimapSideInput>):
-      StateKey_MultimapSideInput {
+  create(
+    value?: PartialMessage<StateKey_MultimapSideInput>
+  ): StateKey_MultimapSideInput {
     const message = {
-      transformId: '',
-      sideInputId: '',
+      transformId: "",
+      sideInputId: "",
       window: new Uint8Array(0),
-      key: new Uint8Array(0)
+      key: new Uint8Array(0),
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StateKey_MultimapSideInput>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StateKey_MultimapSideInput): StateKey_MultimapSideInput {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StateKey_MultimapSideInput
+  ): StateKey_MultimapSideInput {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -5646,25 +6550,33 @@ class StateKey_MultimapSideInput$Type extends
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: StateKey_MultimapSideInput, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StateKey_MultimapSideInput,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string transform_id = 1; */
-    if (message.transformId !== '')
+    if (message.transformId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.transformId);
     /* string side_input_id = 2; */
-    if (message.sideInputId !== '')
+    if (message.sideInputId !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.sideInputId);
     /* bytes window = 3; */
     if (message.window.length)
@@ -5675,7 +6587,10 @@ class StateKey_MultimapSideInput$Type extends
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -5686,45 +6601,55 @@ class StateKey_MultimapSideInput$Type extends
 export const StateKey_MultimapSideInput = new StateKey_MultimapSideInput$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class StateKey_MultimapKeysSideInput$Type extends
-    MessageType<StateKey_MultimapKeysSideInput> {
+class StateKey_MultimapKeysSideInput$Type extends MessageType<StateKey_MultimapKeysSideInput> {
   constructor() {
     super(
-        'org.apache.beam.model.fn_execution.v1.StateKey.MultimapKeysSideInput',
-        [
-          {
-            no: 1,
-            name: 'transform_id',
-            kind: 'scalar',
-            T: 9 /*ScalarType.STRING*/
-          },
-          {
-            no: 2,
-            name: 'side_input_id',
-            kind: 'scalar',
-            T: 9 /*ScalarType.STRING*/
-          },
-          {no: 3, name: 'window', kind: 'scalar', T: 12 /*ScalarType.BYTES*/}
-        ]);
+      "org.apache.beam.model.fn_execution.v1.StateKey.MultimapKeysSideInput",
+      [
+        {
+          no: 1,
+          name: "transform_id",
+          kind: "scalar",
+          T: 9 /*ScalarType.STRING*/,
+        },
+        {
+          no: 2,
+          name: "side_input_id",
+          kind: "scalar",
+          T: 9 /*ScalarType.STRING*/,
+        },
+        { no: 3, name: "window", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
+      ]
+    );
   }
-  create(value?: PartialMessage<StateKey_MultimapKeysSideInput>):
-      StateKey_MultimapKeysSideInput {
+  create(
+    value?: PartialMessage<StateKey_MultimapKeysSideInput>
+  ): StateKey_MultimapKeysSideInput {
     const message = {
-      transformId: '',
-      sideInputId: '',
-      window: new Uint8Array(0)
+      transformId: "",
+      sideInputId: "",
+      window: new Uint8Array(0),
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StateKey_MultimapKeysSideInput>(
-          this, message, value);
+        this,
+        message,
+        value
+      );
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StateKey_MultimapKeysSideInput): StateKey_MultimapKeysSideInput {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StateKey_MultimapKeysSideInput
+  ): StateKey_MultimapKeysSideInput {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -5739,25 +6664,33 @@ class StateKey_MultimapKeysSideInput$Type extends
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: StateKey_MultimapKeysSideInput, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StateKey_MultimapKeysSideInput,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string transform_id = 1; */
-    if (message.transformId !== '')
+    if (message.transformId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.transformId);
     /* string side_input_id = 2; */
-    if (message.sideInputId !== '')
+    if (message.sideInputId !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.sideInputId);
     /* bytes window = 3; */
     if (message.window.length)
@@ -5765,7 +6698,10 @@ class StateKey_MultimapKeysSideInput$Type extends
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -5774,40 +6710,51 @@ class StateKey_MultimapKeysSideInput$Type extends
  * org.apache.beam.model.fn_execution.v1.StateKey.MultimapKeysSideInput
  */
 export const StateKey_MultimapKeysSideInput =
-    new StateKey_MultimapKeysSideInput$Type();
+  new StateKey_MultimapKeysSideInput$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
 class StateKey_BagUserState$Type extends MessageType<StateKey_BagUserState> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.StateKey.BagUserState', [
-      {no: 1, name: 'transform_id', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
+    super("org.apache.beam.model.fn_execution.v1.StateKey.BagUserState", [
+      {
+        no: 1,
+        name: "transform_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
       {
         no: 2,
-        name: 'user_state_id',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
+        name: "user_state_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
       },
-      {no: 3, name: 'window', kind: 'scalar', T: 12 /*ScalarType.BYTES*/},
-      {no: 4, name: 'key', kind: 'scalar', T: 12 /*ScalarType.BYTES*/}
+      { no: 3, name: "window", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
+      { no: 4, name: "key", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
     ]);
   }
   create(value?: PartialMessage<StateKey_BagUserState>): StateKey_BagUserState {
     const message = {
-      transformId: '',
-      userStateId: '',
+      transformId: "",
+      userStateId: "",
       window: new Uint8Array(0),
-      key: new Uint8Array(0)
+      key: new Uint8Array(0),
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StateKey_BagUserState>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StateKey_BagUserState): StateKey_BagUserState {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StateKey_BagUserState
+  ): StateKey_BagUserState {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -5825,25 +6772,33 @@ class StateKey_BagUserState$Type extends MessageType<StateKey_BagUserState> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: StateKey_BagUserState, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StateKey_BagUserState,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string transform_id = 1; */
-    if (message.transformId !== '')
+    if (message.transformId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.transformId);
     /* string user_state_id = 2; */
-    if (message.userStateId !== '')
+    if (message.userStateId !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.userStateId);
     /* bytes window = 3; */
     if (message.window.length)
@@ -5854,7 +6809,10 @@ class StateKey_BagUserState$Type extends MessageType<StateKey_BagUserState> {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -5865,47 +6823,57 @@ class StateKey_BagUserState$Type extends MessageType<StateKey_BagUserState> {
 export const StateKey_BagUserState = new StateKey_BagUserState$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class StateKey_MultimapKeysUserState$Type extends
-    MessageType<StateKey_MultimapKeysUserState> {
+class StateKey_MultimapKeysUserState$Type extends MessageType<StateKey_MultimapKeysUserState> {
   constructor() {
     super(
-        'org.apache.beam.model.fn_execution.v1.StateKey.MultimapKeysUserState',
-        [
-          {
-            no: 1,
-            name: 'transform_id',
-            kind: 'scalar',
-            T: 9 /*ScalarType.STRING*/
-          },
-          {
-            no: 2,
-            name: 'user_state_id',
-            kind: 'scalar',
-            T: 9 /*ScalarType.STRING*/
-          },
-          {no: 3, name: 'window', kind: 'scalar', T: 12 /*ScalarType.BYTES*/},
-          {no: 4, name: 'key', kind: 'scalar', T: 12 /*ScalarType.BYTES*/}
-        ]);
+      "org.apache.beam.model.fn_execution.v1.StateKey.MultimapKeysUserState",
+      [
+        {
+          no: 1,
+          name: "transform_id",
+          kind: "scalar",
+          T: 9 /*ScalarType.STRING*/,
+        },
+        {
+          no: 2,
+          name: "user_state_id",
+          kind: "scalar",
+          T: 9 /*ScalarType.STRING*/,
+        },
+        { no: 3, name: "window", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
+        { no: 4, name: "key", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
+      ]
+    );
   }
-  create(value?: PartialMessage<StateKey_MultimapKeysUserState>):
-      StateKey_MultimapKeysUserState {
+  create(
+    value?: PartialMessage<StateKey_MultimapKeysUserState>
+  ): StateKey_MultimapKeysUserState {
     const message = {
-      transformId: '',
-      userStateId: '',
+      transformId: "",
+      userStateId: "",
       window: new Uint8Array(0),
-      key: new Uint8Array(0)
+      key: new Uint8Array(0),
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StateKey_MultimapKeysUserState>(
-          this, message, value);
+        this,
+        message,
+        value
+      );
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StateKey_MultimapKeysUserState): StateKey_MultimapKeysUserState {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StateKey_MultimapKeysUserState
+  ): StateKey_MultimapKeysUserState {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -5923,25 +6891,33 @@ class StateKey_MultimapKeysUserState$Type extends
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: StateKey_MultimapKeysUserState, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StateKey_MultimapKeysUserState,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string transform_id = 1; */
-    if (message.transformId !== '')
+    if (message.transformId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.transformId);
     /* string user_state_id = 2; */
-    if (message.userStateId !== '')
+    if (message.userStateId !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.userStateId);
     /* bytes window = 3; */
     if (message.window.length)
@@ -5952,7 +6928,10 @@ class StateKey_MultimapKeysUserState$Type extends
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -5961,44 +6940,55 @@ class StateKey_MultimapKeysUserState$Type extends
  * org.apache.beam.model.fn_execution.v1.StateKey.MultimapKeysUserState
  */
 export const StateKey_MultimapKeysUserState =
-    new StateKey_MultimapKeysUserState$Type();
+  new StateKey_MultimapKeysUserState$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class StateKey_MultimapUserState$Type extends
-    MessageType<StateKey_MultimapUserState> {
+class StateKey_MultimapUserState$Type extends MessageType<StateKey_MultimapUserState> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.StateKey.MultimapUserState', [
-      {no: 1, name: 'transform_id', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
+    super("org.apache.beam.model.fn_execution.v1.StateKey.MultimapUserState", [
+      {
+        no: 1,
+        name: "transform_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
       {
         no: 2,
-        name: 'user_state_id',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
+        name: "user_state_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
       },
-      {no: 3, name: 'window', kind: 'scalar', T: 12 /*ScalarType.BYTES*/},
-      {no: 4, name: 'key', kind: 'scalar', T: 12 /*ScalarType.BYTES*/},
-      {no: 5, name: 'map_key', kind: 'scalar', T: 12 /*ScalarType.BYTES*/}
+      { no: 3, name: "window", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
+      { no: 4, name: "key", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
+      { no: 5, name: "map_key", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
     ]);
   }
-  create(value?: PartialMessage<StateKey_MultimapUserState>):
-      StateKey_MultimapUserState {
+  create(
+    value?: PartialMessage<StateKey_MultimapUserState>
+  ): StateKey_MultimapUserState {
     const message = {
-      transformId: '',
-      userStateId: '',
+      transformId: "",
+      userStateId: "",
       window: new Uint8Array(0),
       key: new Uint8Array(0),
-      mapKey: new Uint8Array(0)
+      mapKey: new Uint8Array(0),
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StateKey_MultimapUserState>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StateKey_MultimapUserState): StateKey_MultimapUserState {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StateKey_MultimapUserState
+  ): StateKey_MultimapUserState {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -6019,25 +7009,33 @@ class StateKey_MultimapUserState$Type extends
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: StateKey_MultimapUserState, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StateKey_MultimapUserState,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string transform_id = 1; */
-    if (message.transformId !== '')
+    if (message.transformId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.transformId);
     /* string user_state_id = 2; */
-    if (message.userStateId !== '')
+    if (message.userStateId !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.userStateId);
     /* bytes window = 3; */
     if (message.window.length)
@@ -6051,7 +7049,10 @@ class StateKey_MultimapUserState$Type extends
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -6064,25 +7065,33 @@ export const StateKey_MultimapUserState = new StateKey_MultimapUserState$Type();
 // optimized methods
 class StateGetRequest$Type extends MessageType<StateGetRequest> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.StateGetRequest', [{
-            no: 1,
-            name: 'continuation_token',
-            kind: 'scalar',
-            T: 12 /*ScalarType.BYTES*/
-          }]);
+    super("org.apache.beam.model.fn_execution.v1.StateGetRequest", [
+      {
+        no: 1,
+        name: "continuation_token",
+        kind: "scalar",
+        T: 12 /*ScalarType.BYTES*/,
+      },
+    ]);
   }
   create(value?: PartialMessage<StateGetRequest>): StateGetRequest {
-    const message = {continuationToken: new Uint8Array(0)};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { continuationToken: new Uint8Array(0) };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StateGetRequest>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StateGetRequest): StateGetRequest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StateGetRequest
+  ): StateGetRequest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -6091,27 +7100,38 @@ class StateGetRequest$Type extends MessageType<StateGetRequest> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: StateGetRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StateGetRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* bytes continuation_token = 1; */
     if (message.continuationToken.length)
       writer.tag(1, WireType.LengthDelimited).bytes(message.continuationToken);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -6124,31 +7144,37 @@ export const StateGetRequest = new StateGetRequest$Type();
 // optimized methods
 class StateGetResponse$Type extends MessageType<StateGetResponse> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.StateGetResponse', [
+    super("org.apache.beam.model.fn_execution.v1.StateGetResponse", [
       {
         no: 1,
-        name: 'continuation_token',
-        kind: 'scalar',
-        T: 12 /*ScalarType.BYTES*/
+        name: "continuation_token",
+        kind: "scalar",
+        T: 12 /*ScalarType.BYTES*/,
       },
-      {no: 2, name: 'data', kind: 'scalar', T: 12 /*ScalarType.BYTES*/}
+      { no: 2, name: "data", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
     ]);
   }
   create(value?: PartialMessage<StateGetResponse>): StateGetResponse {
     const message = {
       continuationToken: new Uint8Array(0),
-      data: new Uint8Array(0)
+      data: new Uint8Array(0),
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StateGetResponse>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StateGetResponse): StateGetResponse {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StateGetResponse
+  ): StateGetResponse {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -6160,20 +7186,28 @@ class StateGetResponse$Type extends MessageType<StateGetResponse> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: StateGetResponse, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StateGetResponse,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* bytes continuation_token = 1; */
     if (message.continuationToken.length)
       writer.tag(1, WireType.LengthDelimited).bytes(message.continuationToken);
@@ -6183,7 +7217,10 @@ class StateGetResponse$Type extends MessageType<StateGetResponse> {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -6196,22 +7233,28 @@ export const StateGetResponse = new StateGetResponse$Type();
 // optimized methods
 class StateAppendRequest$Type extends MessageType<StateAppendRequest> {
   constructor() {
-    super(
-        'org.apache.beam.model.fn_execution.v1.StateAppendRequest',
-        [{no: 1, name: 'data', kind: 'scalar', T: 12 /*ScalarType.BYTES*/}]);
+    super("org.apache.beam.model.fn_execution.v1.StateAppendRequest", [
+      { no: 1, name: "data", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
+    ]);
   }
   create(value?: PartialMessage<StateAppendRequest>): StateAppendRequest {
-    const message = {data: new Uint8Array(0)};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { data: new Uint8Array(0) };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StateAppendRequest>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StateAppendRequest): StateAppendRequest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StateAppendRequest
+  ): StateAppendRequest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -6220,27 +7263,38 @@ class StateAppendRequest$Type extends MessageType<StateAppendRequest> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: StateAppendRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StateAppendRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* bytes data = 1; */
     if (message.data.length)
       writer.tag(1, WireType.LengthDelimited).bytes(message.data);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -6253,28 +7307,38 @@ export const StateAppendRequest = new StateAppendRequest$Type();
 // optimized methods
 class StateAppendResponse$Type extends MessageType<StateAppendResponse> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.StateAppendResponse', []);
+    super("org.apache.beam.model.fn_execution.v1.StateAppendResponse", []);
   }
   create(value?: PartialMessage<StateAppendResponse>): StateAppendResponse {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StateAppendResponse>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StateAppendResponse): StateAppendResponse {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StateAppendResponse
+  ): StateAppendResponse {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: StateAppendResponse, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StateAppendResponse,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -6287,28 +7351,38 @@ export const StateAppendResponse = new StateAppendResponse$Type();
 // optimized methods
 class StateClearRequest$Type extends MessageType<StateClearRequest> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.StateClearRequest', []);
+    super("org.apache.beam.model.fn_execution.v1.StateClearRequest", []);
   }
   create(value?: PartialMessage<StateClearRequest>): StateClearRequest {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StateClearRequest>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StateClearRequest): StateClearRequest {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StateClearRequest
+  ): StateClearRequest {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: StateClearRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StateClearRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -6321,28 +7395,38 @@ export const StateClearRequest = new StateClearRequest$Type();
 // optimized methods
 class StateClearResponse$Type extends MessageType<StateClearResponse> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.StateClearResponse', []);
+    super("org.apache.beam.model.fn_execution.v1.StateClearResponse", []);
   }
   create(value?: PartialMessage<StateClearResponse>): StateClearResponse {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StateClearResponse>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StateClearResponse): StateClearResponse {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StateClearResponse
+  ): StateClearResponse {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: StateClearResponse, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StateClearResponse,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -6355,59 +7439,81 @@ export const StateClearResponse = new StateClearResponse$Type();
 // optimized methods
 class LogEntry$Type extends MessageType<LogEntry> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.LogEntry', [
+    super("org.apache.beam.model.fn_execution.v1.LogEntry", [
       {
         no: 1,
-        name: 'severity',
-        kind: 'enum',
-        T: () =>
-            ['org.apache.beam.model.fn_execution.v1.LogEntry.Severity.Enum',
-             LogEntry_Severity_Enum]
+        name: "severity",
+        kind: "enum",
+        T: () => [
+          "org.apache.beam.model.fn_execution.v1.LogEntry.Severity.Enum",
+          LogEntry_Severity_Enum,
+        ],
       },
-      {no: 2, name: 'timestamp', kind: 'message', T: () => Timestamp},
-      {no: 3, name: 'message', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 4, name: 'trace', kind: 'scalar', T: 9 /*ScalarType.STRING*/}, {
+      { no: 2, name: "timestamp", kind: "message", T: () => Timestamp },
+      { no: 3, name: "message", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      { no: 4, name: "trace", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      {
         no: 5,
-        name: 'instruction_id',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
+        name: "instruction_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
       },
-      {no: 6, name: 'transform_id', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 7, name: 'log_location', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 8, name: 'thread', kind: 'scalar', T: 9 /*ScalarType.STRING*/}
+      {
+        no: 6,
+        name: "transform_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
+      {
+        no: 7,
+        name: "log_location",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
+      { no: 8, name: "thread", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
     ]);
   }
   create(value?: PartialMessage<LogEntry>): LogEntry {
     const message = {
       severity: 0,
-      message: '',
-      trace: '',
-      instructionId: '',
-      transformId: '',
-      logLocation: '',
-      thread: ''
+      message: "",
+      trace: "",
+      instructionId: "",
+      transformId: "",
+      logLocation: "",
+      thread: "",
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<LogEntry>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: LogEntry): LogEntry {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: LogEntry
+  ): LogEntry {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.fn_execution.v1.LogEntry.Severity.Enum
                 severity */
-            1:
+        1:
           message.severity = reader.int32();
           break;
         case /* google.protobuf.Timestamp timestamp */ 2:
           message.timestamp = Timestamp.internalBinaryRead(
-              reader, reader.uint32(), options, message.timestamp);
+            reader,
+            reader.uint32(),
+            options,
+            message.timestamp
+          );
           break;
         case /* string message */ 3:
           message.message = reader.string();
@@ -6429,53 +7535,64 @@ class LogEntry$Type extends MessageType<LogEntry> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: LogEntry, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: LogEntry,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.fn_execution.v1.LogEntry.Severity.Enum severity =
      * 1; */
     if (message.severity !== 0)
       writer.tag(1, WireType.Varint).int32(message.severity);
     /* google.protobuf.Timestamp timestamp = 2; */
     if (message.timestamp)
-      Timestamp
-          .internalBinaryWrite(
-              message.timestamp, writer.tag(2, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      Timestamp.internalBinaryWrite(
+        message.timestamp,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* string message = 3; */
-    if (message.message !== '')
+    if (message.message !== "")
       writer.tag(3, WireType.LengthDelimited).string(message.message);
     /* string trace = 4; */
-    if (message.trace !== '')
+    if (message.trace !== "")
       writer.tag(4, WireType.LengthDelimited).string(message.trace);
     /* string instruction_id = 5; */
-    if (message.instructionId !== '')
+    if (message.instructionId !== "")
       writer.tag(5, WireType.LengthDelimited).string(message.instructionId);
     /* string transform_id = 6; */
-    if (message.transformId !== '')
+    if (message.transformId !== "")
       writer.tag(6, WireType.LengthDelimited).string(message.transformId);
     /* string log_location = 7; */
-    if (message.logLocation !== '')
+    if (message.logLocation !== "")
       writer.tag(7, WireType.LengthDelimited).string(message.logLocation);
     /* string thread = 8; */
-    if (message.thread !== '')
+    if (message.thread !== "")
       writer.tag(8, WireType.LengthDelimited).string(message.thread);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -6488,63 +7605,83 @@ export const LogEntry = new LogEntry$Type();
 // optimized methods
 class LogEntry_List$Type extends MessageType<LogEntry_List> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.LogEntry.List', [{
-            no: 1,
-            name: 'log_entries',
-            kind: 'message',
-            repeat: 1 /*RepeatType.PACKED*/,
-            T: () => LogEntry
-          }]);
+    super("org.apache.beam.model.fn_execution.v1.LogEntry.List", [
+      {
+        no: 1,
+        name: "log_entries",
+        kind: "message",
+        repeat: 1 /*RepeatType.PACKED*/,
+        T: () => LogEntry,
+      },
+    ]);
   }
   create(value?: PartialMessage<LogEntry_List>): LogEntry_List {
-    const message = {logEntries: []};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { logEntries: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<LogEntry_List>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: LogEntry_List): LogEntry_List {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: LogEntry_List
+  ): LogEntry_List {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* repeated org.apache.beam.model.fn_execution.v1.LogEntry
                 log_entries */
-            1:
+        1:
           message.logEntries.push(
-              LogEntry.internalBinaryRead(reader, reader.uint32(), options));
+            LogEntry.internalBinaryRead(reader, reader.uint32(), options)
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: LogEntry_List, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: LogEntry_List,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* repeated org.apache.beam.model.fn_execution.v1.LogEntry log_entries = 1;
      */
     for (let i = 0; i < message.logEntries.length; i++)
-      LogEntry
-          .internalBinaryWrite(
-              message.logEntries[i],
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+      LogEntry.internalBinaryWrite(
+        message.logEntries[i],
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -6557,28 +7694,38 @@ export const LogEntry_List = new LogEntry_List$Type();
 // optimized methods
 class LogEntry_Severity$Type extends MessageType<LogEntry_Severity> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.LogEntry.Severity', []);
+    super("org.apache.beam.model.fn_execution.v1.LogEntry.Severity", []);
   }
   create(value?: PartialMessage<LogEntry_Severity>): LogEntry_Severity {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<LogEntry_Severity>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: LogEntry_Severity): LogEntry_Severity {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: LogEntry_Severity
+  ): LogEntry_Severity {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: LogEntry_Severity, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: LogEntry_Severity,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -6591,28 +7738,38 @@ export const LogEntry_Severity = new LogEntry_Severity$Type();
 // optimized methods
 class LogControl$Type extends MessageType<LogControl> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.LogControl', []);
+    super("org.apache.beam.model.fn_execution.v1.LogControl", []);
   }
   create(value?: PartialMessage<LogControl>): LogControl {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<LogControl>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: LogControl): LogControl {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: LogControl
+  ): LogControl {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: LogControl, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: LogControl,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -6625,52 +7782,59 @@ export const LogControl = new LogControl$Type();
 // optimized methods
 class StartWorkerRequest$Type extends MessageType<StartWorkerRequest> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.StartWorkerRequest', [
-      {no: 1, name: 'worker_id', kind: 'scalar', T: 9 /*ScalarType.STRING*/}, {
+    super("org.apache.beam.model.fn_execution.v1.StartWorkerRequest", [
+      { no: 1, name: "worker_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      {
         no: 2,
-        name: 'control_endpoint',
-        kind: 'message',
-        T: () => ApiServiceDescriptor
+        name: "control_endpoint",
+        kind: "message",
+        T: () => ApiServiceDescriptor,
       },
       {
         no: 3,
-        name: 'logging_endpoint',
-        kind: 'message',
-        T: () => ApiServiceDescriptor
+        name: "logging_endpoint",
+        kind: "message",
+        T: () => ApiServiceDescriptor,
       },
       {
         no: 4,
-        name: 'artifact_endpoint',
-        kind: 'message',
-        T: () => ApiServiceDescriptor
+        name: "artifact_endpoint",
+        kind: "message",
+        T: () => ApiServiceDescriptor,
       },
       {
         no: 5,
-        name: 'provision_endpoint',
-        kind: 'message',
-        T: () => ApiServiceDescriptor
+        name: "provision_endpoint",
+        kind: "message",
+        T: () => ApiServiceDescriptor,
       },
       {
         no: 10,
-        name: 'params',
-        kind: 'map',
+        name: "params",
+        kind: "map",
         K: 9 /*ScalarType.STRING*/,
-        V: {kind: 'scalar', T: 9 /*ScalarType.STRING*/}
-      }
+        V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      },
     ]);
   }
   create(value?: PartialMessage<StartWorkerRequest>): StartWorkerRequest {
-    const message = {workerId: '', params: {}};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { workerId: "", params: {} };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StartWorkerRequest>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StartWorkerRequest): StartWorkerRequest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StartWorkerRequest
+  ): StartWorkerRequest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -6679,50 +7843,75 @@ class StartWorkerRequest$Type extends MessageType<StartWorkerRequest> {
           break;
         case /* org.apache.beam.model.pipeline.v1.ApiServiceDescriptor
                 control_endpoint */
-            2:
+        2:
           message.controlEndpoint = ApiServiceDescriptor.internalBinaryRead(
-              reader, reader.uint32(), options, message.controlEndpoint);
+            reader,
+            reader.uint32(),
+            options,
+            message.controlEndpoint
+          );
           break;
         case /* org.apache.beam.model.pipeline.v1.ApiServiceDescriptor
                 logging_endpoint */
-            3:
+        3:
           message.loggingEndpoint = ApiServiceDescriptor.internalBinaryRead(
-              reader, reader.uint32(), options, message.loggingEndpoint);
+            reader,
+            reader.uint32(),
+            options,
+            message.loggingEndpoint
+          );
           break;
         case /* org.apache.beam.model.pipeline.v1.ApiServiceDescriptor
                 artifact_endpoint */
-            4:
+        4:
           message.artifactEndpoint = ApiServiceDescriptor.internalBinaryRead(
-              reader, reader.uint32(), options, message.artifactEndpoint);
+            reader,
+            reader.uint32(),
+            options,
+            message.artifactEndpoint
+          );
           break;
         case /* org.apache.beam.model.pipeline.v1.ApiServiceDescriptor
                 provision_endpoint */
-            5:
+        5:
           message.provisionEndpoint = ApiServiceDescriptor.internalBinaryRead(
-              reader, reader.uint32(), options, message.provisionEndpoint);
+            reader,
+            reader.uint32(),
+            options,
+            message.provisionEndpoint
+          );
           break;
         case /* map<string, string> params */ 10:
           this.binaryReadMap10(message.params, reader, options);
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   private binaryReadMap10(
-      map: StartWorkerRequest['params'], reader: IBinaryReader,
-      options: BinaryReadOptions): void {
-    let len = reader.uint32(), end = reader.pos + len,
-        key: keyof StartWorkerRequest['params']|undefined,
-        val: StartWorkerRequest['params'][any]|undefined;
+    map: StartWorkerRequest["params"],
+    reader: IBinaryReader,
+    options: BinaryReadOptions
+  ): void {
+    let len = reader.uint32(),
+      end = reader.pos + len,
+      key: keyof StartWorkerRequest["params"] | undefined,
+      val: StartWorkerRequest["params"][any] | undefined;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -6734,62 +7923,69 @@ class StartWorkerRequest$Type extends MessageType<StartWorkerRequest> {
           break;
         default:
           throw new globalThis.Error(
-              'unknown map entry field for field org.apache.beam.model.fn_execution.v1.StartWorkerRequest.params');
+            "unknown map entry field for field org.apache.beam.model.fn_execution.v1.StartWorkerRequest.params"
+          );
       }
     }
-    map[key ?? ''] = val ?? '';
+    map[key ?? ""] = val ?? "";
   }
   internalBinaryWrite(
-      message: StartWorkerRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StartWorkerRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string worker_id = 1; */
-    if (message.workerId !== '')
+    if (message.workerId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.workerId);
     /* org.apache.beam.model.pipeline.v1.ApiServiceDescriptor control_endpoint =
      * 2; */
     if (message.controlEndpoint)
-      ApiServiceDescriptor
-          .internalBinaryWrite(
-              message.controlEndpoint,
-              writer.tag(2, WireType.LengthDelimited).fork(), options)
-          .join();
+      ApiServiceDescriptor.internalBinaryWrite(
+        message.controlEndpoint,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.ApiServiceDescriptor logging_endpoint =
      * 3; */
     if (message.loggingEndpoint)
-      ApiServiceDescriptor
-          .internalBinaryWrite(
-              message.loggingEndpoint,
-              writer.tag(3, WireType.LengthDelimited).fork(), options)
-          .join();
+      ApiServiceDescriptor.internalBinaryWrite(
+        message.loggingEndpoint,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.ApiServiceDescriptor artifact_endpoint
      * = 4; */
     if (message.artifactEndpoint)
-      ApiServiceDescriptor
-          .internalBinaryWrite(
-              message.artifactEndpoint,
-              writer.tag(4, WireType.LengthDelimited).fork(), options)
-          .join();
+      ApiServiceDescriptor.internalBinaryWrite(
+        message.artifactEndpoint,
+        writer.tag(4, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.ApiServiceDescriptor provision_endpoint
      * = 5; */
     if (message.provisionEndpoint)
-      ApiServiceDescriptor
-          .internalBinaryWrite(
-              message.provisionEndpoint,
-              writer.tag(5, WireType.LengthDelimited).fork(), options)
-          .join();
+      ApiServiceDescriptor.internalBinaryWrite(
+        message.provisionEndpoint,
+        writer.tag(5, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* map<string, string> params = 10; */
     for (let k of Object.keys(message.params))
-      writer.tag(10, WireType.LengthDelimited)
-          .fork()
-          .tag(1, WireType.LengthDelimited)
-          .string(k)
-          .tag(2, WireType.LengthDelimited)
-          .string(message.params[k])
-          .join();
+      writer
+        .tag(10, WireType.LengthDelimited)
+        .fork()
+        .tag(1, WireType.LengthDelimited)
+        .string(k)
+        .tag(2, WireType.LengthDelimited)
+        .string(message.params[k])
+        .join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -6802,22 +7998,28 @@ export const StartWorkerRequest = new StartWorkerRequest$Type();
 // optimized methods
 class StartWorkerResponse$Type extends MessageType<StartWorkerResponse> {
   constructor() {
-    super(
-        'org.apache.beam.model.fn_execution.v1.StartWorkerResponse',
-        [{no: 1, name: 'error', kind: 'scalar', T: 9 /*ScalarType.STRING*/}]);
+    super("org.apache.beam.model.fn_execution.v1.StartWorkerResponse", [
+      { no: 1, name: "error", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+    ]);
   }
   create(value?: PartialMessage<StartWorkerResponse>): StartWorkerResponse {
-    const message = {error: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { error: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StartWorkerResponse>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StartWorkerResponse): StartWorkerResponse {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StartWorkerResponse
+  ): StartWorkerResponse {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -6826,27 +8028,38 @@ class StartWorkerResponse$Type extends MessageType<StartWorkerResponse> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: StartWorkerResponse, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StartWorkerResponse,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string error = 1; */
-    if (message.error !== '')
+    if (message.error !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.error);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -6859,22 +8072,28 @@ export const StartWorkerResponse = new StartWorkerResponse$Type();
 // optimized methods
 class StopWorkerRequest$Type extends MessageType<StopWorkerRequest> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.StopWorkerRequest', [
-      {no: 1, name: 'worker_id', kind: 'scalar', T: 9 /*ScalarType.STRING*/}
+    super("org.apache.beam.model.fn_execution.v1.StopWorkerRequest", [
+      { no: 1, name: "worker_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
     ]);
   }
   create(value?: PartialMessage<StopWorkerRequest>): StopWorkerRequest {
-    const message = {workerId: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { workerId: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StopWorkerRequest>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StopWorkerRequest): StopWorkerRequest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StopWorkerRequest
+  ): StopWorkerRequest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -6883,27 +8102,38 @@ class StopWorkerRequest$Type extends MessageType<StopWorkerRequest> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: StopWorkerRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StopWorkerRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string worker_id = 1; */
-    if (message.workerId !== '')
+    if (message.workerId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.workerId);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -6916,22 +8146,28 @@ export const StopWorkerRequest = new StopWorkerRequest$Type();
 // optimized methods
 class StopWorkerResponse$Type extends MessageType<StopWorkerResponse> {
   constructor() {
-    super(
-        'org.apache.beam.model.fn_execution.v1.StopWorkerResponse',
-        [{no: 1, name: 'error', kind: 'scalar', T: 9 /*ScalarType.STRING*/}]);
+    super("org.apache.beam.model.fn_execution.v1.StopWorkerResponse", [
+      { no: 1, name: "error", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+    ]);
   }
   create(value?: PartialMessage<StopWorkerResponse>): StopWorkerResponse {
-    const message = {error: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { error: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StopWorkerResponse>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StopWorkerResponse): StopWorkerResponse {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StopWorkerResponse
+  ): StopWorkerResponse {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -6940,27 +8176,38 @@ class StopWorkerResponse$Type extends MessageType<StopWorkerResponse> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: StopWorkerResponse, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StopWorkerResponse,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string error = 1; */
-    if (message.error !== '')
+    if (message.error !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.error);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -6973,22 +8220,28 @@ export const StopWorkerResponse = new StopWorkerResponse$Type();
 // optimized methods
 class WorkerStatusRequest$Type extends MessageType<WorkerStatusRequest> {
   constructor() {
-    super(
-        'org.apache.beam.model.fn_execution.v1.WorkerStatusRequest',
-        [{no: 1, name: 'id', kind: 'scalar', T: 9 /*ScalarType.STRING*/}]);
+    super("org.apache.beam.model.fn_execution.v1.WorkerStatusRequest", [
+      { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+    ]);
   }
   create(value?: PartialMessage<WorkerStatusRequest>): WorkerStatusRequest {
-    const message = {id: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { id: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<WorkerStatusRequest>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: WorkerStatusRequest): WorkerStatusRequest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: WorkerStatusRequest
+  ): WorkerStatusRequest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -6997,27 +8250,38 @@ class WorkerStatusRequest$Type extends MessageType<WorkerStatusRequest> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: WorkerStatusRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: WorkerStatusRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string id = 1; */
-    if (message.id !== '')
+    if (message.id !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.id);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -7030,24 +8294,35 @@ export const WorkerStatusRequest = new WorkerStatusRequest$Type();
 // optimized methods
 class WorkerStatusResponse$Type extends MessageType<WorkerStatusResponse> {
   constructor() {
-    super('org.apache.beam.model.fn_execution.v1.WorkerStatusResponse', [
-      {no: 1, name: 'id', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 2, name: 'error', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 3, name: 'status_info', kind: 'scalar', T: 9 /*ScalarType.STRING*/}
+    super("org.apache.beam.model.fn_execution.v1.WorkerStatusResponse", [
+      { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      { no: 2, name: "error", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      {
+        no: 3,
+        name: "status_info",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
     ]);
   }
   create(value?: PartialMessage<WorkerStatusResponse>): WorkerStatusResponse {
-    const message = {id: '', error: '', statusInfo: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { id: "", error: "", statusInfo: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<WorkerStatusResponse>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: WorkerStatusResponse): WorkerStatusResponse {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: WorkerStatusResponse
+  ): WorkerStatusResponse {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -7062,33 +8337,44 @@ class WorkerStatusResponse$Type extends MessageType<WorkerStatusResponse> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: WorkerStatusResponse, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: WorkerStatusResponse,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string id = 1; */
-    if (message.id !== '')
+    if (message.id !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.id);
     /* string error = 2; */
-    if (message.error !== '')
+    if (message.error !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.error);
     /* string status_info = 3; */
-    if (message.statusInfo !== '')
+    if (message.statusInfo !== "")
       writer.tag(3, WireType.LengthDelimited).string(message.statusInfo);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -7101,91 +8387,111 @@ export const WorkerStatusResponse = new WorkerStatusResponse$Type();
  * @generated ServiceType for protobuf service
  * org.apache.beam.model.fn_execution.v1.BeamFnControl
  */
-export const BeamFnControl =
-    new ServiceType('org.apache.beam.model.fn_execution.v1.BeamFnControl', [
-      {
-        name: 'Control',
-        serverStreaming: true,
-        clientStreaming: true,
-        options: {},
-        I: InstructionResponse,
-        O: InstructionRequest
-      },
-      {
-        name: 'GetProcessBundleDescriptor',
-        options: {},
-        I: GetProcessBundleDescriptorRequest,
-        O: ProcessBundleDescriptor
-      }
-    ]);
+export const BeamFnControl = new ServiceType(
+  "org.apache.beam.model.fn_execution.v1.BeamFnControl",
+  [
+    {
+      name: "Control",
+      serverStreaming: true,
+      clientStreaming: true,
+      options: {},
+      I: InstructionResponse,
+      O: InstructionRequest,
+    },
+    {
+      name: "GetProcessBundleDescriptor",
+      options: {},
+      I: GetProcessBundleDescriptorRequest,
+      O: ProcessBundleDescriptor,
+    },
+  ]
+);
 /**
  * @generated ServiceType for protobuf service
  * org.apache.beam.model.fn_execution.v1.BeamFnData
  */
-export const BeamFnData =
-    new ServiceType('org.apache.beam.model.fn_execution.v1.BeamFnData', [{
-                      name: 'Data',
-                      serverStreaming: true,
-                      clientStreaming: true,
-                      options: {},
-                      I: Elements,
-                      O: Elements
-                    }]);
+export const BeamFnData = new ServiceType(
+  "org.apache.beam.model.fn_execution.v1.BeamFnData",
+  [
+    {
+      name: "Data",
+      serverStreaming: true,
+      clientStreaming: true,
+      options: {},
+      I: Elements,
+      O: Elements,
+    },
+  ]
+);
 /**
  * @generated ServiceType for protobuf service
  * org.apache.beam.model.fn_execution.v1.BeamFnState
  */
-export const BeamFnState =
-    new ServiceType('org.apache.beam.model.fn_execution.v1.BeamFnState', [{
-                      name: 'State',
-                      serverStreaming: true,
-                      clientStreaming: true,
-                      options: {},
-                      I: StateRequest,
-                      O: StateResponse
-                    }]);
+export const BeamFnState = new ServiceType(
+  "org.apache.beam.model.fn_execution.v1.BeamFnState",
+  [
+    {
+      name: "State",
+      serverStreaming: true,
+      clientStreaming: true,
+      options: {},
+      I: StateRequest,
+      O: StateResponse,
+    },
+  ]
+);
 /**
  * @generated ServiceType for protobuf service
  * org.apache.beam.model.fn_execution.v1.BeamFnLogging
  */
-export const BeamFnLogging =
-    new ServiceType('org.apache.beam.model.fn_execution.v1.BeamFnLogging', [{
-                      name: 'Logging',
-                      serverStreaming: true,
-                      clientStreaming: true,
-                      options: {},
-                      I: LogEntry_List,
-                      O: LogControl
-                    }]);
+export const BeamFnLogging = new ServiceType(
+  "org.apache.beam.model.fn_execution.v1.BeamFnLogging",
+  [
+    {
+      name: "Logging",
+      serverStreaming: true,
+      clientStreaming: true,
+      options: {},
+      I: LogEntry_List,
+      O: LogControl,
+    },
+  ]
+);
 /**
  * @generated ServiceType for protobuf service
  * org.apache.beam.model.fn_execution.v1.BeamFnExternalWorkerPool
  */
 export const BeamFnExternalWorkerPool = new ServiceType(
-    'org.apache.beam.model.fn_execution.v1.BeamFnExternalWorkerPool', [
-      {
-        name: 'StartWorker',
-        options: {},
-        I: StartWorkerRequest,
-        O: StartWorkerResponse
-      },
-      {
-        name: 'StopWorker',
-        options: {},
-        I: StopWorkerRequest,
-        O: StopWorkerResponse
-      }
-    ]);
+  "org.apache.beam.model.fn_execution.v1.BeamFnExternalWorkerPool",
+  [
+    {
+      name: "StartWorker",
+      options: {},
+      I: StartWorkerRequest,
+      O: StartWorkerResponse,
+    },
+    {
+      name: "StopWorker",
+      options: {},
+      I: StopWorkerRequest,
+      O: StopWorkerResponse,
+    },
+  ]
+);
 /**
  * @generated ServiceType for protobuf service
  * org.apache.beam.model.fn_execution.v1.BeamFnWorkerStatus
  */
 export const BeamFnWorkerStatus = new ServiceType(
-    'org.apache.beam.model.fn_execution.v1.BeamFnWorkerStatus', [{
-      name: 'WorkerStatus',
+  "org.apache.beam.model.fn_execution.v1.BeamFnWorkerStatus",
+  [
+    {
+      name: "WorkerStatus",
       serverStreaming: true,
       clientStreaming: true,
       options: {},
       I: WorkerStatusResponse,
-      O: WorkerStatusRequest
-    }]);
+      O: WorkerStatusRequest,
+    },
+  ]
+);

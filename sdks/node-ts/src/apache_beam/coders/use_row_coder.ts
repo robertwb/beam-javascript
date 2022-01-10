@@ -1,9 +1,9 @@
-import {Reader, Writer} from 'protobufjs';
+import { Reader, Writer } from "protobufjs";
 
-import {AtomicType, Schema} from '../proto/schema';
+import { AtomicType, Schema } from "../proto/schema";
 
-import {Context} from './coders';
-import {RowCoder} from './row_coder';
+import { Context } from "./coders";
+import { RowCoder } from "./row_coder";
 
 // let schema: Schema = {
 //     id: "test",
@@ -88,15 +88,15 @@ import {RowCoder} from './row_coder';
 // };
 
 const schema: Schema = {
-  id: 'test',
+  id: "test",
   fields: [
     {
-      name: 'constructor',
-      description: '',
+      name: "constructor",
+      description: "",
       type: {
         nullable: true,
         typeInfo: {
-          oneofKind: 'atomicType',
+          oneofKind: "atomicType",
           atomicType: AtomicType.STRING,
         },
       },
@@ -105,23 +105,23 @@ const schema: Schema = {
       options: [],
     },
     {
-      name: 'args',
-      description: '',
+      name: "args",
+      description: "",
       type: {
         nullable: true,
         typeInfo: {
-          oneofKind: 'rowType',
+          oneofKind: "rowType",
           rowType: {
             schema: {
-              id: 'test_inner',
+              id: "test_inner",
               fields: [
                 {
-                  name: 'arg0',
-                  description: '',
+                  name: "arg0",
+                  description: "",
                   type: {
                     nullable: true,
                     typeInfo: {
-                      oneofKind: 'atomicType',
+                      oneofKind: "atomicType",
                       atomicType: AtomicType.STRING,
                     },
                   },
@@ -141,23 +141,23 @@ const schema: Schema = {
       options: [],
     },
     {
-      name: 'kwargs',
-      description: '',
+      name: "kwargs",
+      description: "",
       type: {
         nullable: true,
         typeInfo: {
-          oneofKind: 'rowType',
+          oneofKind: "rowType",
           rowType: {
             schema: {
-              id: 'test_inner',
+              id: "test_inner",
               fields: [
                 {
-                  name: 'suffix',
-                  description: '',
+                  name: "suffix",
+                  description: "",
                   type: {
                     nullable: true,
                     typeInfo: {
-                      oneofKind: 'atomicType',
+                      oneofKind: "atomicType",
                       atomicType: AtomicType.STRING,
                     },
                   },
@@ -182,10 +182,10 @@ const schema: Schema = {
 };
 
 const obj = {
-  x: 'first',
+  x: "first",
   y: {
     // a: [1,2,3,4,5],
-    b: 'third',
+    b: "third",
   },
 };
 
@@ -197,8 +197,8 @@ const obj = {
 // }
 
 const writer = new Writer(),
-      // row = RowCoder.OfSchema(schema);
-    row = RowCoder.OfJSON(obj);
+  // row = RowCoder.OfSchema(schema);
+  row = RowCoder.OfJSON(obj);
 
 row.encode(obj, writer, Context.needsDelimiters);
 

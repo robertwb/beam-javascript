@@ -34,22 +34,22 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
-import type {BinaryWriteOptions} from '@protobuf-ts/runtime';
-import type {IBinaryWriter} from '@protobuf-ts/runtime';
-import {WireType} from '@protobuf-ts/runtime';
-import type {BinaryReadOptions} from '@protobuf-ts/runtime';
-import type {IBinaryReader} from '@protobuf-ts/runtime';
-import {UnknownFieldHandler} from '@protobuf-ts/runtime';
-import type {PartialMessage} from '@protobuf-ts/runtime';
-import {reflectionMergePartial} from '@protobuf-ts/runtime';
-import {MESSAGE_TYPE} from '@protobuf-ts/runtime';
-import {isJsonObject} from '@protobuf-ts/runtime';
-import {typeofJsonValue} from '@protobuf-ts/runtime';
-import type {JsonValue} from '@protobuf-ts/runtime';
-import type {JsonReadOptions} from '@protobuf-ts/runtime';
-import type {JsonWriteOptions} from '@protobuf-ts/runtime';
-import type {JsonObject} from '@protobuf-ts/runtime';
-import {MessageType} from '@protobuf-ts/runtime';
+import type { BinaryWriteOptions } from "@protobuf-ts/runtime";
+import type { IBinaryWriter } from "@protobuf-ts/runtime";
+import { WireType } from "@protobuf-ts/runtime";
+import type { BinaryReadOptions } from "@protobuf-ts/runtime";
+import type { IBinaryReader } from "@protobuf-ts/runtime";
+import { UnknownFieldHandler } from "@protobuf-ts/runtime";
+import type { PartialMessage } from "@protobuf-ts/runtime";
+import { reflectionMergePartial } from "@protobuf-ts/runtime";
+import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
+import { isJsonObject } from "@protobuf-ts/runtime";
+import { typeofJsonValue } from "@protobuf-ts/runtime";
+import type { JsonValue } from "@protobuf-ts/runtime";
+import type { JsonReadOptions } from "@protobuf-ts/runtime";
+import type { JsonWriteOptions } from "@protobuf-ts/runtime";
+import type { JsonObject } from "@protobuf-ts/runtime";
+import { MessageType } from "@protobuf-ts/runtime";
 /**
  * `Struct` represents a structured data value, consisting of fields
  * which map to dynamically typed values. In some languages, `Struct`
@@ -69,7 +69,7 @@ export interface Struct {
    * @generated from protobuf field: map<string, google.protobuf.Value> fields =
    * 1;
    */
-  fields: {[key: string]: Value;};
+  fields: { [key: string]: Value };
 }
 /**
  * `Value` represents a dynamically typed value which can be either
@@ -85,62 +85,64 @@ export interface Value {
   /**
    * @generated from protobuf oneof: kind
    */
-  kind: {
-    oneofKind: 'nullValue';
-    /**
-     * Represents a null value.
-     *
-     * @generated from protobuf field: google.protobuf.NullValue null_value = 1;
-     */
-    nullValue: NullValue;
-  }|{
-    oneofKind: 'numberValue';
-    /**
-     * Represents a double value.
-     *
-     * @generated from protobuf field: double number_value = 2;
-     */
-    numberValue: number;
-  }
-  |{
-    oneofKind: 'stringValue';
-    /**
-     * Represents a string value.
-     *
-     * @generated from protobuf field: string string_value = 3;
-     */
-    stringValue: string;
-  }
-  |{
-    oneofKind: 'boolValue';
-    /**
-     * Represents a boolean value.
-     *
-     * @generated from protobuf field: bool bool_value = 4;
-     */
-    boolValue: boolean;
-  }
-  |{
-    oneofKind: 'structValue';
-    /**
-     * Represents a structured value.
-     *
-     * @generated from protobuf field: google.protobuf.Struct struct_value = 5;
-     */
-    structValue: Struct;
-  }
-  |{
-    oneofKind: 'listValue';
-    /**
-     * Represents a repeated `Value`.
-     *
-     * @generated from protobuf field: google.protobuf.ListValue list_value = 6;
-     */
-    listValue: ListValue;
-  }
-  |{
-    oneofKind: undefined;
-  };
+  kind:
+    | {
+        oneofKind: "nullValue";
+        /**
+         * Represents a null value.
+         *
+         * @generated from protobuf field: google.protobuf.NullValue null_value = 1;
+         */
+        nullValue: NullValue;
+      }
+    | {
+        oneofKind: "numberValue";
+        /**
+         * Represents a double value.
+         *
+         * @generated from protobuf field: double number_value = 2;
+         */
+        numberValue: number;
+      }
+    | {
+        oneofKind: "stringValue";
+        /**
+         * Represents a string value.
+         *
+         * @generated from protobuf field: string string_value = 3;
+         */
+        stringValue: string;
+      }
+    | {
+        oneofKind: "boolValue";
+        /**
+         * Represents a boolean value.
+         *
+         * @generated from protobuf field: bool bool_value = 4;
+         */
+        boolValue: boolean;
+      }
+    | {
+        oneofKind: "structValue";
+        /**
+         * Represents a structured value.
+         *
+         * @generated from protobuf field: google.protobuf.Struct struct_value = 5;
+         */
+        structValue: Struct;
+      }
+    | {
+        oneofKind: "listValue";
+        /**
+         * Represents a repeated `Value`.
+         *
+         * @generated from protobuf field: google.protobuf.ListValue list_value = 6;
+         */
+        listValue: ListValue;
+      }
+    | {
+        oneofKind: undefined;
+      };
 }
 /**
  * `ListValue` is a wrapper around a repeated field of values.
@@ -171,19 +173,21 @@ export enum NullValue {
    *
    * @generated from protobuf enum value: NULL_VALUE = 0;
    */
-  NULL_VALUE = 0
+  NULL_VALUE = 0,
 }
 // @generated message type with reflection information, may provide speed
 // optimized methods
 class Struct$Type extends MessageType<Struct> {
   constructor() {
-    super('google.protobuf.Struct', [{
-            no: 1,
-            name: 'fields',
-            kind: 'map',
-            K: 9 /*ScalarType.STRING*/,
-            V: {kind: 'message', T: () => Value}
-          }]);
+    super("google.protobuf.Struct", [
+      {
+        no: 1,
+        name: "fields",
+        kind: "map",
+        K: 9 /*ScalarType.STRING*/,
+        V: { kind: "message", T: () => Value },
+      },
+    ]);
   }
   /**
    * Encode `Struct` to JSON object.
@@ -198,12 +202,19 @@ class Struct$Type extends MessageType<Struct> {
   /**
    * Decode `Struct` from JSON object.
    */
-  internalJsonRead(json: JsonValue, options: JsonReadOptions, target?: Struct):
-      Struct {
+  internalJsonRead(
+    json: JsonValue,
+    options: JsonReadOptions,
+    target?: Struct
+  ): Struct {
     if (!isJsonObject(json))
       throw new globalThis.Error(
-          'Unable to parse message ' + this.typeName + ' from JSON ' +
-          typeofJsonValue(json) + '.');
+        "Unable to parse message " +
+          this.typeName +
+          " from JSON " +
+          typeofJsonValue(json) +
+          "."
+      );
     if (!target) target = this.create();
     for (let [k, v] of globalThis.Object.entries(json)) {
       target.fields[k] = Value.fromJson(v);
@@ -211,17 +222,23 @@ class Struct$Type extends MessageType<Struct> {
     return target;
   }
   create(value?: PartialMessage<Struct>): Struct {
-    const message = {fields: {}};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { fields: {} };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<Struct>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: Struct): Struct {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Struct
+  ): Struct {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -230,23 +247,32 @@ class Struct$Type extends MessageType<Struct> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   private binaryReadMap1(
-      map: Struct['fields'], reader: IBinaryReader,
-      options: BinaryReadOptions): void {
-    let len = reader.uint32(), end = reader.pos + len,
-        key: keyof Struct['fields']|undefined,
-        val: Struct['fields'][any]|undefined;
+    map: Struct["fields"],
+    reader: IBinaryReader,
+    options: BinaryReadOptions
+  ): void {
+    let len = reader.uint32(),
+      end = reader.pos + len,
+      key: keyof Struct["fields"] | undefined,
+      val: Struct["fields"][any] | undefined;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -258,20 +284,24 @@ class Struct$Type extends MessageType<Struct> {
           break;
         default:
           throw new globalThis.Error(
-              'unknown map entry field for field google.protobuf.Struct.fields');
+            "unknown map entry field for field google.protobuf.Struct.fields"
+          );
       }
     }
-    map[key ?? ''] = val ?? Value.create();
+    map[key ?? ""] = val ?? Value.create();
   }
   internalBinaryWrite(
-      message: Struct, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: Struct,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* map<string, google.protobuf.Value> fields = 1; */
     for (let k of Object.keys(message.fields)) {
-      writer.tag(1, WireType.LengthDelimited)
-          .fork()
-          .tag(1, WireType.LengthDelimited)
-          .string(k);
+      writer
+        .tag(1, WireType.LengthDelimited)
+        .fork()
+        .tag(1, WireType.LengthDelimited)
+        .string(k);
       writer.tag(2, WireType.LengthDelimited).fork();
       Value.internalBinaryWrite(message.fields[k], writer, options);
       writer.join().join();
@@ -279,7 +309,10 @@ class Struct$Type extends MessageType<Struct> {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -291,49 +324,49 @@ export const Struct = new Struct$Type();
 // optimized methods
 class Value$Type extends MessageType<Value> {
   constructor() {
-    super('google.protobuf.Value', [
+    super("google.protobuf.Value", [
       {
         no: 1,
-        name: 'null_value',
-        kind: 'enum',
-        oneof: 'kind',
-        T: () => ['google.protobuf.NullValue', NullValue]
+        name: "null_value",
+        kind: "enum",
+        oneof: "kind",
+        T: () => ["google.protobuf.NullValue", NullValue],
       },
       {
         no: 2,
-        name: 'number_value',
-        kind: 'scalar',
-        oneof: 'kind',
-        T: 1 /*ScalarType.DOUBLE*/
+        name: "number_value",
+        kind: "scalar",
+        oneof: "kind",
+        T: 1 /*ScalarType.DOUBLE*/,
       },
       {
         no: 3,
-        name: 'string_value',
-        kind: 'scalar',
-        oneof: 'kind',
-        T: 9 /*ScalarType.STRING*/
+        name: "string_value",
+        kind: "scalar",
+        oneof: "kind",
+        T: 9 /*ScalarType.STRING*/,
       },
       {
         no: 4,
-        name: 'bool_value',
-        kind: 'scalar',
-        oneof: 'kind',
-        T: 8 /*ScalarType.BOOL*/
+        name: "bool_value",
+        kind: "scalar",
+        oneof: "kind",
+        T: 8 /*ScalarType.BOOL*/,
       },
       {
         no: 5,
-        name: 'struct_value',
-        kind: 'message',
-        oneof: 'kind',
-        T: () => Struct
+        name: "struct_value",
+        kind: "message",
+        oneof: "kind",
+        T: () => Struct,
       },
       {
         no: 6,
-        name: 'list_value',
-        kind: 'message',
-        oneof: 'kind',
-        T: () => ListValue
-      }
+        name: "list_value",
+        kind: "message",
+        oneof: "kind",
+        T: () => ListValue,
+      },
     ]);
   }
   /**
@@ -344,161 +377,190 @@ class Value$Type extends MessageType<Value> {
     switch (message.kind.oneofKind) {
       case undefined:
         throw new globalThis.Error();
-      case 'boolValue':
+      case "boolValue":
         return message.kind.boolValue;
-      case 'nullValue':
+      case "nullValue":
         return null;
-      case 'numberValue':
+      case "numberValue":
         return message.kind.numberValue;
-      case 'stringValue':
+      case "stringValue":
         return message.kind.stringValue;
-      case 'listValue':
-        let listValueField = this.fields.find(f => f.no === 6);
-        if (listValueField?.kind !== 'message') throw new globalThis.Error();
+      case "listValue":
+        let listValueField = this.fields.find((f) => f.no === 6);
+        if (listValueField?.kind !== "message") throw new globalThis.Error();
         return listValueField.T().toJson(message.kind.listValue);
-      case 'structValue':
-        let structValueField = this.fields.find(f => f.no === 5);
-        if (structValueField?.kind !== 'message') throw new globalThis.Error();
+      case "structValue":
+        let structValueField = this.fields.find((f) => f.no === 5);
+        if (structValueField?.kind !== "message") throw new globalThis.Error();
         return structValueField.T().toJson(message.kind.structValue);
     }
   }
   /**
    * Decode `Value` from JSON value.
    */
-  internalJsonRead(json: JsonValue, options: JsonReadOptions, target?: Value):
-      Value {
+  internalJsonRead(
+    json: JsonValue,
+    options: JsonReadOptions,
+    target?: Value
+  ): Value {
     if (!target) target = this.create();
     switch (typeof json) {
-      case 'number':
-        target.kind = {oneofKind: 'numberValue', numberValue: json};
+      case "number":
+        target.kind = { oneofKind: "numberValue", numberValue: json };
         break;
-      case 'string':
-        target.kind = {oneofKind: 'stringValue', stringValue: json};
+      case "string":
+        target.kind = { oneofKind: "stringValue", stringValue: json };
         break;
-      case 'boolean':
-        target.kind = {oneofKind: 'boolValue', boolValue: json};
+      case "boolean":
+        target.kind = { oneofKind: "boolValue", boolValue: json };
         break;
-      case 'object':
+      case "object":
         if (json === null) {
           target.kind = {
-            oneofKind: 'nullValue',
-            nullValue: NullValue.NULL_VALUE
+            oneofKind: "nullValue",
+            nullValue: NullValue.NULL_VALUE,
           };
         } else if (globalThis.Array.isArray(json)) {
           target.kind = {
-            oneofKind: 'listValue',
-            listValue: ListValue.fromJson(json)
+            oneofKind: "listValue",
+            listValue: ListValue.fromJson(json),
           };
         } else {
           let val = Struct.fromJson(json);
           target.kind = {
-            oneofKind: 'structValue',
-            structValue: Struct.fromJson(json)
+            oneofKind: "structValue",
+            structValue: Struct.fromJson(json),
           };
         }
         break;
       default:
         throw new globalThis.Error(
-            'Unable to parse ' + this.typeName + ' from JSON ' +
-            typeofJsonValue(json));
+          "Unable to parse " +
+            this.typeName +
+            " from JSON " +
+            typeofJsonValue(json)
+        );
     }
     return target;
   }
   create(value?: PartialMessage<Value>): Value {
-    const message = {kind: {oneofKind: undefined}};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { kind: { oneofKind: undefined } };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<Value>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: Value): Value {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Value
+  ): Value {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* google.protobuf.NullValue null_value */ 1:
-          message.kind = {oneofKind: 'nullValue', nullValue: reader.int32()};
+          message.kind = { oneofKind: "nullValue", nullValue: reader.int32() };
           break;
         case /* double number_value */ 2:
           message.kind = {
-            oneofKind: 'numberValue',
-            numberValue: reader.double()
+            oneofKind: "numberValue",
+            numberValue: reader.double(),
           };
           break;
         case /* string string_value */ 3:
           message.kind = {
-            oneofKind: 'stringValue',
-            stringValue: reader.string()
+            oneofKind: "stringValue",
+            stringValue: reader.string(),
           };
           break;
         case /* bool bool_value */ 4:
-          message.kind = {oneofKind: 'boolValue', boolValue: reader.bool()};
+          message.kind = { oneofKind: "boolValue", boolValue: reader.bool() };
           break;
         case /* google.protobuf.Struct struct_value */ 5:
           message.kind = {
-            oneofKind: 'structValue',
+            oneofKind: "structValue",
             structValue: Struct.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.kind as any).structValue)
+              reader,
+              reader.uint32(),
+              options,
+              (message.kind as any).structValue
+            ),
           };
           break;
         case /* google.protobuf.ListValue list_value */ 6:
           message.kind = {
-            oneofKind: 'listValue',
+            oneofKind: "listValue",
             listValue: ListValue.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.kind as any).listValue)
+              reader,
+              reader.uint32(),
+              options,
+              (message.kind as any).listValue
+            ),
           };
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: Value, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: Value,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* google.protobuf.NullValue null_value = 1; */
-    if (message.kind.oneofKind === 'nullValue')
+    if (message.kind.oneofKind === "nullValue")
       writer.tag(1, WireType.Varint).int32(message.kind.nullValue);
     /* double number_value = 2; */
-    if (message.kind.oneofKind === 'numberValue')
+    if (message.kind.oneofKind === "numberValue")
       writer.tag(2, WireType.Bit64).double(message.kind.numberValue);
     /* string string_value = 3; */
-    if (message.kind.oneofKind === 'stringValue')
+    if (message.kind.oneofKind === "stringValue")
       writer.tag(3, WireType.LengthDelimited).string(message.kind.stringValue);
     /* bool bool_value = 4; */
-    if (message.kind.oneofKind === 'boolValue')
+    if (message.kind.oneofKind === "boolValue")
       writer.tag(4, WireType.Varint).bool(message.kind.boolValue);
     /* google.protobuf.Struct struct_value = 5; */
-    if (message.kind.oneofKind === 'structValue')
-      Struct
-          .internalBinaryWrite(
-              message.kind.structValue,
-              writer.tag(5, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.kind.oneofKind === "structValue")
+      Struct.internalBinaryWrite(
+        message.kind.structValue,
+        writer.tag(5, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* google.protobuf.ListValue list_value = 6; */
-    if (message.kind.oneofKind === 'listValue')
-      ListValue
-          .internalBinaryWrite(
-              message.kind.listValue,
-              writer.tag(6, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.kind.oneofKind === "listValue")
+      ListValue.internalBinaryWrite(
+        message.kind.listValue,
+        writer.tag(6, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -510,81 +572,106 @@ export const Value = new Value$Type();
 // optimized methods
 class ListValue$Type extends MessageType<ListValue> {
   constructor() {
-    super('google.protobuf.ListValue', [{
-            no: 1,
-            name: 'values',
-            kind: 'message',
-            repeat: 1 /*RepeatType.PACKED*/,
-            T: () => Value
-          }]);
+    super("google.protobuf.ListValue", [
+      {
+        no: 1,
+        name: "values",
+        kind: "message",
+        repeat: 1 /*RepeatType.PACKED*/,
+        T: () => Value,
+      },
+    ]);
   }
   /**
    * Encode `ListValue` to JSON array.
    */
   internalJsonWrite(message: ListValue, options: JsonWriteOptions): JsonValue {
-    return message.values.map(v => Value.toJson(v));
+    return message.values.map((v) => Value.toJson(v));
   }
   /**
    * Decode `ListValue` from JSON array.
    */
   internalJsonRead(
-      json: JsonValue, options: JsonReadOptions,
-      target?: ListValue): ListValue {
+    json: JsonValue,
+    options: JsonReadOptions,
+    target?: ListValue
+  ): ListValue {
     if (!globalThis.Array.isArray(json))
       throw new globalThis.Error(
-          'Unable to parse ' + this.typeName + ' from JSON ' +
-          typeofJsonValue(json));
+        "Unable to parse " +
+          this.typeName +
+          " from JSON " +
+          typeofJsonValue(json)
+      );
     if (!target) target = this.create();
-    let values = json.map(v => Value.fromJson(v));
+    let values = json.map((v) => Value.fromJson(v));
     target.values.push(...values);
     return target;
   }
   create(value?: PartialMessage<ListValue>): ListValue {
-    const message = {values: []};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { values: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ListValue>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ListValue): ListValue {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ListValue
+  ): ListValue {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* repeated google.protobuf.Value values */ 1:
           message.values.push(
-              Value.internalBinaryRead(reader, reader.uint32(), options));
+            Value.internalBinaryRead(reader, reader.uint32(), options)
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ListValue, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ListValue,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* repeated google.protobuf.Value values = 1; */
     for (let i = 0; i < message.values.length; i++)
-      Value
-          .internalBinaryWrite(
-              message.values[i], writer.tag(1, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      Value.internalBinaryWrite(
+        message.values[i],
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }

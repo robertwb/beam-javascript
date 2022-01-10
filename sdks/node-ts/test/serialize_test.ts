@@ -1,12 +1,12 @@
-import {expect} from 'chai';
+import { expect } from "chai";
 import {
   deserialize,
   serialize,
   BuiltinList,
   generateDefaultBuiltins,
-} from 'serialize-closures';
+} from "serialize-closures";
 
-describe('serialization tests', () => {
+describe("serialization tests", () => {
   function roundtrip(value, builtins?: BuiltinList) {
     return deserialize(
       JSON.parse(JSON.stringify(serialize(value, builtins))),
@@ -37,7 +37,7 @@ describe('serialization tests', () => {
     expect(roundtrip(gen).next()).to.equal(84);
   }
 
-  it('serializes and deserializes function() defined functions', async () => {
+  it("serializes and deserializes function() defined functions", async () => {
     // function that returns a simple generator
     const fn1 = function (a: any): Function {
       const fn = function* (a: string): any {
@@ -48,10 +48,10 @@ describe('serialization tests', () => {
       };
       return fn;
     };
-    const foo = roundtrip(fn1)('a');
-    const bar = fn1('a');
-    const foo_itr = foo('kerry is great');
-    const bar_itr = bar('kerry is great');
+    const foo = roundtrip(fn1)("a");
+    const bar = fn1("a");
+    const foo_itr = foo("kerry is great");
+    const bar_itr = bar("kerry is great");
 
     expect(foo_itr.next()).to.deep.equal(bar_itr.next());
   });

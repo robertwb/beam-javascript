@@ -26,19 +26,19 @@
 // Protocol Buffers describing the Runner API, which is the runner-independent,
 // SDK-independent definition of the Beam model.
 //
-import {WireType} from '@protobuf-ts/runtime';
-import {ServiceType} from '@protobuf-ts/runtime-rpc';
+import { WireType } from "@protobuf-ts/runtime";
+import { ServiceType } from "@protobuf-ts/runtime-rpc";
 
-import type {BinaryWriteOptions} from '@protobuf-ts/runtime';
-import type {IBinaryWriter} from '@protobuf-ts/runtime';
-import {UnknownFieldHandler} from '@protobuf-ts/runtime';
-import type {BinaryReadOptions} from '@protobuf-ts/runtime';
-import type {IBinaryReader} from '@protobuf-ts/runtime';
-import type {PartialMessage} from '@protobuf-ts/runtime';
-import {reflectionMergePartial} from '@protobuf-ts/runtime';
-import {MESSAGE_TYPE} from '@protobuf-ts/runtime';
-import {MessageType} from '@protobuf-ts/runtime';
-import {ApiServiceDescriptor} from './endpoints';
+import type { BinaryWriteOptions } from "@protobuf-ts/runtime";
+import type { IBinaryWriter } from "@protobuf-ts/runtime";
+import { UnknownFieldHandler } from "@protobuf-ts/runtime";
+import type { BinaryReadOptions } from "@protobuf-ts/runtime";
+import type { IBinaryReader } from "@protobuf-ts/runtime";
+import type { PartialMessage } from "@protobuf-ts/runtime";
+import { reflectionMergePartial } from "@protobuf-ts/runtime";
+import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
+import { MessageType } from "@protobuf-ts/runtime";
+import { ApiServiceDescriptor } from "./endpoints";
 /**
  * @generated from protobuf message
  * org.apache.beam.model.pipeline.v1.BeamConstants
@@ -77,7 +77,7 @@ export enum BeamConstants_Constants {
    * @generated from protobuf enum value: GLOBAL_WINDOW_MAX_TIMESTAMP_MILLIS =
    * 2;
    */
-  GLOBAL_WINDOW_MAX_TIMESTAMP_MILLIS = 2
+  GLOBAL_WINDOW_MAX_TIMESTAMP_MILLIS = 2,
 }
 /**
  * A set of mappings from id to message. This is included as an optional field
@@ -96,14 +96,14 @@ export interface Components {
    * @generated from protobuf field: map<string,
    * org.apache.beam.model.pipeline.v1.PTransform> transforms = 1;
    */
-  transforms: {[key: string]: PTransform;};
+  transforms: { [key: string]: PTransform };
   /**
    * (Required) A map from pipeline-scoped id to PCollection.
    *
    * @generated from protobuf field: map<string,
    * org.apache.beam.model.pipeline.v1.PCollection> pcollections = 2;
    */
-  pcollections: {[key: string]: PCollection;};
+  pcollections: { [key: string]: PCollection };
   /**
    * (Required) A map from pipeline-scoped id to WindowingStrategy.
    *
@@ -111,21 +111,21 @@ export interface Components {
    * org.apache.beam.model.pipeline.v1.WindowingStrategy> windowing_strategies =
    * 3;
    */
-  windowingStrategies: {[key: string]: WindowingStrategy;};
+  windowingStrategies: { [key: string]: WindowingStrategy };
   /**
    * (Required) A map from pipeline-scoped id to Coder.
    *
    * @generated from protobuf field: map<string,
    * org.apache.beam.model.pipeline.v1.Coder> coders = 4;
    */
-  coders: {[key: string]: Coder;};
+  coders: { [key: string]: Coder };
   /**
    * (Required) A map from pipeline-scoped id to Environment.
    *
    * @generated from protobuf field: map<string,
    * org.apache.beam.model.pipeline.v1.Environment> environments = 5;
    */
-  environments: {[key: string]: Environment;};
+  environments: { [key: string]: Environment };
 }
 /**
  * A Pipeline is a hierarchical graph of PTransforms, linked
@@ -258,7 +258,7 @@ export interface PTransform {
    *
    * @generated from protobuf field: map<string, string> inputs = 3;
    */
-  inputs: {[key: string]: string;};
+  inputs: { [key: string]: string };
   /**
    * (Required) A map from local names of outputs (unique only within this map,
    * and likely embedded in the transform payload and serialized user code)
@@ -272,7 +272,7 @@ export interface PTransform {
    *
    * @generated from protobuf field: map<string, string> outputs = 4;
    */
-  outputs: {[key: string]: string;};
+  outputs: { [key: string]: string };
   /**
    * (Optional) Static display data for this PTransform application. If
    * there is none, it may be omitted.
@@ -301,7 +301,7 @@ export interface PTransform {
    *
    * @generated from protobuf field: map<string, bytes> annotations = 8;
    */
-  annotations: {[key: string]: Uint8Array;};
+  annotations: { [key: string]: Uint8Array };
 }
 /**
  * @generated from protobuf message
@@ -460,7 +460,7 @@ export enum StandardPTransforms_Primitives {
    *
    * @generated from protobuf enum value: TO_STRING = 8;
    */
-  TO_STRING = 8
+  TO_STRING = 8,
 }
 /**
  * @generated from protobuf enum
@@ -480,7 +480,7 @@ export enum StandardPTransforms_DeprecatedPrimitives {
    *
    * @generated from protobuf enum value: CREATE_VIEW = 1;
    */
-  CREATE_VIEW = 1
+  CREATE_VIEW = 1,
 }
 /**
  * @generated from protobuf enum
@@ -536,7 +536,7 @@ export enum StandardPTransforms_Composites {
    * @generated from protobuf enum value: GROUP_INTO_BATCHES_WITH_SHARDED_KEY =
    * 6;
    */
-  GROUP_INTO_BATCHES_WITH_SHARDED_KEY = 6
+  GROUP_INTO_BATCHES_WITH_SHARDED_KEY = 6,
 }
 /**
  * Payload for all of these: CombinePayload
@@ -591,7 +591,7 @@ export enum StandardPTransforms_CombineComponents {
    * @generated from protobuf enum value:
    * COMBINE_PER_KEY_CONVERT_TO_ACCUMULATORS = 4;
    */
-  COMBINE_PER_KEY_CONVERT_TO_ACCUMULATORS = 4
+  COMBINE_PER_KEY_CONVERT_TO_ACCUMULATORS = 4,
 }
 /**
  * Payload for all of these: ParDoPayload containing the user's SDF
@@ -645,7 +645,7 @@ export enum StandardPTransforms_SplittableParDoComponents {
    *
    * @generated from protobuf enum value: TRUNCATE_SIZED_RESTRICTION = 3;
    */
-  TRUNCATE_SIZED_RESTRICTION = 3
+  TRUNCATE_SIZED_RESTRICTION = 3,
 }
 /**
  * Payload for all of these: GroupIntoBatchesPayload
@@ -657,7 +657,7 @@ export enum StandardPTransforms_GroupIntoBatchesComponents {
   /**
    * @generated from protobuf enum value: GROUP_INTO_BATCHES = 0;
    */
-  GROUP_INTO_BATCHES = 0
+  GROUP_INTO_BATCHES = 0,
 }
 /**
  * @generated from protobuf message
@@ -686,7 +686,7 @@ export enum StandardSideInputTypes_Enum {
    *
    * @generated from protobuf enum value: MULTIMAP = 1;
    */
-  MULTIMAP = 1
+  MULTIMAP = 1,
 }
 /**
  * A PCollection!
@@ -757,7 +757,7 @@ export interface ParDoPayload {
    * @generated from protobuf field: map<string,
    * org.apache.beam.model.pipeline.v1.SideInput> side_inputs = 3;
    */
-  sideInputs: {[key: string]: SideInput;};
+  sideInputs: { [key: string]: SideInput };
   /**
    * (Optional) A mapping of local state names to state specifications.
    * If this is set, the stateful processing requirement should also
@@ -766,7 +766,7 @@ export interface ParDoPayload {
    * @generated from protobuf field: map<string,
    * org.apache.beam.model.pipeline.v1.StateSpec> state_specs = 4;
    */
-  stateSpecs: {[key: string]: StateSpec;};
+  stateSpecs: { [key: string]: StateSpec };
   /**
    * (Optional) A mapping of local timer family names to timer family
    * specifications. If this is set, the stateful processing requirement should
@@ -775,7 +775,7 @@ export interface ParDoPayload {
    * @generated from protobuf field: map<string,
    * org.apache.beam.model.pipeline.v1.TimerFamilySpec> timer_family_specs = 9;
    */
-  timerFamilySpecs: {[key: string]: TimerFamilySpec;};
+  timerFamilySpecs: { [key: string]: TimerFamilySpec };
   /**
    * (Optional) Only set when this ParDo contains a splittable DoFn.
    * If this is set, the corresponding standard requirement should also
@@ -816,58 +816,60 @@ export interface StateSpec {
   /**
    * @generated from protobuf oneof: spec
    */
-  spec: {
-    oneofKind: 'readModifyWriteSpec';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.ReadModifyWriteStateSpec
-     * read_modify_write_spec = 1;
-     */
-    readModifyWriteSpec: ReadModifyWriteStateSpec;
-  }|{
-    oneofKind: 'bagSpec';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.BagStateSpec bag_spec = 2;
-     */
-    bagSpec: BagStateSpec;
-  }
-  |{
-    oneofKind: 'combiningSpec';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.CombiningStateSpec combining_spec = 3;
-     */
-    combiningSpec: CombiningStateSpec;
-  }
-  |{
-    oneofKind: 'mapSpec';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.MapStateSpec map_spec = 4;
-     */
-    mapSpec: MapStateSpec;
-  }
-  |{
-    oneofKind: 'setSpec';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.SetStateSpec set_spec = 5;
-     */
-    setSpec: SetStateSpec;
-  }
-  |{
-    oneofKind: 'orderedListSpec';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.OrderedListStateSpec ordered_list_spec
-     * = 6;
-     */
-    orderedListSpec: OrderedListStateSpec;
-  }
-  |{
-    oneofKind: undefined;
-  };
+  spec:
+    | {
+        oneofKind: "readModifyWriteSpec";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.ReadModifyWriteStateSpec
+         * read_modify_write_spec = 1;
+         */
+        readModifyWriteSpec: ReadModifyWriteStateSpec;
+      }
+    | {
+        oneofKind: "bagSpec";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.BagStateSpec bag_spec = 2;
+         */
+        bagSpec: BagStateSpec;
+      }
+    | {
+        oneofKind: "combiningSpec";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.CombiningStateSpec combining_spec = 3;
+         */
+        combiningSpec: CombiningStateSpec;
+      }
+    | {
+        oneofKind: "mapSpec";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.MapStateSpec map_spec = 4;
+         */
+        mapSpec: MapStateSpec;
+      }
+    | {
+        oneofKind: "setSpec";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.SetStateSpec set_spec = 5;
+         */
+        setSpec: SetStateSpec;
+      }
+    | {
+        oneofKind: "orderedListSpec";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.OrderedListStateSpec ordered_list_spec
+         * = 6;
+         */
+        orderedListSpec: OrderedListStateSpec;
+      }
+    | {
+        oneofKind: undefined;
+      };
 }
 /**
  * @generated from protobuf message
@@ -973,7 +975,7 @@ export enum IsBounded_Enum {
   /**
    * @generated from protobuf enum value: BOUNDED = 2;
    */
-  BOUNDED = 2
+  BOUNDED = 2,
 }
 /**
  * The payload for the primitive Read transform.
@@ -1071,35 +1073,37 @@ export interface TestStreamPayload_Event {
   /**
    * @generated from protobuf oneof: event
    */
-  event: {
-    oneofKind: 'watermarkEvent';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.TestStreamPayload.Event.AdvanceWatermark
-     * watermark_event = 1;
-     */
-    watermarkEvent: TestStreamPayload_Event_AdvanceWatermark;
-  }|{
-    oneofKind: 'processingTimeEvent';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.TestStreamPayload.Event.AdvanceProcessingTime
-     * processing_time_event = 2;
-     */
-    processingTimeEvent: TestStreamPayload_Event_AdvanceProcessingTime;
-  }
-  |{
-    oneofKind: 'elementEvent';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.TestStreamPayload.Event.AddElements
-     * element_event = 3;
-     */
-    elementEvent: TestStreamPayload_Event_AddElements;
-  }
-  |{
-    oneofKind: undefined;
-  };
+  event:
+    | {
+        oneofKind: "watermarkEvent";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.TestStreamPayload.Event.AdvanceWatermark
+         * watermark_event = 1;
+         */
+        watermarkEvent: TestStreamPayload_Event_AdvanceWatermark;
+      }
+    | {
+        oneofKind: "processingTimeEvent";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.TestStreamPayload.Event.AdvanceProcessingTime
+         * processing_time_event = 2;
+         */
+        processingTimeEvent: TestStreamPayload_Event_AdvanceProcessingTime;
+      }
+    | {
+        oneofKind: "elementEvent";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.TestStreamPayload.Event.AddElements
+         * element_event = 3;
+         */
+        elementEvent: TestStreamPayload_Event_AddElements;
+      }
+    | {
+        oneofKind: undefined;
+      };
 }
 /**
  * Advances the watermark to the specified timestamp.
@@ -1230,7 +1234,7 @@ export interface WriteFilesPayload {
    * @generated from protobuf field: map<string,
    * org.apache.beam.model.pipeline.v1.SideInput> side_inputs = 5;
    */
-  sideInputs: {[key: string]: SideInput;};
+  sideInputs: { [key: string]: SideInput };
 }
 /**
  * Payload used by Google Cloud Pub/Sub read transform.
@@ -1695,7 +1699,7 @@ export enum StandardCoders_Enum {
    *
    * @generated from protobuf enum value: SHARDED_KEY = 15;
    */
-  SHARDED_KEY = 15
+  SHARDED_KEY = 15,
 }
 /**
  * A windowing strategy describes the window function, triggering, allowed
@@ -1843,7 +1847,7 @@ export enum MergeStatus_Enum {
    *
    * @generated from protobuf enum value: ALREADY_MERGED = 3;
    */
-  ALREADY_MERGED = 3
+  ALREADY_MERGED = 3,
 }
 /**
  * Whether or not subsequent outputs of aggregations should be entire
@@ -1880,7 +1884,7 @@ export enum AccumulationMode_Enum {
    *
    * @generated from protobuf enum value: RETRACTING = 3;
    */
-  RETRACTING = 3
+  RETRACTING = 3,
 }
 /**
  * Controls whether or not an aggregating transform should output data
@@ -1911,7 +1915,7 @@ export enum ClosingBehavior_Enum {
    *
    * @generated from protobuf enum value: EMIT_IF_NONEMPTY = 2;
    */
-  EMIT_IF_NONEMPTY = 2
+  EMIT_IF_NONEMPTY = 2,
 }
 /**
  * Controls whether or not an aggregating transform should output data
@@ -1942,7 +1946,7 @@ export enum OnTimeBehavior_Enum {
    *
    * @generated from protobuf enum value: FIRE_IF_NONEMPTY = 2;
    */
-  FIRE_IF_NONEMPTY = 2
+  FIRE_IF_NONEMPTY = 2,
 }
 /**
  * When a number of windowed, timestamped inputs are aggregated, the timestamp
@@ -1979,7 +1983,7 @@ export enum OutputTime_Enum {
    *
    * @generated from protobuf enum value: EARLIEST_IN_PANE = 3;
    */
-  EARLIEST_IN_PANE = 3
+  EARLIEST_IN_PANE = 3,
 }
 /**
  * The different time domains in the Beam model.
@@ -2008,7 +2012,7 @@ export enum TimeDomain_Enum {
    *
    * @generated from protobuf enum value: PROCESSING_TIME = 2;
    */
-  PROCESSING_TIME = 2
+  PROCESSING_TIME = 2,
 }
 /**
  * A small DSL for expressing when to emit new aggregations
@@ -2022,108 +2026,109 @@ export interface Trigger {
   /**
    * @generated from protobuf oneof: trigger
    */
-  trigger: {
-    oneofKind: 'afterAll';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.Trigger.AfterAll after_all = 1;
-     */
-    afterAll: Trigger_AfterAll;
-  }|{
-    oneofKind: 'afterAny';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.Trigger.AfterAny after_any = 2;
-     */
-    afterAny: Trigger_AfterAny;
-  }
-  |{
-    oneofKind: 'afterEach';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.Trigger.AfterEach after_each = 3;
-     */
-    afterEach: Trigger_AfterEach;
-  }
-  |{
-    oneofKind: 'afterEndOfWindow';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.Trigger.AfterEndOfWindow
-     * after_end_of_window = 4;
-     */
-    afterEndOfWindow: Trigger_AfterEndOfWindow;
-  }
-  |{
-    oneofKind: 'afterProcessingTime';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.Trigger.AfterProcessingTime
-     * after_processing_time = 5;
-     */
-    afterProcessingTime: Trigger_AfterProcessingTime;
-  }
-  |{
-    oneofKind: 'afterSynchronizedProcessingTime';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.Trigger.AfterSynchronizedProcessingTime
-     * after_synchronized_processing_time = 6;
-     */
-    afterSynchronizedProcessingTime: Trigger_AfterSynchronizedProcessingTime;
-  }
-  |{
-    oneofKind: 'always';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.Trigger.Always always = 12;
-     */
-    always: Trigger_Always;
-  }
-  |{
-    oneofKind: 'default';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.Trigger.Default default = 7;
-     */
-    default:
-      Trigger_Default;
-  }
-  |{
-    oneofKind: 'elementCount';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.Trigger.ElementCount element_count = 8;
-     */
-    elementCount: Trigger_ElementCount;
-  }
-  |{
-    oneofKind: 'never';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.Trigger.Never never = 9;
-     */
-    never: Trigger_Never;
-  }
-  |{
-    oneofKind: 'orFinally';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.Trigger.OrFinally or_finally = 10;
-     */
-    orFinally: Trigger_OrFinally;
-  }
-  |{
-    oneofKind: 'repeat';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.Trigger.Repeat repeat = 11;
-     */
-    repeat: Trigger_Repeat;
-  }
-  |{
-    oneofKind: undefined;
-  };
+  trigger:
+    | {
+        oneofKind: "afterAll";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.Trigger.AfterAll after_all = 1;
+         */
+        afterAll: Trigger_AfterAll;
+      }
+    | {
+        oneofKind: "afterAny";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.Trigger.AfterAny after_any = 2;
+         */
+        afterAny: Trigger_AfterAny;
+      }
+    | {
+        oneofKind: "afterEach";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.Trigger.AfterEach after_each = 3;
+         */
+        afterEach: Trigger_AfterEach;
+      }
+    | {
+        oneofKind: "afterEndOfWindow";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.Trigger.AfterEndOfWindow
+         * after_end_of_window = 4;
+         */
+        afterEndOfWindow: Trigger_AfterEndOfWindow;
+      }
+    | {
+        oneofKind: "afterProcessingTime";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.Trigger.AfterProcessingTime
+         * after_processing_time = 5;
+         */
+        afterProcessingTime: Trigger_AfterProcessingTime;
+      }
+    | {
+        oneofKind: "afterSynchronizedProcessingTime";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.Trigger.AfterSynchronizedProcessingTime
+         * after_synchronized_processing_time = 6;
+         */
+        afterSynchronizedProcessingTime: Trigger_AfterSynchronizedProcessingTime;
+      }
+    | {
+        oneofKind: "always";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.Trigger.Always always = 12;
+         */
+        always: Trigger_Always;
+      }
+    | {
+        oneofKind: "default";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.Trigger.Default default = 7;
+         */
+        default: Trigger_Default;
+      }
+    | {
+        oneofKind: "elementCount";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.Trigger.ElementCount element_count = 8;
+         */
+        elementCount: Trigger_ElementCount;
+      }
+    | {
+        oneofKind: "never";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.Trigger.Never never = 9;
+         */
+        never: Trigger_Never;
+      }
+    | {
+        oneofKind: "orFinally";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.Trigger.OrFinally or_finally = 10;
+         */
+        orFinally: Trigger_OrFinally;
+      }
+    | {
+        oneofKind: "repeat";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.Trigger.Repeat repeat = 11;
+         */
+        repeat: Trigger_Repeat;
+      }
+    | {
+        oneofKind: undefined;
+      };
 }
 /**
  * Ready when all subtriggers are ready.
@@ -2304,25 +2309,27 @@ export interface TimestampTransform {
   /**
    * @generated from protobuf oneof: timestamp_transform
    */
-  timestampTransform: {
-    oneofKind: 'delay';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.TimestampTransform.Delay delay = 1;
-     */
-    delay: TimestampTransform_Delay;
-  }|{
-    oneofKind: 'alignTo';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.TimestampTransform.AlignTo align_to =
-     * 2;
-     */
-    alignTo: TimestampTransform_AlignTo;
-  }
-  |{
-    oneofKind: undefined;
-  };
+  timestampTransform:
+    | {
+        oneofKind: "delay";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.TimestampTransform.Delay delay = 1;
+         */
+        delay: TimestampTransform_Delay;
+      }
+    | {
+        oneofKind: "alignTo";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.TimestampTransform.AlignTo align_to =
+         * 2;
+         */
+        alignTo: TimestampTransform_AlignTo;
+      }
+    | {
+        oneofKind: undefined;
+      };
 }
 /**
  * @generated from protobuf message
@@ -2452,7 +2459,7 @@ export enum StandardArtifacts_Types {
    *
    * @generated from protobuf enum value: DEFERRED = 5;
    */
-  DEFERRED = 5
+  DEFERRED = 5,
 }
 /**
  * @generated from protobuf enum
@@ -2472,7 +2479,7 @@ export enum StandardArtifacts_Roles {
    *
    * @generated from protobuf enum value: PIP_REQUIREMENTS_FILE = 1;
    */
-  PIP_REQUIREMENTS_FILE = 1
+  PIP_REQUIREMENTS_FILE = 1,
 }
 /**
  * @generated from protobuf message
@@ -2674,7 +2681,7 @@ export interface Environment {
    *
    * @generated from protobuf field: map<string, bytes> resource_hints = 7;
    */
-  resourceHints: {[key: string]: Uint8Array;};
+  resourceHints: { [key: string]: Uint8Array };
 }
 /**
  * @generated from protobuf message
@@ -2710,7 +2717,7 @@ export enum StandardEnvironments_Environments {
    *
    * @generated from protobuf enum value: DEFAULT = 3;
    */
-  DEFAULT = 3
+  DEFAULT = 3,
 }
 /**
  * The payload of a Docker image
@@ -2722,7 +2729,7 @@ export interface DockerPayload {
   /**
    * @generated from protobuf field: string container_image = 1;
    */
-  containerImage: string;  // implicitly linux_amd64.
+  containerImage: string; // implicitly linux_amd64.
 }
 /**
  * @generated from protobuf message
@@ -2732,19 +2739,19 @@ export interface ProcessPayload {
   /**
    * @generated from protobuf field: string os = 1;
    */
-  os: string;  // "linux", "darwin", ..
+  os: string; // "linux", "darwin", ..
   /**
    * @generated from protobuf field: string arch = 2;
    */
-  arch: string;  // "amd64", ..
+  arch: string; // "amd64", ..
   /**
    * @generated from protobuf field: string command = 3;
    */
-  command: string;  // process to execute
+  command: string; // process to execute
   /**
    * @generated from protobuf field: map<string, string> env = 4;
    */
-  env: {[key: string]: string;};  // Environment variables
+  env: { [key: string]: string }; // Environment variables
 }
 /**
  * @generated from protobuf message
@@ -2759,7 +2766,7 @@ export interface ExternalPayload {
   /**
    * @generated from protobuf field: map<string, string> params = 2;
    */
-  params: {[key: string]: string;};  // Arbitrary extra parameters to pass
+  params: { [key: string]: string }; // Arbitrary extra parameters to pass
 }
 /**
  * These URNs are used to indicate capabilities of environments that cannot
@@ -2829,7 +2836,7 @@ export enum StandardProtocols_Enum {
    * @generated from protobuf enum value: CONTROL_REQUEST_ELEMENTS_EMBEDDING =
    * 6;
    */
-  CONTROL_REQUEST_ELEMENTS_EMBEDDING = 6
+  CONTROL_REQUEST_ELEMENTS_EMBEDDING = 6,
 }
 /**
  * These URNs are used to indicate capabilities of runner that an environment
@@ -2858,7 +2865,7 @@ export enum StandardRunnerProtocols_Enum {
    * @generated from protobuf enum value: CONTROL_RESPONSE_ELEMENTS_EMBEDDING =
    * 6;
    */
-  CONTROL_RESPONSE_ELEMENTS_EMBEDDING = 6
+  CONTROL_RESPONSE_ELEMENTS_EMBEDDING = 6,
 }
 /**
  * These URNs are used to indicate requirements of a pipeline that cannot
@@ -2910,7 +2917,7 @@ export enum StandardRequirements_Enum {
    *
    * @generated from protobuf enum value: REQUIRES_SPLITTABLE_DOFN = 4;
    */
-  REQUIRES_SPLITTABLE_DOFN = 4
+  REQUIRES_SPLITTABLE_DOFN = 4,
 }
 /**
  * A URN along with a parameter object whose schema is determined by the
@@ -2985,7 +2992,7 @@ export enum StandardDisplayData_DisplayData {
    *
    * @generated from protobuf enum value: LABELLED = 0;
    */
-  LABELLED = 0
+  LABELLED = 0,
 }
 /**
  * @generated from protobuf message
@@ -3001,36 +3008,38 @@ export interface LabelledPayload {
   /**
    * @generated from protobuf oneof: value
    */
-  value: {
-    oneofKind: 'stringValue';
-    /**
-     * @generated from protobuf field: string string_value = 2;
-     */
-    stringValue: string;
-  }|{
-    oneofKind: 'boolValue';
-    /**
-     * @generated from protobuf field: bool bool_value = 3;
-     */
-    boolValue: boolean;
-  }
-  |{
-    oneofKind: 'doubleValue';
-    /**
-     * @generated from protobuf field: double double_value = 4;
-     */
-    doubleValue: number;
-  }
-  |{
-    oneofKind: 'intValue';
-    /**
-     * @generated from protobuf field: int64 int_value = 5;
-     */
-    intValue: bigint;
-  }
-  |{
-    oneofKind: undefined;
-  };
+  value:
+    | {
+        oneofKind: "stringValue";
+        /**
+         * @generated from protobuf field: string string_value = 2;
+         */
+        stringValue: string;
+      }
+    | {
+        oneofKind: "boolValue";
+        /**
+         * @generated from protobuf field: bool bool_value = 3;
+         */
+        boolValue: boolean;
+      }
+    | {
+        oneofKind: "doubleValue";
+        /**
+         * @generated from protobuf field: double double_value = 4;
+         */
+        doubleValue: number;
+      }
+    | {
+        oneofKind: "intValue";
+        /**
+         * @generated from protobuf field: int64 int_value = 5;
+         */
+        intValue: bigint;
+      }
+    | {
+        oneofKind: undefined;
+      };
   /**
    * (Required) The key identifies the actual content of the metadata.
    *
@@ -3094,90 +3103,92 @@ export interface MessageWithComponents {
   /**
    * @generated from protobuf oneof: root
    */
-  root: {
-    oneofKind: 'coder';
-    /**
-     * @generated from protobuf field: org.apache.beam.model.pipeline.v1.Coder
-     * coder = 2;
-     */
-    coder: Coder;
-  }|{
-    oneofKind: 'combinePayload';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.CombinePayload combine_payload = 3;
-     */
-    combinePayload: CombinePayload;
-  }
-  |{
-    oneofKind: 'functionSpec';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.FunctionSpec function_spec = 4;
-     */
-    functionSpec: FunctionSpec;
-  }
-  |{
-    oneofKind: 'parDoPayload';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.ParDoPayload par_do_payload = 6;
-     */
-    parDoPayload: ParDoPayload;
-  }
-  |{
-    oneofKind: 'ptransform';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.PTransform ptransform = 7;
-     */
-    ptransform: PTransform;
-  }
-  |{
-    oneofKind: 'pcollection';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.PCollection pcollection = 8;
-     */
-    pcollection: PCollection;
-  }
-  |{
-    oneofKind: 'readPayload';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.ReadPayload read_payload = 9;
-     */
-    readPayload: ReadPayload;
-  }
-  |{
-    oneofKind: 'sideInput';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.SideInput side_input = 11;
-     */
-    sideInput: SideInput;
-  }
-  |{
-    oneofKind: 'windowIntoPayload';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.WindowIntoPayload window_into_payload =
-     * 12;
-     */
-    windowIntoPayload: WindowIntoPayload;
-  }
-  |{
-    oneofKind: 'windowingStrategy';
-    /**
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.WindowingStrategy windowing_strategy =
-     * 13;
-     */
-    windowingStrategy: WindowingStrategy;
-  }
-  |{
-    oneofKind: undefined;
-  };
+  root:
+    | {
+        oneofKind: "coder";
+        /**
+         * @generated from protobuf field: org.apache.beam.model.pipeline.v1.Coder
+         * coder = 2;
+         */
+        coder: Coder;
+      }
+    | {
+        oneofKind: "combinePayload";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.CombinePayload combine_payload = 3;
+         */
+        combinePayload: CombinePayload;
+      }
+    | {
+        oneofKind: "functionSpec";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.FunctionSpec function_spec = 4;
+         */
+        functionSpec: FunctionSpec;
+      }
+    | {
+        oneofKind: "parDoPayload";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.ParDoPayload par_do_payload = 6;
+         */
+        parDoPayload: ParDoPayload;
+      }
+    | {
+        oneofKind: "ptransform";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.PTransform ptransform = 7;
+         */
+        ptransform: PTransform;
+      }
+    | {
+        oneofKind: "pcollection";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.PCollection pcollection = 8;
+         */
+        pcollection: PCollection;
+      }
+    | {
+        oneofKind: "readPayload";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.ReadPayload read_payload = 9;
+         */
+        readPayload: ReadPayload;
+      }
+    | {
+        oneofKind: "sideInput";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.SideInput side_input = 11;
+         */
+        sideInput: SideInput;
+      }
+    | {
+        oneofKind: "windowIntoPayload";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.WindowIntoPayload window_into_payload =
+         * 12;
+         */
+        windowIntoPayload: WindowIntoPayload;
+      }
+    | {
+        oneofKind: "windowingStrategy";
+        /**
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.WindowingStrategy windowing_strategy =
+         * 13;
+         */
+        windowingStrategy: WindowingStrategy;
+      }
+    | {
+        oneofKind: undefined;
+      };
 }
 /**
  * The payload for an executable stage. This will eventually be passed to an SDK
@@ -3394,28 +3405,30 @@ export interface ExecutableStagePayload_WireCoderSetting {
   /**
    * @generated from protobuf oneof: target
    */
-  target: {
-    oneofKind: 'inputOrOutputId';
-    /**
-     * The input or output PCollection id this setting applies to.
-     *
-     * @generated from protobuf field: string input_or_output_id = 3;
-     */
-    inputOrOutputId: string;
-  }|{
-    oneofKind: 'timer';
-    /**
-     * The timer id this setting applies to.
-     *
-     * @generated from protobuf field:
-     * org.apache.beam.model.pipeline.v1.ExecutableStagePayload.TimerId timer =
-     * 4;
-     */
-    timer: ExecutableStagePayload_TimerId;
-  }
-  |{
-    oneofKind: undefined;
-  };
+  target:
+    | {
+        oneofKind: "inputOrOutputId";
+        /**
+         * The input or output PCollection id this setting applies to.
+         *
+         * @generated from protobuf field: string input_or_output_id = 3;
+         */
+        inputOrOutputId: string;
+      }
+    | {
+        oneofKind: "timer";
+        /**
+         * The timer id this setting applies to.
+         *
+         * @generated from protobuf field:
+         * org.apache.beam.model.pipeline.v1.ExecutableStagePayload.TimerId timer =
+         * 4;
+         */
+        timer: ExecutableStagePayload_TimerId;
+      }
+    | {
+        oneofKind: undefined;
+      };
 }
 /**
  * @generated from protobuf message
@@ -3441,34 +3454,44 @@ export enum StandardResourceHints_Enum {
    *
    * @generated from protobuf enum value: MIN_RAM_BYTES = 1;
    */
-  MIN_RAM_BYTES = 1
+  MIN_RAM_BYTES = 1,
 }
 // @generated message type with reflection information, may provide speed
 // optimized methods
 class BeamConstants$Type extends MessageType<BeamConstants> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.BeamConstants', []);
+    super("org.apache.beam.model.pipeline.v1.BeamConstants", []);
   }
   create(value?: PartialMessage<BeamConstants>): BeamConstants {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<BeamConstants>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: BeamConstants): BeamConstants {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: BeamConstants
+  ): BeamConstants {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: BeamConstants, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: BeamConstants,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -3481,42 +3504,42 @@ export const BeamConstants = new BeamConstants$Type();
 // optimized methods
 class Components$Type extends MessageType<Components> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.Components', [
+    super("org.apache.beam.model.pipeline.v1.Components", [
       {
         no: 1,
-        name: 'transforms',
-        kind: 'map',
+        name: "transforms",
+        kind: "map",
         K: 9 /*ScalarType.STRING*/,
-        V: {kind: 'message', T: () => PTransform}
+        V: { kind: "message", T: () => PTransform },
       },
       {
         no: 2,
-        name: 'pcollections',
-        kind: 'map',
+        name: "pcollections",
+        kind: "map",
         K: 9 /*ScalarType.STRING*/,
-        V: {kind: 'message', T: () => PCollection}
+        V: { kind: "message", T: () => PCollection },
       },
       {
         no: 3,
-        name: 'windowing_strategies',
-        kind: 'map',
+        name: "windowing_strategies",
+        kind: "map",
         K: 9 /*ScalarType.STRING*/,
-        V: {kind: 'message', T: () => WindowingStrategy}
+        V: { kind: "message", T: () => WindowingStrategy },
       },
       {
         no: 4,
-        name: 'coders',
-        kind: 'map',
+        name: "coders",
+        kind: "map",
         K: 9 /*ScalarType.STRING*/,
-        V: {kind: 'message', T: () => Coder}
+        V: { kind: "message", T: () => Coder },
       },
       {
         no: 5,
-        name: 'environments',
-        kind: 'map',
+        name: "environments",
+        kind: "map",
         K: 9 /*ScalarType.STRING*/,
-        V: {kind: 'message', T: () => Environment}
-      }
+        V: { kind: "message", T: () => Environment },
+      },
     ]);
   }
   create(value?: PartialMessage<Components>): Components {
@@ -3525,64 +3548,79 @@ class Components$Type extends MessageType<Components> {
       pcollections: {},
       windowingStrategies: {},
       coders: {},
-      environments: {}
+      environments: {},
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<Components>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: Components): Components {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Components
+  ): Components {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* map<string, org.apache.beam.model.pipeline.v1.PTransform>
                 transforms */
-            1:
+        1:
           this.binaryReadMap1(message.transforms, reader, options);
           break;
         case /* map<string, org.apache.beam.model.pipeline.v1.PCollection>
                 pcollections */
-            2:
+        2:
           this.binaryReadMap2(message.pcollections, reader, options);
           break;
         case /* map<string, org.apache.beam.model.pipeline.v1.WindowingStrategy>
                 windowing_strategies */
-            3:
+        3:
           this.binaryReadMap3(message.windowingStrategies, reader, options);
           break;
         case /* map<string, org.apache.beam.model.pipeline.v1.Coder> coders */
-            4:
+        4:
           this.binaryReadMap4(message.coders, reader, options);
           break;
         case /* map<string, org.apache.beam.model.pipeline.v1.Environment>
                 environments */
-            5:
+        5:
           this.binaryReadMap5(message.environments, reader, options);
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   private binaryReadMap1(
-      map: Components['transforms'], reader: IBinaryReader,
-      options: BinaryReadOptions): void {
-    let len = reader.uint32(), end = reader.pos + len,
-        key: keyof Components['transforms']|undefined,
-        val: Components['transforms'][any]|undefined;
+    map: Components["transforms"],
+    reader: IBinaryReader,
+    options: BinaryReadOptions
+  ): void {
+    let len = reader.uint32(),
+      end = reader.pos + len,
+      key: keyof Components["transforms"] | undefined,
+      val: Components["transforms"][any] | undefined;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -3594,17 +3632,21 @@ class Components$Type extends MessageType<Components> {
           break;
         default:
           throw new globalThis.Error(
-              'unknown map entry field for field org.apache.beam.model.pipeline.v1.Components.transforms');
+            "unknown map entry field for field org.apache.beam.model.pipeline.v1.Components.transforms"
+          );
       }
     }
-    map[key ?? ''] = val ?? PTransform.create();
+    map[key ?? ""] = val ?? PTransform.create();
   }
   private binaryReadMap2(
-      map: Components['pcollections'], reader: IBinaryReader,
-      options: BinaryReadOptions): void {
-    let len = reader.uint32(), end = reader.pos + len,
-        key: keyof Components['pcollections']|undefined,
-        val: Components['pcollections'][any]|undefined;
+    map: Components["pcollections"],
+    reader: IBinaryReader,
+    options: BinaryReadOptions
+  ): void {
+    let len = reader.uint32(),
+      end = reader.pos + len,
+      key: keyof Components["pcollections"] | undefined,
+      val: Components["pcollections"][any] | undefined;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -3612,22 +3654,29 @@ class Components$Type extends MessageType<Components> {
           key = reader.string();
           break;
         case 2:
-          val =
-              PCollection.internalBinaryRead(reader, reader.uint32(), options);
+          val = PCollection.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options
+          );
           break;
         default:
           throw new globalThis.Error(
-              'unknown map entry field for field org.apache.beam.model.pipeline.v1.Components.pcollections');
+            "unknown map entry field for field org.apache.beam.model.pipeline.v1.Components.pcollections"
+          );
       }
     }
-    map[key ?? ''] = val ?? PCollection.create();
+    map[key ?? ""] = val ?? PCollection.create();
   }
   private binaryReadMap3(
-      map: Components['windowingStrategies'], reader: IBinaryReader,
-      options: BinaryReadOptions): void {
-    let len = reader.uint32(), end = reader.pos + len,
-        key: keyof Components['windowingStrategies']|undefined,
-        val: Components['windowingStrategies'][any]|undefined;
+    map: Components["windowingStrategies"],
+    reader: IBinaryReader,
+    options: BinaryReadOptions
+  ): void {
+    let len = reader.uint32(),
+      end = reader.pos + len,
+      key: keyof Components["windowingStrategies"] | undefined,
+      val: Components["windowingStrategies"][any] | undefined;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -3636,21 +3685,28 @@ class Components$Type extends MessageType<Components> {
           break;
         case 2:
           val = WindowingStrategy.internalBinaryRead(
-              reader, reader.uint32(), options);
+            reader,
+            reader.uint32(),
+            options
+          );
           break;
         default:
           throw new globalThis.Error(
-              'unknown map entry field for field org.apache.beam.model.pipeline.v1.Components.windowing_strategies');
+            "unknown map entry field for field org.apache.beam.model.pipeline.v1.Components.windowing_strategies"
+          );
       }
     }
-    map[key ?? ''] = val ?? WindowingStrategy.create();
+    map[key ?? ""] = val ?? WindowingStrategy.create();
   }
   private binaryReadMap4(
-      map: Components['coders'], reader: IBinaryReader,
-      options: BinaryReadOptions): void {
-    let len = reader.uint32(), end = reader.pos + len,
-        key: keyof Components['coders']|undefined,
-        val: Components['coders'][any]|undefined;
+    map: Components["coders"],
+    reader: IBinaryReader,
+    options: BinaryReadOptions
+  ): void {
+    let len = reader.uint32(),
+      end = reader.pos + len,
+      key: keyof Components["coders"] | undefined,
+      val: Components["coders"][any] | undefined;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -3662,17 +3718,21 @@ class Components$Type extends MessageType<Components> {
           break;
         default:
           throw new globalThis.Error(
-              'unknown map entry field for field org.apache.beam.model.pipeline.v1.Components.coders');
+            "unknown map entry field for field org.apache.beam.model.pipeline.v1.Components.coders"
+          );
       }
     }
-    map[key ?? ''] = val ?? Coder.create();
+    map[key ?? ""] = val ?? Coder.create();
   }
   private binaryReadMap5(
-      map: Components['environments'], reader: IBinaryReader,
-      options: BinaryReadOptions): void {
-    let len = reader.uint32(), end = reader.pos + len,
-        key: keyof Components['environments']|undefined,
-        val: Components['environments'][any]|undefined;
+    map: Components["environments"],
+    reader: IBinaryReader,
+    options: BinaryReadOptions
+  ): void {
+    let len = reader.uint32(),
+      end = reader.pos + len,
+      key: keyof Components["environments"] | undefined,
+      val: Components["environments"][any] | undefined;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -3680,26 +3740,33 @@ class Components$Type extends MessageType<Components> {
           key = reader.string();
           break;
         case 2:
-          val =
-              Environment.internalBinaryRead(reader, reader.uint32(), options);
+          val = Environment.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options
+          );
           break;
         default:
           throw new globalThis.Error(
-              'unknown map entry field for field org.apache.beam.model.pipeline.v1.Components.environments');
+            "unknown map entry field for field org.apache.beam.model.pipeline.v1.Components.environments"
+          );
       }
     }
-    map[key ?? ''] = val ?? Environment.create();
+    map[key ?? ""] = val ?? Environment.create();
   }
   internalBinaryWrite(
-      message: Components, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: Components,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* map<string, org.apache.beam.model.pipeline.v1.PTransform> transforms = 1;
      */
     for (let k of Object.keys(message.transforms)) {
-      writer.tag(1, WireType.LengthDelimited)
-          .fork()
-          .tag(1, WireType.LengthDelimited)
-          .string(k);
+      writer
+        .tag(1, WireType.LengthDelimited)
+        .fork()
+        .tag(1, WireType.LengthDelimited)
+        .string(k);
       writer.tag(2, WireType.LengthDelimited).fork();
       PTransform.internalBinaryWrite(message.transforms[k], writer, options);
       writer.join().join();
@@ -3707,10 +3774,11 @@ class Components$Type extends MessageType<Components> {
     /* map<string, org.apache.beam.model.pipeline.v1.PCollection> pcollections =
      * 2; */
     for (let k of Object.keys(message.pcollections)) {
-      writer.tag(2, WireType.LengthDelimited)
-          .fork()
-          .tag(1, WireType.LengthDelimited)
-          .string(k);
+      writer
+        .tag(2, WireType.LengthDelimited)
+        .fork()
+        .tag(1, WireType.LengthDelimited)
+        .string(k);
       writer.tag(2, WireType.LengthDelimited).fork();
       PCollection.internalBinaryWrite(message.pcollections[k], writer, options);
       writer.join().join();
@@ -3718,21 +3786,26 @@ class Components$Type extends MessageType<Components> {
     /* map<string, org.apache.beam.model.pipeline.v1.WindowingStrategy>
      * windowing_strategies = 3; */
     for (let k of Object.keys(message.windowingStrategies)) {
-      writer.tag(3, WireType.LengthDelimited)
-          .fork()
-          .tag(1, WireType.LengthDelimited)
-          .string(k);
+      writer
+        .tag(3, WireType.LengthDelimited)
+        .fork()
+        .tag(1, WireType.LengthDelimited)
+        .string(k);
       writer.tag(2, WireType.LengthDelimited).fork();
       WindowingStrategy.internalBinaryWrite(
-          message.windowingStrategies[k], writer, options);
+        message.windowingStrategies[k],
+        writer,
+        options
+      );
       writer.join().join();
     }
     /* map<string, org.apache.beam.model.pipeline.v1.Coder> coders = 4; */
     for (let k of Object.keys(message.coders)) {
-      writer.tag(4, WireType.LengthDelimited)
-          .fork()
-          .tag(1, WireType.LengthDelimited)
-          .string(k);
+      writer
+        .tag(4, WireType.LengthDelimited)
+        .fork()
+        .tag(1, WireType.LengthDelimited)
+        .string(k);
       writer.tag(2, WireType.LengthDelimited).fork();
       Coder.internalBinaryWrite(message.coders[k], writer, options);
       writer.join().join();
@@ -3740,10 +3813,11 @@ class Components$Type extends MessageType<Components> {
     /* map<string, org.apache.beam.model.pipeline.v1.Environment> environments =
      * 5; */
     for (let k of Object.keys(message.environments)) {
-      writer.tag(5, WireType.LengthDelimited)
-          .fork()
-          .tag(1, WireType.LengthDelimited)
-          .string(k);
+      writer
+        .tag(5, WireType.LengthDelimited)
+        .fork()
+        .tag(1, WireType.LengthDelimited)
+        .string(k);
       writer.tag(2, WireType.LengthDelimited).fork();
       Environment.internalBinaryWrite(message.environments[k], writer, options);
       writer.join().join();
@@ -3751,7 +3825,10 @@ class Components$Type extends MessageType<Components> {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -3764,103 +3841,127 @@ export const Components = new Components$Type();
 // optimized methods
 class Pipeline$Type extends MessageType<Pipeline> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.Pipeline', [
-      {no: 1, name: 'components', kind: 'message', T: () => Components}, {
+    super("org.apache.beam.model.pipeline.v1.Pipeline", [
+      { no: 1, name: "components", kind: "message", T: () => Components },
+      {
         no: 2,
-        name: 'root_transform_ids',
-        kind: 'scalar',
+        name: "root_transform_ids",
+        kind: "scalar",
         repeat: 2 /*RepeatType.UNPACKED*/,
-        T: 9 /*ScalarType.STRING*/
+        T: 9 /*ScalarType.STRING*/,
       },
       {
         no: 3,
-        name: 'display_data',
-        kind: 'message',
+        name: "display_data",
+        kind: "message",
         repeat: 1 /*RepeatType.PACKED*/,
-        T: () => DisplayData
+        T: () => DisplayData,
       },
       {
         no: 4,
-        name: 'requirements',
-        kind: 'scalar',
+        name: "requirements",
+        kind: "scalar",
         repeat: 2 /*RepeatType.UNPACKED*/,
-        T: 9 /*ScalarType.STRING*/
-      }
+        T: 9 /*ScalarType.STRING*/,
+      },
     ]);
   }
   create(value?: PartialMessage<Pipeline>): Pipeline {
-    const message = {rootTransformIds: [], displayData: [], requirements: []};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { rootTransformIds: [], displayData: [], requirements: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<Pipeline>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: Pipeline): Pipeline {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Pipeline
+  ): Pipeline {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.Components components */ 1:
           message.components = Components.internalBinaryRead(
-              reader, reader.uint32(), options, message.components);
+            reader,
+            reader.uint32(),
+            options,
+            message.components
+          );
           break;
         case /* repeated string root_transform_ids */ 2:
           message.rootTransformIds.push(reader.string());
           break;
         case /* repeated org.apache.beam.model.pipeline.v1.DisplayData
                 display_data */
-            3:
+        3:
           message.displayData.push(
-              DisplayData.internalBinaryRead(reader, reader.uint32(), options));
+            DisplayData.internalBinaryRead(reader, reader.uint32(), options)
+          );
           break;
         case /* repeated string requirements */ 4:
           message.requirements.push(reader.string());
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: Pipeline, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: Pipeline,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.Components components = 1; */
     if (message.components)
-      Components
-          .internalBinaryWrite(
-              message.components,
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+      Components.internalBinaryWrite(
+        message.components,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* repeated string root_transform_ids = 2; */
     for (let i = 0; i < message.rootTransformIds.length; i++)
-      writer.tag(2, WireType.LengthDelimited)
-          .string(message.rootTransformIds[i]);
+      writer
+        .tag(2, WireType.LengthDelimited)
+        .string(message.rootTransformIds[i]);
     /* repeated org.apache.beam.model.pipeline.v1.DisplayData display_data = 3;
      */
     for (let i = 0; i < message.displayData.length; i++)
-      DisplayData
-          .internalBinaryWrite(
-              message.displayData[i],
-              writer.tag(3, WireType.LengthDelimited).fork(), options)
-          .join();
+      DisplayData.internalBinaryWrite(
+        message.displayData[i],
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* repeated string requirements = 4; */
     for (let i = 0; i < message.requirements.length; i++)
       writer.tag(4, WireType.LengthDelimited).string(message.requirements[i]);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -3873,71 +3974,83 @@ export const Pipeline = new Pipeline$Type();
 // optimized methods
 class PTransform$Type extends MessageType<PTransform> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.PTransform', [
-      {no: 5, name: 'unique_name', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 1, name: 'spec', kind: 'message', T: () => FunctionSpec}, {
+    super("org.apache.beam.model.pipeline.v1.PTransform", [
+      {
+        no: 5,
+        name: "unique_name",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
+      { no: 1, name: "spec", kind: "message", T: () => FunctionSpec },
+      {
         no: 2,
-        name: 'subtransforms',
-        kind: 'scalar',
+        name: "subtransforms",
+        kind: "scalar",
         repeat: 2 /*RepeatType.UNPACKED*/,
-        T: 9 /*ScalarType.STRING*/
+        T: 9 /*ScalarType.STRING*/,
       },
       {
         no: 3,
-        name: 'inputs',
-        kind: 'map',
+        name: "inputs",
+        kind: "map",
         K: 9 /*ScalarType.STRING*/,
-        V: {kind: 'scalar', T: 9 /*ScalarType.STRING*/}
+        V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ },
       },
       {
         no: 4,
-        name: 'outputs',
-        kind: 'map',
+        name: "outputs",
+        kind: "map",
         K: 9 /*ScalarType.STRING*/,
-        V: {kind: 'scalar', T: 9 /*ScalarType.STRING*/}
+        V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ },
       },
       {
         no: 6,
-        name: 'display_data',
-        kind: 'message',
+        name: "display_data",
+        kind: "message",
         repeat: 1 /*RepeatType.PACKED*/,
-        T: () => DisplayData
+        T: () => DisplayData,
       },
       {
         no: 7,
-        name: 'environment_id',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
+        name: "environment_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
       },
       {
         no: 8,
-        name: 'annotations',
-        kind: 'map',
+        name: "annotations",
+        kind: "map",
         K: 9 /*ScalarType.STRING*/,
-        V: {kind: 'scalar', T: 12 /*ScalarType.BYTES*/}
-      }
+        V: { kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
+      },
     ]);
   }
   create(value?: PartialMessage<PTransform>): PTransform {
     const message = {
-      uniqueName: '',
+      uniqueName: "",
       subtransforms: [],
       inputs: {},
       outputs: {},
       displayData: [],
-      environmentId: '',
-      annotations: {}
+      environmentId: "",
+      annotations: {},
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<PTransform>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: PTransform): PTransform {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: PTransform
+  ): PTransform {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -3946,7 +4059,11 @@ class PTransform$Type extends MessageType<PTransform> {
           break;
         case /* org.apache.beam.model.pipeline.v1.FunctionSpec spec */ 1:
           message.spec = FunctionSpec.internalBinaryRead(
-              reader, reader.uint32(), options, message.spec);
+            reader,
+            reader.uint32(),
+            options,
+            message.spec
+          );
           break;
         case /* repeated string subtransforms */ 2:
           message.subtransforms.push(reader.string());
@@ -3959,9 +4076,10 @@ class PTransform$Type extends MessageType<PTransform> {
           break;
         case /* repeated org.apache.beam.model.pipeline.v1.DisplayData
                 display_data */
-            6:
+        6:
           message.displayData.push(
-              DisplayData.internalBinaryRead(reader, reader.uint32(), options));
+            DisplayData.internalBinaryRead(reader, reader.uint32(), options)
+          );
           break;
         case /* string environment_id */ 7:
           message.environmentId = reader.string();
@@ -3971,23 +4089,32 @@ class PTransform$Type extends MessageType<PTransform> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   private binaryReadMap3(
-      map: PTransform['inputs'], reader: IBinaryReader,
-      options: BinaryReadOptions): void {
-    let len = reader.uint32(), end = reader.pos + len,
-        key: keyof PTransform['inputs']|undefined,
-        val: PTransform['inputs'][any]|undefined;
+    map: PTransform["inputs"],
+    reader: IBinaryReader,
+    options: BinaryReadOptions
+  ): void {
+    let len = reader.uint32(),
+      end = reader.pos + len,
+      key: keyof PTransform["inputs"] | undefined,
+      val: PTransform["inputs"][any] | undefined;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -3999,17 +4126,21 @@ class PTransform$Type extends MessageType<PTransform> {
           break;
         default:
           throw new globalThis.Error(
-              'unknown map entry field for field org.apache.beam.model.pipeline.v1.PTransform.inputs');
+            "unknown map entry field for field org.apache.beam.model.pipeline.v1.PTransform.inputs"
+          );
       }
     }
-    map[key ?? ''] = val ?? '';
+    map[key ?? ""] = val ?? "";
   }
   private binaryReadMap4(
-      map: PTransform['outputs'], reader: IBinaryReader,
-      options: BinaryReadOptions): void {
-    let len = reader.uint32(), end = reader.pos + len,
-        key: keyof PTransform['outputs']|undefined,
-        val: PTransform['outputs'][any]|undefined;
+    map: PTransform["outputs"],
+    reader: IBinaryReader,
+    options: BinaryReadOptions
+  ): void {
+    let len = reader.uint32(),
+      end = reader.pos + len,
+      key: keyof PTransform["outputs"] | undefined,
+      val: PTransform["outputs"][any] | undefined;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -4021,17 +4152,21 @@ class PTransform$Type extends MessageType<PTransform> {
           break;
         default:
           throw new globalThis.Error(
-              'unknown map entry field for field org.apache.beam.model.pipeline.v1.PTransform.outputs');
+            "unknown map entry field for field org.apache.beam.model.pipeline.v1.PTransform.outputs"
+          );
       }
     }
-    map[key ?? ''] = val ?? '';
+    map[key ?? ""] = val ?? "";
   }
   private binaryReadMap8(
-      map: PTransform['annotations'], reader: IBinaryReader,
-      options: BinaryReadOptions): void {
-    let len = reader.uint32(), end = reader.pos + len,
-        key: keyof PTransform['annotations']|undefined,
-        val: PTransform['annotations'][any]|undefined;
+    map: PTransform["annotations"],
+    reader: IBinaryReader,
+    options: BinaryReadOptions
+  ): void {
+    let len = reader.uint32(),
+      end = reader.pos + len,
+      key: keyof PTransform["annotations"] | undefined,
+      val: PTransform["annotations"][any] | undefined;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -4043,69 +4178,78 @@ class PTransform$Type extends MessageType<PTransform> {
           break;
         default:
           throw new globalThis.Error(
-              'unknown map entry field for field org.apache.beam.model.pipeline.v1.PTransform.annotations');
+            "unknown map entry field for field org.apache.beam.model.pipeline.v1.PTransform.annotations"
+          );
       }
     }
-    map[key ?? ''] = val ?? new Uint8Array(0);
+    map[key ?? ""] = val ?? new Uint8Array(0);
   }
   internalBinaryWrite(
-      message: PTransform, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: PTransform,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string unique_name = 5; */
-    if (message.uniqueName !== '')
+    if (message.uniqueName !== "")
       writer.tag(5, WireType.LengthDelimited).string(message.uniqueName);
     /* org.apache.beam.model.pipeline.v1.FunctionSpec spec = 1; */
     if (message.spec)
-      FunctionSpec
-          .internalBinaryWrite(
-              message.spec, writer.tag(1, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      FunctionSpec.internalBinaryWrite(
+        message.spec,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* repeated string subtransforms = 2; */
     for (let i = 0; i < message.subtransforms.length; i++)
       writer.tag(2, WireType.LengthDelimited).string(message.subtransforms[i]);
     /* map<string, string> inputs = 3; */
     for (let k of Object.keys(message.inputs))
-      writer.tag(3, WireType.LengthDelimited)
-          .fork()
-          .tag(1, WireType.LengthDelimited)
-          .string(k)
-          .tag(2, WireType.LengthDelimited)
-          .string(message.inputs[k])
-          .join();
+      writer
+        .tag(3, WireType.LengthDelimited)
+        .fork()
+        .tag(1, WireType.LengthDelimited)
+        .string(k)
+        .tag(2, WireType.LengthDelimited)
+        .string(message.inputs[k])
+        .join();
     /* map<string, string> outputs = 4; */
     for (let k of Object.keys(message.outputs))
-      writer.tag(4, WireType.LengthDelimited)
-          .fork()
-          .tag(1, WireType.LengthDelimited)
-          .string(k)
-          .tag(2, WireType.LengthDelimited)
-          .string(message.outputs[k])
-          .join();
+      writer
+        .tag(4, WireType.LengthDelimited)
+        .fork()
+        .tag(1, WireType.LengthDelimited)
+        .string(k)
+        .tag(2, WireType.LengthDelimited)
+        .string(message.outputs[k])
+        .join();
     /* repeated org.apache.beam.model.pipeline.v1.DisplayData display_data = 6;
      */
     for (let i = 0; i < message.displayData.length; i++)
-      DisplayData
-          .internalBinaryWrite(
-              message.displayData[i],
-              writer.tag(6, WireType.LengthDelimited).fork(), options)
-          .join();
+      DisplayData.internalBinaryWrite(
+        message.displayData[i],
+        writer.tag(6, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* string environment_id = 7; */
-    if (message.environmentId !== '')
+    if (message.environmentId !== "")
       writer.tag(7, WireType.LengthDelimited).string(message.environmentId);
     /* map<string, bytes> annotations = 8; */
     for (let k of Object.keys(message.annotations))
-      writer.tag(8, WireType.LengthDelimited)
-          .fork()
-          .tag(1, WireType.LengthDelimited)
-          .string(k)
-          .tag(2, WireType.LengthDelimited)
-          .bytes(message.annotations[k])
-          .join();
+      writer
+        .tag(8, WireType.LengthDelimited)
+        .fork()
+        .tag(1, WireType.LengthDelimited)
+        .string(k)
+        .tag(2, WireType.LengthDelimited)
+        .bytes(message.annotations[k])
+        .join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -4118,28 +4262,38 @@ export const PTransform = new PTransform$Type();
 // optimized methods
 class StandardPTransforms$Type extends MessageType<StandardPTransforms> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.StandardPTransforms', []);
+    super("org.apache.beam.model.pipeline.v1.StandardPTransforms", []);
   }
   create(value?: PartialMessage<StandardPTransforms>): StandardPTransforms {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StandardPTransforms>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StandardPTransforms): StandardPTransforms {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StandardPTransforms
+  ): StandardPTransforms {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: StandardPTransforms, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StandardPTransforms,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -4152,29 +4306,40 @@ export const StandardPTransforms = new StandardPTransforms$Type();
 // optimized methods
 class StandardSideInputTypes$Type extends MessageType<StandardSideInputTypes> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.StandardSideInputTypes', []);
+    super("org.apache.beam.model.pipeline.v1.StandardSideInputTypes", []);
   }
-  create(value?: PartialMessage<StandardSideInputTypes>):
-      StandardSideInputTypes {
+  create(
+    value?: PartialMessage<StandardSideInputTypes>
+  ): StandardSideInputTypes {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StandardSideInputTypes>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StandardSideInputTypes): StandardSideInputTypes {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StandardSideInputTypes
+  ): StandardSideInputTypes {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: StandardSideInputTypes, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StandardSideInputTypes,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -4187,48 +4352,62 @@ export const StandardSideInputTypes = new StandardSideInputTypes$Type();
 // optimized methods
 class PCollection$Type extends MessageType<PCollection> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.PCollection', [
-      {no: 1, name: 'unique_name', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 2, name: 'coder_id', kind: 'scalar', T: 9 /*ScalarType.STRING*/}, {
+    super("org.apache.beam.model.pipeline.v1.PCollection", [
+      {
+        no: 1,
+        name: "unique_name",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
+      { no: 2, name: "coder_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      {
         no: 3,
-        name: 'is_bounded',
-        kind: 'enum',
-        T: () =>
-            ['org.apache.beam.model.pipeline.v1.IsBounded.Enum', IsBounded_Enum]
+        name: "is_bounded",
+        kind: "enum",
+        T: () => [
+          "org.apache.beam.model.pipeline.v1.IsBounded.Enum",
+          IsBounded_Enum,
+        ],
       },
       {
         no: 4,
-        name: 'windowing_strategy_id',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
+        name: "windowing_strategy_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
       },
       {
         no: 5,
-        name: 'display_data',
-        kind: 'message',
+        name: "display_data",
+        kind: "message",
         repeat: 1 /*RepeatType.PACKED*/,
-        T: () => DisplayData
-      }
+        T: () => DisplayData,
+      },
     ]);
   }
   create(value?: PartialMessage<PCollection>): PCollection {
     const message = {
-      uniqueName: '',
-      coderId: '',
+      uniqueName: "",
+      coderId: "",
       isBounded: 0,
-      windowingStrategyId: '',
-      displayData: []
+      windowingStrategyId: "",
+      displayData: [],
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<PCollection>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: PCollection): PCollection {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: PCollection
+  ): PCollection {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -4239,7 +4418,7 @@ class PCollection$Type extends MessageType<PCollection> {
           message.coderId = reader.string();
           break;
         case /* org.apache.beam.model.pipeline.v1.IsBounded.Enum is_bounded */
-            3:
+        3:
           message.isBounded = reader.int32();
           break;
         case /* string windowing_strategy_id */ 4:
@@ -4247,51 +4426,64 @@ class PCollection$Type extends MessageType<PCollection> {
           break;
         case /* repeated org.apache.beam.model.pipeline.v1.DisplayData
                 display_data */
-            5:
+        5:
           message.displayData.push(
-              DisplayData.internalBinaryRead(reader, reader.uint32(), options));
+            DisplayData.internalBinaryRead(reader, reader.uint32(), options)
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: PCollection, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: PCollection,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string unique_name = 1; */
-    if (message.uniqueName !== '')
+    if (message.uniqueName !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.uniqueName);
     /* string coder_id = 2; */
-    if (message.coderId !== '')
+    if (message.coderId !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.coderId);
     /* org.apache.beam.model.pipeline.v1.IsBounded.Enum is_bounded = 3; */
     if (message.isBounded !== 0)
       writer.tag(3, WireType.Varint).int32(message.isBounded);
     /* string windowing_strategy_id = 4; */
-    if (message.windowingStrategyId !== '')
-      writer.tag(4, WireType.LengthDelimited)
-          .string(message.windowingStrategyId);
+    if (message.windowingStrategyId !== "")
+      writer
+        .tag(4, WireType.LengthDelimited)
+        .string(message.windowingStrategyId);
     /* repeated org.apache.beam.model.pipeline.v1.DisplayData display_data = 5;
      */
     for (let i = 0; i < message.displayData.length; i++)
-      DisplayData
-          .internalBinaryWrite(
-              message.displayData[i],
-              writer.tag(5, WireType.LengthDelimited).fork(), options)
-          .join();
+      DisplayData.internalBinaryWrite(
+        message.displayData[i],
+        writer.tag(5, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -4304,52 +4496,53 @@ export const PCollection = new PCollection$Type();
 // optimized methods
 class ParDoPayload$Type extends MessageType<ParDoPayload> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.ParDoPayload', [
-      {no: 1, name: 'do_fn', kind: 'message', T: () => FunctionSpec}, {
+    super("org.apache.beam.model.pipeline.v1.ParDoPayload", [
+      { no: 1, name: "do_fn", kind: "message", T: () => FunctionSpec },
+      {
         no: 3,
-        name: 'side_inputs',
-        kind: 'map',
+        name: "side_inputs",
+        kind: "map",
         K: 9 /*ScalarType.STRING*/,
-        V: {kind: 'message', T: () => SideInput}
+        V: { kind: "message", T: () => SideInput },
       },
       {
         no: 4,
-        name: 'state_specs',
-        kind: 'map',
+        name: "state_specs",
+        kind: "map",
         K: 9 /*ScalarType.STRING*/,
-        V: {kind: 'message', T: () => StateSpec}
+        V: { kind: "message", T: () => StateSpec },
       },
       {
         no: 9,
-        name: 'timer_family_specs',
-        kind: 'map',
+        name: "timer_family_specs",
+        kind: "map",
         K: 9 /*ScalarType.STRING*/,
-        V: {kind: 'message', T: () => TimerFamilySpec}
+        V: { kind: "message", T: () => TimerFamilySpec },
       },
       {
         no: 7,
-        name: 'restriction_coder_id',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
+        name: "restriction_coder_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
       },
       {
         no: 8,
-        name: 'requests_finalization',
-        kind: 'scalar',
-        T: 8 /*ScalarType.BOOL*/
+        name: "requests_finalization",
+        kind: "scalar",
+        T: 8 /*ScalarType.BOOL*/,
       },
       {
         no: 10,
-        name: 'requires_time_sorted_input',
-        kind: 'scalar',
-        T: 8 /*ScalarType.BOOL*/
+        name: "requires_time_sorted_input",
+        kind: "scalar",
+        T: 8 /*ScalarType.BOOL*/,
       },
       {
         no: 11,
-        name: 'requires_stable_input',
-        kind: 'scalar',
-        T: 8 /*ScalarType.BOOL*/
-      }
+        name: "requires_stable_input",
+        kind: "scalar",
+        T: 8 /*ScalarType.BOOL*/,
+      },
     ]);
   }
   create(value?: PartialMessage<ParDoPayload>): ParDoPayload {
@@ -4357,41 +4550,51 @@ class ParDoPayload$Type extends MessageType<ParDoPayload> {
       sideInputs: {},
       stateSpecs: {},
       timerFamilySpecs: {},
-      restrictionCoderId: '',
+      restrictionCoderId: "",
       requestsFinalization: false,
       requiresTimeSortedInput: false,
-      requiresStableInput: false
+      requiresStableInput: false,
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ParDoPayload>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ParDoPayload): ParDoPayload {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ParDoPayload
+  ): ParDoPayload {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.FunctionSpec do_fn */ 1:
           message.doFn = FunctionSpec.internalBinaryRead(
-              reader, reader.uint32(), options, message.doFn);
+            reader,
+            reader.uint32(),
+            options,
+            message.doFn
+          );
           break;
         case /* map<string, org.apache.beam.model.pipeline.v1.SideInput>
                 side_inputs */
-            3:
+        3:
           this.binaryReadMap3(message.sideInputs, reader, options);
           break;
         case /* map<string, org.apache.beam.model.pipeline.v1.StateSpec>
                 state_specs */
-            4:
+        4:
           this.binaryReadMap4(message.stateSpecs, reader, options);
           break;
         case /* map<string, org.apache.beam.model.pipeline.v1.TimerFamilySpec>
                 timer_family_specs */
-            9:
+        9:
           this.binaryReadMap9(message.timerFamilySpecs, reader, options);
           break;
         case /* string restriction_coder_id */ 7:
@@ -4408,23 +4611,32 @@ class ParDoPayload$Type extends MessageType<ParDoPayload> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   private binaryReadMap3(
-      map: ParDoPayload['sideInputs'], reader: IBinaryReader,
-      options: BinaryReadOptions): void {
-    let len = reader.uint32(), end = reader.pos + len,
-        key: keyof ParDoPayload['sideInputs']|undefined,
-        val: ParDoPayload['sideInputs'][any]|undefined;
+    map: ParDoPayload["sideInputs"],
+    reader: IBinaryReader,
+    options: BinaryReadOptions
+  ): void {
+    let len = reader.uint32(),
+      end = reader.pos + len,
+      key: keyof ParDoPayload["sideInputs"] | undefined,
+      val: ParDoPayload["sideInputs"][any] | undefined;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -4436,17 +4648,21 @@ class ParDoPayload$Type extends MessageType<ParDoPayload> {
           break;
         default:
           throw new globalThis.Error(
-              'unknown map entry field for field org.apache.beam.model.pipeline.v1.ParDoPayload.side_inputs');
+            "unknown map entry field for field org.apache.beam.model.pipeline.v1.ParDoPayload.side_inputs"
+          );
       }
     }
-    map[key ?? ''] = val ?? SideInput.create();
+    map[key ?? ""] = val ?? SideInput.create();
   }
   private binaryReadMap4(
-      map: ParDoPayload['stateSpecs'], reader: IBinaryReader,
-      options: BinaryReadOptions): void {
-    let len = reader.uint32(), end = reader.pos + len,
-        key: keyof ParDoPayload['stateSpecs']|undefined,
-        val: ParDoPayload['stateSpecs'][any]|undefined;
+    map: ParDoPayload["stateSpecs"],
+    reader: IBinaryReader,
+    options: BinaryReadOptions
+  ): void {
+    let len = reader.uint32(),
+      end = reader.pos + len,
+      key: keyof ParDoPayload["stateSpecs"] | undefined,
+      val: ParDoPayload["stateSpecs"][any] | undefined;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -4458,17 +4674,21 @@ class ParDoPayload$Type extends MessageType<ParDoPayload> {
           break;
         default:
           throw new globalThis.Error(
-              'unknown map entry field for field org.apache.beam.model.pipeline.v1.ParDoPayload.state_specs');
+            "unknown map entry field for field org.apache.beam.model.pipeline.v1.ParDoPayload.state_specs"
+          );
       }
     }
-    map[key ?? ''] = val ?? StateSpec.create();
+    map[key ?? ""] = val ?? StateSpec.create();
   }
   private binaryReadMap9(
-      map: ParDoPayload['timerFamilySpecs'], reader: IBinaryReader,
-      options: BinaryReadOptions): void {
-    let len = reader.uint32(), end = reader.pos + len,
-        key: keyof ParDoPayload['timerFamilySpecs']|undefined,
-        val: ParDoPayload['timerFamilySpecs'][any]|undefined;
+    map: ParDoPayload["timerFamilySpecs"],
+    reader: IBinaryReader,
+    options: BinaryReadOptions
+  ): void {
+    let len = reader.uint32(),
+      end = reader.pos + len,
+      key: keyof ParDoPayload["timerFamilySpecs"] | undefined,
+      val: ParDoPayload["timerFamilySpecs"][any] | undefined;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -4477,32 +4697,39 @@ class ParDoPayload$Type extends MessageType<ParDoPayload> {
           break;
         case 2:
           val = TimerFamilySpec.internalBinaryRead(
-              reader, reader.uint32(), options);
+            reader,
+            reader.uint32(),
+            options
+          );
           break;
         default:
           throw new globalThis.Error(
-              'unknown map entry field for field org.apache.beam.model.pipeline.v1.ParDoPayload.timer_family_specs');
+            "unknown map entry field for field org.apache.beam.model.pipeline.v1.ParDoPayload.timer_family_specs"
+          );
       }
     }
-    map[key ?? ''] = val ?? TimerFamilySpec.create();
+    map[key ?? ""] = val ?? TimerFamilySpec.create();
   }
   internalBinaryWrite(
-      message: ParDoPayload, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ParDoPayload,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.FunctionSpec do_fn = 1; */
     if (message.doFn)
-      FunctionSpec
-          .internalBinaryWrite(
-              message.doFn, writer.tag(1, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      FunctionSpec.internalBinaryWrite(
+        message.doFn,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* map<string, org.apache.beam.model.pipeline.v1.SideInput> side_inputs = 3;
      */
     for (let k of Object.keys(message.sideInputs)) {
-      writer.tag(3, WireType.LengthDelimited)
-          .fork()
-          .tag(1, WireType.LengthDelimited)
-          .string(k);
+      writer
+        .tag(3, WireType.LengthDelimited)
+        .fork()
+        .tag(1, WireType.LengthDelimited)
+        .string(k);
       writer.tag(2, WireType.LengthDelimited).fork();
       SideInput.internalBinaryWrite(message.sideInputs[k], writer, options);
       writer.join().join();
@@ -4510,10 +4737,11 @@ class ParDoPayload$Type extends MessageType<ParDoPayload> {
     /* map<string, org.apache.beam.model.pipeline.v1.StateSpec> state_specs = 4;
      */
     for (let k of Object.keys(message.stateSpecs)) {
-      writer.tag(4, WireType.LengthDelimited)
-          .fork()
-          .tag(1, WireType.LengthDelimited)
-          .string(k);
+      writer
+        .tag(4, WireType.LengthDelimited)
+        .fork()
+        .tag(1, WireType.LengthDelimited)
+        .string(k);
       writer.tag(2, WireType.LengthDelimited).fork();
       StateSpec.internalBinaryWrite(message.stateSpecs[k], writer, options);
       writer.join().join();
@@ -4521,19 +4749,24 @@ class ParDoPayload$Type extends MessageType<ParDoPayload> {
     /* map<string, org.apache.beam.model.pipeline.v1.TimerFamilySpec>
      * timer_family_specs = 9; */
     for (let k of Object.keys(message.timerFamilySpecs)) {
-      writer.tag(9, WireType.LengthDelimited)
-          .fork()
-          .tag(1, WireType.LengthDelimited)
-          .string(k);
+      writer
+        .tag(9, WireType.LengthDelimited)
+        .fork()
+        .tag(1, WireType.LengthDelimited)
+        .string(k);
       writer.tag(2, WireType.LengthDelimited).fork();
       TimerFamilySpec.internalBinaryWrite(
-          message.timerFamilySpecs[k], writer, options);
+        message.timerFamilySpecs[k],
+        writer,
+        options
+      );
       writer.join().join();
     }
     /* string restriction_coder_id = 7; */
-    if (message.restrictionCoderId !== '')
-      writer.tag(7, WireType.LengthDelimited)
-          .string(message.restrictionCoderId);
+    if (message.restrictionCoderId !== "")
+      writer
+        .tag(7, WireType.LengthDelimited)
+        .string(message.restrictionCoderId);
     /* bool requests_finalization = 8; */
     if (message.requestsFinalization !== false)
       writer.tag(8, WireType.Varint).bool(message.requestsFinalization);
@@ -4546,7 +4779,10 @@ class ParDoPayload$Type extends MessageType<ParDoPayload> {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -4559,182 +4795,220 @@ export const ParDoPayload = new ParDoPayload$Type();
 // optimized methods
 class StateSpec$Type extends MessageType<StateSpec> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.StateSpec', [
+    super("org.apache.beam.model.pipeline.v1.StateSpec", [
       {
         no: 1,
-        name: 'read_modify_write_spec',
-        kind: 'message',
-        oneof: 'spec',
-        T: () => ReadModifyWriteStateSpec
+        name: "read_modify_write_spec",
+        kind: "message",
+        oneof: "spec",
+        T: () => ReadModifyWriteStateSpec,
       },
       {
         no: 2,
-        name: 'bag_spec',
-        kind: 'message',
-        oneof: 'spec',
-        T: () => BagStateSpec
+        name: "bag_spec",
+        kind: "message",
+        oneof: "spec",
+        T: () => BagStateSpec,
       },
       {
         no: 3,
-        name: 'combining_spec',
-        kind: 'message',
-        oneof: 'spec',
-        T: () => CombiningStateSpec
+        name: "combining_spec",
+        kind: "message",
+        oneof: "spec",
+        T: () => CombiningStateSpec,
       },
       {
         no: 4,
-        name: 'map_spec',
-        kind: 'message',
-        oneof: 'spec',
-        T: () => MapStateSpec
+        name: "map_spec",
+        kind: "message",
+        oneof: "spec",
+        T: () => MapStateSpec,
       },
       {
         no: 5,
-        name: 'set_spec',
-        kind: 'message',
-        oneof: 'spec',
-        T: () => SetStateSpec
+        name: "set_spec",
+        kind: "message",
+        oneof: "spec",
+        T: () => SetStateSpec,
       },
       {
         no: 6,
-        name: 'ordered_list_spec',
-        kind: 'message',
-        oneof: 'spec',
-        T: () => OrderedListStateSpec
-      }
+        name: "ordered_list_spec",
+        kind: "message",
+        oneof: "spec",
+        T: () => OrderedListStateSpec,
+      },
     ]);
   }
   create(value?: PartialMessage<StateSpec>): StateSpec {
-    const message = {spec: {oneofKind: undefined}};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { spec: { oneofKind: undefined } };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StateSpec>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StateSpec): StateSpec {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StateSpec
+  ): StateSpec {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.ReadModifyWriteStateSpec
                 read_modify_write_spec */
-            1:
+        1:
           message.spec = {
-            oneofKind: 'readModifyWriteSpec',
+            oneofKind: "readModifyWriteSpec",
             readModifyWriteSpec: ReadModifyWriteStateSpec.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.spec as any).readModifyWriteSpec)
+              reader,
+              reader.uint32(),
+              options,
+              (message.spec as any).readModifyWriteSpec
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.BagStateSpec bag_spec */ 2:
           message.spec = {
-            oneofKind: 'bagSpec',
+            oneofKind: "bagSpec",
             bagSpec: BagStateSpec.internalBinaryRead(
-                reader, reader.uint32(), options, (message.spec as any).bagSpec)
+              reader,
+              reader.uint32(),
+              options,
+              (message.spec as any).bagSpec
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.CombiningStateSpec
                 combining_spec */
-            3:
+        3:
           message.spec = {
-            oneofKind: 'combiningSpec',
+            oneofKind: "combiningSpec",
             combiningSpec: CombiningStateSpec.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.spec as any).combiningSpec)
+              reader,
+              reader.uint32(),
+              options,
+              (message.spec as any).combiningSpec
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.MapStateSpec map_spec */ 4:
           message.spec = {
-            oneofKind: 'mapSpec',
+            oneofKind: "mapSpec",
             mapSpec: MapStateSpec.internalBinaryRead(
-                reader, reader.uint32(), options, (message.spec as any).mapSpec)
+              reader,
+              reader.uint32(),
+              options,
+              (message.spec as any).mapSpec
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.SetStateSpec set_spec */ 5:
           message.spec = {
-            oneofKind: 'setSpec',
+            oneofKind: "setSpec",
             setSpec: SetStateSpec.internalBinaryRead(
-                reader, reader.uint32(), options, (message.spec as any).setSpec)
+              reader,
+              reader.uint32(),
+              options,
+              (message.spec as any).setSpec
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.OrderedListStateSpec
                 ordered_list_spec */
-            6:
+        6:
           message.spec = {
-            oneofKind: 'orderedListSpec',
+            oneofKind: "orderedListSpec",
             orderedListSpec: OrderedListStateSpec.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.spec as any).orderedListSpec)
+              reader,
+              reader.uint32(),
+              options,
+              (message.spec as any).orderedListSpec
+            ),
           };
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: StateSpec, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StateSpec,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.ReadModifyWriteStateSpec
      * read_modify_write_spec = 1; */
-    if (message.spec.oneofKind === 'readModifyWriteSpec')
-      ReadModifyWriteStateSpec
-          .internalBinaryWrite(
-              message.spec.readModifyWriteSpec,
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.spec.oneofKind === "readModifyWriteSpec")
+      ReadModifyWriteStateSpec.internalBinaryWrite(
+        message.spec.readModifyWriteSpec,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.BagStateSpec bag_spec = 2; */
-    if (message.spec.oneofKind === 'bagSpec')
-      BagStateSpec
-          .internalBinaryWrite(
-              message.spec.bagSpec,
-              writer.tag(2, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.spec.oneofKind === "bagSpec")
+      BagStateSpec.internalBinaryWrite(
+        message.spec.bagSpec,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.CombiningStateSpec combining_spec = 3;
      */
-    if (message.spec.oneofKind === 'combiningSpec')
-      CombiningStateSpec
-          .internalBinaryWrite(
-              message.spec.combiningSpec,
-              writer.tag(3, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.spec.oneofKind === "combiningSpec")
+      CombiningStateSpec.internalBinaryWrite(
+        message.spec.combiningSpec,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.MapStateSpec map_spec = 4; */
-    if (message.spec.oneofKind === 'mapSpec')
-      MapStateSpec
-          .internalBinaryWrite(
-              message.spec.mapSpec,
-              writer.tag(4, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.spec.oneofKind === "mapSpec")
+      MapStateSpec.internalBinaryWrite(
+        message.spec.mapSpec,
+        writer.tag(4, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.SetStateSpec set_spec = 5; */
-    if (message.spec.oneofKind === 'setSpec')
-      SetStateSpec
-          .internalBinaryWrite(
-              message.spec.setSpec,
-              writer.tag(5, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.spec.oneofKind === "setSpec")
+      SetStateSpec.internalBinaryWrite(
+        message.spec.setSpec,
+        writer.tag(5, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.OrderedListStateSpec ordered_list_spec
      * = 6; */
-    if (message.spec.oneofKind === 'orderedListSpec')
-      OrderedListStateSpec
-          .internalBinaryWrite(
-              message.spec.orderedListSpec,
-              writer.tag(6, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.spec.oneofKind === "orderedListSpec")
+      OrderedListStateSpec.internalBinaryWrite(
+        message.spec.orderedListSpec,
+        writer.tag(6, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -4745,26 +5019,32 @@ class StateSpec$Type extends MessageType<StateSpec> {
 export const StateSpec = new StateSpec$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class ReadModifyWriteStateSpec$Type extends
-    MessageType<ReadModifyWriteStateSpec> {
+class ReadModifyWriteStateSpec$Type extends MessageType<ReadModifyWriteStateSpec> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.ReadModifyWriteStateSpec', [
-      {no: 1, name: 'coder_id', kind: 'scalar', T: 9 /*ScalarType.STRING*/}
+    super("org.apache.beam.model.pipeline.v1.ReadModifyWriteStateSpec", [
+      { no: 1, name: "coder_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
     ]);
   }
-  create(value?: PartialMessage<ReadModifyWriteStateSpec>):
-      ReadModifyWriteStateSpec {
-    const message = {coderId: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<ReadModifyWriteStateSpec>
+  ): ReadModifyWriteStateSpec {
+    const message = { coderId: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ReadModifyWriteStateSpec>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ReadModifyWriteStateSpec): ReadModifyWriteStateSpec {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ReadModifyWriteStateSpec
+  ): ReadModifyWriteStateSpec {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -4773,27 +5053,38 @@ class ReadModifyWriteStateSpec$Type extends
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ReadModifyWriteStateSpec, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ReadModifyWriteStateSpec,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string coder_id = 1; */
-    if (message.coderId !== '')
+    if (message.coderId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.coderId);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -4806,25 +5097,33 @@ export const ReadModifyWriteStateSpec = new ReadModifyWriteStateSpec$Type();
 // optimized methods
 class BagStateSpec$Type extends MessageType<BagStateSpec> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.BagStateSpec', [{
-            no: 1,
-            name: 'element_coder_id',
-            kind: 'scalar',
-            T: 9 /*ScalarType.STRING*/
-          }]);
+    super("org.apache.beam.model.pipeline.v1.BagStateSpec", [
+      {
+        no: 1,
+        name: "element_coder_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
+    ]);
   }
   create(value?: PartialMessage<BagStateSpec>): BagStateSpec {
-    const message = {elementCoderId: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { elementCoderId: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<BagStateSpec>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: BagStateSpec): BagStateSpec {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: BagStateSpec
+  ): BagStateSpec {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -4833,27 +5132,38 @@ class BagStateSpec$Type extends MessageType<BagStateSpec> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: BagStateSpec, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: BagStateSpec,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string element_coder_id = 1; */
-    if (message.elementCoderId !== '')
+    if (message.elementCoderId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.elementCoderId);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -4866,25 +5176,33 @@ export const BagStateSpec = new BagStateSpec$Type();
 // optimized methods
 class OrderedListStateSpec$Type extends MessageType<OrderedListStateSpec> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.OrderedListStateSpec', [{
-            no: 1,
-            name: 'element_coder_id',
-            kind: 'scalar',
-            T: 9 /*ScalarType.STRING*/
-          }]);
+    super("org.apache.beam.model.pipeline.v1.OrderedListStateSpec", [
+      {
+        no: 1,
+        name: "element_coder_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
+    ]);
   }
   create(value?: PartialMessage<OrderedListStateSpec>): OrderedListStateSpec {
-    const message = {elementCoderId: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { elementCoderId: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<OrderedListStateSpec>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: OrderedListStateSpec): OrderedListStateSpec {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: OrderedListStateSpec
+  ): OrderedListStateSpec {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -4893,27 +5211,38 @@ class OrderedListStateSpec$Type extends MessageType<OrderedListStateSpec> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: OrderedListStateSpec, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: OrderedListStateSpec,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string element_coder_id = 1; */
-    if (message.elementCoderId !== '')
+    if (message.elementCoderId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.elementCoderId);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -4926,28 +5255,34 @@ export const OrderedListStateSpec = new OrderedListStateSpec$Type();
 // optimized methods
 class CombiningStateSpec$Type extends MessageType<CombiningStateSpec> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.CombiningStateSpec', [
+    super("org.apache.beam.model.pipeline.v1.CombiningStateSpec", [
       {
         no: 1,
-        name: 'accumulator_coder_id',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
+        name: "accumulator_coder_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
       },
-      {no: 2, name: 'combine_fn', kind: 'message', T: () => FunctionSpec}
+      { no: 2, name: "combine_fn", kind: "message", T: () => FunctionSpec },
     ]);
   }
   create(value?: PartialMessage<CombiningStateSpec>): CombiningStateSpec {
-    const message = {accumulatorCoderId: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { accumulatorCoderId: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<CombiningStateSpec>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: CombiningStateSpec): CombiningStateSpec {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: CombiningStateSpec
+  ): CombiningStateSpec {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -4956,39 +5291,55 @@ class CombiningStateSpec$Type extends MessageType<CombiningStateSpec> {
           break;
         case /* org.apache.beam.model.pipeline.v1.FunctionSpec combine_fn */ 2:
           message.combineFn = FunctionSpec.internalBinaryRead(
-              reader, reader.uint32(), options, message.combineFn);
+            reader,
+            reader.uint32(),
+            options,
+            message.combineFn
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: CombiningStateSpec, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: CombiningStateSpec,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string accumulator_coder_id = 1; */
-    if (message.accumulatorCoderId !== '')
-      writer.tag(1, WireType.LengthDelimited)
-          .string(message.accumulatorCoderId);
+    if (message.accumulatorCoderId !== "")
+      writer
+        .tag(1, WireType.LengthDelimited)
+        .string(message.accumulatorCoderId);
     /* org.apache.beam.model.pipeline.v1.FunctionSpec combine_fn = 2; */
     if (message.combineFn)
-      FunctionSpec
-          .internalBinaryWrite(
-              message.combineFn, writer.tag(2, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      FunctionSpec.internalBinaryWrite(
+        message.combineFn,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -5001,28 +5352,39 @@ export const CombiningStateSpec = new CombiningStateSpec$Type();
 // optimized methods
 class MapStateSpec$Type extends MessageType<MapStateSpec> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.MapStateSpec', [
-      {no: 1, name: 'key_coder_id', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
+    super("org.apache.beam.model.pipeline.v1.MapStateSpec", [
+      {
+        no: 1,
+        name: "key_coder_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
       {
         no: 2,
-        name: 'value_coder_id',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
-      }
+        name: "value_coder_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
     ]);
   }
   create(value?: PartialMessage<MapStateSpec>): MapStateSpec {
-    const message = {keyCoderId: '', valueCoderId: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { keyCoderId: "", valueCoderId: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<MapStateSpec>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: MapStateSpec): MapStateSpec {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: MapStateSpec
+  ): MapStateSpec {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -5034,30 +5396,41 @@ class MapStateSpec$Type extends MessageType<MapStateSpec> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: MapStateSpec, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: MapStateSpec,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string key_coder_id = 1; */
-    if (message.keyCoderId !== '')
+    if (message.keyCoderId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.keyCoderId);
     /* string value_coder_id = 2; */
-    if (message.valueCoderId !== '')
+    if (message.valueCoderId !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.valueCoderId);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -5070,25 +5443,33 @@ export const MapStateSpec = new MapStateSpec$Type();
 // optimized methods
 class SetStateSpec$Type extends MessageType<SetStateSpec> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.SetStateSpec', [{
-            no: 1,
-            name: 'element_coder_id',
-            kind: 'scalar',
-            T: 9 /*ScalarType.STRING*/
-          }]);
+    super("org.apache.beam.model.pipeline.v1.SetStateSpec", [
+      {
+        no: 1,
+        name: "element_coder_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
+    ]);
   }
   create(value?: PartialMessage<SetStateSpec>): SetStateSpec {
-    const message = {elementCoderId: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { elementCoderId: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<SetStateSpec>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: SetStateSpec): SetStateSpec {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: SetStateSpec
+  ): SetStateSpec {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -5097,27 +5478,38 @@ class SetStateSpec$Type extends MessageType<SetStateSpec> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: SetStateSpec, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: SetStateSpec,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string element_coder_id = 1; */
-    if (message.elementCoderId !== '')
+    if (message.elementCoderId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.elementCoderId);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -5130,40 +5522,47 @@ export const SetStateSpec = new SetStateSpec$Type();
 // optimized methods
 class TimerFamilySpec$Type extends MessageType<TimerFamilySpec> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.TimerFamilySpec', [
+    super("org.apache.beam.model.pipeline.v1.TimerFamilySpec", [
       {
         no: 1,
-        name: 'time_domain',
-        kind: 'enum',
-        T: () =>
-            ['org.apache.beam.model.pipeline.v1.TimeDomain.Enum',
-             TimeDomain_Enum]
+        name: "time_domain",
+        kind: "enum",
+        T: () => [
+          "org.apache.beam.model.pipeline.v1.TimeDomain.Enum",
+          TimeDomain_Enum,
+        ],
       },
       {
         no: 2,
-        name: 'timer_family_coder_id',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
-      }
+        name: "timer_family_coder_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
     ]);
   }
   create(value?: PartialMessage<TimerFamilySpec>): TimerFamilySpec {
-    const message = {timeDomain: 0, timerFamilyCoderId: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { timeDomain: 0, timerFamilyCoderId: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<TimerFamilySpec>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: TimerFamilySpec): TimerFamilySpec {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: TimerFamilySpec
+  ): TimerFamilySpec {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.TimeDomain.Enum time_domain */
-            1:
+        1:
           message.timeDomain = reader.int32();
           break;
         case /* string timer_family_coder_id */ 2:
@@ -5171,31 +5570,43 @@ class TimerFamilySpec$Type extends MessageType<TimerFamilySpec> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: TimerFamilySpec, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: TimerFamilySpec,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.TimeDomain.Enum time_domain = 1; */
     if (message.timeDomain !== 0)
       writer.tag(1, WireType.Varint).int32(message.timeDomain);
     /* string timer_family_coder_id = 2; */
-    if (message.timerFamilyCoderId !== '')
-      writer.tag(2, WireType.LengthDelimited)
-          .string(message.timerFamilyCoderId);
+    if (message.timerFamilyCoderId !== "")
+      writer
+        .tag(2, WireType.LengthDelimited)
+        .string(message.timerFamilyCoderId);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -5208,28 +5619,38 @@ export const TimerFamilySpec = new TimerFamilySpec$Type();
 // optimized methods
 class IsBounded$Type extends MessageType<IsBounded> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.IsBounded', []);
+    super("org.apache.beam.model.pipeline.v1.IsBounded", []);
   }
   create(value?: PartialMessage<IsBounded>): IsBounded {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<IsBounded>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: IsBounded): IsBounded {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: IsBounded
+  ): IsBounded {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: IsBounded, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: IsBounded,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -5242,69 +5663,93 @@ export const IsBounded = new IsBounded$Type();
 // optimized methods
 class ReadPayload$Type extends MessageType<ReadPayload> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.ReadPayload', [
-      {no: 1, name: 'source', kind: 'message', T: () => FunctionSpec}, {
+    super("org.apache.beam.model.pipeline.v1.ReadPayload", [
+      { no: 1, name: "source", kind: "message", T: () => FunctionSpec },
+      {
         no: 2,
-        name: 'is_bounded',
-        kind: 'enum',
-        T: () =>
-            ['org.apache.beam.model.pipeline.v1.IsBounded.Enum', IsBounded_Enum]
-      }
+        name: "is_bounded",
+        kind: "enum",
+        T: () => [
+          "org.apache.beam.model.pipeline.v1.IsBounded.Enum",
+          IsBounded_Enum,
+        ],
+      },
     ]);
   }
   create(value?: PartialMessage<ReadPayload>): ReadPayload {
-    const message = {isBounded: 0};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { isBounded: 0 };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ReadPayload>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ReadPayload): ReadPayload {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ReadPayload
+  ): ReadPayload {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.FunctionSpec source */ 1:
           message.source = FunctionSpec.internalBinaryRead(
-              reader, reader.uint32(), options, message.source);
+            reader,
+            reader.uint32(),
+            options,
+            message.source
+          );
           break;
         case /* org.apache.beam.model.pipeline.v1.IsBounded.Enum is_bounded */
-            2:
+        2:
           message.isBounded = reader.int32();
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ReadPayload, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ReadPayload,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.FunctionSpec source = 1; */
     if (message.source)
-      FunctionSpec
-          .internalBinaryWrite(
-              message.source, writer.tag(1, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      FunctionSpec.internalBinaryWrite(
+        message.source,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.IsBounded.Enum is_bounded = 2; */
     if (message.isBounded !== 0)
       writer.tag(2, WireType.Varint).int32(message.isBounded);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -5317,56 +5762,77 @@ export const ReadPayload = new ReadPayload$Type();
 // optimized methods
 class WindowIntoPayload$Type extends MessageType<WindowIntoPayload> {
   constructor() {
-    super(
-        'org.apache.beam.model.pipeline.v1.WindowIntoPayload',
-        [{no: 1, name: 'window_fn', kind: 'message', T: () => FunctionSpec}]);
+    super("org.apache.beam.model.pipeline.v1.WindowIntoPayload", [
+      { no: 1, name: "window_fn", kind: "message", T: () => FunctionSpec },
+    ]);
   }
   create(value?: PartialMessage<WindowIntoPayload>): WindowIntoPayload {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<WindowIntoPayload>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: WindowIntoPayload): WindowIntoPayload {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: WindowIntoPayload
+  ): WindowIntoPayload {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.FunctionSpec window_fn */ 1:
           message.windowFn = FunctionSpec.internalBinaryRead(
-              reader, reader.uint32(), options, message.windowFn);
+            reader,
+            reader.uint32(),
+            options,
+            message.windowFn
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: WindowIntoPayload, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: WindowIntoPayload,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.FunctionSpec window_fn = 1; */
     if (message.windowFn)
-      FunctionSpec
-          .internalBinaryWrite(
-              message.windowFn, writer.tag(1, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      FunctionSpec.internalBinaryWrite(
+        message.windowFn,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -5379,68 +5845,91 @@ export const WindowIntoPayload = new WindowIntoPayload$Type();
 // optimized methods
 class CombinePayload$Type extends MessageType<CombinePayload> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.CombinePayload', [
-      {no: 1, name: 'combine_fn', kind: 'message', T: () => FunctionSpec}, {
+    super("org.apache.beam.model.pipeline.v1.CombinePayload", [
+      { no: 1, name: "combine_fn", kind: "message", T: () => FunctionSpec },
+      {
         no: 2,
-        name: 'accumulator_coder_id',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
-      }
+        name: "accumulator_coder_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
     ]);
   }
   create(value?: PartialMessage<CombinePayload>): CombinePayload {
-    const message = {accumulatorCoderId: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { accumulatorCoderId: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<CombinePayload>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: CombinePayload): CombinePayload {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: CombinePayload
+  ): CombinePayload {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.FunctionSpec combine_fn */ 1:
           message.combineFn = FunctionSpec.internalBinaryRead(
-              reader, reader.uint32(), options, message.combineFn);
+            reader,
+            reader.uint32(),
+            options,
+            message.combineFn
+          );
           break;
         case /* string accumulator_coder_id */ 2:
           message.accumulatorCoderId = reader.string();
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: CombinePayload, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: CombinePayload,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.FunctionSpec combine_fn = 1; */
     if (message.combineFn)
-      FunctionSpec
-          .internalBinaryWrite(
-              message.combineFn, writer.tag(1, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      FunctionSpec.internalBinaryWrite(
+        message.combineFn,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* string accumulator_coder_id = 2; */
-    if (message.accumulatorCoderId !== '')
-      writer.tag(2, WireType.LengthDelimited)
-          .string(message.accumulatorCoderId);
+    if (message.accumulatorCoderId !== "")
+      writer
+        .tag(2, WireType.LengthDelimited)
+        .string(message.accumulatorCoderId);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -5453,29 +5942,41 @@ export const CombinePayload = new CombinePayload$Type();
 // optimized methods
 class TestStreamPayload$Type extends MessageType<TestStreamPayload> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.TestStreamPayload', [
-      {no: 1, name: 'coder_id', kind: 'scalar', T: 9 /*ScalarType.STRING*/}, {
+    super("org.apache.beam.model.pipeline.v1.TestStreamPayload", [
+      { no: 1, name: "coder_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      {
         no: 2,
-        name: 'events',
-        kind: 'message',
+        name: "events",
+        kind: "message",
         repeat: 1 /*RepeatType.PACKED*/,
-        T: () => TestStreamPayload_Event
+        T: () => TestStreamPayload_Event,
       },
-      {no: 3, name: 'endpoint', kind: 'message', T: () => ApiServiceDescriptor}
+      {
+        no: 3,
+        name: "endpoint",
+        kind: "message",
+        T: () => ApiServiceDescriptor,
+      },
     ]);
   }
   create(value?: PartialMessage<TestStreamPayload>): TestStreamPayload {
-    const message = {coderId: '', events: []};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { coderId: "", events: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<TestStreamPayload>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: TestStreamPayload): TestStreamPayload {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: TestStreamPayload
+  ): TestStreamPayload {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -5485,54 +5986,74 @@ class TestStreamPayload$Type extends MessageType<TestStreamPayload> {
         case /* repeated
                 org.apache.beam.model.pipeline.v1.TestStreamPayload.Event events
               */
-            2:
-          message.events.push(TestStreamPayload_Event.internalBinaryRead(
-              reader, reader.uint32(), options));
+        2:
+          message.events.push(
+            TestStreamPayload_Event.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options
+            )
+          );
           break;
         case /* org.apache.beam.model.pipeline.v1.ApiServiceDescriptor endpoint
-              */
-            3:
+         */
+        3:
           message.endpoint = ApiServiceDescriptor.internalBinaryRead(
-              reader, reader.uint32(), options, message.endpoint);
+            reader,
+            reader.uint32(),
+            options,
+            message.endpoint
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: TestStreamPayload, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: TestStreamPayload,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string coder_id = 1; */
-    if (message.coderId !== '')
+    if (message.coderId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.coderId);
     /* repeated org.apache.beam.model.pipeline.v1.TestStreamPayload.Event events
      * = 2; */
     for (let i = 0; i < message.events.length; i++)
-      TestStreamPayload_Event
-          .internalBinaryWrite(
-              message.events[i], writer.tag(2, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      TestStreamPayload_Event.internalBinaryWrite(
+        message.events[i],
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.ApiServiceDescriptor endpoint = 3; */
     if (message.endpoint)
-      ApiServiceDescriptor
-          .internalBinaryWrite(
-              message.endpoint, writer.tag(3, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      ApiServiceDescriptor.internalBinaryWrite(
+        message.endpoint,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -5543,127 +6064,152 @@ class TestStreamPayload$Type extends MessageType<TestStreamPayload> {
 export const TestStreamPayload = new TestStreamPayload$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class TestStreamPayload_Event$Type extends
-    MessageType<TestStreamPayload_Event> {
+class TestStreamPayload_Event$Type extends MessageType<TestStreamPayload_Event> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.TestStreamPayload.Event', [
+    super("org.apache.beam.model.pipeline.v1.TestStreamPayload.Event", [
       {
         no: 1,
-        name: 'watermark_event',
-        kind: 'message',
-        oneof: 'event',
-        T: () => TestStreamPayload_Event_AdvanceWatermark
+        name: "watermark_event",
+        kind: "message",
+        oneof: "event",
+        T: () => TestStreamPayload_Event_AdvanceWatermark,
       },
       {
         no: 2,
-        name: 'processing_time_event',
-        kind: 'message',
-        oneof: 'event',
-        T: () => TestStreamPayload_Event_AdvanceProcessingTime
+        name: "processing_time_event",
+        kind: "message",
+        oneof: "event",
+        T: () => TestStreamPayload_Event_AdvanceProcessingTime,
       },
       {
         no: 3,
-        name: 'element_event',
-        kind: 'message',
-        oneof: 'event',
-        T: () => TestStreamPayload_Event_AddElements
-      }
+        name: "element_event",
+        kind: "message",
+        oneof: "event",
+        T: () => TestStreamPayload_Event_AddElements,
+      },
     ]);
   }
-  create(value?: PartialMessage<TestStreamPayload_Event>):
-      TestStreamPayload_Event {
-    const message = {event: {oneofKind: undefined}};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<TestStreamPayload_Event>
+  ): TestStreamPayload_Event {
+    const message = { event: { oneofKind: undefined } };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<TestStreamPayload_Event>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: TestStreamPayload_Event): TestStreamPayload_Event {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: TestStreamPayload_Event
+  ): TestStreamPayload_Event {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.TestStreamPayload.Event.AdvanceWatermark
                 watermark_event */
-            1:
+        1:
           message.event = {
-            oneofKind: 'watermarkEvent',
+            oneofKind: "watermarkEvent",
             watermarkEvent:
-                TestStreamPayload_Event_AdvanceWatermark.internalBinaryRead(
-                    reader, reader.uint32(), options,
-                    (message.event as any).watermarkEvent)
+              TestStreamPayload_Event_AdvanceWatermark.internalBinaryRead(
+                reader,
+                reader.uint32(),
+                options,
+                (message.event as any).watermarkEvent
+              ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.TestStreamPayload.Event.AdvanceProcessingTime
                 processing_time_event */
-            2:
+        2:
           message.event = {
-            oneofKind: 'processingTimeEvent',
+            oneofKind: "processingTimeEvent",
             processingTimeEvent:
-                TestStreamPayload_Event_AdvanceProcessingTime
-                    .internalBinaryRead(
-                        reader, reader.uint32(), options,
-                        (message.event as any).processingTimeEvent)
+              TestStreamPayload_Event_AdvanceProcessingTime.internalBinaryRead(
+                reader,
+                reader.uint32(),
+                options,
+                (message.event as any).processingTimeEvent
+              ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.TestStreamPayload.Event.AddElements
                 element_event */
-            3:
+        3:
           message.event = {
-            oneofKind: 'elementEvent',
+            oneofKind: "elementEvent",
             elementEvent:
-                TestStreamPayload_Event_AddElements.internalBinaryRead(
-                    reader, reader.uint32(), options,
-                    (message.event as any).elementEvent)
+              TestStreamPayload_Event_AddElements.internalBinaryRead(
+                reader,
+                reader.uint32(),
+                options,
+                (message.event as any).elementEvent
+              ),
           };
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: TestStreamPayload_Event, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: TestStreamPayload_Event,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.TestStreamPayload.Event.AdvanceWatermark
      * watermark_event = 1; */
-    if (message.event.oneofKind === 'watermarkEvent')
-      TestStreamPayload_Event_AdvanceWatermark
-          .internalBinaryWrite(
-              message.event.watermarkEvent,
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.event.oneofKind === "watermarkEvent")
+      TestStreamPayload_Event_AdvanceWatermark.internalBinaryWrite(
+        message.event.watermarkEvent,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.TestStreamPayload.Event.AdvanceProcessingTime
      * processing_time_event = 2; */
-    if (message.event.oneofKind === 'processingTimeEvent')
-      TestStreamPayload_Event_AdvanceProcessingTime
-          .internalBinaryWrite(
-              message.event.processingTimeEvent,
-              writer.tag(2, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.event.oneofKind === "processingTimeEvent")
+      TestStreamPayload_Event_AdvanceProcessingTime.internalBinaryWrite(
+        message.event.processingTimeEvent,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.TestStreamPayload.Event.AddElements
      * element_event = 3; */
-    if (message.event.oneofKind === 'elementEvent')
-      TestStreamPayload_Event_AddElements
-          .internalBinaryWrite(
-              message.event.elementEvent,
-              writer.tag(3, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.event.oneofKind === "elementEvent")
+      TestStreamPayload_Event_AddElements.internalBinaryWrite(
+        message.event.elementEvent,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -5674,37 +6220,46 @@ class TestStreamPayload_Event$Type extends
 export const TestStreamPayload_Event = new TestStreamPayload_Event$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class TestStreamPayload_Event_AdvanceWatermark$Type extends
-    MessageType<TestStreamPayload_Event_AdvanceWatermark> {
+class TestStreamPayload_Event_AdvanceWatermark$Type extends MessageType<TestStreamPayload_Event_AdvanceWatermark> {
   constructor() {
     super(
-        'org.apache.beam.model.pipeline.v1.TestStreamPayload.Event.AdvanceWatermark',
-        [
-          {
-            no: 1,
-            name: 'new_watermark',
-            kind: 'scalar',
-            T: 3 /*ScalarType.INT64*/,
-            L: 0 /*LongType.BIGINT*/
-          },
-          {no: 2, name: 'tag', kind: 'scalar', T: 9 /*ScalarType.STRING*/}
-        ]);
+      "org.apache.beam.model.pipeline.v1.TestStreamPayload.Event.AdvanceWatermark",
+      [
+        {
+          no: 1,
+          name: "new_watermark",
+          kind: "scalar",
+          T: 3 /*ScalarType.INT64*/,
+          L: 0 /*LongType.BIGINT*/,
+        },
+        { no: 2, name: "tag", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      ]
+    );
   }
-  create(value?: PartialMessage<TestStreamPayload_Event_AdvanceWatermark>):
-      TestStreamPayload_Event_AdvanceWatermark {
-    const message = {newWatermark: 0n, tag: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<TestStreamPayload_Event_AdvanceWatermark>
+  ): TestStreamPayload_Event_AdvanceWatermark {
+    const message = { newWatermark: 0n, tag: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<TestStreamPayload_Event_AdvanceWatermark>(
-          this, message, value);
+        this,
+        message,
+        value
+      );
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: TestStreamPayload_Event_AdvanceWatermark):
-      TestStreamPayload_Event_AdvanceWatermark {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: TestStreamPayload_Event_AdvanceWatermark
+  ): TestStreamPayload_Event_AdvanceWatermark {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -5716,30 +6271,41 @@ class TestStreamPayload_Event_AdvanceWatermark$Type extends
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: TestStreamPayload_Event_AdvanceWatermark, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: TestStreamPayload_Event_AdvanceWatermark,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* int64 new_watermark = 1; */
     if (message.newWatermark !== 0n)
       writer.tag(1, WireType.Varint).int64(message.newWatermark);
     /* string tag = 2; */
-    if (message.tag !== '')
+    if (message.tag !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.tag);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -5748,37 +6314,48 @@ class TestStreamPayload_Event_AdvanceWatermark$Type extends
  * org.apache.beam.model.pipeline.v1.TestStreamPayload.Event.AdvanceWatermark
  */
 export const TestStreamPayload_Event_AdvanceWatermark =
-    new TestStreamPayload_Event_AdvanceWatermark$Type();
+  new TestStreamPayload_Event_AdvanceWatermark$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class TestStreamPayload_Event_AdvanceProcessingTime$Type extends
-    MessageType<TestStreamPayload_Event_AdvanceProcessingTime> {
+class TestStreamPayload_Event_AdvanceProcessingTime$Type extends MessageType<TestStreamPayload_Event_AdvanceProcessingTime> {
   constructor() {
     super(
-        'org.apache.beam.model.pipeline.v1.TestStreamPayload.Event.AdvanceProcessingTime',
-        [{
+      "org.apache.beam.model.pipeline.v1.TestStreamPayload.Event.AdvanceProcessingTime",
+      [
+        {
           no: 1,
-          name: 'advance_duration',
-          kind: 'scalar',
+          name: "advance_duration",
+          kind: "scalar",
           T: 3 /*ScalarType.INT64*/,
-          L: 0 /*LongType.BIGINT*/
-        }]);
+          L: 0 /*LongType.BIGINT*/,
+        },
+      ]
+    );
   }
-  create(value?: PartialMessage<TestStreamPayload_Event_AdvanceProcessingTime>):
-      TestStreamPayload_Event_AdvanceProcessingTime {
-    const message = {advanceDuration: 0n};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<TestStreamPayload_Event_AdvanceProcessingTime>
+  ): TestStreamPayload_Event_AdvanceProcessingTime {
+    const message = { advanceDuration: 0n };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<TestStreamPayload_Event_AdvanceProcessingTime>(
-          this, message, value);
+        this,
+        message,
+        value
+      );
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: TestStreamPayload_Event_AdvanceProcessingTime):
-      TestStreamPayload_Event_AdvanceProcessingTime {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: TestStreamPayload_Event_AdvanceProcessingTime
+  ): TestStreamPayload_Event_AdvanceProcessingTime {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -5787,27 +6364,38 @@ class TestStreamPayload_Event_AdvanceProcessingTime$Type extends
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: TestStreamPayload_Event_AdvanceProcessingTime,
-      writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+    message: TestStreamPayload_Event_AdvanceProcessingTime,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* int64 advance_duration = 1; */
     if (message.advanceDuration !== 0n)
       writer.tag(1, WireType.Varint).int64(message.advanceDuration);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -5816,86 +6404,110 @@ class TestStreamPayload_Event_AdvanceProcessingTime$Type extends
  * org.apache.beam.model.pipeline.v1.TestStreamPayload.Event.AdvanceProcessingTime
  */
 export const TestStreamPayload_Event_AdvanceProcessingTime =
-    new TestStreamPayload_Event_AdvanceProcessingTime$Type();
+  new TestStreamPayload_Event_AdvanceProcessingTime$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class TestStreamPayload_Event_AddElements$Type extends
-    MessageType<TestStreamPayload_Event_AddElements> {
+class TestStreamPayload_Event_AddElements$Type extends MessageType<TestStreamPayload_Event_AddElements> {
   constructor() {
     super(
-        'org.apache.beam.model.pipeline.v1.TestStreamPayload.Event.AddElements',
-        [
-          {
-            no: 1,
-            name: 'elements',
-            kind: 'message',
-            repeat: 1 /*RepeatType.PACKED*/,
-            T: () => TestStreamPayload_TimestampedElement
-          },
-          {no: 3, name: 'tag', kind: 'scalar', T: 9 /*ScalarType.STRING*/}
-        ]);
+      "org.apache.beam.model.pipeline.v1.TestStreamPayload.Event.AddElements",
+      [
+        {
+          no: 1,
+          name: "elements",
+          kind: "message",
+          repeat: 1 /*RepeatType.PACKED*/,
+          T: () => TestStreamPayload_TimestampedElement,
+        },
+        { no: 3, name: "tag", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      ]
+    );
   }
-  create(value?: PartialMessage<TestStreamPayload_Event_AddElements>):
-      TestStreamPayload_Event_AddElements {
-    const message = {elements: [], tag: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<TestStreamPayload_Event_AddElements>
+  ): TestStreamPayload_Event_AddElements {
+    const message = { elements: [], tag: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<TestStreamPayload_Event_AddElements>(
-          this, message, value);
+        this,
+        message,
+        value
+      );
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: TestStreamPayload_Event_AddElements):
-      TestStreamPayload_Event_AddElements {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: TestStreamPayload_Event_AddElements
+  ): TestStreamPayload_Event_AddElements {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* repeated
                 org.apache.beam.model.pipeline.v1.TestStreamPayload.TimestampedElement
                 elements */
-            1:
+        1:
           message.elements.push(
-              TestStreamPayload_TimestampedElement.internalBinaryRead(
-                  reader, reader.uint32(), options));
+            TestStreamPayload_TimestampedElement.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options
+            )
+          );
           break;
         case /* string tag */ 3:
           message.tag = reader.string();
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: TestStreamPayload_Event_AddElements, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: TestStreamPayload_Event_AddElements,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* repeated
      * org.apache.beam.model.pipeline.v1.TestStreamPayload.TimestampedElement
      * elements = 1; */
     for (let i = 0; i < message.elements.length; i++)
-      TestStreamPayload_TimestampedElement
-          .internalBinaryWrite(
-              message.elements[i],
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+      TestStreamPayload_TimestampedElement.internalBinaryWrite(
+        message.elements[i],
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* string tag = 3; */
-    if (message.tag !== '')
+    if (message.tag !== "")
       writer.tag(3, WireType.LengthDelimited).string(message.tag);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -5904,45 +6516,54 @@ class TestStreamPayload_Event_AddElements$Type extends
  * org.apache.beam.model.pipeline.v1.TestStreamPayload.Event.AddElements
  */
 export const TestStreamPayload_Event_AddElements =
-    new TestStreamPayload_Event_AddElements$Type();
+  new TestStreamPayload_Event_AddElements$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class TestStreamPayload_TimestampedElement$Type extends
-    MessageType<TestStreamPayload_TimestampedElement> {
+class TestStreamPayload_TimestampedElement$Type extends MessageType<TestStreamPayload_TimestampedElement> {
   constructor() {
     super(
-        'org.apache.beam.model.pipeline.v1.TestStreamPayload.TimestampedElement',
-        [
-          {
-            no: 1,
-            name: 'encoded_element',
-            kind: 'scalar',
-            T: 12 /*ScalarType.BYTES*/
-          },
-          {
-            no: 2,
-            name: 'timestamp',
-            kind: 'scalar',
-            T: 3 /*ScalarType.INT64*/,
-            L: 0 /*LongType.BIGINT*/
-          }
-        ]);
+      "org.apache.beam.model.pipeline.v1.TestStreamPayload.TimestampedElement",
+      [
+        {
+          no: 1,
+          name: "encoded_element",
+          kind: "scalar",
+          T: 12 /*ScalarType.BYTES*/,
+        },
+        {
+          no: 2,
+          name: "timestamp",
+          kind: "scalar",
+          T: 3 /*ScalarType.INT64*/,
+          L: 0 /*LongType.BIGINT*/,
+        },
+      ]
+    );
   }
-  create(value?: PartialMessage<TestStreamPayload_TimestampedElement>):
-      TestStreamPayload_TimestampedElement {
-    const message = {encodedElement: new Uint8Array(0), timestamp: 0n};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<TestStreamPayload_TimestampedElement>
+  ): TestStreamPayload_TimestampedElement {
+    const message = { encodedElement: new Uint8Array(0), timestamp: 0n };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<TestStreamPayload_TimestampedElement>(
-          this, message, value);
+        this,
+        message,
+        value
+      );
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: TestStreamPayload_TimestampedElement):
-      TestStreamPayload_TimestampedElement {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: TestStreamPayload_TimestampedElement
+  ): TestStreamPayload_TimestampedElement {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -5954,20 +6575,28 @@ class TestStreamPayload_TimestampedElement$Type extends
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: TestStreamPayload_TimestampedElement, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: TestStreamPayload_TimestampedElement,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* bytes encoded_element = 1; */
     if (message.encodedElement.length)
       writer.tag(1, WireType.LengthDelimited).bytes(message.encodedElement);
@@ -5977,7 +6606,10 @@ class TestStreamPayload_TimestampedElement$Type extends
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -5986,31 +6618,39 @@ class TestStreamPayload_TimestampedElement$Type extends
  * org.apache.beam.model.pipeline.v1.TestStreamPayload.TimestampedElement
  */
 export const TestStreamPayload_TimestampedElement =
-    new TestStreamPayload_TimestampedElement$Type();
+  new TestStreamPayload_TimestampedElement$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
 class EventsRequest$Type extends MessageType<EventsRequest> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.EventsRequest', [{
-            no: 1,
-            name: 'output_ids',
-            kind: 'scalar',
-            repeat: 2 /*RepeatType.UNPACKED*/,
-            T: 9 /*ScalarType.STRING*/
-          }]);
+    super("org.apache.beam.model.pipeline.v1.EventsRequest", [
+      {
+        no: 1,
+        name: "output_ids",
+        kind: "scalar",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: 9 /*ScalarType.STRING*/,
+      },
+    ]);
   }
   create(value?: PartialMessage<EventsRequest>): EventsRequest {
-    const message = {outputIds: []};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { outputIds: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<EventsRequest>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: EventsRequest): EventsRequest {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: EventsRequest
+  ): EventsRequest {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -6019,27 +6659,38 @@ class EventsRequest$Type extends MessageType<EventsRequest> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: EventsRequest, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: EventsRequest,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* repeated string output_ids = 1; */
     for (let i = 0; i < message.outputIds.length; i++)
       writer.tag(1, WireType.LengthDelimited).string(message.outputIds[i]);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -6052,58 +6703,77 @@ export const EventsRequest = new EventsRequest$Type();
 // optimized methods
 class WriteFilesPayload$Type extends MessageType<WriteFilesPayload> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.WriteFilesPayload', [
-      {no: 1, name: 'sink', kind: 'message', T: () => FunctionSpec},
-      {no: 2, name: 'format_function', kind: 'message', T: () => FunctionSpec},
+    super("org.apache.beam.model.pipeline.v1.WriteFilesPayload", [
+      { no: 1, name: "sink", kind: "message", T: () => FunctionSpec },
+      {
+        no: 2,
+        name: "format_function",
+        kind: "message",
+        T: () => FunctionSpec,
+      },
       {
         no: 3,
-        name: 'windowed_writes',
-        kind: 'scalar',
-        T: 8 /*ScalarType.BOOL*/
+        name: "windowed_writes",
+        kind: "scalar",
+        T: 8 /*ScalarType.BOOL*/,
       },
       {
         no: 4,
-        name: 'runner_determined_sharding',
-        kind: 'scalar',
-        T: 8 /*ScalarType.BOOL*/
+        name: "runner_determined_sharding",
+        kind: "scalar",
+        T: 8 /*ScalarType.BOOL*/,
       },
       {
         no: 5,
-        name: 'side_inputs',
-        kind: 'map',
+        name: "side_inputs",
+        kind: "map",
         K: 9 /*ScalarType.STRING*/,
-        V: {kind: 'message', T: () => SideInput}
-      }
+        V: { kind: "message", T: () => SideInput },
+      },
     ]);
   }
   create(value?: PartialMessage<WriteFilesPayload>): WriteFilesPayload {
     const message = {
       windowedWrites: false,
       runnerDeterminedSharding: false,
-      sideInputs: {}
+      sideInputs: {},
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<WriteFilesPayload>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: WriteFilesPayload): WriteFilesPayload {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: WriteFilesPayload
+  ): WriteFilesPayload {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.FunctionSpec sink */ 1:
           message.sink = FunctionSpec.internalBinaryRead(
-              reader, reader.uint32(), options, message.sink);
+            reader,
+            reader.uint32(),
+            options,
+            message.sink
+          );
           break;
         case /* org.apache.beam.model.pipeline.v1.FunctionSpec format_function
-              */
-            2:
+         */
+        2:
           message.formatFunction = FunctionSpec.internalBinaryRead(
-              reader, reader.uint32(), options, message.formatFunction);
+            reader,
+            reader.uint32(),
+            options,
+            message.formatFunction
+          );
           break;
         case /* bool windowed_writes */ 3:
           message.windowedWrites = reader.bool();
@@ -6113,28 +6783,37 @@ class WriteFilesPayload$Type extends MessageType<WriteFilesPayload> {
           break;
         case /* map<string, org.apache.beam.model.pipeline.v1.SideInput>
                 side_inputs */
-            5:
+        5:
           this.binaryReadMap5(message.sideInputs, reader, options);
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   private binaryReadMap5(
-      map: WriteFilesPayload['sideInputs'], reader: IBinaryReader,
-      options: BinaryReadOptions): void {
-    let len = reader.uint32(), end = reader.pos + len,
-        key: keyof WriteFilesPayload['sideInputs']|undefined,
-        val: WriteFilesPayload['sideInputs'][any]|undefined;
+    map: WriteFilesPayload["sideInputs"],
+    reader: IBinaryReader,
+    options: BinaryReadOptions
+  ): void {
+    let len = reader.uint32(),
+      end = reader.pos + len,
+      key: keyof WriteFilesPayload["sideInputs"] | undefined,
+      val: WriteFilesPayload["sideInputs"][any] | undefined;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -6146,28 +6825,31 @@ class WriteFilesPayload$Type extends MessageType<WriteFilesPayload> {
           break;
         default:
           throw new globalThis.Error(
-              'unknown map entry field for field org.apache.beam.model.pipeline.v1.WriteFilesPayload.side_inputs');
+            "unknown map entry field for field org.apache.beam.model.pipeline.v1.WriteFilesPayload.side_inputs"
+          );
       }
     }
-    map[key ?? ''] = val ?? SideInput.create();
+    map[key ?? ""] = val ?? SideInput.create();
   }
   internalBinaryWrite(
-      message: WriteFilesPayload, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: WriteFilesPayload,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.FunctionSpec sink = 1; */
     if (message.sink)
-      FunctionSpec
-          .internalBinaryWrite(
-              message.sink, writer.tag(1, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      FunctionSpec.internalBinaryWrite(
+        message.sink,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.FunctionSpec format_function = 2; */
     if (message.formatFunction)
-      FunctionSpec
-          .internalBinaryWrite(
-              message.formatFunction,
-              writer.tag(2, WireType.LengthDelimited).fork(), options)
-          .join();
+      FunctionSpec.internalBinaryWrite(
+        message.formatFunction,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* bool windowed_writes = 3; */
     if (message.windowedWrites !== false)
       writer.tag(3, WireType.Varint).bool(message.windowedWrites);
@@ -6177,10 +6859,11 @@ class WriteFilesPayload$Type extends MessageType<WriteFilesPayload> {
     /* map<string, org.apache.beam.model.pipeline.v1.SideInput> side_inputs = 5;
      */
     for (let k of Object.keys(message.sideInputs)) {
-      writer.tag(5, WireType.LengthDelimited)
-          .fork()
-          .tag(1, WireType.LengthDelimited)
-          .string(k);
+      writer
+        .tag(5, WireType.LengthDelimited)
+        .fork()
+        .tag(1, WireType.LengthDelimited)
+        .string(k);
       writer.tag(2, WireType.LengthDelimited).fork();
       SideInput.internalBinaryWrite(message.sideInputs[k], writer, options);
       writer.join().join();
@@ -6188,7 +6871,10 @@ class WriteFilesPayload$Type extends MessageType<WriteFilesPayload> {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -6201,56 +6887,72 @@ export const WriteFilesPayload = new WriteFilesPayload$Type();
 // optimized methods
 class PubSubReadPayload$Type extends MessageType<PubSubReadPayload> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.PubSubReadPayload', [
-      {no: 1, name: 'topic', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 2, name: 'subscription', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
+    super("org.apache.beam.model.pipeline.v1.PubSubReadPayload", [
+      { no: 1, name: "topic", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      {
+        no: 2,
+        name: "subscription",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
       {
         no: 3,
-        name: 'timestamp_attribute',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
+        name: "timestamp_attribute",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
       },
-      {no: 4, name: 'id_attribute', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
+      {
+        no: 4,
+        name: "id_attribute",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
       {
         no: 5,
-        name: 'with_attributes',
-        kind: 'scalar',
-        T: 8 /*ScalarType.BOOL*/
+        name: "with_attributes",
+        kind: "scalar",
+        T: 8 /*ScalarType.BOOL*/,
       },
       {
         no: 6,
-        name: 'topic_runtime_overridden',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
+        name: "topic_runtime_overridden",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
       },
       {
         no: 7,
-        name: 'subscription_runtime_overridden',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
-      }
+        name: "subscription_runtime_overridden",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
     ]);
   }
   create(value?: PartialMessage<PubSubReadPayload>): PubSubReadPayload {
     const message = {
-      topic: '',
-      subscription: '',
-      timestampAttribute: '',
-      idAttribute: '',
+      topic: "",
+      subscription: "",
+      timestampAttribute: "",
+      idAttribute: "",
       withAttributes: false,
-      topicRuntimeOverridden: '',
-      subscriptionRuntimeOverridden: ''
+      topicRuntimeOverridden: "",
+      subscriptionRuntimeOverridden: "",
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<PubSubReadPayload>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: PubSubReadPayload): PubSubReadPayload {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: PubSubReadPayload
+  ): PubSubReadPayload {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -6277,48 +6979,62 @@ class PubSubReadPayload$Type extends MessageType<PubSubReadPayload> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: PubSubReadPayload, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: PubSubReadPayload,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string topic = 1; */
-    if (message.topic !== '')
+    if (message.topic !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.topic);
     /* string subscription = 2; */
-    if (message.subscription !== '')
+    if (message.subscription !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.subscription);
     /* string timestamp_attribute = 3; */
-    if (message.timestampAttribute !== '')
-      writer.tag(3, WireType.LengthDelimited)
-          .string(message.timestampAttribute);
+    if (message.timestampAttribute !== "")
+      writer
+        .tag(3, WireType.LengthDelimited)
+        .string(message.timestampAttribute);
     /* string id_attribute = 4; */
-    if (message.idAttribute !== '')
+    if (message.idAttribute !== "")
       writer.tag(4, WireType.LengthDelimited).string(message.idAttribute);
     /* bool with_attributes = 5; */
     if (message.withAttributes !== false)
       writer.tag(5, WireType.Varint).bool(message.withAttributes);
     /* string topic_runtime_overridden = 6; */
-    if (message.topicRuntimeOverridden !== '')
-      writer.tag(6, WireType.LengthDelimited)
-          .string(message.topicRuntimeOverridden);
+    if (message.topicRuntimeOverridden !== "")
+      writer
+        .tag(6, WireType.LengthDelimited)
+        .string(message.topicRuntimeOverridden);
     /* string subscription_runtime_overridden = 7; */
-    if (message.subscriptionRuntimeOverridden !== '')
-      writer.tag(7, WireType.LengthDelimited)
-          .string(message.subscriptionRuntimeOverridden);
+    if (message.subscriptionRuntimeOverridden !== "")
+      writer
+        .tag(7, WireType.LengthDelimited)
+        .string(message.subscriptionRuntimeOverridden);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -6331,39 +7047,51 @@ export const PubSubReadPayload = new PubSubReadPayload$Type();
 // optimized methods
 class PubSubWritePayload$Type extends MessageType<PubSubWritePayload> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.PubSubWritePayload', [
-      {no: 1, name: 'topic', kind: 'scalar', T: 9 /*ScalarType.STRING*/}, {
+    super("org.apache.beam.model.pipeline.v1.PubSubWritePayload", [
+      { no: 1, name: "topic", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      {
         no: 2,
-        name: 'timestamp_attribute',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
+        name: "timestamp_attribute",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
       },
-      {no: 3, name: 'id_attribute', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
+      {
+        no: 3,
+        name: "id_attribute",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
       {
         no: 4,
-        name: 'topic_runtime_overridden',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
-      }
+        name: "topic_runtime_overridden",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
     ]);
   }
   create(value?: PartialMessage<PubSubWritePayload>): PubSubWritePayload {
     const message = {
-      topic: '',
-      timestampAttribute: '',
-      idAttribute: '',
-      topicRuntimeOverridden: ''
+      topic: "",
+      timestampAttribute: "",
+      idAttribute: "",
+      topicRuntimeOverridden: "",
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<PubSubWritePayload>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: PubSubWritePayload): PubSubWritePayload {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: PubSubWritePayload
+  ): PubSubWritePayload {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -6381,38 +7109,51 @@ class PubSubWritePayload$Type extends MessageType<PubSubWritePayload> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: PubSubWritePayload, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: PubSubWritePayload,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string topic = 1; */
-    if (message.topic !== '')
+    if (message.topic !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.topic);
     /* string timestamp_attribute = 2; */
-    if (message.timestampAttribute !== '')
-      writer.tag(2, WireType.LengthDelimited)
-          .string(message.timestampAttribute);
+    if (message.timestampAttribute !== "")
+      writer
+        .tag(2, WireType.LengthDelimited)
+        .string(message.timestampAttribute);
     /* string id_attribute = 3; */
-    if (message.idAttribute !== '')
+    if (message.idAttribute !== "")
       writer.tag(3, WireType.LengthDelimited).string(message.idAttribute);
     /* string topic_runtime_overridden = 4; */
-    if (message.topicRuntimeOverridden !== '')
-      writer.tag(4, WireType.LengthDelimited)
-          .string(message.topicRuntimeOverridden);
+    if (message.topicRuntimeOverridden !== "")
+      writer
+        .tag(4, WireType.LengthDelimited)
+        .string(message.topicRuntimeOverridden);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -6423,50 +7164,56 @@ class PubSubWritePayload$Type extends MessageType<PubSubWritePayload> {
 export const PubSubWritePayload = new PubSubWritePayload$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class GroupIntoBatchesPayload$Type extends
-    MessageType<GroupIntoBatchesPayload> {
+class GroupIntoBatchesPayload$Type extends MessageType<GroupIntoBatchesPayload> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.GroupIntoBatchesPayload', [
+    super("org.apache.beam.model.pipeline.v1.GroupIntoBatchesPayload", [
       {
         no: 1,
-        name: 'batch_size',
-        kind: 'scalar',
+        name: "batch_size",
+        kind: "scalar",
         T: 3 /*ScalarType.INT64*/,
-        L: 0 /*LongType.BIGINT*/
+        L: 0 /*LongType.BIGINT*/,
       },
       {
         no: 3,
-        name: 'batch_size_bytes',
-        kind: 'scalar',
+        name: "batch_size_bytes",
+        kind: "scalar",
         T: 3 /*ScalarType.INT64*/,
-        L: 0 /*LongType.BIGINT*/
+        L: 0 /*LongType.BIGINT*/,
       },
       {
         no: 2,
-        name: 'max_buffering_duration_millis',
-        kind: 'scalar',
+        name: "max_buffering_duration_millis",
+        kind: "scalar",
         T: 3 /*ScalarType.INT64*/,
-        L: 0 /*LongType.BIGINT*/
-      }
+        L: 0 /*LongType.BIGINT*/,
+      },
     ]);
   }
-  create(value?: PartialMessage<GroupIntoBatchesPayload>):
-      GroupIntoBatchesPayload {
+  create(
+    value?: PartialMessage<GroupIntoBatchesPayload>
+  ): GroupIntoBatchesPayload {
     const message = {
       batchSize: 0n,
       batchSizeBytes: 0n,
-      maxBufferingDurationMillis: 0n
+      maxBufferingDurationMillis: 0n,
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<GroupIntoBatchesPayload>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: GroupIntoBatchesPayload): GroupIntoBatchesPayload {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: GroupIntoBatchesPayload
+  ): GroupIntoBatchesPayload {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -6481,20 +7228,28 @@ class GroupIntoBatchesPayload$Type extends
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: GroupIntoBatchesPayload, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: GroupIntoBatchesPayload,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* int64 batch_size = 1; */
     if (message.batchSize !== 0n)
       writer.tag(1, WireType.Varint).int64(message.batchSize);
@@ -6507,7 +7262,10 @@ class GroupIntoBatchesPayload$Type extends
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -6520,69 +7278,92 @@ export const GroupIntoBatchesPayload = new GroupIntoBatchesPayload$Type();
 // optimized methods
 class Coder$Type extends MessageType<Coder> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.Coder', [
-      {no: 1, name: 'spec', kind: 'message', T: () => FunctionSpec}, {
+    super("org.apache.beam.model.pipeline.v1.Coder", [
+      { no: 1, name: "spec", kind: "message", T: () => FunctionSpec },
+      {
         no: 2,
-        name: 'component_coder_ids',
-        kind: 'scalar',
+        name: "component_coder_ids",
+        kind: "scalar",
         repeat: 2 /*RepeatType.UNPACKED*/,
-        T: 9 /*ScalarType.STRING*/
-      }
+        T: 9 /*ScalarType.STRING*/,
+      },
     ]);
   }
   create(value?: PartialMessage<Coder>): Coder {
-    const message = {componentCoderIds: []};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { componentCoderIds: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<Coder>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: Coder): Coder {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Coder
+  ): Coder {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.FunctionSpec spec */ 1:
           message.spec = FunctionSpec.internalBinaryRead(
-              reader, reader.uint32(), options, message.spec);
+            reader,
+            reader.uint32(),
+            options,
+            message.spec
+          );
           break;
         case /* repeated string component_coder_ids */ 2:
           message.componentCoderIds.push(reader.string());
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: Coder, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: Coder,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.FunctionSpec spec = 1; */
     if (message.spec)
-      FunctionSpec
-          .internalBinaryWrite(
-              message.spec, writer.tag(1, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      FunctionSpec.internalBinaryWrite(
+        message.spec,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* repeated string component_coder_ids = 2; */
     for (let i = 0; i < message.componentCoderIds.length; i++)
-      writer.tag(2, WireType.LengthDelimited)
-          .string(message.componentCoderIds[i]);
+      writer
+        .tag(2, WireType.LengthDelimited)
+        .string(message.componentCoderIds[i]);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -6595,28 +7376,38 @@ export const Coder = new Coder$Type();
 // optimized methods
 class StandardCoders$Type extends MessageType<StandardCoders> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.StandardCoders', []);
+    super("org.apache.beam.model.pipeline.v1.StandardCoders", []);
   }
   create(value?: PartialMessage<StandardCoders>): StandardCoders {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StandardCoders>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StandardCoders): StandardCoders {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StandardCoders
+  ): StandardCoders {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: StandardCoders, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StandardCoders,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -6629,106 +7420,123 @@ export const StandardCoders = new StandardCoders$Type();
 // optimized methods
 class WindowingStrategy$Type extends MessageType<WindowingStrategy> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.WindowingStrategy', [
-      {no: 1, name: 'window_fn', kind: 'message', T: () => FunctionSpec}, {
+    super("org.apache.beam.model.pipeline.v1.WindowingStrategy", [
+      { no: 1, name: "window_fn", kind: "message", T: () => FunctionSpec },
+      {
         no: 2,
-        name: 'merge_status',
-        kind: 'enum',
-        T: () =>
-            ['org.apache.beam.model.pipeline.v1.MergeStatus.Enum',
-             MergeStatus_Enum]
+        name: "merge_status",
+        kind: "enum",
+        T: () => [
+          "org.apache.beam.model.pipeline.v1.MergeStatus.Enum",
+          MergeStatus_Enum,
+        ],
       },
       {
         no: 3,
-        name: 'window_coder_id',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
+        name: "window_coder_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
       },
-      {no: 4, name: 'trigger', kind: 'message', T: () => Trigger}, {
+      { no: 4, name: "trigger", kind: "message", T: () => Trigger },
+      {
         no: 5,
-        name: 'accumulation_mode',
-        kind: 'enum',
-        T: () =>
-            ['org.apache.beam.model.pipeline.v1.AccumulationMode.Enum',
-             AccumulationMode_Enum]
+        name: "accumulation_mode",
+        kind: "enum",
+        T: () => [
+          "org.apache.beam.model.pipeline.v1.AccumulationMode.Enum",
+          AccumulationMode_Enum,
+        ],
       },
       {
         no: 6,
-        name: 'output_time',
-        kind: 'enum',
-        T: () =>
-            ['org.apache.beam.model.pipeline.v1.OutputTime.Enum',
-             OutputTime_Enum]
+        name: "output_time",
+        kind: "enum",
+        T: () => [
+          "org.apache.beam.model.pipeline.v1.OutputTime.Enum",
+          OutputTime_Enum,
+        ],
       },
       {
         no: 7,
-        name: 'closing_behavior',
-        kind: 'enum',
-        T: () =>
-            ['org.apache.beam.model.pipeline.v1.ClosingBehavior.Enum',
-             ClosingBehavior_Enum]
+        name: "closing_behavior",
+        kind: "enum",
+        T: () => [
+          "org.apache.beam.model.pipeline.v1.ClosingBehavior.Enum",
+          ClosingBehavior_Enum,
+        ],
       },
       {
         no: 8,
-        name: 'allowed_lateness',
-        kind: 'scalar',
+        name: "allowed_lateness",
+        kind: "scalar",
         T: 3 /*ScalarType.INT64*/,
-        L: 0 /*LongType.BIGINT*/
+        L: 0 /*LongType.BIGINT*/,
       },
       {
         no: 9,
-        name: 'on_time_behavior',
-        kind: 'enum',
-        T: () =>
-            ['org.apache.beam.model.pipeline.v1.OnTimeBehavior.Enum',
-             OnTimeBehavior_Enum]
+        name: "on_time_behavior",
+        kind: "enum",
+        T: () => [
+          "org.apache.beam.model.pipeline.v1.OnTimeBehavior.Enum",
+          OnTimeBehavior_Enum,
+        ],
       },
       {
         no: 10,
-        name: 'assigns_to_one_window',
-        kind: 'scalar',
-        T: 8 /*ScalarType.BOOL*/
+        name: "assigns_to_one_window",
+        kind: "scalar",
+        T: 8 /*ScalarType.BOOL*/,
       },
       {
         no: 11,
-        name: 'environment_id',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
-      }
+        name: "environment_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
     ]);
   }
   create(value?: PartialMessage<WindowingStrategy>): WindowingStrategy {
     const message = {
       mergeStatus: 0,
-      windowCoderId: '',
+      windowCoderId: "",
       accumulationMode: 0,
       outputTime: 0,
       closingBehavior: 0,
       allowedLateness: 0n,
       onTimeBehavior: 0,
       assignsToOneWindow: false,
-      environmentId: ''
+      environmentId: "",
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<WindowingStrategy>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: WindowingStrategy): WindowingStrategy {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: WindowingStrategy
+  ): WindowingStrategy {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.FunctionSpec window_fn */ 1:
           message.windowFn = FunctionSpec.internalBinaryRead(
-              reader, reader.uint32(), options, message.windowFn);
+            reader,
+            reader.uint32(),
+            options,
+            message.windowFn
+          );
           break;
         case /* org.apache.beam.model.pipeline.v1.MergeStatus.Enum merge_status
-              */
-            2:
+         */
+        2:
           message.mergeStatus = reader.int32();
           break;
         case /* string window_coder_id */ 3:
@@ -6736,20 +7544,24 @@ class WindowingStrategy$Type extends MessageType<WindowingStrategy> {
           break;
         case /* org.apache.beam.model.pipeline.v1.Trigger trigger */ 4:
           message.trigger = Trigger.internalBinaryRead(
-              reader, reader.uint32(), options, message.trigger);
+            reader,
+            reader.uint32(),
+            options,
+            message.trigger
+          );
           break;
         case /* org.apache.beam.model.pipeline.v1.AccumulationMode.Enum
                 accumulation_mode */
-            5:
+        5:
           message.accumulationMode = reader.int32();
           break;
         case /* org.apache.beam.model.pipeline.v1.OutputTime.Enum output_time */
-            6:
+        6:
           message.outputTime = reader.int32();
           break;
         case /* org.apache.beam.model.pipeline.v1.ClosingBehavior.Enum
                 closing_behavior */
-            7:
+        7:
           message.closingBehavior = reader.int32();
           break;
         case /* int64 allowed_lateness */ 8:
@@ -6757,7 +7569,7 @@ class WindowingStrategy$Type extends MessageType<WindowingStrategy> {
           break;
         case /* org.apache.beam.model.pipeline.v1.OnTimeBehavior.Enum
                 on_time_behavior */
-            9:
+        9:
           message.onTimeBehavior = reader.int32();
           break;
         case /* bool assigns_to_one_window */ 10:
@@ -6768,40 +7580,48 @@ class WindowingStrategy$Type extends MessageType<WindowingStrategy> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: WindowingStrategy, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: WindowingStrategy,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.FunctionSpec window_fn = 1; */
     if (message.windowFn)
-      FunctionSpec
-          .internalBinaryWrite(
-              message.windowFn, writer.tag(1, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      FunctionSpec.internalBinaryWrite(
+        message.windowFn,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.MergeStatus.Enum merge_status = 2; */
     if (message.mergeStatus !== 0)
       writer.tag(2, WireType.Varint).int32(message.mergeStatus);
     /* string window_coder_id = 3; */
-    if (message.windowCoderId !== '')
+    if (message.windowCoderId !== "")
       writer.tag(3, WireType.LengthDelimited).string(message.windowCoderId);
     /* org.apache.beam.model.pipeline.v1.Trigger trigger = 4; */
     if (message.trigger)
-      Trigger
-          .internalBinaryWrite(
-              message.trigger, writer.tag(4, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      Trigger.internalBinaryWrite(
+        message.trigger,
+        writer.tag(4, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.AccumulationMode.Enum accumulation_mode
      * = 5; */
     if (message.accumulationMode !== 0)
@@ -6824,12 +7644,15 @@ class WindowingStrategy$Type extends MessageType<WindowingStrategy> {
     if (message.assignsToOneWindow !== false)
       writer.tag(10, WireType.Varint).bool(message.assignsToOneWindow);
     /* string environment_id = 11; */
-    if (message.environmentId !== '')
+    if (message.environmentId !== "")
       writer.tag(11, WireType.LengthDelimited).string(message.environmentId);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -6842,28 +7665,38 @@ export const WindowingStrategy = new WindowingStrategy$Type();
 // optimized methods
 class MergeStatus$Type extends MessageType<MergeStatus> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.MergeStatus', []);
+    super("org.apache.beam.model.pipeline.v1.MergeStatus", []);
   }
   create(value?: PartialMessage<MergeStatus>): MergeStatus {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<MergeStatus>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: MergeStatus): MergeStatus {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: MergeStatus
+  ): MergeStatus {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: MergeStatus, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: MergeStatus,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -6876,28 +7709,38 @@ export const MergeStatus = new MergeStatus$Type();
 // optimized methods
 class AccumulationMode$Type extends MessageType<AccumulationMode> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.AccumulationMode', []);
+    super("org.apache.beam.model.pipeline.v1.AccumulationMode", []);
   }
   create(value?: PartialMessage<AccumulationMode>): AccumulationMode {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<AccumulationMode>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: AccumulationMode): AccumulationMode {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: AccumulationMode
+  ): AccumulationMode {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: AccumulationMode, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: AccumulationMode,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -6910,28 +7753,38 @@ export const AccumulationMode = new AccumulationMode$Type();
 // optimized methods
 class ClosingBehavior$Type extends MessageType<ClosingBehavior> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.ClosingBehavior', []);
+    super("org.apache.beam.model.pipeline.v1.ClosingBehavior", []);
   }
   create(value?: PartialMessage<ClosingBehavior>): ClosingBehavior {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ClosingBehavior>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ClosingBehavior): ClosingBehavior {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ClosingBehavior
+  ): ClosingBehavior {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: ClosingBehavior, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ClosingBehavior,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -6944,28 +7797,38 @@ export const ClosingBehavior = new ClosingBehavior$Type();
 // optimized methods
 class OnTimeBehavior$Type extends MessageType<OnTimeBehavior> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.OnTimeBehavior', []);
+    super("org.apache.beam.model.pipeline.v1.OnTimeBehavior", []);
   }
   create(value?: PartialMessage<OnTimeBehavior>): OnTimeBehavior {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<OnTimeBehavior>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: OnTimeBehavior): OnTimeBehavior {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: OnTimeBehavior
+  ): OnTimeBehavior {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: OnTimeBehavior, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: OnTimeBehavior,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -6978,28 +7841,38 @@ export const OnTimeBehavior = new OnTimeBehavior$Type();
 // optimized methods
 class OutputTime$Type extends MessageType<OutputTime> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.OutputTime', []);
+    super("org.apache.beam.model.pipeline.v1.OutputTime", []);
   }
   create(value?: PartialMessage<OutputTime>): OutputTime {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<OutputTime>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: OutputTime): OutputTime {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: OutputTime
+  ): OutputTime {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: OutputTime, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: OutputTime,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -7012,28 +7885,38 @@ export const OutputTime = new OutputTime$Type();
 // optimized methods
 class TimeDomain$Type extends MessageType<TimeDomain> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.TimeDomain', []);
+    super("org.apache.beam.model.pipeline.v1.TimeDomain", []);
   }
   create(value?: PartialMessage<TimeDomain>): TimeDomain {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<TimeDomain>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: TimeDomain): TimeDomain {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: TimeDomain
+  ): TimeDomain {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: TimeDomain, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: TimeDomain,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -7046,327 +7929,380 @@ export const TimeDomain = new TimeDomain$Type();
 // optimized methods
 class Trigger$Type extends MessageType<Trigger> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.Trigger', [
+    super("org.apache.beam.model.pipeline.v1.Trigger", [
       {
         no: 1,
-        name: 'after_all',
-        kind: 'message',
-        oneof: 'trigger',
-        T: () => Trigger_AfterAll
+        name: "after_all",
+        kind: "message",
+        oneof: "trigger",
+        T: () => Trigger_AfterAll,
       },
       {
         no: 2,
-        name: 'after_any',
-        kind: 'message',
-        oneof: 'trigger',
-        T: () => Trigger_AfterAny
+        name: "after_any",
+        kind: "message",
+        oneof: "trigger",
+        T: () => Trigger_AfterAny,
       },
       {
         no: 3,
-        name: 'after_each',
-        kind: 'message',
-        oneof: 'trigger',
-        T: () => Trigger_AfterEach
+        name: "after_each",
+        kind: "message",
+        oneof: "trigger",
+        T: () => Trigger_AfterEach,
       },
       {
         no: 4,
-        name: 'after_end_of_window',
-        kind: 'message',
-        oneof: 'trigger',
-        T: () => Trigger_AfterEndOfWindow
+        name: "after_end_of_window",
+        kind: "message",
+        oneof: "trigger",
+        T: () => Trigger_AfterEndOfWindow,
       },
       {
         no: 5,
-        name: 'after_processing_time',
-        kind: 'message',
-        oneof: 'trigger',
-        T: () => Trigger_AfterProcessingTime
+        name: "after_processing_time",
+        kind: "message",
+        oneof: "trigger",
+        T: () => Trigger_AfterProcessingTime,
       },
       {
         no: 6,
-        name: 'after_synchronized_processing_time',
-        kind: 'message',
-        oneof: 'trigger',
-        T: () => Trigger_AfterSynchronizedProcessingTime
+        name: "after_synchronized_processing_time",
+        kind: "message",
+        oneof: "trigger",
+        T: () => Trigger_AfterSynchronizedProcessingTime,
       },
       {
         no: 12,
-        name: 'always',
-        kind: 'message',
-        oneof: 'trigger',
-        T: () => Trigger_Always
+        name: "always",
+        kind: "message",
+        oneof: "trigger",
+        T: () => Trigger_Always,
       },
       {
         no: 7,
-        name: 'default',
-        kind: 'message',
-        oneof: 'trigger',
-        T: () => Trigger_Default
+        name: "default",
+        kind: "message",
+        oneof: "trigger",
+        T: () => Trigger_Default,
       },
       {
         no: 8,
-        name: 'element_count',
-        kind: 'message',
-        oneof: 'trigger',
-        T: () => Trigger_ElementCount
+        name: "element_count",
+        kind: "message",
+        oneof: "trigger",
+        T: () => Trigger_ElementCount,
       },
       {
         no: 9,
-        name: 'never',
-        kind: 'message',
-        oneof: 'trigger',
-        T: () => Trigger_Never
+        name: "never",
+        kind: "message",
+        oneof: "trigger",
+        T: () => Trigger_Never,
       },
       {
         no: 10,
-        name: 'or_finally',
-        kind: 'message',
-        oneof: 'trigger',
-        T: () => Trigger_OrFinally
+        name: "or_finally",
+        kind: "message",
+        oneof: "trigger",
+        T: () => Trigger_OrFinally,
       },
       {
         no: 11,
-        name: 'repeat',
-        kind: 'message',
-        oneof: 'trigger',
-        T: () => Trigger_Repeat
-      }
+        name: "repeat",
+        kind: "message",
+        oneof: "trigger",
+        T: () => Trigger_Repeat,
+      },
     ]);
   }
   create(value?: PartialMessage<Trigger>): Trigger {
-    const message = {trigger: {oneofKind: undefined}};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { trigger: { oneofKind: undefined } };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<Trigger>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: Trigger): Trigger {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Trigger
+  ): Trigger {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.Trigger.AfterAll after_all */
-            1:
+        1:
           message.trigger = {
-            oneofKind: 'afterAll',
+            oneofKind: "afterAll",
             afterAll: Trigger_AfterAll.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.trigger as any).afterAll)
+              reader,
+              reader.uint32(),
+              options,
+              (message.trigger as any).afterAll
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.Trigger.AfterAny after_any */
-            2:
+        2:
           message.trigger = {
-            oneofKind: 'afterAny',
+            oneofKind: "afterAny",
             afterAny: Trigger_AfterAny.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.trigger as any).afterAny)
+              reader,
+              reader.uint32(),
+              options,
+              (message.trigger as any).afterAny
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.Trigger.AfterEach after_each
-              */
-            3:
+         */
+        3:
           message.trigger = {
-            oneofKind: 'afterEach',
+            oneofKind: "afterEach",
             afterEach: Trigger_AfterEach.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.trigger as any).afterEach)
+              reader,
+              reader.uint32(),
+              options,
+              (message.trigger as any).afterEach
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.Trigger.AfterEndOfWindow
                 after_end_of_window */
-            4:
+        4:
           message.trigger = {
-            oneofKind: 'afterEndOfWindow',
+            oneofKind: "afterEndOfWindow",
             afterEndOfWindow: Trigger_AfterEndOfWindow.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.trigger as any).afterEndOfWindow)
+              reader,
+              reader.uint32(),
+              options,
+              (message.trigger as any).afterEndOfWindow
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.Trigger.AfterProcessingTime
                 after_processing_time */
-            5:
+        5:
           message.trigger = {
-            oneofKind: 'afterProcessingTime',
+            oneofKind: "afterProcessingTime",
             afterProcessingTime: Trigger_AfterProcessingTime.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.trigger as any).afterProcessingTime)
+              reader,
+              reader.uint32(),
+              options,
+              (message.trigger as any).afterProcessingTime
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.Trigger.AfterSynchronizedProcessingTime
                 after_synchronized_processing_time */
-            6:
+        6:
           message.trigger = {
-            oneofKind: 'afterSynchronizedProcessingTime',
+            oneofKind: "afterSynchronizedProcessingTime",
             afterSynchronizedProcessingTime:
-                Trigger_AfterSynchronizedProcessingTime.internalBinaryRead(
-                    reader, reader.uint32(), options,
-                    (message.trigger as any).afterSynchronizedProcessingTime)
+              Trigger_AfterSynchronizedProcessingTime.internalBinaryRead(
+                reader,
+                reader.uint32(),
+                options,
+                (message.trigger as any).afterSynchronizedProcessingTime
+              ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.Trigger.Always always */ 12:
           message.trigger = {
-            oneofKind: 'always',
+            oneofKind: "always",
             always: Trigger_Always.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.trigger as any).always)
+              reader,
+              reader.uint32(),
+              options,
+              (message.trigger as any).always
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.Trigger.Default default */ 7:
           message.trigger = {
-            oneofKind: 'default',
+            oneofKind: "default",
             default: Trigger_Default.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.trigger as any).default)
+              reader,
+              reader.uint32(),
+              options,
+              (message.trigger as any).default
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.Trigger.ElementCount
                 element_count */
-            8:
+        8:
           message.trigger = {
-            oneofKind: 'elementCount',
+            oneofKind: "elementCount",
             elementCount: Trigger_ElementCount.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.trigger as any).elementCount)
+              reader,
+              reader.uint32(),
+              options,
+              (message.trigger as any).elementCount
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.Trigger.Never never */ 9:
           message.trigger = {
-            oneofKind: 'never',
+            oneofKind: "never",
             never: Trigger_Never.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.trigger as any).never)
+              reader,
+              reader.uint32(),
+              options,
+              (message.trigger as any).never
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.Trigger.OrFinally or_finally
-              */
-            10:
+         */
+        10:
           message.trigger = {
-            oneofKind: 'orFinally',
+            oneofKind: "orFinally",
             orFinally: Trigger_OrFinally.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.trigger as any).orFinally)
+              reader,
+              reader.uint32(),
+              options,
+              (message.trigger as any).orFinally
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.Trigger.Repeat repeat */ 11:
           message.trigger = {
-            oneofKind: 'repeat',
+            oneofKind: "repeat",
             repeat: Trigger_Repeat.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.trigger as any).repeat)
+              reader,
+              reader.uint32(),
+              options,
+              (message.trigger as any).repeat
+            ),
           };
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: Trigger, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: Trigger,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.Trigger.AfterAll after_all = 1; */
-    if (message.trigger.oneofKind === 'afterAll')
-      Trigger_AfterAll
-          .internalBinaryWrite(
-              message.trigger.afterAll,
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.trigger.oneofKind === "afterAll")
+      Trigger_AfterAll.internalBinaryWrite(
+        message.trigger.afterAll,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.Trigger.AfterAny after_any = 2; */
-    if (message.trigger.oneofKind === 'afterAny')
-      Trigger_AfterAny
-          .internalBinaryWrite(
-              message.trigger.afterAny,
-              writer.tag(2, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.trigger.oneofKind === "afterAny")
+      Trigger_AfterAny.internalBinaryWrite(
+        message.trigger.afterAny,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.Trigger.AfterEach after_each = 3; */
-    if (message.trigger.oneofKind === 'afterEach')
-      Trigger_AfterEach
-          .internalBinaryWrite(
-              message.trigger.afterEach,
-              writer.tag(3, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.trigger.oneofKind === "afterEach")
+      Trigger_AfterEach.internalBinaryWrite(
+        message.trigger.afterEach,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.Trigger.AfterEndOfWindow
      * after_end_of_window = 4; */
-    if (message.trigger.oneofKind === 'afterEndOfWindow')
-      Trigger_AfterEndOfWindow
-          .internalBinaryWrite(
-              message.trigger.afterEndOfWindow,
-              writer.tag(4, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.trigger.oneofKind === "afterEndOfWindow")
+      Trigger_AfterEndOfWindow.internalBinaryWrite(
+        message.trigger.afterEndOfWindow,
+        writer.tag(4, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.Trigger.AfterProcessingTime
      * after_processing_time = 5; */
-    if (message.trigger.oneofKind === 'afterProcessingTime')
-      Trigger_AfterProcessingTime
-          .internalBinaryWrite(
-              message.trigger.afterProcessingTime,
-              writer.tag(5, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.trigger.oneofKind === "afterProcessingTime")
+      Trigger_AfterProcessingTime.internalBinaryWrite(
+        message.trigger.afterProcessingTime,
+        writer.tag(5, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.Trigger.AfterSynchronizedProcessingTime
      * after_synchronized_processing_time = 6; */
-    if (message.trigger.oneofKind === 'afterSynchronizedProcessingTime')
-      Trigger_AfterSynchronizedProcessingTime
-          .internalBinaryWrite(
-              message.trigger.afterSynchronizedProcessingTime,
-              writer.tag(6, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.trigger.oneofKind === "afterSynchronizedProcessingTime")
+      Trigger_AfterSynchronizedProcessingTime.internalBinaryWrite(
+        message.trigger.afterSynchronizedProcessingTime,
+        writer.tag(6, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.Trigger.Always always = 12; */
-    if (message.trigger.oneofKind === 'always')
-      Trigger_Always
-          .internalBinaryWrite(
-              message.trigger.always,
-              writer.tag(12, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.trigger.oneofKind === "always")
+      Trigger_Always.internalBinaryWrite(
+        message.trigger.always,
+        writer.tag(12, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.Trigger.Default default = 7; */
-    if (message.trigger.oneofKind === 'default')
-      Trigger_Default
-          .internalBinaryWrite(
-              message.trigger.default,
-              writer.tag(7, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.trigger.oneofKind === "default")
+      Trigger_Default.internalBinaryWrite(
+        message.trigger.default,
+        writer.tag(7, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.Trigger.ElementCount element_count = 8;
      */
-    if (message.trigger.oneofKind === 'elementCount')
-      Trigger_ElementCount
-          .internalBinaryWrite(
-              message.trigger.elementCount,
-              writer.tag(8, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.trigger.oneofKind === "elementCount")
+      Trigger_ElementCount.internalBinaryWrite(
+        message.trigger.elementCount,
+        writer.tag(8, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.Trigger.Never never = 9; */
-    if (message.trigger.oneofKind === 'never')
-      Trigger_Never
-          .internalBinaryWrite(
-              message.trigger.never,
-              writer.tag(9, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.trigger.oneofKind === "never")
+      Trigger_Never.internalBinaryWrite(
+        message.trigger.never,
+        writer.tag(9, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.Trigger.OrFinally or_finally = 10; */
-    if (message.trigger.oneofKind === 'orFinally')
-      Trigger_OrFinally
-          .internalBinaryWrite(
-              message.trigger.orFinally,
-              writer.tag(10, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.trigger.oneofKind === "orFinally")
+      Trigger_OrFinally.internalBinaryWrite(
+        message.trigger.orFinally,
+        writer.tag(10, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.Trigger.Repeat repeat = 11; */
-    if (message.trigger.oneofKind === 'repeat')
-      Trigger_Repeat
-          .internalBinaryWrite(
-              message.trigger.repeat,
-              writer.tag(11, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.trigger.oneofKind === "repeat")
+      Trigger_Repeat.internalBinaryWrite(
+        message.trigger.repeat,
+        writer.tag(11, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -7379,62 +8315,82 @@ export const Trigger = new Trigger$Type();
 // optimized methods
 class Trigger_AfterAll$Type extends MessageType<Trigger_AfterAll> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.Trigger.AfterAll', [{
-            no: 1,
-            name: 'subtriggers',
-            kind: 'message',
-            repeat: 1 /*RepeatType.PACKED*/,
-            T: () => Trigger
-          }]);
+    super("org.apache.beam.model.pipeline.v1.Trigger.AfterAll", [
+      {
+        no: 1,
+        name: "subtriggers",
+        kind: "message",
+        repeat: 1 /*RepeatType.PACKED*/,
+        T: () => Trigger,
+      },
+    ]);
   }
   create(value?: PartialMessage<Trigger_AfterAll>): Trigger_AfterAll {
-    const message = {subtriggers: []};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { subtriggers: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<Trigger_AfterAll>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: Trigger_AfterAll): Trigger_AfterAll {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Trigger_AfterAll
+  ): Trigger_AfterAll {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* repeated org.apache.beam.model.pipeline.v1.Trigger subtriggers
-              */
-            1:
+         */
+        1:
           message.subtriggers.push(
-              Trigger.internalBinaryRead(reader, reader.uint32(), options));
+            Trigger.internalBinaryRead(reader, reader.uint32(), options)
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: Trigger_AfterAll, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: Trigger_AfterAll,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* repeated org.apache.beam.model.pipeline.v1.Trigger subtriggers = 1; */
     for (let i = 0; i < message.subtriggers.length; i++)
-      Trigger
-          .internalBinaryWrite(
-              message.subtriggers[i],
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+      Trigger.internalBinaryWrite(
+        message.subtriggers[i],
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -7447,62 +8403,82 @@ export const Trigger_AfterAll = new Trigger_AfterAll$Type();
 // optimized methods
 class Trigger_AfterAny$Type extends MessageType<Trigger_AfterAny> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.Trigger.AfterAny', [{
-            no: 1,
-            name: 'subtriggers',
-            kind: 'message',
-            repeat: 1 /*RepeatType.PACKED*/,
-            T: () => Trigger
-          }]);
+    super("org.apache.beam.model.pipeline.v1.Trigger.AfterAny", [
+      {
+        no: 1,
+        name: "subtriggers",
+        kind: "message",
+        repeat: 1 /*RepeatType.PACKED*/,
+        T: () => Trigger,
+      },
+    ]);
   }
   create(value?: PartialMessage<Trigger_AfterAny>): Trigger_AfterAny {
-    const message = {subtriggers: []};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { subtriggers: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<Trigger_AfterAny>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: Trigger_AfterAny): Trigger_AfterAny {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Trigger_AfterAny
+  ): Trigger_AfterAny {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* repeated org.apache.beam.model.pipeline.v1.Trigger subtriggers
-              */
-            1:
+         */
+        1:
           message.subtriggers.push(
-              Trigger.internalBinaryRead(reader, reader.uint32(), options));
+            Trigger.internalBinaryRead(reader, reader.uint32(), options)
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: Trigger_AfterAny, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: Trigger_AfterAny,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* repeated org.apache.beam.model.pipeline.v1.Trigger subtriggers = 1; */
     for (let i = 0; i < message.subtriggers.length; i++)
-      Trigger
-          .internalBinaryWrite(
-              message.subtriggers[i],
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+      Trigger.internalBinaryWrite(
+        message.subtriggers[i],
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -7515,62 +8491,82 @@ export const Trigger_AfterAny = new Trigger_AfterAny$Type();
 // optimized methods
 class Trigger_AfterEach$Type extends MessageType<Trigger_AfterEach> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.Trigger.AfterEach', [{
-            no: 1,
-            name: 'subtriggers',
-            kind: 'message',
-            repeat: 1 /*RepeatType.PACKED*/,
-            T: () => Trigger
-          }]);
+    super("org.apache.beam.model.pipeline.v1.Trigger.AfterEach", [
+      {
+        no: 1,
+        name: "subtriggers",
+        kind: "message",
+        repeat: 1 /*RepeatType.PACKED*/,
+        T: () => Trigger,
+      },
+    ]);
   }
   create(value?: PartialMessage<Trigger_AfterEach>): Trigger_AfterEach {
-    const message = {subtriggers: []};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { subtriggers: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<Trigger_AfterEach>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: Trigger_AfterEach): Trigger_AfterEach {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Trigger_AfterEach
+  ): Trigger_AfterEach {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* repeated org.apache.beam.model.pipeline.v1.Trigger subtriggers
-              */
-            1:
+         */
+        1:
           message.subtriggers.push(
-              Trigger.internalBinaryRead(reader, reader.uint32(), options));
+            Trigger.internalBinaryRead(reader, reader.uint32(), options)
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: Trigger_AfterEach, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: Trigger_AfterEach,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* repeated org.apache.beam.model.pipeline.v1.Trigger subtriggers = 1; */
     for (let i = 0; i < message.subtriggers.length; i++)
-      Trigger
-          .internalBinaryWrite(
-              message.subtriggers[i],
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+      Trigger.internalBinaryWrite(
+        message.subtriggers[i],
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -7581,72 +8577,97 @@ class Trigger_AfterEach$Type extends MessageType<Trigger_AfterEach> {
 export const Trigger_AfterEach = new Trigger_AfterEach$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class Trigger_AfterEndOfWindow$Type extends
-    MessageType<Trigger_AfterEndOfWindow> {
+class Trigger_AfterEndOfWindow$Type extends MessageType<Trigger_AfterEndOfWindow> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.Trigger.AfterEndOfWindow', [
-      {no: 1, name: 'early_firings', kind: 'message', T: () => Trigger},
-      {no: 2, name: 'late_firings', kind: 'message', T: () => Trigger}
+    super("org.apache.beam.model.pipeline.v1.Trigger.AfterEndOfWindow", [
+      { no: 1, name: "early_firings", kind: "message", T: () => Trigger },
+      { no: 2, name: "late_firings", kind: "message", T: () => Trigger },
     ]);
   }
-  create(value?: PartialMessage<Trigger_AfterEndOfWindow>):
-      Trigger_AfterEndOfWindow {
+  create(
+    value?: PartialMessage<Trigger_AfterEndOfWindow>
+  ): Trigger_AfterEndOfWindow {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<Trigger_AfterEndOfWindow>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: Trigger_AfterEndOfWindow): Trigger_AfterEndOfWindow {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Trigger_AfterEndOfWindow
+  ): Trigger_AfterEndOfWindow {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.Trigger early_firings */ 1:
           message.earlyFirings = Trigger.internalBinaryRead(
-              reader, reader.uint32(), options, message.earlyFirings);
+            reader,
+            reader.uint32(),
+            options,
+            message.earlyFirings
+          );
           break;
         case /* org.apache.beam.model.pipeline.v1.Trigger late_firings */ 2:
           message.lateFirings = Trigger.internalBinaryRead(
-              reader, reader.uint32(), options, message.lateFirings);
+            reader,
+            reader.uint32(),
+            options,
+            message.lateFirings
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: Trigger_AfterEndOfWindow, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: Trigger_AfterEndOfWindow,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.Trigger early_firings = 1; */
     if (message.earlyFirings)
-      Trigger
-          .internalBinaryWrite(
-              message.earlyFirings,
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+      Trigger.internalBinaryWrite(
+        message.earlyFirings,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.Trigger late_firings = 2; */
     if (message.lateFirings)
-      Trigger
-          .internalBinaryWrite(
-              message.lateFirings,
-              writer.tag(2, WireType.LengthDelimited).fork(), options)
-          .join();
+      Trigger.internalBinaryWrite(
+        message.lateFirings,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -7657,68 +8678,91 @@ class Trigger_AfterEndOfWindow$Type extends
 export const Trigger_AfterEndOfWindow = new Trigger_AfterEndOfWindow$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class Trigger_AfterProcessingTime$Type extends
-    MessageType<Trigger_AfterProcessingTime> {
+class Trigger_AfterProcessingTime$Type extends MessageType<Trigger_AfterProcessingTime> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.Trigger.AfterProcessingTime', [{
-            no: 1,
-            name: 'timestamp_transforms',
-            kind: 'message',
-            repeat: 1 /*RepeatType.PACKED*/,
-            T: () => TimestampTransform
-          }]);
+    super("org.apache.beam.model.pipeline.v1.Trigger.AfterProcessingTime", [
+      {
+        no: 1,
+        name: "timestamp_transforms",
+        kind: "message",
+        repeat: 1 /*RepeatType.PACKED*/,
+        T: () => TimestampTransform,
+      },
+    ]);
   }
-  create(value?: PartialMessage<Trigger_AfterProcessingTime>):
-      Trigger_AfterProcessingTime {
-    const message = {timestampTransforms: []};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<Trigger_AfterProcessingTime>
+  ): Trigger_AfterProcessingTime {
+    const message = { timestampTransforms: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<Trigger_AfterProcessingTime>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: Trigger_AfterProcessingTime): Trigger_AfterProcessingTime {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Trigger_AfterProcessingTime
+  ): Trigger_AfterProcessingTime {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* repeated org.apache.beam.model.pipeline.v1.TimestampTransform
                 timestamp_transforms */
-            1:
+        1:
           message.timestampTransforms.push(
-              TimestampTransform.internalBinaryRead(
-                  reader, reader.uint32(), options));
+            TimestampTransform.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options
+            )
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: Trigger_AfterProcessingTime, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: Trigger_AfterProcessingTime,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* repeated org.apache.beam.model.pipeline.v1.TimestampTransform
      * timestamp_transforms = 1; */
     for (let i = 0; i < message.timestampTransforms.length; i++)
-      TimestampTransform
-          .internalBinaryWrite(
-              message.timestampTransforms[i],
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+      TimestampTransform.internalBinaryWrite(
+        message.timestampTransforms[i],
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -7727,39 +8771,52 @@ class Trigger_AfterProcessingTime$Type extends
  * org.apache.beam.model.pipeline.v1.Trigger.AfterProcessingTime
  */
 export const Trigger_AfterProcessingTime =
-    new Trigger_AfterProcessingTime$Type();
+  new Trigger_AfterProcessingTime$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class Trigger_AfterSynchronizedProcessingTime$Type extends
-    MessageType<Trigger_AfterSynchronizedProcessingTime> {
+class Trigger_AfterSynchronizedProcessingTime$Type extends MessageType<Trigger_AfterSynchronizedProcessingTime> {
   constructor() {
     super(
-        'org.apache.beam.model.pipeline.v1.Trigger.AfterSynchronizedProcessingTime',
-        []);
+      "org.apache.beam.model.pipeline.v1.Trigger.AfterSynchronizedProcessingTime",
+      []
+    );
   }
-  create(value?: PartialMessage<Trigger_AfterSynchronizedProcessingTime>):
-      Trigger_AfterSynchronizedProcessingTime {
+  create(
+    value?: PartialMessage<Trigger_AfterSynchronizedProcessingTime>
+  ): Trigger_AfterSynchronizedProcessingTime {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<Trigger_AfterSynchronizedProcessingTime>(
-          this, message, value);
+        this,
+        message,
+        value
+      );
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: Trigger_AfterSynchronizedProcessingTime):
-      Trigger_AfterSynchronizedProcessingTime {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Trigger_AfterSynchronizedProcessingTime
+  ): Trigger_AfterSynchronizedProcessingTime {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: Trigger_AfterSynchronizedProcessingTime, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: Trigger_AfterSynchronizedProcessingTime,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -7768,33 +8825,43 @@ class Trigger_AfterSynchronizedProcessingTime$Type extends
  * org.apache.beam.model.pipeline.v1.Trigger.AfterSynchronizedProcessingTime
  */
 export const Trigger_AfterSynchronizedProcessingTime =
-    new Trigger_AfterSynchronizedProcessingTime$Type();
+  new Trigger_AfterSynchronizedProcessingTime$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
 class Trigger_Default$Type extends MessageType<Trigger_Default> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.Trigger.Default', []);
+    super("org.apache.beam.model.pipeline.v1.Trigger.Default", []);
   }
   create(value?: PartialMessage<Trigger_Default>): Trigger_Default {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<Trigger_Default>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: Trigger_Default): Trigger_Default {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Trigger_Default
+  ): Trigger_Default {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: Trigger_Default, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: Trigger_Default,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -7807,22 +8874,33 @@ export const Trigger_Default = new Trigger_Default$Type();
 // optimized methods
 class Trigger_ElementCount$Type extends MessageType<Trigger_ElementCount> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.Trigger.ElementCount', [
-      {no: 1, name: 'element_count', kind: 'scalar', T: 5 /*ScalarType.INT32*/}
+    super("org.apache.beam.model.pipeline.v1.Trigger.ElementCount", [
+      {
+        no: 1,
+        name: "element_count",
+        kind: "scalar",
+        T: 5 /*ScalarType.INT32*/,
+      },
     ]);
   }
   create(value?: PartialMessage<Trigger_ElementCount>): Trigger_ElementCount {
-    const message = {elementCount: 0};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { elementCount: 0 };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<Trigger_ElementCount>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: Trigger_ElementCount): Trigger_ElementCount {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Trigger_ElementCount
+  ): Trigger_ElementCount {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -7831,27 +8909,38 @@ class Trigger_ElementCount$Type extends MessageType<Trigger_ElementCount> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: Trigger_ElementCount, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: Trigger_ElementCount,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* int32 element_count = 1; */
     if (message.elementCount !== 0)
       writer.tag(1, WireType.Varint).int32(message.elementCount);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -7864,28 +8953,38 @@ export const Trigger_ElementCount = new Trigger_ElementCount$Type();
 // optimized methods
 class Trigger_Never$Type extends MessageType<Trigger_Never> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.Trigger.Never', []);
+    super("org.apache.beam.model.pipeline.v1.Trigger.Never", []);
   }
   create(value?: PartialMessage<Trigger_Never>): Trigger_Never {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<Trigger_Never>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: Trigger_Never): Trigger_Never {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Trigger_Never
+  ): Trigger_Never {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: Trigger_Never, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: Trigger_Never,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -7898,28 +8997,38 @@ export const Trigger_Never = new Trigger_Never$Type();
 // optimized methods
 class Trigger_Always$Type extends MessageType<Trigger_Always> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.Trigger.Always', []);
+    super("org.apache.beam.model.pipeline.v1.Trigger.Always", []);
   }
   create(value?: PartialMessage<Trigger_Always>): Trigger_Always {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<Trigger_Always>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: Trigger_Always): Trigger_Always {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Trigger_Always
+  ): Trigger_Always {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: Trigger_Always, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: Trigger_Always,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -7932,68 +9041,93 @@ export const Trigger_Always = new Trigger_Always$Type();
 // optimized methods
 class Trigger_OrFinally$Type extends MessageType<Trigger_OrFinally> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.Trigger.OrFinally', [
-      {no: 1, name: 'main', kind: 'message', T: () => Trigger},
-      {no: 2, name: 'finally', kind: 'message', T: () => Trigger}
+    super("org.apache.beam.model.pipeline.v1.Trigger.OrFinally", [
+      { no: 1, name: "main", kind: "message", T: () => Trigger },
+      { no: 2, name: "finally", kind: "message", T: () => Trigger },
     ]);
   }
   create(value?: PartialMessage<Trigger_OrFinally>): Trigger_OrFinally {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<Trigger_OrFinally>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: Trigger_OrFinally): Trigger_OrFinally {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Trigger_OrFinally
+  ): Trigger_OrFinally {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.Trigger main */ 1:
           message.main = Trigger.internalBinaryRead(
-              reader, reader.uint32(), options, message.main);
+            reader,
+            reader.uint32(),
+            options,
+            message.main
+          );
           break;
         case /* org.apache.beam.model.pipeline.v1.Trigger finally */ 2:
           message.finally = Trigger.internalBinaryRead(
-              reader, reader.uint32(), options, message.finally);
+            reader,
+            reader.uint32(),
+            options,
+            message.finally
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: Trigger_OrFinally, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: Trigger_OrFinally,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.Trigger main = 1; */
     if (message.main)
-      Trigger
-          .internalBinaryWrite(
-              message.main, writer.tag(1, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      Trigger.internalBinaryWrite(
+        message.main,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.Trigger finally = 2; */
     if (message.finally)
-      Trigger
-          .internalBinaryWrite(
-              message.finally, writer.tag(2, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      Trigger.internalBinaryWrite(
+        message.finally,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -8006,56 +9140,77 @@ export const Trigger_OrFinally = new Trigger_OrFinally$Type();
 // optimized methods
 class Trigger_Repeat$Type extends MessageType<Trigger_Repeat> {
   constructor() {
-    super(
-        'org.apache.beam.model.pipeline.v1.Trigger.Repeat',
-        [{no: 1, name: 'subtrigger', kind: 'message', T: () => Trigger}]);
+    super("org.apache.beam.model.pipeline.v1.Trigger.Repeat", [
+      { no: 1, name: "subtrigger", kind: "message", T: () => Trigger },
+    ]);
   }
   create(value?: PartialMessage<Trigger_Repeat>): Trigger_Repeat {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<Trigger_Repeat>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: Trigger_Repeat): Trigger_Repeat {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Trigger_Repeat
+  ): Trigger_Repeat {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.Trigger subtrigger */ 1:
           message.subtrigger = Trigger.internalBinaryRead(
-              reader, reader.uint32(), options, message.subtrigger);
+            reader,
+            reader.uint32(),
+            options,
+            message.subtrigger
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: Trigger_Repeat, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: Trigger_Repeat,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.Trigger subtrigger = 1; */
     if (message.subtrigger)
-      Trigger
-          .internalBinaryWrite(
-              message.subtrigger,
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+      Trigger.internalBinaryWrite(
+        message.subtrigger,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -8068,93 +9223,116 @@ export const Trigger_Repeat = new Trigger_Repeat$Type();
 // optimized methods
 class TimestampTransform$Type extends MessageType<TimestampTransform> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.TimestampTransform', [
+    super("org.apache.beam.model.pipeline.v1.TimestampTransform", [
       {
         no: 1,
-        name: 'delay',
-        kind: 'message',
-        oneof: 'timestampTransform',
-        T: () => TimestampTransform_Delay
+        name: "delay",
+        kind: "message",
+        oneof: "timestampTransform",
+        T: () => TimestampTransform_Delay,
       },
       {
         no: 2,
-        name: 'align_to',
-        kind: 'message',
-        oneof: 'timestampTransform',
-        T: () => TimestampTransform_AlignTo
-      }
+        name: "align_to",
+        kind: "message",
+        oneof: "timestampTransform",
+        T: () => TimestampTransform_AlignTo,
+      },
     ]);
   }
   create(value?: PartialMessage<TimestampTransform>): TimestampTransform {
-    const message = {timestampTransform: {oneofKind: undefined}};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { timestampTransform: { oneofKind: undefined } };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<TimestampTransform>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: TimestampTransform): TimestampTransform {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: TimestampTransform
+  ): TimestampTransform {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.TimestampTransform.Delay delay
-              */
-            1:
+         */
+        1:
           message.timestampTransform = {
-            oneofKind: 'delay',
+            oneofKind: "delay",
             delay: TimestampTransform_Delay.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.timestampTransform as any).delay)
+              reader,
+              reader.uint32(),
+              options,
+              (message.timestampTransform as any).delay
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.TimestampTransform.AlignTo
                 align_to */
-            2:
+        2:
           message.timestampTransform = {
-            oneofKind: 'alignTo',
+            oneofKind: "alignTo",
             alignTo: TimestampTransform_AlignTo.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.timestampTransform as any).alignTo)
+              reader,
+              reader.uint32(),
+              options,
+              (message.timestampTransform as any).alignTo
+            ),
           };
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: TimestampTransform, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: TimestampTransform,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.TimestampTransform.Delay delay = 1; */
-    if (message.timestampTransform.oneofKind === 'delay')
-      TimestampTransform_Delay
-          .internalBinaryWrite(
-              message.timestampTransform.delay,
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.timestampTransform.oneofKind === "delay")
+      TimestampTransform_Delay.internalBinaryWrite(
+        message.timestampTransform.delay,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.TimestampTransform.AlignTo align_to =
      * 2; */
-    if (message.timestampTransform.oneofKind === 'alignTo')
-      TimestampTransform_AlignTo
-          .internalBinaryWrite(
-              message.timestampTransform.alignTo,
-              writer.tag(2, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.timestampTransform.oneofKind === "alignTo")
+      TimestampTransform_AlignTo.internalBinaryWrite(
+        message.timestampTransform.alignTo,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -8165,30 +9343,38 @@ class TimestampTransform$Type extends MessageType<TimestampTransform> {
 export const TimestampTransform = new TimestampTransform$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class TimestampTransform_Delay$Type extends
-    MessageType<TimestampTransform_Delay> {
+class TimestampTransform_Delay$Type extends MessageType<TimestampTransform_Delay> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.TimestampTransform.Delay', [{
-            no: 1,
-            name: 'delay_millis',
-            kind: 'scalar',
-            T: 3 /*ScalarType.INT64*/,
-            L: 0 /*LongType.BIGINT*/
-          }]);
+    super("org.apache.beam.model.pipeline.v1.TimestampTransform.Delay", [
+      {
+        no: 1,
+        name: "delay_millis",
+        kind: "scalar",
+        T: 3 /*ScalarType.INT64*/,
+        L: 0 /*LongType.BIGINT*/,
+      },
+    ]);
   }
-  create(value?: PartialMessage<TimestampTransform_Delay>):
-      TimestampTransform_Delay {
-    const message = {delayMillis: 0n};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<TimestampTransform_Delay>
+  ): TimestampTransform_Delay {
+    const message = { delayMillis: 0n };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<TimestampTransform_Delay>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: TimestampTransform_Delay): TimestampTransform_Delay {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: TimestampTransform_Delay
+  ): TimestampTransform_Delay {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -8197,27 +9383,38 @@ class TimestampTransform_Delay$Type extends
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: TimestampTransform_Delay, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: TimestampTransform_Delay,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* int64 delay_millis = 1; */
     if (message.delayMillis !== 0n)
       writer.tag(1, WireType.Varint).int64(message.delayMillis);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -8228,39 +9425,45 @@ class TimestampTransform_Delay$Type extends
 export const TimestampTransform_Delay = new TimestampTransform_Delay$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class TimestampTransform_AlignTo$Type extends
-    MessageType<TimestampTransform_AlignTo> {
+class TimestampTransform_AlignTo$Type extends MessageType<TimestampTransform_AlignTo> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.TimestampTransform.AlignTo', [
+    super("org.apache.beam.model.pipeline.v1.TimestampTransform.AlignTo", [
       {
         no: 3,
-        name: 'period',
-        kind: 'scalar',
+        name: "period",
+        kind: "scalar",
         T: 3 /*ScalarType.INT64*/,
-        L: 0 /*LongType.BIGINT*/
+        L: 0 /*LongType.BIGINT*/,
       },
       {
         no: 4,
-        name: 'offset',
-        kind: 'scalar',
+        name: "offset",
+        kind: "scalar",
         T: 3 /*ScalarType.INT64*/,
-        L: 0 /*LongType.BIGINT*/
-      }
+        L: 0 /*LongType.BIGINT*/,
+      },
     ]);
   }
-  create(value?: PartialMessage<TimestampTransform_AlignTo>):
-      TimestampTransform_AlignTo {
-    const message = {period: 0n, offset: 0n};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<TimestampTransform_AlignTo>
+  ): TimestampTransform_AlignTo {
+    const message = { period: 0n, offset: 0n };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<TimestampTransform_AlignTo>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: TimestampTransform_AlignTo): TimestampTransform_AlignTo {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: TimestampTransform_AlignTo
+  ): TimestampTransform_AlignTo {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -8272,20 +9475,28 @@ class TimestampTransform_AlignTo$Type extends
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: TimestampTransform_AlignTo, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: TimestampTransform_AlignTo,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* int64 period = 3; */
     if (message.period !== 0n)
       writer.tag(3, WireType.Varint).int64(message.period);
@@ -8295,7 +9506,10 @@ class TimestampTransform_AlignTo$Type extends
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -8308,83 +9522,117 @@ export const TimestampTransform_AlignTo = new TimestampTransform_AlignTo$Type();
 // optimized methods
 class SideInput$Type extends MessageType<SideInput> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.SideInput', [
-      {no: 1, name: 'access_pattern', kind: 'message', T: () => FunctionSpec},
-      {no: 2, name: 'view_fn', kind: 'message', T: () => FunctionSpec},
-      {no: 3, name: 'window_mapping_fn', kind: 'message', T: () => FunctionSpec}
+    super("org.apache.beam.model.pipeline.v1.SideInput", [
+      { no: 1, name: "access_pattern", kind: "message", T: () => FunctionSpec },
+      { no: 2, name: "view_fn", kind: "message", T: () => FunctionSpec },
+      {
+        no: 3,
+        name: "window_mapping_fn",
+        kind: "message",
+        T: () => FunctionSpec,
+      },
     ]);
   }
   create(value?: PartialMessage<SideInput>): SideInput {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<SideInput>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: SideInput): SideInput {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: SideInput
+  ): SideInput {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.FunctionSpec access_pattern */
-            1:
+        1:
           message.accessPattern = FunctionSpec.internalBinaryRead(
-              reader, reader.uint32(), options, message.accessPattern);
+            reader,
+            reader.uint32(),
+            options,
+            message.accessPattern
+          );
           break;
         case /* org.apache.beam.model.pipeline.v1.FunctionSpec view_fn */ 2:
           message.viewFn = FunctionSpec.internalBinaryRead(
-              reader, reader.uint32(), options, message.viewFn);
+            reader,
+            reader.uint32(),
+            options,
+            message.viewFn
+          );
           break;
         case /* org.apache.beam.model.pipeline.v1.FunctionSpec window_mapping_fn
-              */
-            3:
+         */
+        3:
           message.windowMappingFn = FunctionSpec.internalBinaryRead(
-              reader, reader.uint32(), options, message.windowMappingFn);
+            reader,
+            reader.uint32(),
+            options,
+            message.windowMappingFn
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: SideInput, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: SideInput,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.FunctionSpec access_pattern = 1; */
     if (message.accessPattern)
-      FunctionSpec
-          .internalBinaryWrite(
-              message.accessPattern,
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+      FunctionSpec.internalBinaryWrite(
+        message.accessPattern,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.FunctionSpec view_fn = 2; */
     if (message.viewFn)
-      FunctionSpec
-          .internalBinaryWrite(
-              message.viewFn, writer.tag(2, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      FunctionSpec.internalBinaryWrite(
+        message.viewFn,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.FunctionSpec window_mapping_fn = 3; */
     if (message.windowMappingFn)
-      FunctionSpec
-          .internalBinaryWrite(
-              message.windowMappingFn,
-              writer.tag(3, WireType.LengthDelimited).fork(), options)
-          .join();
+      FunctionSpec.internalBinaryWrite(
+        message.windowMappingFn,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -8397,28 +9645,38 @@ export const SideInput = new SideInput$Type();
 // optimized methods
 class StandardArtifacts$Type extends MessageType<StandardArtifacts> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.StandardArtifacts', []);
+    super("org.apache.beam.model.pipeline.v1.StandardArtifacts", []);
   }
   create(value?: PartialMessage<StandardArtifacts>): StandardArtifacts {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StandardArtifacts>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StandardArtifacts): StandardArtifacts {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StandardArtifacts
+  ): StandardArtifacts {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: StandardArtifacts, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StandardArtifacts,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -8431,23 +9689,29 @@ export const StandardArtifacts = new StandardArtifacts$Type();
 // optimized methods
 class ArtifactFilePayload$Type extends MessageType<ArtifactFilePayload> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.ArtifactFilePayload', [
-      {no: 1, name: 'path', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 2, name: 'sha256', kind: 'scalar', T: 9 /*ScalarType.STRING*/}
+    super("org.apache.beam.model.pipeline.v1.ArtifactFilePayload", [
+      { no: 1, name: "path", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      { no: 2, name: "sha256", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
     ]);
   }
   create(value?: PartialMessage<ArtifactFilePayload>): ArtifactFilePayload {
-    const message = {path: '', sha256: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { path: "", sha256: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ArtifactFilePayload>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ArtifactFilePayload): ArtifactFilePayload {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ArtifactFilePayload
+  ): ArtifactFilePayload {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -8459,30 +9723,41 @@ class ArtifactFilePayload$Type extends MessageType<ArtifactFilePayload> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ArtifactFilePayload, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ArtifactFilePayload,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string path = 1; */
-    if (message.path !== '')
+    if (message.path !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.path);
     /* string sha256 = 2; */
-    if (message.sha256 !== '')
+    if (message.sha256 !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.sha256);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -8495,23 +9770,29 @@ export const ArtifactFilePayload = new ArtifactFilePayload$Type();
 // optimized methods
 class ArtifactUrlPayload$Type extends MessageType<ArtifactUrlPayload> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.ArtifactUrlPayload', [
-      {no: 1, name: 'url', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 2, name: 'sha256', kind: 'scalar', T: 9 /*ScalarType.STRING*/}
+    super("org.apache.beam.model.pipeline.v1.ArtifactUrlPayload", [
+      { no: 1, name: "url", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      { no: 2, name: "sha256", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
     ]);
   }
   create(value?: PartialMessage<ArtifactUrlPayload>): ArtifactUrlPayload {
-    const message = {url: '', sha256: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { url: "", sha256: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ArtifactUrlPayload>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ArtifactUrlPayload): ArtifactUrlPayload {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ArtifactUrlPayload
+  ): ArtifactUrlPayload {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -8523,30 +9804,41 @@ class ArtifactUrlPayload$Type extends MessageType<ArtifactUrlPayload> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ArtifactUrlPayload, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ArtifactUrlPayload,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string url = 1; */
-    if (message.url !== '')
+    if (message.url !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.url);
     /* string sha256 = 2; */
-    if (message.sha256 !== '')
+    if (message.sha256 !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.sha256);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -8559,22 +9851,28 @@ export const ArtifactUrlPayload = new ArtifactUrlPayload$Type();
 // optimized methods
 class EmbeddedFilePayload$Type extends MessageType<EmbeddedFilePayload> {
   constructor() {
-    super(
-        'org.apache.beam.model.pipeline.v1.EmbeddedFilePayload',
-        [{no: 1, name: 'data', kind: 'scalar', T: 12 /*ScalarType.BYTES*/}]);
+    super("org.apache.beam.model.pipeline.v1.EmbeddedFilePayload", [
+      { no: 1, name: "data", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
+    ]);
   }
   create(value?: PartialMessage<EmbeddedFilePayload>): EmbeddedFilePayload {
-    const message = {data: new Uint8Array(0)};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { data: new Uint8Array(0) };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<EmbeddedFilePayload>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: EmbeddedFilePayload): EmbeddedFilePayload {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: EmbeddedFilePayload
+  ): EmbeddedFilePayload {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -8583,27 +9881,38 @@ class EmbeddedFilePayload$Type extends MessageType<EmbeddedFilePayload> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: EmbeddedFilePayload, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: EmbeddedFilePayload,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* bytes data = 1; */
     if (message.data.length)
       writer.tag(1, WireType.LengthDelimited).bytes(message.data);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -8616,23 +9925,34 @@ export const EmbeddedFilePayload = new EmbeddedFilePayload$Type();
 // optimized methods
 class PyPIPayload$Type extends MessageType<PyPIPayload> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.PyPIPayload', [
-      {no: 1, name: 'artifact_id', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 2, name: 'version', kind: 'scalar', T: 9 /*ScalarType.STRING*/}
+    super("org.apache.beam.model.pipeline.v1.PyPIPayload", [
+      {
+        no: 1,
+        name: "artifact_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
+      { no: 2, name: "version", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
     ]);
   }
   create(value?: PartialMessage<PyPIPayload>): PyPIPayload {
-    const message = {artifactId: '', version: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { artifactId: "", version: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<PyPIPayload>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: PyPIPayload): PyPIPayload {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: PyPIPayload
+  ): PyPIPayload {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -8644,30 +9964,41 @@ class PyPIPayload$Type extends MessageType<PyPIPayload> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: PyPIPayload, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: PyPIPayload,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string artifact_id = 1; */
-    if (message.artifactId !== '')
+    if (message.artifactId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.artifactId);
     /* string version = 2; */
-    if (message.version !== '')
+    if (message.version !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.version);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -8680,27 +10011,34 @@ export const PyPIPayload = new PyPIPayload$Type();
 // optimized methods
 class MavenPayload$Type extends MessageType<MavenPayload> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.MavenPayload', [
-      {no: 1, name: 'artifact', kind: 'scalar', T: 9 /*ScalarType.STRING*/}, {
+    super("org.apache.beam.model.pipeline.v1.MavenPayload", [
+      { no: 1, name: "artifact", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      {
         no: 2,
-        name: 'repository_url',
-        kind: 'scalar',
-        T: 9 /*ScalarType.STRING*/
-      }
+        name: "repository_url",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
     ]);
   }
   create(value?: PartialMessage<MavenPayload>): MavenPayload {
-    const message = {artifact: '', repositoryUrl: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { artifact: "", repositoryUrl: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<MavenPayload>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: MavenPayload): MavenPayload {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: MavenPayload
+  ): MavenPayload {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -8712,30 +10050,41 @@ class MavenPayload$Type extends MessageType<MavenPayload> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: MavenPayload, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: MavenPayload,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string artifact = 1; */
-    if (message.artifact !== '')
+    if (message.artifact !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.artifact);
     /* string repository_url = 2; */
-    if (message.repositoryUrl !== '')
+    if (message.repositoryUrl !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.repositoryUrl);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -8746,27 +10095,33 @@ class MavenPayload$Type extends MessageType<MavenPayload> {
 export const MavenPayload = new MavenPayload$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class DeferredArtifactPayload$Type extends
-    MessageType<DeferredArtifactPayload> {
+class DeferredArtifactPayload$Type extends MessageType<DeferredArtifactPayload> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.DeferredArtifactPayload', [
-      {no: 1, name: 'key', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 2, name: 'data', kind: 'scalar', T: 12 /*ScalarType.BYTES*/}
+    super("org.apache.beam.model.pipeline.v1.DeferredArtifactPayload", [
+      { no: 1, name: "key", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      { no: 2, name: "data", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
     ]);
   }
-  create(value?: PartialMessage<DeferredArtifactPayload>):
-      DeferredArtifactPayload {
-    const message = {key: '', data: new Uint8Array(0)};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<DeferredArtifactPayload>
+  ): DeferredArtifactPayload {
+    const message = { key: "", data: new Uint8Array(0) };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<DeferredArtifactPayload>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: DeferredArtifactPayload): DeferredArtifactPayload {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: DeferredArtifactPayload
+  ): DeferredArtifactPayload {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -8778,22 +10133,30 @@ class DeferredArtifactPayload$Type extends
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: DeferredArtifactPayload, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: DeferredArtifactPayload,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string key = 1; */
-    if (message.key !== '')
+    if (message.key !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.key);
     /* bytes data = 2; */
     if (message.data.length)
@@ -8801,7 +10164,10 @@ class DeferredArtifactPayload$Type extends
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -8812,27 +10178,41 @@ class DeferredArtifactPayload$Type extends
 export const DeferredArtifactPayload = new DeferredArtifactPayload$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class ArtifactStagingToRolePayload$Type extends
-    MessageType<ArtifactStagingToRolePayload> {
+class ArtifactStagingToRolePayload$Type extends MessageType<ArtifactStagingToRolePayload> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.ArtifactStagingToRolePayload', [
-      {no: 1, name: 'staged_name', kind: 'scalar', T: 9 /*ScalarType.STRING*/}
+    super("org.apache.beam.model.pipeline.v1.ArtifactStagingToRolePayload", [
+      {
+        no: 1,
+        name: "staged_name",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
     ]);
   }
-  create(value?: PartialMessage<ArtifactStagingToRolePayload>):
-      ArtifactStagingToRolePayload {
-    const message = {stagedName: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<ArtifactStagingToRolePayload>
+  ): ArtifactStagingToRolePayload {
+    const message = { stagedName: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ArtifactStagingToRolePayload>(
-          this, message, value);
+        this,
+        message,
+        value
+      );
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ArtifactStagingToRolePayload): ArtifactStagingToRolePayload {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ArtifactStagingToRolePayload
+  ): ArtifactStagingToRolePayload {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -8841,27 +10221,38 @@ class ArtifactStagingToRolePayload$Type extends
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ArtifactStagingToRolePayload, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ArtifactStagingToRolePayload,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string staged_name = 1; */
-    if (message.stagedName !== '')
+    if (message.stagedName !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.stagedName);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -8870,35 +10261,51 @@ class ArtifactStagingToRolePayload$Type extends
  * org.apache.beam.model.pipeline.v1.ArtifactStagingToRolePayload
  */
 export const ArtifactStagingToRolePayload =
-    new ArtifactStagingToRolePayload$Type();
+  new ArtifactStagingToRolePayload$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
 class ArtifactInformation$Type extends MessageType<ArtifactInformation> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.ArtifactInformation', [
-      {no: 1, name: 'type_urn', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 2, name: 'type_payload', kind: 'scalar', T: 12 /*ScalarType.BYTES*/},
-      {no: 3, name: 'role_urn', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 4, name: 'role_payload', kind: 'scalar', T: 12 /*ScalarType.BYTES*/}
+    super("org.apache.beam.model.pipeline.v1.ArtifactInformation", [
+      { no: 1, name: "type_urn", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      {
+        no: 2,
+        name: "type_payload",
+        kind: "scalar",
+        T: 12 /*ScalarType.BYTES*/,
+      },
+      { no: 3, name: "role_urn", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      {
+        no: 4,
+        name: "role_payload",
+        kind: "scalar",
+        T: 12 /*ScalarType.BYTES*/,
+      },
     ]);
   }
   create(value?: PartialMessage<ArtifactInformation>): ArtifactInformation {
     const message = {
-      typeUrn: '',
+      typeUrn: "",
       typePayload: new Uint8Array(0),
-      roleUrn: '',
-      rolePayload: new Uint8Array(0)
+      roleUrn: "",
+      rolePayload: new Uint8Array(0),
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ArtifactInformation>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ArtifactInformation): ArtifactInformation {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ArtifactInformation
+  ): ArtifactInformation {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -8916,28 +10323,36 @@ class ArtifactInformation$Type extends MessageType<ArtifactInformation> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ArtifactInformation, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ArtifactInformation,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string type_urn = 1; */
-    if (message.typeUrn !== '')
+    if (message.typeUrn !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.typeUrn);
     /* bytes type_payload = 2; */
     if (message.typePayload.length)
       writer.tag(2, WireType.LengthDelimited).bytes(message.typePayload);
     /* string role_urn = 3; */
-    if (message.roleUrn !== '')
+    if (message.roleUrn !== "")
       writer.tag(3, WireType.LengthDelimited).string(message.roleUrn);
     /* bytes role_payload = 4; */
     if (message.rolePayload.length)
@@ -8945,7 +10360,10 @@ class ArtifactInformation$Type extends MessageType<ArtifactInformation> {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -8958,57 +10376,64 @@ export const ArtifactInformation = new ArtifactInformation$Type();
 // optimized methods
 class Environment$Type extends MessageType<Environment> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.Environment', [
-      {no: 2, name: 'urn', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 3, name: 'payload', kind: 'scalar', T: 12 /*ScalarType.BYTES*/}, {
+    super("org.apache.beam.model.pipeline.v1.Environment", [
+      { no: 2, name: "urn", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      { no: 3, name: "payload", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
+      {
         no: 4,
-        name: 'display_data',
-        kind: 'message',
+        name: "display_data",
+        kind: "message",
         repeat: 1 /*RepeatType.PACKED*/,
-        T: () => DisplayData
+        T: () => DisplayData,
       },
       {
         no: 5,
-        name: 'capabilities',
-        kind: 'scalar',
+        name: "capabilities",
+        kind: "scalar",
         repeat: 2 /*RepeatType.UNPACKED*/,
-        T: 9 /*ScalarType.STRING*/
+        T: 9 /*ScalarType.STRING*/,
       },
       {
         no: 6,
-        name: 'dependencies',
-        kind: 'message',
+        name: "dependencies",
+        kind: "message",
         repeat: 1 /*RepeatType.PACKED*/,
-        T: () => ArtifactInformation
+        T: () => ArtifactInformation,
       },
       {
         no: 7,
-        name: 'resource_hints',
-        kind: 'map',
+        name: "resource_hints",
+        kind: "map",
         K: 9 /*ScalarType.STRING*/,
-        V: {kind: 'scalar', T: 12 /*ScalarType.BYTES*/}
-      }
+        V: { kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
+      },
     ]);
   }
   create(value?: PartialMessage<Environment>): Environment {
     const message = {
-      urn: '',
+      urn: "",
       payload: new Uint8Array(0),
       displayData: [],
       capabilities: [],
       dependencies: [],
-      resourceHints: {}
+      resourceHints: {},
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<Environment>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: Environment): Environment {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Environment
+  ): Environment {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -9020,41 +10445,56 @@ class Environment$Type extends MessageType<Environment> {
           break;
         case /* repeated org.apache.beam.model.pipeline.v1.DisplayData
                 display_data */
-            4:
+        4:
           message.displayData.push(
-              DisplayData.internalBinaryRead(reader, reader.uint32(), options));
+            DisplayData.internalBinaryRead(reader, reader.uint32(), options)
+          );
           break;
         case /* repeated string capabilities */ 5:
           message.capabilities.push(reader.string());
           break;
         case /* repeated org.apache.beam.model.pipeline.v1.ArtifactInformation
                 dependencies */
-            6:
-          message.dependencies.push(ArtifactInformation.internalBinaryRead(
-              reader, reader.uint32(), options));
+        6:
+          message.dependencies.push(
+            ArtifactInformation.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options
+            )
+          );
           break;
         case /* map<string, bytes> resource_hints */ 7:
           this.binaryReadMap7(message.resourceHints, reader, options);
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   private binaryReadMap7(
-      map: Environment['resourceHints'], reader: IBinaryReader,
-      options: BinaryReadOptions): void {
-    let len = reader.uint32(), end = reader.pos + len,
-        key: keyof Environment['resourceHints']|undefined,
-        val: Environment['resourceHints'][any]|undefined;
+    map: Environment["resourceHints"],
+    reader: IBinaryReader,
+    options: BinaryReadOptions
+  ): void {
+    let len = reader.uint32(),
+      end = reader.pos + len,
+      key: keyof Environment["resourceHints"] | undefined,
+      val: Environment["resourceHints"][any] | undefined;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -9066,16 +10506,19 @@ class Environment$Type extends MessageType<Environment> {
           break;
         default:
           throw new globalThis.Error(
-              'unknown map entry field for field org.apache.beam.model.pipeline.v1.Environment.resource_hints');
+            "unknown map entry field for field org.apache.beam.model.pipeline.v1.Environment.resource_hints"
+          );
       }
     }
-    map[key ?? ''] = val ?? new Uint8Array(0);
+    map[key ?? ""] = val ?? new Uint8Array(0);
   }
   internalBinaryWrite(
-      message: Environment, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: Environment,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string urn = 2; */
-    if (message.urn !== '')
+    if (message.urn !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.urn);
     /* bytes payload = 3; */
     if (message.payload.length)
@@ -9083,35 +10526,39 @@ class Environment$Type extends MessageType<Environment> {
     /* repeated org.apache.beam.model.pipeline.v1.DisplayData display_data = 4;
      */
     for (let i = 0; i < message.displayData.length; i++)
-      DisplayData
-          .internalBinaryWrite(
-              message.displayData[i],
-              writer.tag(4, WireType.LengthDelimited).fork(), options)
-          .join();
+      DisplayData.internalBinaryWrite(
+        message.displayData[i],
+        writer.tag(4, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* repeated string capabilities = 5; */
     for (let i = 0; i < message.capabilities.length; i++)
       writer.tag(5, WireType.LengthDelimited).string(message.capabilities[i]);
     /* repeated org.apache.beam.model.pipeline.v1.ArtifactInformation
      * dependencies = 6; */
     for (let i = 0; i < message.dependencies.length; i++)
-      ArtifactInformation
-          .internalBinaryWrite(
-              message.dependencies[i],
-              writer.tag(6, WireType.LengthDelimited).fork(), options)
-          .join();
+      ArtifactInformation.internalBinaryWrite(
+        message.dependencies[i],
+        writer.tag(6, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* map<string, bytes> resource_hints = 7; */
     for (let k of Object.keys(message.resourceHints))
-      writer.tag(7, WireType.LengthDelimited)
-          .fork()
-          .tag(1, WireType.LengthDelimited)
-          .string(k)
-          .tag(2, WireType.LengthDelimited)
-          .bytes(message.resourceHints[k])
-          .join();
+      writer
+        .tag(7, WireType.LengthDelimited)
+        .fork()
+        .tag(1, WireType.LengthDelimited)
+        .string(k)
+        .tag(2, WireType.LengthDelimited)
+        .bytes(message.resourceHints[k])
+        .join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -9124,28 +10571,38 @@ export const Environment = new Environment$Type();
 // optimized methods
 class StandardEnvironments$Type extends MessageType<StandardEnvironments> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.StandardEnvironments', []);
+    super("org.apache.beam.model.pipeline.v1.StandardEnvironments", []);
   }
   create(value?: PartialMessage<StandardEnvironments>): StandardEnvironments {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StandardEnvironments>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StandardEnvironments): StandardEnvironments {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StandardEnvironments
+  ): StandardEnvironments {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: StandardEnvironments, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StandardEnvironments,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -9158,25 +10615,33 @@ export const StandardEnvironments = new StandardEnvironments$Type();
 // optimized methods
 class DockerPayload$Type extends MessageType<DockerPayload> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.DockerPayload', [{
-            no: 1,
-            name: 'container_image',
-            kind: 'scalar',
-            T: 9 /*ScalarType.STRING*/
-          }]);
+    super("org.apache.beam.model.pipeline.v1.DockerPayload", [
+      {
+        no: 1,
+        name: "container_image",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
+    ]);
   }
   create(value?: PartialMessage<DockerPayload>): DockerPayload {
-    const message = {containerImage: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { containerImage: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<DockerPayload>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: DockerPayload): DockerPayload {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: DockerPayload
+  ): DockerPayload {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -9185,27 +10650,38 @@ class DockerPayload$Type extends MessageType<DockerPayload> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: DockerPayload, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: DockerPayload,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string container_image = 1; */
-    if (message.containerImage !== '')
+    if (message.containerImage !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.containerImage);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -9218,30 +10694,37 @@ export const DockerPayload = new DockerPayload$Type();
 // optimized methods
 class ProcessPayload$Type extends MessageType<ProcessPayload> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.ProcessPayload', [
-      {no: 1, name: 'os', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 2, name: 'arch', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 3, name: 'command', kind: 'scalar', T: 9 /*ScalarType.STRING*/}, {
+    super("org.apache.beam.model.pipeline.v1.ProcessPayload", [
+      { no: 1, name: "os", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      { no: 2, name: "arch", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      { no: 3, name: "command", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      {
         no: 4,
-        name: 'env',
-        kind: 'map',
+        name: "env",
+        kind: "map",
         K: 9 /*ScalarType.STRING*/,
-        V: {kind: 'scalar', T: 9 /*ScalarType.STRING*/}
-      }
+        V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      },
     ]);
   }
   create(value?: PartialMessage<ProcessPayload>): ProcessPayload {
-    const message = {os: '', arch: '', command: '', env: {}};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { os: "", arch: "", command: "", env: {} };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ProcessPayload>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ProcessPayload): ProcessPayload {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ProcessPayload
+  ): ProcessPayload {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -9259,23 +10742,32 @@ class ProcessPayload$Type extends MessageType<ProcessPayload> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   private binaryReadMap4(
-      map: ProcessPayload['env'], reader: IBinaryReader,
-      options: BinaryReadOptions): void {
-    let len = reader.uint32(), end = reader.pos + len,
-        key: keyof ProcessPayload['env']|undefined,
-        val: ProcessPayload['env'][any]|undefined;
+    map: ProcessPayload["env"],
+    reader: IBinaryReader,
+    options: BinaryReadOptions
+  ): void {
+    let len = reader.uint32(),
+      end = reader.pos + len,
+      key: keyof ProcessPayload["env"] | undefined,
+      val: ProcessPayload["env"][any] | undefined;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -9287,36 +10779,43 @@ class ProcessPayload$Type extends MessageType<ProcessPayload> {
           break;
         default:
           throw new globalThis.Error(
-              'unknown map entry field for field org.apache.beam.model.pipeline.v1.ProcessPayload.env');
+            "unknown map entry field for field org.apache.beam.model.pipeline.v1.ProcessPayload.env"
+          );
       }
     }
-    map[key ?? ''] = val ?? '';
+    map[key ?? ""] = val ?? "";
   }
   internalBinaryWrite(
-      message: ProcessPayload, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ProcessPayload,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string os = 1; */
-    if (message.os !== '')
+    if (message.os !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.os);
     /* string arch = 2; */
-    if (message.arch !== '')
+    if (message.arch !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.arch);
     /* string command = 3; */
-    if (message.command !== '')
+    if (message.command !== "")
       writer.tag(3, WireType.LengthDelimited).string(message.command);
     /* map<string, string> env = 4; */
     for (let k of Object.keys(message.env))
-      writer.tag(4, WireType.LengthDelimited)
-          .fork()
-          .tag(1, WireType.LengthDelimited)
-          .string(k)
-          .tag(2, WireType.LengthDelimited)
-          .string(message.env[k])
-          .join();
+      writer
+        .tag(4, WireType.LengthDelimited)
+        .fork()
+        .tag(1, WireType.LengthDelimited)
+        .string(k)
+        .tag(2, WireType.LengthDelimited)
+        .string(message.env[k])
+        .join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -9329,60 +10828,84 @@ export const ProcessPayload = new ProcessPayload$Type();
 // optimized methods
 class ExternalPayload$Type extends MessageType<ExternalPayload> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.ExternalPayload', [
-      {no: 1, name: 'endpoint', kind: 'message', T: () => ApiServiceDescriptor},
+    super("org.apache.beam.model.pipeline.v1.ExternalPayload", [
+      {
+        no: 1,
+        name: "endpoint",
+        kind: "message",
+        T: () => ApiServiceDescriptor,
+      },
       {
         no: 2,
-        name: 'params',
-        kind: 'map',
+        name: "params",
+        kind: "map",
         K: 9 /*ScalarType.STRING*/,
-        V: {kind: 'scalar', T: 9 /*ScalarType.STRING*/}
-      }
+        V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      },
     ]);
   }
   create(value?: PartialMessage<ExternalPayload>): ExternalPayload {
-    const message = {params: {}};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { params: {} };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ExternalPayload>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ExternalPayload): ExternalPayload {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ExternalPayload
+  ): ExternalPayload {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.ApiServiceDescriptor endpoint
-              */
-            1:
+         */
+        1:
           message.endpoint = ApiServiceDescriptor.internalBinaryRead(
-              reader, reader.uint32(), options, message.endpoint);
+            reader,
+            reader.uint32(),
+            options,
+            message.endpoint
+          );
           break;
         case /* map<string, string> params */ 2:
           this.binaryReadMap2(message.params, reader, options);
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   private binaryReadMap2(
-      map: ExternalPayload['params'], reader: IBinaryReader,
-      options: BinaryReadOptions): void {
-    let len = reader.uint32(), end = reader.pos + len,
-        key: keyof ExternalPayload['params']|undefined,
-        val: ExternalPayload['params'][any]|undefined;
+    map: ExternalPayload["params"],
+    reader: IBinaryReader,
+    options: BinaryReadOptions
+  ): void {
+    let len = reader.uint32(),
+      end = reader.pos + len,
+      key: keyof ExternalPayload["params"] | undefined,
+      val: ExternalPayload["params"][any] | undefined;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -9394,34 +10917,41 @@ class ExternalPayload$Type extends MessageType<ExternalPayload> {
           break;
         default:
           throw new globalThis.Error(
-              'unknown map entry field for field org.apache.beam.model.pipeline.v1.ExternalPayload.params');
+            "unknown map entry field for field org.apache.beam.model.pipeline.v1.ExternalPayload.params"
+          );
       }
     }
-    map[key ?? ''] = val ?? '';
+    map[key ?? ""] = val ?? "";
   }
   internalBinaryWrite(
-      message: ExternalPayload, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ExternalPayload,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.ApiServiceDescriptor endpoint = 1; */
     if (message.endpoint)
-      ApiServiceDescriptor
-          .internalBinaryWrite(
-              message.endpoint, writer.tag(1, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      ApiServiceDescriptor.internalBinaryWrite(
+        message.endpoint,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* map<string, string> params = 2; */
     for (let k of Object.keys(message.params))
-      writer.tag(2, WireType.LengthDelimited)
-          .fork()
-          .tag(1, WireType.LengthDelimited)
-          .string(k)
-          .tag(2, WireType.LengthDelimited)
-          .string(message.params[k])
-          .join();
+      writer
+        .tag(2, WireType.LengthDelimited)
+        .fork()
+        .tag(1, WireType.LengthDelimited)
+        .string(k)
+        .tag(2, WireType.LengthDelimited)
+        .string(message.params[k])
+        .join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -9434,28 +10964,38 @@ export const ExternalPayload = new ExternalPayload$Type();
 // optimized methods
 class StandardProtocols$Type extends MessageType<StandardProtocols> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.StandardProtocols', []);
+    super("org.apache.beam.model.pipeline.v1.StandardProtocols", []);
   }
   create(value?: PartialMessage<StandardProtocols>): StandardProtocols {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StandardProtocols>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StandardProtocols): StandardProtocols {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StandardProtocols
+  ): StandardProtocols {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: StandardProtocols, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StandardProtocols,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -9466,32 +11006,42 @@ class StandardProtocols$Type extends MessageType<StandardProtocols> {
 export const StandardProtocols = new StandardProtocols$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class StandardRunnerProtocols$Type extends
-    MessageType<StandardRunnerProtocols> {
+class StandardRunnerProtocols$Type extends MessageType<StandardRunnerProtocols> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.StandardRunnerProtocols', []);
+    super("org.apache.beam.model.pipeline.v1.StandardRunnerProtocols", []);
   }
-  create(value?: PartialMessage<StandardRunnerProtocols>):
-      StandardRunnerProtocols {
+  create(
+    value?: PartialMessage<StandardRunnerProtocols>
+  ): StandardRunnerProtocols {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StandardRunnerProtocols>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StandardRunnerProtocols): StandardRunnerProtocols {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StandardRunnerProtocols
+  ): StandardRunnerProtocols {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: StandardRunnerProtocols, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StandardRunnerProtocols,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -9504,28 +11054,38 @@ export const StandardRunnerProtocols = new StandardRunnerProtocols$Type();
 // optimized methods
 class StandardRequirements$Type extends MessageType<StandardRequirements> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.StandardRequirements', []);
+    super("org.apache.beam.model.pipeline.v1.StandardRequirements", []);
   }
   create(value?: PartialMessage<StandardRequirements>): StandardRequirements {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StandardRequirements>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StandardRequirements): StandardRequirements {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StandardRequirements
+  ): StandardRequirements {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: StandardRequirements, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StandardRequirements,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -9538,23 +11098,29 @@ export const StandardRequirements = new StandardRequirements$Type();
 // optimized methods
 class FunctionSpec$Type extends MessageType<FunctionSpec> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.FunctionSpec', [
-      {no: 1, name: 'urn', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 3, name: 'payload', kind: 'scalar', T: 12 /*ScalarType.BYTES*/}
+    super("org.apache.beam.model.pipeline.v1.FunctionSpec", [
+      { no: 1, name: "urn", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      { no: 3, name: "payload", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
     ]);
   }
   create(value?: PartialMessage<FunctionSpec>): FunctionSpec {
-    const message = {urn: '', payload: new Uint8Array(0)};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { urn: "", payload: new Uint8Array(0) };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<FunctionSpec>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: FunctionSpec): FunctionSpec {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: FunctionSpec
+  ): FunctionSpec {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -9566,22 +11132,30 @@ class FunctionSpec$Type extends MessageType<FunctionSpec> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: FunctionSpec, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: FunctionSpec,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string urn = 1; */
-    if (message.urn !== '')
+    if (message.urn !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.urn);
     /* bytes payload = 3; */
     if (message.payload.length)
@@ -9589,7 +11163,10 @@ class FunctionSpec$Type extends MessageType<FunctionSpec> {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -9602,28 +11179,38 @@ export const FunctionSpec = new FunctionSpec$Type();
 // optimized methods
 class StandardDisplayData$Type extends MessageType<StandardDisplayData> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.StandardDisplayData', []);
+    super("org.apache.beam.model.pipeline.v1.StandardDisplayData", []);
   }
   create(value?: PartialMessage<StandardDisplayData>): StandardDisplayData {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StandardDisplayData>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StandardDisplayData): StandardDisplayData {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StandardDisplayData
+  ): StandardDisplayData {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: StandardDisplayData, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StandardDisplayData,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -9636,53 +11223,64 @@ export const StandardDisplayData = new StandardDisplayData$Type();
 // optimized methods
 class LabelledPayload$Type extends MessageType<LabelledPayload> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.LabelledPayload', [
-      {no: 1, name: 'label', kind: 'scalar', T: 9 /*ScalarType.STRING*/}, {
+    super("org.apache.beam.model.pipeline.v1.LabelledPayload", [
+      { no: 1, name: "label", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      {
         no: 2,
-        name: 'string_value',
-        kind: 'scalar',
-        oneof: 'value',
-        T: 9 /*ScalarType.STRING*/
+        name: "string_value",
+        kind: "scalar",
+        oneof: "value",
+        T: 9 /*ScalarType.STRING*/,
       },
       {
         no: 3,
-        name: 'bool_value',
-        kind: 'scalar',
-        oneof: 'value',
-        T: 8 /*ScalarType.BOOL*/
+        name: "bool_value",
+        kind: "scalar",
+        oneof: "value",
+        T: 8 /*ScalarType.BOOL*/,
       },
       {
         no: 4,
-        name: 'double_value',
-        kind: 'scalar',
-        oneof: 'value',
-        T: 1 /*ScalarType.DOUBLE*/
+        name: "double_value",
+        kind: "scalar",
+        oneof: "value",
+        T: 1 /*ScalarType.DOUBLE*/,
       },
       {
         no: 5,
-        name: 'int_value',
-        kind: 'scalar',
-        oneof: 'value',
+        name: "int_value",
+        kind: "scalar",
+        oneof: "value",
         T: 3 /*ScalarType.INT64*/,
-        L: 0 /*LongType.BIGINT*/
+        L: 0 /*LongType.BIGINT*/,
       },
-      {no: 6, name: 'key', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 7, name: 'namespace', kind: 'scalar', T: 9 /*ScalarType.STRING*/}
+      { no: 6, name: "key", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      { no: 7, name: "namespace", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
     ]);
   }
   create(value?: PartialMessage<LabelledPayload>): LabelledPayload {
-    const message =
-        {label: '', value: {oneofKind: undefined}, key: '', namespace: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = {
+      label: "",
+      value: { oneofKind: undefined },
+      key: "",
+      namespace: "",
+    };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<LabelledPayload>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: LabelledPayload): LabelledPayload {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: LabelledPayload
+  ): LabelledPayload {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -9691,23 +11289,23 @@ class LabelledPayload$Type extends MessageType<LabelledPayload> {
           break;
         case /* string string_value */ 2:
           message.value = {
-            oneofKind: 'stringValue',
-            stringValue: reader.string()
+            oneofKind: "stringValue",
+            stringValue: reader.string(),
           };
           break;
         case /* bool bool_value */ 3:
-          message.value = {oneofKind: 'boolValue', boolValue: reader.bool()};
+          message.value = { oneofKind: "boolValue", boolValue: reader.bool() };
           break;
         case /* double double_value */ 4:
           message.value = {
-            oneofKind: 'doubleValue',
-            doubleValue: reader.double()
+            oneofKind: "doubleValue",
+            doubleValue: reader.double(),
           };
           break;
         case /* int64 int_value */ 5:
           message.value = {
-            oneofKind: 'intValue',
-            intValue: reader.int64().toBigInt()
+            oneofKind: "intValue",
+            intValue: reader.int64().toBigInt(),
           };
           break;
         case /* string key */ 6:
@@ -9718,45 +11316,56 @@ class LabelledPayload$Type extends MessageType<LabelledPayload> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: LabelledPayload, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: LabelledPayload,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string label = 1; */
-    if (message.label !== '')
+    if (message.label !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.label);
     /* string string_value = 2; */
-    if (message.value.oneofKind === 'stringValue')
+    if (message.value.oneofKind === "stringValue")
       writer.tag(2, WireType.LengthDelimited).string(message.value.stringValue);
     /* bool bool_value = 3; */
-    if (message.value.oneofKind === 'boolValue')
+    if (message.value.oneofKind === "boolValue")
       writer.tag(3, WireType.Varint).bool(message.value.boolValue);
     /* double double_value = 4; */
-    if (message.value.oneofKind === 'doubleValue')
+    if (message.value.oneofKind === "doubleValue")
       writer.tag(4, WireType.Bit64).double(message.value.doubleValue);
     /* int64 int_value = 5; */
-    if (message.value.oneofKind === 'intValue')
+    if (message.value.oneofKind === "intValue")
       writer.tag(5, WireType.Varint).int64(message.value.intValue);
     /* string key = 6; */
-    if (message.key !== '')
+    if (message.key !== "")
       writer.tag(6, WireType.LengthDelimited).string(message.key);
     /* string namespace = 7; */
-    if (message.namespace !== '')
+    if (message.namespace !== "")
       writer.tag(7, WireType.LengthDelimited).string(message.namespace);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -9769,23 +11378,29 @@ export const LabelledPayload = new LabelledPayload$Type();
 // optimized methods
 class DisplayData$Type extends MessageType<DisplayData> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.DisplayData', [
-      {no: 1, name: 'urn', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 2, name: 'payload', kind: 'scalar', T: 12 /*ScalarType.BYTES*/}
+    super("org.apache.beam.model.pipeline.v1.DisplayData", [
+      { no: 1, name: "urn", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      { no: 2, name: "payload", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
     ]);
   }
   create(value?: PartialMessage<DisplayData>): DisplayData {
-    const message = {urn: '', payload: new Uint8Array(0)};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { urn: "", payload: new Uint8Array(0) };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<DisplayData>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: DisplayData): DisplayData {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: DisplayData
+  ): DisplayData {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -9797,22 +11412,30 @@ class DisplayData$Type extends MessageType<DisplayData> {
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: DisplayData, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: DisplayData,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string urn = 1; */
-    if (message.urn !== '')
+    if (message.urn !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.urn);
     /* bytes payload = 2; */
     if (message.payload.length)
@@ -9820,7 +11443,10 @@ class DisplayData$Type extends MessageType<DisplayData> {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -9833,278 +11459,331 @@ export const DisplayData = new DisplayData$Type();
 // optimized methods
 class MessageWithComponents$Type extends MessageType<MessageWithComponents> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.MessageWithComponents', [
-      {no: 1, name: 'components', kind: 'message', T: () => Components},
-      {no: 2, name: 'coder', kind: 'message', oneof: 'root', T: () => Coder}, {
+    super("org.apache.beam.model.pipeline.v1.MessageWithComponents", [
+      { no: 1, name: "components", kind: "message", T: () => Components },
+      { no: 2, name: "coder", kind: "message", oneof: "root", T: () => Coder },
+      {
         no: 3,
-        name: 'combine_payload',
-        kind: 'message',
-        oneof: 'root',
-        T: () => CombinePayload
+        name: "combine_payload",
+        kind: "message",
+        oneof: "root",
+        T: () => CombinePayload,
       },
       {
         no: 4,
-        name: 'function_spec',
-        kind: 'message',
-        oneof: 'root',
-        T: () => FunctionSpec
+        name: "function_spec",
+        kind: "message",
+        oneof: "root",
+        T: () => FunctionSpec,
       },
       {
         no: 6,
-        name: 'par_do_payload',
-        kind: 'message',
-        oneof: 'root',
-        T: () => ParDoPayload
+        name: "par_do_payload",
+        kind: "message",
+        oneof: "root",
+        T: () => ParDoPayload,
       },
       {
         no: 7,
-        name: 'ptransform',
-        kind: 'message',
-        oneof: 'root',
-        T: () => PTransform
+        name: "ptransform",
+        kind: "message",
+        oneof: "root",
+        T: () => PTransform,
       },
       {
         no: 8,
-        name: 'pcollection',
-        kind: 'message',
-        oneof: 'root',
-        T: () => PCollection
+        name: "pcollection",
+        kind: "message",
+        oneof: "root",
+        T: () => PCollection,
       },
       {
         no: 9,
-        name: 'read_payload',
-        kind: 'message',
-        oneof: 'root',
-        T: () => ReadPayload
+        name: "read_payload",
+        kind: "message",
+        oneof: "root",
+        T: () => ReadPayload,
       },
       {
         no: 11,
-        name: 'side_input',
-        kind: 'message',
-        oneof: 'root',
-        T: () => SideInput
+        name: "side_input",
+        kind: "message",
+        oneof: "root",
+        T: () => SideInput,
       },
       {
         no: 12,
-        name: 'window_into_payload',
-        kind: 'message',
-        oneof: 'root',
-        T: () => WindowIntoPayload
+        name: "window_into_payload",
+        kind: "message",
+        oneof: "root",
+        T: () => WindowIntoPayload,
       },
       {
         no: 13,
-        name: 'windowing_strategy',
-        kind: 'message',
-        oneof: 'root',
-        T: () => WindowingStrategy
-      }
+        name: "windowing_strategy",
+        kind: "message",
+        oneof: "root",
+        T: () => WindowingStrategy,
+      },
     ]);
   }
   create(value?: PartialMessage<MessageWithComponents>): MessageWithComponents {
-    const message = {root: {oneofKind: undefined}};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    const message = { root: { oneofKind: undefined } };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<MessageWithComponents>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: MessageWithComponents): MessageWithComponents {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: MessageWithComponents
+  ): MessageWithComponents {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.Components components */ 1:
           message.components = Components.internalBinaryRead(
-              reader, reader.uint32(), options, message.components);
+            reader,
+            reader.uint32(),
+            options,
+            message.components
+          );
           break;
         case /* org.apache.beam.model.pipeline.v1.Coder coder */ 2:
           message.root = {
-            oneofKind: 'coder',
+            oneofKind: "coder",
             coder: Coder.internalBinaryRead(
-                reader, reader.uint32(), options, (message.root as any).coder)
+              reader,
+              reader.uint32(),
+              options,
+              (message.root as any).coder
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.CombinePayload combine_payload
-              */
-            3:
+         */
+        3:
           message.root = {
-            oneofKind: 'combinePayload',
+            oneofKind: "combinePayload",
             combinePayload: CombinePayload.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.root as any).combinePayload)
+              reader,
+              reader.uint32(),
+              options,
+              (message.root as any).combinePayload
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.FunctionSpec function_spec */
-            4:
+        4:
           message.root = {
-            oneofKind: 'functionSpec',
+            oneofKind: "functionSpec",
             functionSpec: FunctionSpec.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.root as any).functionSpec)
+              reader,
+              reader.uint32(),
+              options,
+              (message.root as any).functionSpec
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.ParDoPayload par_do_payload */
-            6:
+        6:
           message.root = {
-            oneofKind: 'parDoPayload',
+            oneofKind: "parDoPayload",
             parDoPayload: ParDoPayload.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.root as any).parDoPayload)
+              reader,
+              reader.uint32(),
+              options,
+              (message.root as any).parDoPayload
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.PTransform ptransform */ 7:
           message.root = {
-            oneofKind: 'ptransform',
+            oneofKind: "ptransform",
             ptransform: PTransform.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.root as any).ptransform)
+              reader,
+              reader.uint32(),
+              options,
+              (message.root as any).ptransform
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.PCollection pcollection */ 8:
           message.root = {
-            oneofKind: 'pcollection',
+            oneofKind: "pcollection",
             pcollection: PCollection.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.root as any).pcollection)
+              reader,
+              reader.uint32(),
+              options,
+              (message.root as any).pcollection
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.ReadPayload read_payload */ 9:
           message.root = {
-            oneofKind: 'readPayload',
+            oneofKind: "readPayload",
             readPayload: ReadPayload.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.root as any).readPayload)
+              reader,
+              reader.uint32(),
+              options,
+              (message.root as any).readPayload
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.SideInput side_input */ 11:
           message.root = {
-            oneofKind: 'sideInput',
+            oneofKind: "sideInput",
             sideInput: SideInput.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.root as any).sideInput)
+              reader,
+              reader.uint32(),
+              options,
+              (message.root as any).sideInput
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.WindowIntoPayload
                 window_into_payload */
-            12:
+        12:
           message.root = {
-            oneofKind: 'windowIntoPayload',
+            oneofKind: "windowIntoPayload",
             windowIntoPayload: WindowIntoPayload.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.root as any).windowIntoPayload)
+              reader,
+              reader.uint32(),
+              options,
+              (message.root as any).windowIntoPayload
+            ),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.WindowingStrategy
                 windowing_strategy */
-            13:
+        13:
           message.root = {
-            oneofKind: 'windowingStrategy',
+            oneofKind: "windowingStrategy",
             windowingStrategy: WindowingStrategy.internalBinaryRead(
-                reader, reader.uint32(), options,
-                (message.root as any).windowingStrategy)
+              reader,
+              reader.uint32(),
+              options,
+              (message.root as any).windowingStrategy
+            ),
           };
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: MessageWithComponents, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: MessageWithComponents,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.Components components = 1; */
     if (message.components)
-      Components
-          .internalBinaryWrite(
-              message.components,
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+      Components.internalBinaryWrite(
+        message.components,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.Coder coder = 2; */
-    if (message.root.oneofKind === 'coder')
-      Coder
-          .internalBinaryWrite(
-              message.root.coder,
-              writer.tag(2, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.root.oneofKind === "coder")
+      Coder.internalBinaryWrite(
+        message.root.coder,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.CombinePayload combine_payload = 3; */
-    if (message.root.oneofKind === 'combinePayload')
-      CombinePayload
-          .internalBinaryWrite(
-              message.root.combinePayload,
-              writer.tag(3, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.root.oneofKind === "combinePayload")
+      CombinePayload.internalBinaryWrite(
+        message.root.combinePayload,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.FunctionSpec function_spec = 4; */
-    if (message.root.oneofKind === 'functionSpec')
-      FunctionSpec
-          .internalBinaryWrite(
-              message.root.functionSpec,
-              writer.tag(4, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.root.oneofKind === "functionSpec")
+      FunctionSpec.internalBinaryWrite(
+        message.root.functionSpec,
+        writer.tag(4, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.ParDoPayload par_do_payload = 6; */
-    if (message.root.oneofKind === 'parDoPayload')
-      ParDoPayload
-          .internalBinaryWrite(
-              message.root.parDoPayload,
-              writer.tag(6, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.root.oneofKind === "parDoPayload")
+      ParDoPayload.internalBinaryWrite(
+        message.root.parDoPayload,
+        writer.tag(6, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.PTransform ptransform = 7; */
-    if (message.root.oneofKind === 'ptransform')
-      PTransform
-          .internalBinaryWrite(
-              message.root.ptransform,
-              writer.tag(7, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.root.oneofKind === "ptransform")
+      PTransform.internalBinaryWrite(
+        message.root.ptransform,
+        writer.tag(7, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.PCollection pcollection = 8; */
-    if (message.root.oneofKind === 'pcollection')
-      PCollection
-          .internalBinaryWrite(
-              message.root.pcollection,
-              writer.tag(8, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.root.oneofKind === "pcollection")
+      PCollection.internalBinaryWrite(
+        message.root.pcollection,
+        writer.tag(8, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.ReadPayload read_payload = 9; */
-    if (message.root.oneofKind === 'readPayload')
-      ReadPayload
-          .internalBinaryWrite(
-              message.root.readPayload,
-              writer.tag(9, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.root.oneofKind === "readPayload")
+      ReadPayload.internalBinaryWrite(
+        message.root.readPayload,
+        writer.tag(9, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.SideInput side_input = 11; */
-    if (message.root.oneofKind === 'sideInput')
-      SideInput
-          .internalBinaryWrite(
-              message.root.sideInput,
-              writer.tag(11, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.root.oneofKind === "sideInput")
+      SideInput.internalBinaryWrite(
+        message.root.sideInput,
+        writer.tag(11, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.WindowIntoPayload window_into_payload =
      * 12; */
-    if (message.root.oneofKind === 'windowIntoPayload')
-      WindowIntoPayload
-          .internalBinaryWrite(
-              message.root.windowIntoPayload,
-              writer.tag(12, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.root.oneofKind === "windowIntoPayload")
+      WindowIntoPayload.internalBinaryWrite(
+        message.root.windowIntoPayload,
+        writer.tag(12, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* org.apache.beam.model.pipeline.v1.WindowingStrategy windowing_strategy =
      * 13; */
-    if (message.root.oneofKind === 'windowingStrategy')
-      WindowingStrategy
-          .internalBinaryWrite(
-              message.root.windowingStrategy,
-              writer.tag(13, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.root.oneofKind === "windowingStrategy")
+      WindowingStrategy.internalBinaryWrite(
+        message.root.windowingStrategy,
+        writer.tag(13, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -10117,94 +11796,112 @@ export const MessageWithComponents = new MessageWithComponents$Type();
 // optimized methods
 class ExecutableStagePayload$Type extends MessageType<ExecutableStagePayload> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.ExecutableStagePayload', [
-      {no: 1, name: 'environment', kind: 'message', T: () => Environment}, {
+    super("org.apache.beam.model.pipeline.v1.ExecutableStagePayload", [
+      { no: 1, name: "environment", kind: "message", T: () => Environment },
+      {
         no: 9,
-        name: 'wire_coder_settings',
-        kind: 'message',
+        name: "wire_coder_settings",
+        kind: "message",
         repeat: 1 /*RepeatType.PACKED*/,
-        T: () => ExecutableStagePayload_WireCoderSetting
+        T: () => ExecutableStagePayload_WireCoderSetting,
       },
-      {no: 2, name: 'input', kind: 'scalar', T: 9 /*ScalarType.STRING*/}, {
+      { no: 2, name: "input", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+      {
         no: 3,
-        name: 'side_inputs',
-        kind: 'message',
+        name: "side_inputs",
+        kind: "message",
         repeat: 1 /*RepeatType.PACKED*/,
-        T: () => ExecutableStagePayload_SideInputId
+        T: () => ExecutableStagePayload_SideInputId,
       },
       {
         no: 4,
-        name: 'transforms',
-        kind: 'scalar',
+        name: "transforms",
+        kind: "scalar",
         repeat: 2 /*RepeatType.UNPACKED*/,
-        T: 9 /*ScalarType.STRING*/
+        T: 9 /*ScalarType.STRING*/,
       },
       {
         no: 5,
-        name: 'outputs',
-        kind: 'scalar',
+        name: "outputs",
+        kind: "scalar",
         repeat: 2 /*RepeatType.UNPACKED*/,
-        T: 9 /*ScalarType.STRING*/
+        T: 9 /*ScalarType.STRING*/,
       },
-      {no: 6, name: 'components', kind: 'message', T: () => Components}, {
+      { no: 6, name: "components", kind: "message", T: () => Components },
+      {
         no: 7,
-        name: 'user_states',
-        kind: 'message',
+        name: "user_states",
+        kind: "message",
         repeat: 1 /*RepeatType.PACKED*/,
-        T: () => ExecutableStagePayload_UserStateId
+        T: () => ExecutableStagePayload_UserStateId,
       },
       {
         no: 8,
-        name: 'timers',
-        kind: 'message',
+        name: "timers",
+        kind: "message",
         repeat: 1 /*RepeatType.PACKED*/,
-        T: () => ExecutableStagePayload_TimerId
+        T: () => ExecutableStagePayload_TimerId,
       },
       {
         no: 10,
-        name: 'timerFamilies',
-        kind: 'message',
+        name: "timerFamilies",
+        kind: "message",
         repeat: 1 /*RepeatType.PACKED*/,
-        T: () => ExecutableStagePayload_TimerFamilyId
-      }
+        T: () => ExecutableStagePayload_TimerFamilyId,
+      },
     ]);
   }
-  create(value?: PartialMessage<ExecutableStagePayload>):
-      ExecutableStagePayload {
+  create(
+    value?: PartialMessage<ExecutableStagePayload>
+  ): ExecutableStagePayload {
     const message = {
       wireCoderSettings: [],
-      input: '',
+      input: "",
       sideInputs: [],
       transforms: [],
       outputs: [],
       userStates: [],
       timers: [],
-      timerFamilies: []
+      timerFamilies: [],
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ExecutableStagePayload>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ExecutableStagePayload): ExecutableStagePayload {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ExecutableStagePayload
+  ): ExecutableStagePayload {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
         case /* org.apache.beam.model.pipeline.v1.Environment environment */ 1:
           message.environment = Environment.internalBinaryRead(
-              reader, reader.uint32(), options, message.environment);
+            reader,
+            reader.uint32(),
+            options,
+            message.environment
+          );
           break;
         case /* repeated
                 org.apache.beam.model.pipeline.v1.ExecutableStagePayload.WireCoderSetting
                 wire_coder_settings */
-            9:
+        9:
           message.wireCoderSettings.push(
-              ExecutableStagePayload_WireCoderSetting.internalBinaryRead(
-                  reader, reader.uint32(), options));
+            ExecutableStagePayload_WireCoderSetting.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options
+            )
+          );
           break;
         case /* string input */ 2:
           message.input = reader.string();
@@ -10212,10 +11909,14 @@ class ExecutableStagePayload$Type extends MessageType<ExecutableStagePayload> {
         case /* repeated
                 org.apache.beam.model.pipeline.v1.ExecutableStagePayload.SideInputId
                 side_inputs */
-            3:
+        3:
           message.sideInputs.push(
-              ExecutableStagePayload_SideInputId.internalBinaryRead(
-                  reader, reader.uint32(), options));
+            ExecutableStagePayload_SideInputId.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options
+            )
+          );
           break;
         case /* repeated string transforms */ 4:
           message.transforms.push(reader.string());
@@ -10225,75 +11926,100 @@ class ExecutableStagePayload$Type extends MessageType<ExecutableStagePayload> {
           break;
         case /* org.apache.beam.model.pipeline.v1.Components components */ 6:
           message.components = Components.internalBinaryRead(
-              reader, reader.uint32(), options, message.components);
+            reader,
+            reader.uint32(),
+            options,
+            message.components
+          );
           break;
         case /* repeated
                 org.apache.beam.model.pipeline.v1.ExecutableStagePayload.UserStateId
                 user_states */
-            7:
+        7:
           message.userStates.push(
-              ExecutableStagePayload_UserStateId.internalBinaryRead(
-                  reader, reader.uint32(), options));
+            ExecutableStagePayload_UserStateId.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options
+            )
+          );
           break;
         case /* repeated
                 org.apache.beam.model.pipeline.v1.ExecutableStagePayload.TimerId
                 timers */
-            8:
-          message.timers.push(ExecutableStagePayload_TimerId.internalBinaryRead(
-              reader, reader.uint32(), options));
+        8:
+          message.timers.push(
+            ExecutableStagePayload_TimerId.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options
+            )
+          );
           break;
         case /* repeated
                 org.apache.beam.model.pipeline.v1.ExecutableStagePayload.TimerFamilyId
                 timerFamilies */
-            10:
+        10:
           message.timerFamilies.push(
-              ExecutableStagePayload_TimerFamilyId.internalBinaryRead(
-                  reader, reader.uint32(), options));
+            ExecutableStagePayload_TimerFamilyId.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options
+            )
+          );
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ExecutableStagePayload, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ExecutableStagePayload,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* org.apache.beam.model.pipeline.v1.Environment environment = 1; */
     if (message.environment)
-      Environment
-          .internalBinaryWrite(
-              message.environment,
-              writer.tag(1, WireType.LengthDelimited).fork(), options)
-          .join();
+      Environment.internalBinaryWrite(
+        message.environment,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* repeated
      * org.apache.beam.model.pipeline.v1.ExecutableStagePayload.WireCoderSetting
      * wire_coder_settings = 9; */
     for (let i = 0; i < message.wireCoderSettings.length; i++)
-      ExecutableStagePayload_WireCoderSetting
-          .internalBinaryWrite(
-              message.wireCoderSettings[i],
-              writer.tag(9, WireType.LengthDelimited).fork(), options)
-          .join();
+      ExecutableStagePayload_WireCoderSetting.internalBinaryWrite(
+        message.wireCoderSettings[i],
+        writer.tag(9, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* string input = 2; */
-    if (message.input !== '')
+    if (message.input !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.input);
     /* repeated
      * org.apache.beam.model.pipeline.v1.ExecutableStagePayload.SideInputId
      * side_inputs = 3; */
     for (let i = 0; i < message.sideInputs.length; i++)
-      ExecutableStagePayload_SideInputId
-          .internalBinaryWrite(
-              message.sideInputs[i],
-              writer.tag(3, WireType.LengthDelimited).fork(), options)
-          .join();
+      ExecutableStagePayload_SideInputId.internalBinaryWrite(
+        message.sideInputs[i],
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* repeated string transforms = 4; */
     for (let i = 0; i < message.transforms.length; i++)
       writer.tag(4, WireType.LengthDelimited).string(message.transforms[i]);
@@ -10302,41 +12028,44 @@ class ExecutableStagePayload$Type extends MessageType<ExecutableStagePayload> {
       writer.tag(5, WireType.LengthDelimited).string(message.outputs[i]);
     /* org.apache.beam.model.pipeline.v1.Components components = 6; */
     if (message.components)
-      Components
-          .internalBinaryWrite(
-              message.components,
-              writer.tag(6, WireType.LengthDelimited).fork(), options)
-          .join();
+      Components.internalBinaryWrite(
+        message.components,
+        writer.tag(6, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* repeated
      * org.apache.beam.model.pipeline.v1.ExecutableStagePayload.UserStateId
      * user_states = 7; */
     for (let i = 0; i < message.userStates.length; i++)
-      ExecutableStagePayload_UserStateId
-          .internalBinaryWrite(
-              message.userStates[i],
-              writer.tag(7, WireType.LengthDelimited).fork(), options)
-          .join();
+      ExecutableStagePayload_UserStateId.internalBinaryWrite(
+        message.userStates[i],
+        writer.tag(7, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* repeated org.apache.beam.model.pipeline.v1.ExecutableStagePayload.TimerId
      * timers = 8; */
     for (let i = 0; i < message.timers.length; i++)
-      ExecutableStagePayload_TimerId
-          .internalBinaryWrite(
-              message.timers[i], writer.tag(8, WireType.LengthDelimited).fork(),
-              options)
-          .join();
+      ExecutableStagePayload_TimerId.internalBinaryWrite(
+        message.timers[i],
+        writer.tag(8, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     /* repeated
      * org.apache.beam.model.pipeline.v1.ExecutableStagePayload.TimerFamilyId
      * timerFamilies = 10; */
     for (let i = 0; i < message.timerFamilies.length; i++)
-      ExecutableStagePayload_TimerFamilyId
-          .internalBinaryWrite(
-              message.timerFamilies[i],
-              writer.tag(10, WireType.LengthDelimited).fork(), options)
-          .join();
+      ExecutableStagePayload_TimerFamilyId.internalBinaryWrite(
+        message.timerFamilies[i],
+        writer.tag(10, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -10347,41 +12076,50 @@ class ExecutableStagePayload$Type extends MessageType<ExecutableStagePayload> {
 export const ExecutableStagePayload = new ExecutableStagePayload$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class ExecutableStagePayload_SideInputId$Type extends
-    MessageType<ExecutableStagePayload_SideInputId> {
+class ExecutableStagePayload_SideInputId$Type extends MessageType<ExecutableStagePayload_SideInputId> {
   constructor() {
     super(
-        'org.apache.beam.model.pipeline.v1.ExecutableStagePayload.SideInputId',
-        [
-          {
-            no: 1,
-            name: 'transform_id',
-            kind: 'scalar',
-            T: 9 /*ScalarType.STRING*/
-          },
-          {
-            no: 2,
-            name: 'local_name',
-            kind: 'scalar',
-            T: 9 /*ScalarType.STRING*/
-          }
-        ]);
+      "org.apache.beam.model.pipeline.v1.ExecutableStagePayload.SideInputId",
+      [
+        {
+          no: 1,
+          name: "transform_id",
+          kind: "scalar",
+          T: 9 /*ScalarType.STRING*/,
+        },
+        {
+          no: 2,
+          name: "local_name",
+          kind: "scalar",
+          T: 9 /*ScalarType.STRING*/,
+        },
+      ]
+    );
   }
-  create(value?: PartialMessage<ExecutableStagePayload_SideInputId>):
-      ExecutableStagePayload_SideInputId {
-    const message = {transformId: '', localName: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<ExecutableStagePayload_SideInputId>
+  ): ExecutableStagePayload_SideInputId {
+    const message = { transformId: "", localName: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ExecutableStagePayload_SideInputId>(
-          this, message, value);
+        this,
+        message,
+        value
+      );
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ExecutableStagePayload_SideInputId):
-      ExecutableStagePayload_SideInputId {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ExecutableStagePayload_SideInputId
+  ): ExecutableStagePayload_SideInputId {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -10393,30 +12131,41 @@ class ExecutableStagePayload_SideInputId$Type extends
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ExecutableStagePayload_SideInputId, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ExecutableStagePayload_SideInputId,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string transform_id = 1; */
-    if (message.transformId !== '')
+    if (message.transformId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.transformId);
     /* string local_name = 2; */
-    if (message.localName !== '')
+    if (message.localName !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.localName);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -10425,44 +12174,53 @@ class ExecutableStagePayload_SideInputId$Type extends
  * org.apache.beam.model.pipeline.v1.ExecutableStagePayload.SideInputId
  */
 export const ExecutableStagePayload_SideInputId =
-    new ExecutableStagePayload_SideInputId$Type();
+  new ExecutableStagePayload_SideInputId$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class ExecutableStagePayload_UserStateId$Type extends
-    MessageType<ExecutableStagePayload_UserStateId> {
+class ExecutableStagePayload_UserStateId$Type extends MessageType<ExecutableStagePayload_UserStateId> {
   constructor() {
     super(
-        'org.apache.beam.model.pipeline.v1.ExecutableStagePayload.UserStateId',
-        [
-          {
-            no: 1,
-            name: 'transform_id',
-            kind: 'scalar',
-            T: 9 /*ScalarType.STRING*/
-          },
-          {
-            no: 2,
-            name: 'local_name',
-            kind: 'scalar',
-            T: 9 /*ScalarType.STRING*/
-          }
-        ]);
+      "org.apache.beam.model.pipeline.v1.ExecutableStagePayload.UserStateId",
+      [
+        {
+          no: 1,
+          name: "transform_id",
+          kind: "scalar",
+          T: 9 /*ScalarType.STRING*/,
+        },
+        {
+          no: 2,
+          name: "local_name",
+          kind: "scalar",
+          T: 9 /*ScalarType.STRING*/,
+        },
+      ]
+    );
   }
-  create(value?: PartialMessage<ExecutableStagePayload_UserStateId>):
-      ExecutableStagePayload_UserStateId {
-    const message = {transformId: '', localName: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<ExecutableStagePayload_UserStateId>
+  ): ExecutableStagePayload_UserStateId {
+    const message = { transformId: "", localName: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ExecutableStagePayload_UserStateId>(
-          this, message, value);
+        this,
+        message,
+        value
+      );
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ExecutableStagePayload_UserStateId):
-      ExecutableStagePayload_UserStateId {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ExecutableStagePayload_UserStateId
+  ): ExecutableStagePayload_UserStateId {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -10474,30 +12232,41 @@ class ExecutableStagePayload_UserStateId$Type extends
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ExecutableStagePayload_UserStateId, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ExecutableStagePayload_UserStateId,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string transform_id = 1; */
-    if (message.transformId !== '')
+    if (message.transformId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.transformId);
     /* string local_name = 2; */
-    if (message.localName !== '')
+    if (message.localName !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.localName);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -10506,31 +12275,45 @@ class ExecutableStagePayload_UserStateId$Type extends
  * org.apache.beam.model.pipeline.v1.ExecutableStagePayload.UserStateId
  */
 export const ExecutableStagePayload_UserStateId =
-    new ExecutableStagePayload_UserStateId$Type();
+  new ExecutableStagePayload_UserStateId$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class ExecutableStagePayload_TimerId$Type extends
-    MessageType<ExecutableStagePayload_TimerId> {
+class ExecutableStagePayload_TimerId$Type extends MessageType<ExecutableStagePayload_TimerId> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.ExecutableStagePayload.TimerId', [
-      {no: 1, name: 'transform_id', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-      {no: 2, name: 'local_name', kind: 'scalar', T: 9 /*ScalarType.STRING*/}
+    super("org.apache.beam.model.pipeline.v1.ExecutableStagePayload.TimerId", [
+      {
+        no: 1,
+        name: "transform_id",
+        kind: "scalar",
+        T: 9 /*ScalarType.STRING*/,
+      },
+      { no: 2, name: "local_name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
     ]);
   }
-  create(value?: PartialMessage<ExecutableStagePayload_TimerId>):
-      ExecutableStagePayload_TimerId {
-    const message = {transformId: '', localName: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<ExecutableStagePayload_TimerId>
+  ): ExecutableStagePayload_TimerId {
+    const message = { transformId: "", localName: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ExecutableStagePayload_TimerId>(
-          this, message, value);
+        this,
+        message,
+        value
+      );
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ExecutableStagePayload_TimerId): ExecutableStagePayload_TimerId {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ExecutableStagePayload_TimerId
+  ): ExecutableStagePayload_TimerId {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -10542,30 +12325,41 @@ class ExecutableStagePayload_TimerId$Type extends
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ExecutableStagePayload_TimerId, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ExecutableStagePayload_TimerId,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string transform_id = 1; */
-    if (message.transformId !== '')
+    if (message.transformId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.transformId);
     /* string local_name = 2; */
-    if (message.localName !== '')
+    if (message.localName !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.localName);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -10574,44 +12368,53 @@ class ExecutableStagePayload_TimerId$Type extends
  * org.apache.beam.model.pipeline.v1.ExecutableStagePayload.TimerId
  */
 export const ExecutableStagePayload_TimerId =
-    new ExecutableStagePayload_TimerId$Type();
+  new ExecutableStagePayload_TimerId$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class ExecutableStagePayload_TimerFamilyId$Type extends
-    MessageType<ExecutableStagePayload_TimerFamilyId> {
+class ExecutableStagePayload_TimerFamilyId$Type extends MessageType<ExecutableStagePayload_TimerFamilyId> {
   constructor() {
     super(
-        'org.apache.beam.model.pipeline.v1.ExecutableStagePayload.TimerFamilyId',
-        [
-          {
-            no: 1,
-            name: 'transform_id',
-            kind: 'scalar',
-            T: 9 /*ScalarType.STRING*/
-          },
-          {
-            no: 2,
-            name: 'local_name',
-            kind: 'scalar',
-            T: 9 /*ScalarType.STRING*/
-          }
-        ]);
+      "org.apache.beam.model.pipeline.v1.ExecutableStagePayload.TimerFamilyId",
+      [
+        {
+          no: 1,
+          name: "transform_id",
+          kind: "scalar",
+          T: 9 /*ScalarType.STRING*/,
+        },
+        {
+          no: 2,
+          name: "local_name",
+          kind: "scalar",
+          T: 9 /*ScalarType.STRING*/,
+        },
+      ]
+    );
   }
-  create(value?: PartialMessage<ExecutableStagePayload_TimerFamilyId>):
-      ExecutableStagePayload_TimerFamilyId {
-    const message = {transformId: '', localName: ''};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+  create(
+    value?: PartialMessage<ExecutableStagePayload_TimerFamilyId>
+  ): ExecutableStagePayload_TimerFamilyId {
+    const message = { transformId: "", localName: "" };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ExecutableStagePayload_TimerFamilyId>(
-          this, message, value);
+        this,
+        message,
+        value
+      );
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ExecutableStagePayload_TimerFamilyId):
-      ExecutableStagePayload_TimerFamilyId {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ExecutableStagePayload_TimerFamilyId
+  ): ExecutableStagePayload_TimerFamilyId {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -10623,30 +12426,41 @@ class ExecutableStagePayload_TimerFamilyId$Type extends
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ExecutableStagePayload_TimerFamilyId, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ExecutableStagePayload_TimerFamilyId,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string transform_id = 1; */
-    if (message.transformId !== '')
+    if (message.transformId !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.transformId);
     /* string local_name = 2; */
-    if (message.localName !== '')
+    if (message.localName !== "")
       writer.tag(2, WireType.LengthDelimited).string(message.localName);
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -10655,52 +12469,61 @@ class ExecutableStagePayload_TimerFamilyId$Type extends
  * org.apache.beam.model.pipeline.v1.ExecutableStagePayload.TimerFamilyId
  */
 export const ExecutableStagePayload_TimerFamilyId =
-    new ExecutableStagePayload_TimerFamilyId$Type();
+  new ExecutableStagePayload_TimerFamilyId$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
-class ExecutableStagePayload_WireCoderSetting$Type extends
-    MessageType<ExecutableStagePayload_WireCoderSetting> {
+class ExecutableStagePayload_WireCoderSetting$Type extends MessageType<ExecutableStagePayload_WireCoderSetting> {
   constructor() {
     super(
-        'org.apache.beam.model.pipeline.v1.ExecutableStagePayload.WireCoderSetting',
-        [
-          {no: 1, name: 'urn', kind: 'scalar', T: 9 /*ScalarType.STRING*/},
-          {no: 2, name: 'payload', kind: 'scalar', T: 12 /*ScalarType.BYTES*/},
-          {
-            no: 3,
-            name: 'input_or_output_id',
-            kind: 'scalar',
-            oneof: 'target',
-            T: 9 /*ScalarType.STRING*/
-          },
-          {
-            no: 4,
-            name: 'timer',
-            kind: 'message',
-            oneof: 'target',
-            T: () => ExecutableStagePayload_TimerId
-          }
-        ]);
+      "org.apache.beam.model.pipeline.v1.ExecutableStagePayload.WireCoderSetting",
+      [
+        { no: 1, name: "urn", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+        { no: 2, name: "payload", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
+        {
+          no: 3,
+          name: "input_or_output_id",
+          kind: "scalar",
+          oneof: "target",
+          T: 9 /*ScalarType.STRING*/,
+        },
+        {
+          no: 4,
+          name: "timer",
+          kind: "message",
+          oneof: "target",
+          T: () => ExecutableStagePayload_TimerId,
+        },
+      ]
+    );
   }
-  create(value?: PartialMessage<ExecutableStagePayload_WireCoderSetting>):
-      ExecutableStagePayload_WireCoderSetting {
+  create(
+    value?: PartialMessage<ExecutableStagePayload_WireCoderSetting>
+  ): ExecutableStagePayload_WireCoderSetting {
     const message = {
-      urn: '',
+      urn: "",
       payload: new Uint8Array(0),
-      target: {oneofKind: undefined}
+      target: { oneofKind: undefined },
     };
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<ExecutableStagePayload_WireCoderSetting>(
-          this, message, value);
+        this,
+        message,
+        value
+      );
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: ExecutableStagePayload_WireCoderSetting):
-      ExecutableStagePayload_WireCoderSetting {
-    let message = target ?? this.create(), end = reader.pos + length;
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ExecutableStagePayload_WireCoderSetting
+  ): ExecutableStagePayload_WireCoderSetting {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
     while (reader.pos < end) {
       let [fieldNo, wireType] = reader.tag();
       switch (fieldNo) {
@@ -10712,57 +12535,73 @@ class ExecutableStagePayload_WireCoderSetting$Type extends
           break;
         case /* string input_or_output_id */ 3:
           message.target = {
-            oneofKind: 'inputOrOutputId',
-            inputOrOutputId: reader.string()
+            oneofKind: "inputOrOutputId",
+            inputOrOutputId: reader.string(),
           };
           break;
         case /* org.apache.beam.model.pipeline.v1.ExecutableStagePayload.TimerId
                 timer */
-            4:
+        4:
           message.target = {
-            oneofKind: 'timer',
+            oneofKind: "timer",
             timer: ExecutableStagePayload_TimerId.internalBinaryRead(
-                reader, reader.uint32(), options, (message.target as any).timer)
+              reader,
+              reader.uint32(),
+              options,
+              (message.target as any).timer
+            ),
           };
           break;
         default:
           let u = options.readUnknownField;
-          if (u === 'throw')
-            throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${
-                wireType}) for ${this.typeName}`);
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            );
           let d = reader.skip(wireType);
           if (u !== false)
             (u === true ? UnknownFieldHandler.onRead : u)(
-                this.typeName, message, fieldNo, wireType, d);
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            );
       }
     }
     return message;
   }
   internalBinaryWrite(
-      message: ExecutableStagePayload_WireCoderSetting, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: ExecutableStagePayload_WireCoderSetting,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     /* string urn = 1; */
-    if (message.urn !== '')
+    if (message.urn !== "")
       writer.tag(1, WireType.LengthDelimited).string(message.urn);
     /* bytes payload = 2; */
     if (message.payload.length)
       writer.tag(2, WireType.LengthDelimited).bytes(message.payload);
     /* string input_or_output_id = 3; */
-    if (message.target.oneofKind === 'inputOrOutputId')
-      writer.tag(3, WireType.LengthDelimited)
-          .string(message.target.inputOrOutputId);
+    if (message.target.oneofKind === "inputOrOutputId")
+      writer
+        .tag(3, WireType.LengthDelimited)
+        .string(message.target.inputOrOutputId);
     /* org.apache.beam.model.pipeline.v1.ExecutableStagePayload.TimerId timer =
      * 4; */
-    if (message.target.oneofKind === 'timer')
-      ExecutableStagePayload_TimerId
-          .internalBinaryWrite(
-              message.target.timer,
-              writer.tag(4, WireType.LengthDelimited).fork(), options)
-          .join();
+    if (message.target.oneofKind === "timer")
+      ExecutableStagePayload_TimerId.internalBinaryWrite(
+        message.target.timer,
+        writer.tag(4, WireType.LengthDelimited).fork(),
+        options
+      ).join();
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -10771,33 +12610,43 @@ class ExecutableStagePayload_WireCoderSetting$Type extends
  * org.apache.beam.model.pipeline.v1.ExecutableStagePayload.WireCoderSetting
  */
 export const ExecutableStagePayload_WireCoderSetting =
-    new ExecutableStagePayload_WireCoderSetting$Type();
+  new ExecutableStagePayload_WireCoderSetting$Type();
 // @generated message type with reflection information, may provide speed
 // optimized methods
 class StandardResourceHints$Type extends MessageType<StandardResourceHints> {
   constructor() {
-    super('org.apache.beam.model.pipeline.v1.StandardResourceHints', []);
+    super("org.apache.beam.model.pipeline.v1.StandardResourceHints", []);
   }
   create(value?: PartialMessage<StandardResourceHints>): StandardResourceHints {
     const message = {};
-    globalThis.Object.defineProperty(
-        message, MESSAGE_TYPE, {enumerable: false, value: this});
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
     if (value !== undefined)
       reflectionMergePartial<StandardResourceHints>(this, message, value);
     return message;
   }
   internalBinaryRead(
-      reader: IBinaryReader, length: number, options: BinaryReadOptions,
-      target?: StandardResourceHints): StandardResourceHints {
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StandardResourceHints
+  ): StandardResourceHints {
     return target ?? this.create();
   }
   internalBinaryWrite(
-      message: StandardResourceHints, writer: IBinaryWriter,
-      options: BinaryWriteOptions): IBinaryWriter {
+    message: StandardResourceHints,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
     let u = options.writeUnknownFields;
     if (u !== false)
       (u == true ? UnknownFieldHandler.onWrite : u)(
-          this.typeName, message, writer);
+        this.typeName,
+        message,
+        writer
+      );
     return writer;
   }
 }
@@ -10810,11 +12659,15 @@ export const StandardResourceHints = new StandardResourceHints$Type();
  * @generated ServiceType for protobuf service
  * org.apache.beam.model.pipeline.v1.TestStreamService
  */
-export const TestStreamService =
-    new ServiceType('org.apache.beam.model.pipeline.v1.TestStreamService', [{
-                      name: 'Events',
-                      serverStreaming: true,
-                      options: {},
-                      I: EventsRequest,
-                      O: TestStreamPayload_Event
-                    }]);
+export const TestStreamService = new ServiceType(
+  "org.apache.beam.model.pipeline.v1.TestStreamService",
+  [
+    {
+      name: "Events",
+      serverStreaming: true,
+      options: {},
+      I: EventsRequest,
+      O: TestStreamPayload_Event,
+    },
+  ]
+);

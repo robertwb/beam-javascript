@@ -1,25 +1,35 @@
-import {Reader, Writer} from 'protobufjs';
+import { Reader, Writer } from "protobufjs";
 
-import {PipelineContext} from '..';
-import * as translations from '../internal/translations';
-import * as runnerApi from '../proto/beam_runner_api';
-import {Value} from '../proto/google/protobuf/struct';
-import {AtomicType, Field, FieldType, Schema} from '../proto/schema';
+import { PipelineContext } from "..";
+import * as translations from "../internal/translations";
+import * as runnerApi from "../proto/beam_runner_api";
+import { Value } from "../proto/google/protobuf/struct";
+import { AtomicType, Field, FieldType, Schema } from "../proto/schema";
 
-import {Coder, CODER_REGISTRY, Context} from './coders';
-import {BoolCoder, BytesCoder, IterableCoder, StrUtf8Coder, VarIntCoder,} from './standard_coders';
+import { Coder, CODER_REGISTRY, Context } from "./coders";
+import {
+  BoolCoder,
+  BytesCoder,
+  IterableCoder,
+  StrUtf8Coder,
+  VarIntCoder,
+} from "./standard_coders";
 
-const argsort = x => x.map((v, i) => [v, i]).sort().map(y => y[1]);
+const argsort = (x) =>
+  x
+    .map((v, i) => [v, i])
+    .sort()
+    .map((y) => y[1]);
 
 // const util = require('util');
 
 export class RowCoder implements Coder<any> {
-  public static URN = 'beam:coder:row:v1';
+  public static URN = "beam:coder:row:v1";
 
   private schema: Schema;
   private nFields: number;
   private fieldNames: string[];
-  private fieldNullable: (boolean|undefined)[];
+  private fieldNullable: (boolean | undefined)[];
   private encodingPositionsAreTrivial = true;
   private encodingPositions: number[];
   private encodingPositionsArgsSorted: number[];
@@ -31,26 +41,26 @@ export class RowCoder implements Coder<any> {
     if (f.type !== undefined) {
       const typeInfo = f.type?.typeInfo;
       switch (typeInfo.oneofKind) {
-        case 'atomicType':
+        case "atomicType":
           obj[f.name] = value;
           break;
-        case 'arrayType':
+        case "arrayType":
           obj[f.name] = Array.from(value);
           break;
         // case "iterableType":
         // case "mapType":
-        case 'rowType':
+        case "rowType":
           if (typeInfo.rowType.schema !== undefined) {
             obj[f.name] = value;
           } else {
-            throw new Error('Schema missing on RowType');
+            throw new Error("Schema missing on RowType");
           }
           break;
         // case "logicalType":
         default:
           throw new Error(
-              `Encountered a type that is not currently supported by RowCoder: ${
-                  f.type}`);
+            `Encountered a type that is not currently supported by RowCoder: ${f.type}`
+          );
       }
       return obj;
     }
@@ -65,22 +75,22 @@ export class RowCoder implements Coder<any> {
     };
 
     switch (typeof obj) {
-      case 'string':
+      case "string":
         fieldType.typeInfo = {
-          oneofKind: 'atomicType',
+          oneofKind: "atomicType",
           atomicType: AtomicType.STRING,
         };
         break;
-      case 'boolean':
+      case "boolean":
         fieldType.typeInfo = {
-          oneofKind: 'atomicType',
+          oneofKind: "atomicType",
           atomicType: AtomicType.BOOLEAN,
         };
         break;
-      case 'number':
+      case "number":
         if (Number.isInteger(obj)) {
           fieldType.typeInfo = {
-            oneofKind: 'atomicType',
+            oneofKind: "atomicType",
             atomicType: AtomicType.INT64,
           };
         } else {
@@ -90,10 +100,10 @@ export class RowCoder implements Coder<any> {
           // }
         }
         break;
-      case 'object':
+      case "object":
         if (Array.isArray(obj)) {
           fieldType.typeInfo = {
-            oneofKind: 'arrayType',
+            oneofKind: "arrayType",
             arrayType: {
               // TODO: Infer element type in a better way
               elementType: RowCoder.InferTypeFromJSON(obj[0]),
@@ -101,13 +111,13 @@ export class RowCoder implements Coder<any> {
           };
         } else if (obj instanceof Uint8Array) {
           fieldType.typeInfo = {
-            oneofKind: 'atomicType',
+            oneofKind: "atomicType",
             atomicType: AtomicType.BYTES,
           };
         } else {
           fieldType.typeInfo = {
-            oneofKind: 'rowType',
-            rowType: {schema: RowCoder.InferSchemaOfJSON(obj)},
+            oneofKind: "rowType",
+            rowType: { schema: RowCoder.InferSchemaOfJSON(obj) },
           };
         }
         break;
@@ -120,24 +130,28 @@ export class RowCoder implements Coder<any> {
   }
 
   static InferSchemaOfJSON(obj: any): Schema {
-    const fields: Field[] = Object.entries(obj).map(entry => {
+    const fields: Field[] = Object.entries(obj).map((entry) => {
       return {
         name: entry[0],
-        description: '',
+        description: "",
         type: RowCoder.InferTypeFromJSON(entry[1]),
         id: 0,
         encodingPosition: 0,
         options: [],
       };
     });
-    console.log(JSON.stringify(
+    console.log(
+      JSON.stringify(
         {
           id: (Math.random() + 1).toString(36).substring(7),
           fields: fields,
           options: [],
           encodingPositionsSet: false,
         },
-        null, 4));
+        null,
+        4
+      )
+    );
     return {
       id: (Math.random() + 1).toString(36).substring(7),
       fields: fields,
@@ -150,7 +164,7 @@ export class RowCoder implements Coder<any> {
     const typeInfo = t.typeInfo;
 
     switch (typeInfo.oneofKind) {
-      case 'atomicType':
+      case "atomicType":
         const atomicType: AtomicType = typeInfo.atomicType;
         switch (atomicType) {
           case AtomicType.INT16:
@@ -168,31 +182,32 @@ export class RowCoder implements Coder<any> {
             return new BoolCoder();
           default:
             throw new Error(
-                `Encountered an Atomic type that is not currently supported by RowCoder: ${
-                    atomicType}`);
+              `Encountered an Atomic type that is not currently supported by RowCoder: ${atomicType}`
+            );
         }
         break;
-      case 'arrayType':
+      case "arrayType":
         if (typeInfo.arrayType.elementType !== undefined) {
           return new IterableCoder(
-              this.getNonNullCoderFromType(typeInfo.arrayType.elementType));
+            this.getNonNullCoderFromType(typeInfo.arrayType.elementType)
+          );
         } else {
-          throw new Error('ElementType missing on ArrayType');
+          throw new Error("ElementType missing on ArrayType");
         }
       // case "iterableType":
       // case "mapType":
-      case 'rowType':
+      case "rowType":
         if (typeInfo.rowType.schema !== undefined) {
           return RowCoder.OfSchema(typeInfo.rowType.schema);
         } else {
-          throw new Error('Schema missing on RowType');
+          throw new Error("Schema missing on RowType");
         }
         break;
       // case "logicalType":
       default:
         throw new Error(
-            `Encountered a type that is not currently supported by RowCoder: ${
-                t}`);
+          `Encountered a type that is not currently supported by RowCoder: ${t}`
+        );
     }
   }
 
@@ -216,9 +231,9 @@ export class RowCoder implements Coder<any> {
       // Should never be duplicate encoding positions.
       const encPosx = schema.fields.map((f: Field) => f.encodingPosition);
       if (encPosx.length != this.encodingPositions.length) {
-        throw new Error(`Schema with id ${
-            this.schema
-                .id} has encoding_positions_set=True, but not all fields have encoding_position set`);
+        throw new Error(
+          `Schema with id ${this.schema.id} has encoding_positions_set=True, but not all fields have encoding_position set`
+        );
       }
       // Checking if positions are in {0, ..., length-1}
       this.encodingPositionsAreTrivial = encPosx === this.encodingPositions;
@@ -226,14 +241,16 @@ export class RowCoder implements Coder<any> {
       this.encodingPositionsArgsSorted = argsort(encPosx);
     }
 
-    this.hasNullableFields =
-        this.schema.fields.some((f: Field) => f.type?.nullable);
-    this.components = this.encodingPositions.map(i => this.schema.fields[i])
-                          .map((f: Field) => {
-                            if (f.type !== undefined) {
-                              return this.getNonNullCoderFromType(f.type);
-                            }
-                          });
+    this.hasNullableFields = this.schema.fields.some(
+      (f: Field) => f.type?.nullable
+    );
+    this.components = this.encodingPositions
+      .map((i) => this.schema.fields[i])
+      .map((f: Field) => {
+        if (f.type !== undefined) {
+          return this.getNonNullCoderFromType(f.type);
+        }
+      });
   }
 
   encode(element: any, writer: Writer, context: Context) {
@@ -252,14 +269,14 @@ export class RowCoder implements Coder<any> {
     //     The two-byte bitset (not including the lenghth-prefix) for the row
     //     [NULL, 0, 0, 0, NULL, 0, 0, NULL, 0, NULL] would be
     //     [0b10010001, 0b00000010]
-    const attrs = this.fieldNames.map(name => element[name]);
+    const attrs = this.fieldNames.map((name) => element[name]);
 
     const bytesCoder = new BytesCoder();
 
     const nullFields: number[] = [];
 
     if (this.hasNullableFields) {
-      if (attrs.some(attr => attr == undefined)) {
+      if (attrs.some((attr) => attr == undefined)) {
         let running = 0;
         attrs.forEach((attr, i) => {
           if (i && i % 8 == 0) {
@@ -275,16 +292,17 @@ export class RowCoder implements Coder<any> {
     writer.bytes(new Uint8Array(nullFields));
 
     // An encoding for each non-null field, concatenated together.
-    const positions = this.encodingPositionsAreTrivial ?
-        this.encodingPositions :
-        this.encodingPositionsArgsSorted;
+    const positions = this.encodingPositionsAreTrivial
+      ? this.encodingPositions
+      : this.encodingPositionsArgsSorted;
 
-    positions.forEach(i => {
+    positions.forEach((i) => {
       const attr = attrs[i];
       if (attr == undefined) {
         if (!this.fieldNullable[i]) {
-          throw new Error(`Attempted to encode null for non-nullable field \"${
-              this.schema.fields[i].name}\".`);
+          throw new Error(
+            `Attempted to encode null for non-nullable field \"${this.schema.fields[i].name}\".`
+          );
         }
       } else {
         this.components[i].encode(attr, writer, Context.needsDelimiters);
@@ -297,8 +315,9 @@ export class RowCoder implements Coder<any> {
 
     // Addressing Null values
     let nulls: any[],
-        hasNulls = false, nullMaskBytes = reader.int32(),
-        nullMask = reader.buf.slice(reader.pos, reader.pos + nullMaskBytes);
+      hasNulls = false,
+      nullMaskBytes = reader.int32(),
+      nullMask = reader.buf.slice(reader.pos, reader.pos + nullMaskBytes);
 
     reader.pos += nullMaskBytes;
 
@@ -306,30 +325,32 @@ export class RowCoder implements Coder<any> {
       hasNulls = true;
 
       let running = 0;
-      nulls = Array(nFields).fill(0).map((_, i) => {
-        if (i % 8 == 0) {
-          const chunk = Math.floor(i / 8);
-          running = chunk >= nullMask.length ? 0 : nullMask[chunk];
-        }
-        return (running >> i % 8) & 0x01;
-      });
+      nulls = Array(nFields)
+        .fill(0)
+        .map((_, i) => {
+          if (i % 8 == 0) {
+            const chunk = Math.floor(i / 8);
+            running = chunk >= nullMask.length ? 0 : nullMask[chunk];
+          }
+          return (running >> i % 8) & 0x01;
+        });
     }
 
     // Note that if this coder's schema has *fewer* attributes than the encoded
     // value, we just need to ignore the additional values, which will occur
     // here because we only decode as many values as we have coders for.
-    const positions = this.encodingPositionsAreTrivial ?
-        this.encodingPositions :
-        this.encodingPositionsArgsSorted,
-          sortedComponents =
-              positions.slice(0, Math.min(this.nFields, nFields)).map(i => {
-                if (hasNulls && nulls[i]) {
-                  return undefined;
-                } else {
-                  return this.components[i].decode(
-                      reader, Context.needsDelimiters);
-                }
-              });
+    const positions = this.encodingPositionsAreTrivial
+        ? this.encodingPositions
+        : this.encodingPositionsArgsSorted,
+      sortedComponents = positions
+        .slice(0, Math.min(this.nFields, nFields))
+        .map((i) => {
+          if (hasNulls && nulls[i]) {
+            return undefined;
+          } else {
+            return this.components[i].decode(reader, Context.needsDelimiters);
+          }
+        });
 
     // If this coder's schema has more attributes than the encoded value, then
     // the schema must have changed. Populate the unencoded fields with nulls.
@@ -338,9 +359,12 @@ export class RowCoder implements Coder<any> {
     }
 
     let obj: any = {};
-    positions.forEach(i => {
-      obj =
-          this.addFieldOfType(obj, this.schema.fields[i], sortedComponents[i]);
+    positions.forEach((i) => {
+      obj = this.addFieldOfType(
+        obj,
+        this.schema.fields[i],
+        sortedComponents[i]
+      );
     });
 
     return obj;

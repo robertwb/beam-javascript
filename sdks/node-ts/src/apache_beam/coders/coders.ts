@@ -1,10 +1,10 @@
-import {Reader, Writer} from 'protobufjs';
+import { Reader, Writer } from "protobufjs";
 
-import {PipelineContext} from '../base';
-import * as runnerApi from '../proto/beam_runner_api';
+import { PipelineContext } from "../base";
+import * as runnerApi from "../proto/beam_runner_api";
 
 interface Class<T> {
-  new(...args: any[]): T;
+  new (...args: any[]): T;
 }
 
 class CoderRegistry {
@@ -12,7 +12,7 @@ class CoderRegistry {
   get(urn: string): Class<Coder<any>> {
     const constructor: Class<Coder<any>> = this.internal_registry[urn];
     if (constructor === undefined) {
-      throw new Error('Could not find coder for URN ' + urn);
+      throw new Error("Could not find coder for URN " + urn);
     }
     return constructor;
   }
@@ -24,8 +24,8 @@ class CoderRegistry {
 export const CODER_REGISTRY = new CoderRegistry();
 
 export enum Context {
-  wholeStream = 'wholeStream',
-  needsDelimiters = 'needsDelimiters',
+  wholeStream = "wholeStream",
+  needsDelimiters = "needsDelimiters",
 }
 
 export interface Coder<T> {
