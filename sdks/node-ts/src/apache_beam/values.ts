@@ -1,12 +1,11 @@
 export type KV<K, V> = {
-  key: K;
-  value: V;
+  key: K; value: V;
 };
 
 export interface PaneInfo {
   timing: Timing;
-  index: number; // TODO: should be a long
-  onTimeIndex: number; // TODO should be a long
+  index: number;        // TODO: should be a long
+  onTimeIndex: number;  // TODO should be a long
   isFirst: boolean;
   isLast: boolean;
 }

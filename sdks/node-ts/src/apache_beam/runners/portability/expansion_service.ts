@@ -1,19 +1,13 @@
 import {ChannelCredentials} from '@grpc/grpc-js';
-import {
-  ExpansionRequest,
-  ExpansionResponse,
-} from '../../proto/beam_expansion_api';
-import {
-  ExpansionServiceClient,
-  IExpansionServiceClient,
-} from '../../proto/beam_expansion_api.grpc-client';
+
+import {ExpansionRequest, ExpansionResponse,} from '../../proto/beam_expansion_api';
+import {ExpansionServiceClient, IExpansionServiceClient,} from '../../proto/beam_expansion_api.grpc-client';
+
 import {expansionReq} from './expansion_request';
 
 const client = new ExpansionServiceClient(
-  // TODO(pabloem): Do we need to implement this?
-  'localhost:4444',
-  ChannelCredentials.createInsecure()
-);
+    // TODO(pabloem): Do we need to implement this?
+    'localhost:4444', ChannelCredentials.createInsecure());
 
 async function main() {
   await callExpand(client);
@@ -46,6 +40,4 @@ function callExpand(client: IExpansionServiceClient) {
   });
 }
 
-main()
-  .catch(e => console.error(e))
-  .finally(() => process.exit());
+main().catch(e => console.error(e)).finally(() => process.exit());

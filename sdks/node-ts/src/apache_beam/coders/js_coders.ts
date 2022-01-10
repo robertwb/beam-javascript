@@ -1,14 +1,11 @@
 import * as BSON from 'bson';
-import {Writer, Reader} from 'protobufjs';
-import {Coder, CODER_REGISTRY, Context} from './coders';
-import {
-  BoolCoder,
-  DoubleCoder,
-  StrUtf8Coder,
-  VarIntCoder,
-} from './standard_coders';
-import * as runnerApi from '../proto/beam_runner_api';
+import {Reader, Writer} from 'protobufjs';
+
 import {PipelineContext} from '../base';
+import * as runnerApi from '../proto/beam_runner_api';
+
+import {Coder, CODER_REGISTRY, Context} from './coders';
+import {BoolCoder, DoubleCoder, StrUtf8Coder, VarIntCoder,} from './standard_coders';
 
 export class BsonObjectCoder<T> implements Coder<T> {
   static URN = 'beam:coder:bsonjs:v1';

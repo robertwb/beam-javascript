@@ -1,16 +1,9 @@
 import Long from 'long';
 
-import * as runnerApi from '../proto/beam_runner_api';
-import {
-  FixedWindowsPayload,
-  SessionWindowsPayload,
-} from '../proto/standard_window_fns';
 import {WindowFn} from '../base';
-import {
-  GlobalWindow,
-  GlobalWindowCoder,
-  IntervalWindowCoder,
-} from '../coders/standard_coders';
+import {GlobalWindow, GlobalWindowCoder, IntervalWindowCoder,} from '../coders/standard_coders';
+import * as runnerApi from '../proto/beam_runner_api';
+import {FixedWindowsPayload, SessionWindowsPayload,} from '../proto/standard_window_fns';
 import {Instant, IntervalWindow} from '../values';
 
 export class GlobalWindows implements WindowFn<GlobalWindow> {
@@ -33,13 +26,11 @@ export class GlobalWindows implements WindowFn<GlobalWindow> {
 
 export class FixedWindows implements WindowFn<IntervalWindow> {
   size: Long;
-  offset: Instant; // TODO: Or should this be a long as well?
+  offset: Instant;  // TODO: Or should this be a long as well?
 
   // TODO: Use a time library?
   constructor(
-    sizeSeconds: number | Long,
-    offsetSeconds: Instant = Long.fromValue(0)
-  ) {
+      sizeSeconds: number|Long, offsetSeconds: Instant = Long.fromValue(0)) {
     if (typeof sizeSeconds === 'number') {
       this.size = Long.fromValue(sizeSeconds).mul(1000);
     } else {
@@ -79,7 +70,7 @@ export class FixedWindows implements WindowFn<IntervalWindow> {
 export class Sessions implements WindowFn<IntervalWindow> {
   gap: Long;
 
-  constructor(gapSeconds: number | Long) {
+  constructor(gapSeconds: number|Long) {
     if (typeof gapSeconds === 'number') {
       this.gap = Long.fromValue(gapSeconds).mul(1000);
     } else {

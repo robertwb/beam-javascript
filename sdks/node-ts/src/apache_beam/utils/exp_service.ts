@@ -1,5 +1,5 @@
 const fs = require('fs');
-//const https = require('https')
+// const https = require('https')
 const os = require('os');
 const path = require('path');
 
@@ -37,10 +37,8 @@ export class JavaExpansionServiceRunner {
 
     if (jarName.includes('.dev')) {
       throw new Error(
-        'Cannot pull dev versions of JARs, please run gradlew ' +
-          this.gradleTarget +
-          ' to start your expansion service.'
-      );
+          'Cannot pull dev versions of JARs, please run gradlew ' +
+          this.gradleTarget + ' to start your expansion service.');
     }
 
     this.downloadJar();

@@ -1,5 +1,7 @@
 import {Reader, Writer} from 'protobufjs';
+
 import {AtomicType, Schema} from '../proto/schema';
+
 import {Context} from './coders';
 import {RowCoder} from './row_coder';
 
@@ -42,8 +44,10 @@ import {RowCoder} from './row_coder';
 //                                                 elementType: {
 //                                                     nullable: true,
 //                                                     typeInfo: {
-//                                                         oneofKind: "atomicType",
-//                                                         atomicType: AtomicType.INT32
+//                                                         oneofKind:
+//                                                         "atomicType",
+//                                                         atomicType:
+//                                                         AtomicType.INT32
 //                                                     }
 //                                                 },
 //                                             }
@@ -186,14 +190,15 @@ const obj = {
 };
 
 // let obj = {
-//     constructor: 'apache_beam.transforms.fully_qualified_named_transform_test._TestTransform',
+//     constructor:
+//     'apache_beam.transforms.fully_qualified_named_transform_test._TestTransform',
 //     args: { arg0: 'x' },
 //     kwargs: { suffix: 'y' },
 // }
 
 const writer = new Writer(),
-  // row = RowCoder.OfSchema(schema);
-  row = RowCoder.OfJSON(obj);
+      // row = RowCoder.OfSchema(schema);
+    row = RowCoder.OfJSON(obj);
 
 row.encode(obj, writer, Context.needsDelimiters);
 

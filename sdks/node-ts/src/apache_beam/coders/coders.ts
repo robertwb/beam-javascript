@@ -1,9 +1,10 @@
-import {Writer, Reader} from 'protobufjs';
-import * as runnerApi from '../proto/beam_runner_api';
+import {Reader, Writer} from 'protobufjs';
+
 import {PipelineContext} from '../base';
+import * as runnerApi from '../proto/beam_runner_api';
 
 interface Class<T> {
-  new (...args: any[]): T;
+  new(...args: any[]): T;
 }
 
 class CoderRegistry {

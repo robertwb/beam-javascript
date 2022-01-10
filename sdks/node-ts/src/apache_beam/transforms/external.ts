@@ -1,27 +1,22 @@
 import {ChannelCredentials} from '@grpc/grpc-js';
-
-import {ExpansionRequest, ExpansionResponse} from '../proto/beam_expansion_api';
-import {
-  ExpansionServiceClient,
-  IExpansionServiceClient,
-} from '../proto/beam_expansion_api.grpc-client';
-import {ExternalConfigurationPayload} from '../proto/external_transforms';
-import {AtomicType, Schema} from '../proto/schema';
 import {Writer} from 'protobufjs';
 
 import * as base from '../base';
-import * as core from '../transforms/core';
-import * as runnerApi from '../proto/beam_runner_api';
+import {RowCoder} from '../coders/row_coder';
 // import { Context as CoderContext } from '../coders/coders'
 import * as coders from '../coders/standard_coders';
-import {RowCoder} from '../coders/row_coder';
+import {ExpansionRequest, ExpansionResponse} from '../proto/beam_expansion_api';
+import {ExpansionServiceClient, IExpansionServiceClient,} from '../proto/beam_expansion_api.grpc-client';
+import * as runnerApi from '../proto/beam_runner_api';
+import {ExternalConfigurationPayload} from '../proto/external_transforms';
+import {AtomicType, Schema} from '../proto/schema';
+import * as core from '../transforms/core';
 
-//import { BytesCoder, KVCoder } from "../coders/standard_coders";
+// import { BytesCoder, KVCoder } from "../coders/standard_coders";
 
 export class RawExternalTransform<
-  InputT extends base.PValue<any>,
-  OutputT extends base.PValue<any>
-> extends base.AsyncPTransform<InputT, OutputT> {
+    InputT extends base.PValue<any>, OutputT extends base.PValue<any>> extends
+    base.AsyncPTransform<InputT, OutputT> {
   static namespaceCounter = 0;
   static freshNamespace() {
     return 'namespace_' + RawExternalTransform.namespaceCounter++ + '_';
@@ -30,11 +25,8 @@ export class RawExternalTransform<
   private payload?: Uint8Array;
 
   constructor(
-    private urn: string,
-    payload: Uint8Array | {[key: string]: any},
-    private address: string,
-    private inferPValueType: boolean = true
-  ) {
+      private urn: string, payload: Uint8Array|{[key: string]: any},
+      private address: string, private inferPValueType: boolean = true) {
     super('External(' + urn + ')');
     if (payload == undefined) {
       this.payload = undefined;
@@ -46,14 +38,10 @@ export class RawExternalTransform<
   }
 
   async asyncExpandInternal(
-    pipeline: base.Pipeline,
-    transformProto: runnerApi.PTransform,
-    input: InputT
-  ): Promise<OutputT> {
+      pipeline: base.Pipeline, transformProto: runnerApi.PTransform,
+      input: InputT): Promise<OutputT> {
     const client = new ExpansionServiceClient(
-      this.address,
-      ChannelCredentials.createInsecure()
-    );
+        this.address, ChannelCredentials.createInsecure());
 
     const pipelineComponents = pipeline.getProto().components!;
     const namespace = RawExternalTransform.freshNamespace();
@@ -73,25 +61,22 @@ export class RawExternalTransform<
     for (const pcId of Object.values(transformProto.inputs)) {
       console.log('COPYING', pcId, pipelineComponents.pcollections![pcId]);
       request.components!.pcollections[pcId] =
-        pipelineComponents.pcollections![pcId];
+          pipelineComponents.pcollections![pcId];
       request.components!.transforms[fakeImpulseNamespace + pcId] =
-        runnerApi.PTransform.create({
-          uniqueName: fakeImpulseNamespace + '_create_' + pcId,
-          spec: {urn: base.Impulse.urn, payload: new Uint8Array()},
-          outputs: {main: pcId},
-        });
+          runnerApi.PTransform.create({
+            uniqueName: fakeImpulseNamespace + '_create_' + pcId,
+            spec: {urn: base.Impulse.urn, payload: new Uint8Array()},
+            outputs: {main: pcId},
+          });
     }
 
     // Copy all the rest, as there may be opaque references.
     Object.assign(request.components!.coders, pipelineComponents.coders);
     Object.assign(
-      request.components!.windowingStrategies,
-      pipelineComponents.windowingStrategies
-    );
+        request.components!.windowingStrategies,
+        pipelineComponents.windowingStrategies);
     Object.assign(
-      request.components!.environments,
-      pipelineComponents.environments
-    );
+        request.components!.environments, pipelineComponents.environments);
 
     console.log('Calling Expand function with');
     console.dir(request, {depth: null});
@@ -106,8 +91,7 @@ export class RawExternalTransform<
             reject(new Error(response.error));
           } else {
             resolve(
-              this_.splice(pipeline, transformProto, response, namespace)
-            );
+                this_.splice(pipeline, transformProto, response, namespace));
           }
         } else {
           console.log('got err: ', err);
@@ -118,15 +102,10 @@ export class RawExternalTransform<
   }
 
   splice(
-    pipeline: base.Pipeline,
-    transformProto: runnerApi.PTransform,
-    response: ExpansionResponse,
-    namespace: string
-  ): OutputT {
+      pipeline: base.Pipeline, transformProto: runnerApi.PTransform,
+      response: ExpansionResponse, namespace: string): OutputT {
     function copyNamespaceComponents<T>(
-      src: {[key: string]: T},
-      dest: {[key: string]: T}
-    ) {
+        src: {[key: string]: T}, dest: {[key: string]: T}) {
       for (const [id, proto] of Object.entries(src)) {
         if (id.startsWith(namespace)) {
           dest[id] = proto;
@@ -140,40 +119,39 @@ export class RawExternalTransform<
 
     // Some SDKs enforce input naming conventions.
     const newTags = difference(
-      new Set(Object.keys(response.transform!.inputs)),
-      new Set(Object.keys(transformProto.inputs))
-    );
+        new Set(Object.keys(response.transform!.inputs)),
+        new Set(Object.keys(transformProto.inputs)));
     if (newTags.length > 1) {
       throw new Error('Ambiguous renaming of tags.');
     } else if (newTags.length == 1) {
       const missingTags = difference(
-        new Set(Object.keys(transformProto.inputs)),
-        new Set(Object.keys(response.transform!.inputs))
-      );
+          new Set(Object.keys(transformProto.inputs)),
+          new Set(Object.keys(response.transform!.inputs)));
       transformProto.inputs[newTags[0]] = transformProto.inputs[missingTags[0]];
       delete transformProto.inputs[missingTags[0]];
     }
 
     // PCollection ids may have changed as well.
-    const renamedInputs = Object.fromEntries(
-      Object.keys(response.transform!.inputs).map(k => [
-        response.transform!.inputs[k],
-        transformProto.inputs[k],
-      ])
-    );
-    response.transform!.inputs = Object.fromEntries(
-      Object.entries(response.transform!.inputs).map(([k, v]) => [
-        k,
-        renamedInputs[v],
-      ])
-    );
+    const renamedInputs =
+        Object.fromEntries(Object.keys(response.transform!.inputs)
+                               .map(
+                                   k =>
+                                       [response.transform!.inputs[k],
+                                        transformProto.inputs[k],
+    ]));
+    response.transform!.inputs =
+        Object.fromEntries(Object.entries(response.transform!.inputs)
+                               .map(
+                                   ([k, v]) =>
+                                       [k,
+                                        renamedInputs[v],
+    ]));
     for (const t of Object.values(response.components!.transforms)) {
-      t.inputs = Object.fromEntries(
-        Object.entries(t.inputs).map(([k, v]) => [
-          k,
-          renamedInputs[v] != undefined ? renamedInputs[v] : v,
-        ])
-      );
+      t.inputs = Object.fromEntries(Object.entries(t.inputs).map(
+          ([k, v]) =>
+              [k,
+               renamedInputs[v] != undefined ? renamedInputs[v] : v,
+      ]));
     }
 
     // Copy the proto.
@@ -184,30 +162,21 @@ export class RawExternalTransform<
     const pipelineComponents = proto.components;
     pipeline.getProto().requirements.push(...response.requirements);
     copyNamespaceComponents(
-      response.components!.transforms,
-      pipelineComponents!.transforms
-    );
+        response.components!.transforms, pipelineComponents!.transforms);
     copyNamespaceComponents(
-      response.components!.pcollections,
-      pipelineComponents!.pcollections
-    );
+        response.components!.pcollections, pipelineComponents!.pcollections);
     copyNamespaceComponents(
-      response.components!.coders,
-      pipelineComponents!.coders
-    );
+        response.components!.coders, pipelineComponents!.coders);
     copyNamespaceComponents(
-      response.components!.environments,
-      pipelineComponents!.environments
-    );
+        response.components!.environments, pipelineComponents!.environments);
     copyNamespaceComponents(
-      response.components!.windowingStrategies,
-      pipelineComponents!.windowingStrategies
-    );
+        response.components!.windowingStrategies,
+        pipelineComponents!.windowingStrategies);
 
     // Ensure we understand the resulting coders.
-    // TODO: We could still patch things together if we don't understand the coders,
-    // but the errors are harder to follow.  Consider only rejecting coders that
-    // actually cross the boundary.
+    // TODO: We could still patch things together if we don't understand the
+    // coders, but the errors are harder to follow.  Consider only rejecting
+    // coders that actually cross the boundary.
     for (const pcId of Object.values(response.transform!.outputs)) {
       const pcProto = pipelineComponents!.pcollections[pcId];
       console.log(pcId, pcProto.coderId);
@@ -223,24 +192,21 @@ export class RawExternalTransform<
         return null!;
       } else if (outputKeys.length == 1) {
         return new base.PCollection(
-          pipeline,
-          response.transform!.outputs[outputKeys[0]]
-        ) as OutputT;
+                   pipeline, response.transform!.outputs[outputKeys[0]]) as
+            OutputT;
       }
     }
-    return Object.fromEntries(
-      Object.entries(response.transform!.outputs).map(([k, v]) => [
-        k,
-        new base.PCollection(pipeline, v),
-      ])
-    ) as OutputT;
+    return Object.fromEntries(Object.entries(response.transform!.outputs)
+                                  .map(
+                                      ([k, v]) =>
+                                          [k,
+                                           new base.PCollection(pipeline, v),
+    ])) as OutputT;
   }
 }
 
 function encodeSchemaPayload(
-  payload: any,
-  schema: Schema | undefined = undefined
-): Uint8Array {
+    payload: any, schema: Schema|undefined = undefined): Uint8Array {
   const encoded = new Writer();
   if (!schema) {
     schema = RowCoder.InferSchemaOfJSON(payload);
@@ -257,12 +223,17 @@ import {NodeRunner} from '../runners/node_runner/runner';
 import {RemoteJobServiceClient} from '../runners/node_runner/client';
 
 // async function main() {
-// //     const kvCoder = new coders.KVCoder(new coders.VarIntCoder(), new coders.VarIntCoder());
+// //     const kvCoder = new coders.KVCoder(new coders.VarIntCoder(), new
+// coders.VarIntCoder());
 // //     const root = new base.Root(new base.Pipeline());
-// //     const input = root.apply(new core.Create([{ key: 1, value: 3 }])).apply(new base.WithCoderInternal(kvCoder));
-// //     //     const input2 = root.apply(new core.Create([{key: 1, value: 4}])).apply(new base.WithCoderInternal(kvCoder));
-// //     // await input.asyncApply(new RawExternalTransform<base.PValue<any>, base.PValue<any>>(base.GroupByKey.urn, undefined!, 'localhost:4444'));
-// //     await input.asyncApply(new RawExternalTransform<base.PValue<any>, base.PValue<any>>(
+// //     const input = root.apply(new core.Create([{ key: 1, value: 3
+// }])).apply(new base.WithCoderInternal(kvCoder));
+// //     //     const input2 = root.apply(new core.Create([{key: 1, value:
+// 4}])).apply(new base.WithCoderInternal(kvCoder));
+// //     // await input.asyncApply(new RawExternalTransform<base.PValue<any>,
+// base.PValue<any>>(base.GroupByKey.urn, undefined!, 'localhost:4444'));
+// //     await input.asyncApply(new RawExternalTransform<base.PValue<any>,
+// base.PValue<any>>(
 // //         'beam:transforms:python:fully_qualified_named',
 // //         {
 // //             constructor: 'apache_beam.transforms.GroupByKey',
@@ -272,26 +243,34 @@ import {RemoteJobServiceClient} from '../runners/node_runner/client';
 // //     console.dir(input.pipeline.getProto(), { depth: null });
 // //
 //
-//     const kvCoder = new coders.KVCoder(new coders.StrUtf8Coder(), new coders.StrUtf8Coder());
-//     await new NodeRunner(new RemoteJobServiceClient('localhost:3333')).run(
+//     const kvCoder = new coders.KVCoder(new coders.StrUtf8Coder(), new
+//     coders.StrUtf8Coder()); await new NodeRunner(new
+//     RemoteJobServiceClient('localhost:3333')).run(
 // //         await new DirectRunner().run(
 //             async (root) => {
 // //                 const lines = root.apply(new beam.Create([
-// //                     "In the beginning God created the heaven and the earth.",
-// //                     "And the earth was without form, and void; and darkness was upon the face of the deep.",
-// //                     "And the Spirit of God moved upon the face of the waters.",
-// //                     "And God said, Let there be light: and there was light.",
+// //                     "In the beginning God created the heaven and the
+// earth.",
+// //                     "And the earth was without form, and void; and
+// darkness was upon the face of the deep.",
+// //                     "And the Spirit of God moved upon the face of the
+// waters.",
+// //                     "And God said, Let there be light: and there was
+// light.",
 // //                 ]));
 //
 // //                     const result = root.apply(new beam.Create([1, 2, 3]))
 //
-//                  const result = await root.asyncApply(new RawExternalTransform<base.PValue<any>, base.PCollection<any>>(
+//                  const result = await root.asyncApply(new
+//                  RawExternalTransform<base.PValue<any>,
+//                  base.PCollection<any>>(
 //                     'beam:transforms:python:fully_qualified_named',
 //                     {
 //                         constructor: 'apache_beam.MyTest',
 // //                         args: {'a0': [1, 2, 3]}
 // //                         constructor: 'apache_beam.io.ReadFromText',
-// //                         args: {'a0': '/Users/robertwb/Work/beam/incubator-beam/sdks/node-ts/tsconfig.json'}
+// //                         args: {'a0':
+// '/Users/robertwb/Work/beam/incubator-beam/sdks/node-ts/tsconfig.json'}
 //                     },
 //                     'localhost:4444'));
 //

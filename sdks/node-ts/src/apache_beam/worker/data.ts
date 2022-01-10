@@ -1,14 +1,7 @@
 import * as grpc from '@grpc/grpc-js';
 
-import {Elements} from '../proto/beam_fn_api';
-import {
-  ProcessBundleDescriptor,
-  ProcessBundleResponse,
-} from '../proto/beam_fn_api';
-import {
-  BeamFnDataClient,
-  IBeamFnDataClient,
-} from '../proto/beam_fn_api.grpc-client';
+import {Elements, ProcessBundleDescriptor, ProcessBundleResponse} from '../proto/beam_fn_api';
+import {BeamFnDataClient, IBeamFnDataClient,} from '../proto/beam_fn_api.grpc-client';
 
 export class MultiplexingDataChannel {
   dataClient: BeamFnDataClient;
@@ -20,11 +13,7 @@ export class MultiplexingDataChannel {
     const metadata = new grpc.Metadata();
     metadata.add('worker_id', workerId);
     this.dataClient = new BeamFnDataClient(
-      endpoint,
-      grpc.ChannelCredentials.createInsecure(),
-      {},
-      {}
-    );
+        endpoint, grpc.ChannelCredentials.createInsecure(), {}, {});
     this.dataChannel = this.dataClient.data(metadata);
     this.dataChannel.on('data', elements => {
       console.log('data', elements);
@@ -40,10 +29,8 @@ export class MultiplexingDataChannel {
         }
       }
       for (const timers of elements.timers) {
-        const consumer = this.getConsumer(
-          timers.instructionId,
-          timers.transformId
-        );
+        const consumer =
+            this.getConsumer(timers.instructionId, timers.transformId);
         try {
           consumer.sendTimers(timers.timerFamilyId, timers.timers);
           if (timers.is_last) {
@@ -57,18 +44,14 @@ export class MultiplexingDataChannel {
   }
 
   registerConsumer(
-    bundleId: string,
-    transformId: string,
-    consumer: IDataChannel
-  ) {
+      bundleId: string, transformId: string, consumer: IDataChannel) {
     consumer = new TruncateOnErrorDataChannel(consumer);
     if (!this.consumers.has(bundleId)) {
       this.consumers.set(bundleId, new Map());
     }
     if (this.consumers.get(bundleId)!.has(transformId)) {
-      (
-        this.consumers.get(bundleId)!.get(transformId) as BufferingDataChannel
-      ).flush(consumer);
+      (this.consumers.get(bundleId)!.get(transformId) as BufferingDataChannel)
+          .flush(consumer);
     }
     this.consumers.get(bundleId)!.set(transformId, consumer);
   }
@@ -82,9 +65,8 @@ export class MultiplexingDataChannel {
       this.consumers.set(bundleId, new Map());
     }
     if (!this.consumers.get(bundleId)!.has(transformId)) {
-      this.consumers
-        .get(bundleId)!
-        .set(transformId, new BufferingDataChannel());
+      this.consumers.get(bundleId)!.set(
+          transformId, new BufferingDataChannel());
     }
     return this.consumers.get(bundleId)!.get(transformId)!;
   }
@@ -93,7 +75,7 @@ export class MultiplexingDataChannel {
     // TODO: Buffer and consilidate send requests?
     const this_ = this;
     return {
-      sendData: function (data: Uint8Array) {
+      sendData: function(data: Uint8Array) {
         this_.dataChannel.write({
           data: [
             {
@@ -106,10 +88,10 @@ export class MultiplexingDataChannel {
           timers: [],
         });
       },
-      sendTimers: function (timerFamilyId: string, timers: Uint8Array) {
+      sendTimers: function(timerFamilyId: string, timers: Uint8Array) {
         throw Error('Timers not yet supported.');
       },
-      close: function () {
+      close: function() {
         this_.dataChannel.write({
           data: [
             {
@@ -122,7 +104,7 @@ export class MultiplexingDataChannel {
           timers: [],
         });
       },
-      onError: function (error: Error) {
+      onError: function(error: Error) {
         throw error;
       },
     };
@@ -162,9 +144,8 @@ class BufferingDataChannel implements IDataChannel {
 
   flush(channel: IDataChannel) {
     this.data.forEach(channel.sendData.bind(channel));
-    this.timers.forEach(([timerFamilyId, timers]) =>
-      channel.sendTimers(timerFamilyId, timers)
-    );
+    this.timers.forEach(
+        ([timerFamilyId, timers]) => channel.sendTimers(timerFamilyId, timers));
     if (this.error) {
       channel.onError(this.error);
     }
